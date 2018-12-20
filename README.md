@@ -27,3 +27,14 @@
 
 # Front End Development
 
+**CSS**
+
+- [Wes Box Flexbox](https://github.com/coolinmc6/wesbos-flexbox)
+
+**JavaScript**
+
+- [ES6 JavaScript Course](https://github.com/coolinmc6/ES6-javascript)
+- [Random ES2015 Notes & Lectures](https://github.com/coolinmc6/es2015)
+- [Udemy: Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
+- [Udemy: Modern JavaScript](https://github.com/coolinmc6/modern-javascript)
+- 
