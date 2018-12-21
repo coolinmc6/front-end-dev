@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Css Grid Layout Crash Course</title>
+	<style>
+		* {
+			box-sizing: border-box;	
+		}
+		.wrapper {
+			display: grid;
+			grid-template-columns: 70% 30%;
+		}
+		.wrapper > div {
+			background-color: #eee;
+			padding: 1rem;
+			border: 1px solid black;
+		}
+
+		.wrapper > div:nth-child(odd) {
+			background-color: #dde;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus officiis, at. Totam iure veritatis rerum magni dicta dolor, velit minus! Obcaecati amet voluptatum, voluptatem nihil in quis doloribus maxime illo mollitia sit, esse totam aliquid culpa asperiores labore autem eveniet praesentium dignissimos dolor, vero voluptas. Pariatur, provident asperiores sit eos est porro ea dolore, ipsum labore, nulla tempore consectetur deleniti ratione. Quis est asperiores nam praesentium itaque at eveniet iure impedit! Nesciunt minus recusandae, nam commodi labore officiis provident veritatis.</div>
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, maiores ad ea quas ut dolorem animi aliquam. Magni repudiandae aspernatur qui amet deleniti dolore quasi asperiores, nemo sequi dolores architecto!</div>
+		<div>Hey</div>
+		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt qui, expedita soluta ex accusantium quisquam impedit quam vero! Cumque aut voluptas aliquam dicta laboriosam aspernatur eum odit, fuga mollitia ad dolorum nisi iste et, eligendi unde provident quidem corporis obcaecati, perferendis magnam iure sint doloremque! Aspernatur voluptatibus, sed ipsum numquam asperiores nihil tenetur, aperiam ipsa commodi cumque possimus nesciunt maxime. Repudiandae quis dolorem facilis, debitis. Ad a doloribus adipisci ea ipsam rerum dignissimos omnis, veritatis nobis porro, quibusdam iure aperiam delectus est ut illo cum non repellat voluptatum ipsum. Repudiandae nostrum odit, quis tempore voluptates ipsum? Voluptatem deleniti similique quis velit sequi totam nam eius vero culpa animi repudiandae ipsum quas odio, hic nihil, quia, molestiae et. Autem, quam dolores!</div>
+	</div>
+	
+</body>
+</html>

@@ -30,6 +30,7 @@
 **CSS**
 
 - [Wes Box Flexbox](https://github.com/coolinmc6/wesbos-flexbox)
+- [HTML, CSS, and Javascript for Web Developers](https://github.com/coolinmc6/JHU-HTML-CSS-Intro-Course)
 
 **JavaScript**
 
@@ -37,4 +38,4 @@
 - [Random ES2015 Notes & Lectures](https://github.com/coolinmc6/es2015)
 - [Udemy: Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
 - [Udemy: Modern JavaScript](https://github.com/coolinmc6/modern-javascript)
-- 
+- [JavaScript Algorithms: AlgoCasts](https://github.com/coolinmc6/AlgoCasts)
