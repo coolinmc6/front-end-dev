@@ -31,7 +31,12 @@
 
 - [W3C Accessibility Principles](https://www.w3.org/WAI/fundamentals/accessibility-principles/)
 
-**CSS**
+**General Front End**
+
+- [Grab Front End Guide](https://github.com/grab/front-end-guide)
+- [General Tech Interview Guide](https://github.com/yangshun/tech-interview-handbook)
+
+**HTML & CSS**
 
 - [Wes Box Flexbox](https://github.com/coolinmc6/wesbos-flexbox)
 - [HTML, CSS, and Javascript for Web Developers](https://github.com/coolinmc6/JHU-HTML-CSS-Intro-Course)
@@ -44,9 +49,24 @@
 - [Udemy: Modern JavaScript](https://github.com/coolinmc6/modern-javascript)
 - [JavaScript Algorithms: AlgoCasts](https://github.com/coolinmc6/AlgoCasts)
 - [JavaScript Questions](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md)
+- [ES6 Features](https://babeljs.io/docs/en/learn/) (has examples; worth taking a look at)
+- [ES6 Katas](http://es6katas.org/)
+- [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
+
+
+**React**
+
+
 
 **Website Design**
 
 - [IDF: Adaptive Design](https://www.interaction-design.org/literature/topics/adaptive-design)
 - [Basic Principles of Responsive Web Design](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 - [The Difference Between Responsive and Adaptive Design](https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/)
+
+**Interview Questions**
+
+- [GitHub: Front End Interview Handbook](https://github.com/yangshun/front-end-interview-handbook)
+- [GitHub: FEIH - HTML](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/html-questions.md)
+- [GitHub: FEIH - CSS](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/css-questions.md)
+- [GitHub: FEIH - JS](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md)
