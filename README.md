@@ -27,6 +27,10 @@
 
 # Front End Development
 
+**Accessibility**
+
+- [W3C Accessibility Principles](https://www.w3.org/WAI/fundamentals/accessibility-principles/)
+
 **CSS**
 
 - [Wes Box Flexbox](https://github.com/coolinmc6/wesbos-flexbox)
@@ -39,3 +43,10 @@
 - [Udemy: Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
 - [Udemy: Modern JavaScript](https://github.com/coolinmc6/modern-javascript)
 - [JavaScript Algorithms: AlgoCasts](https://github.com/coolinmc6/AlgoCasts)
+- [JavaScript Questions](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md)
+
+**Website Design**
+
+- [IDF: Adaptive Design](https://www.interaction-design.org/literature/topics/adaptive-design)
+- [Basic Principles of Responsive Web Design](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
+- [The Difference Between Responsive and Adaptive Design](https://css-tricks.com/the-difference-between-responsive-and-adaptive-design/)
