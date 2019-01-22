@@ -6,8 +6,8 @@
 
 ## General
 - Who benefits from accessibility?
-- How would you define inclusive and/or universal design?
-    + Can you provide an example? (does not need to be web related)
+- How would you define inclusive and/or universal design? Can you provide an example? (does not need to be web related)
+	+ 
 - How has your approach to accessibility changed over time?
 - Name some ways responsive/mobile first design can affect accessibility.
 - What are some user experience (UX) concerns to be aware of when using iconography in user interfaces (UI)?
