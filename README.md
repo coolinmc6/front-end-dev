@@ -69,6 +69,7 @@
 
 **Interview Questions**
 
+- [github/coolinmc6: JavaScript](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md)
 - [GitHub: Front End Interview Handbook](https://github.com/yangshun/front-end-interview-handbook)
 - [GitHub: FEIH - HTML](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/html-questions.md)
 - [GitHub: FEIH - CSS](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/css-questions.md)
