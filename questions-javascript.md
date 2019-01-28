@@ -74,33 +74,89 @@ console.log(a);
 ## Glossary
 
 AJAX
+
+
 apply
+
+
 bind
+
+
 call
+
+
 classical inheritance
+
+
 closure
+
+
 CORS
+
+
 DOMContentLoaded
+
+
 event bubbling
+
+
 feature detection
+
+
 feature inference
+
+
 fetch
+
+
 hoisting
+
+
 host objects
+
+
 HTML attribute
+
+
 HTML property
+
+
 IIFE
+
+
 JavaScript templating
+
+
 JSON
+
+
 JSONP
+
+
 lexical environment
+
+
 load
+
+
 module pattern
+
+
 native objects
+
+
 same-origin policy
+
+
 this
+
+
 UA String
+
+
 XMLHttpRequest
+
+
 
 
 
