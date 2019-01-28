@@ -11,7 +11,34 @@
 
 ## Hard
 
+### What is a closure, and how/why would you use one?
+
+- Here are a number of different definitions for closures from a number of different sources:
+
+[coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-12-what-are-function-closures)
+
+> A closure is an inner function that has access to the outer (enclosing) function's variables—scope chain. 
+The closure has three scope chains: it has access to its own scope (variables defined between its 
+curly brackets), it has access to the outer function's variables, and it has access to the global variables.
+
+[FreeCodeCamp (Medium)](https://medium.freecodecamp.org/javascript-closures-simplified-d0d23fa06ba4)
+
+> A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function’s variables — a scope chain. The closure has three scope chains: (1) it has access to its own scope — variables defined between its curly brackets, (2) it has access to the outer function’s variables, (3) it has access to the global variables
+
+[MDN: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+
+> A closure is the combination of a function and the lexical environment within which that function was declared. 
+
+[JavaScript is Sexy: Understand JavaScript Closures With Ease](http://javascriptissexy.com/understand-javascript-closures-with-ease/)
+
+> A closure is an inner function that has access to the outer (enclosing) function’s variables—scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function’s variables, and it has access to the global variables.
+> The inner function has access not only to the outer function’s variables, but also to the outer function’s parameters. Note that the inner function cannot call the outer function’s arguments object, however, even though it can call the outer function’s parameters directly.
+
+
+
 ## Intermediate
+
+
 
 
 
@@ -79,6 +106,9 @@ AJAX
 apply
 
 
+asynchronous
+
+
 bind
 
 
@@ -94,10 +124,19 @@ closure
 CORS
 
 
+currying
+
+
+destructuring
+
+
 DOMContentLoaded
 
 
 event bubbling
+
+
+event loop
 
 
 feature detection
@@ -107,6 +146,9 @@ feature inference
 
 
 fetch
+
+
+higher-order function
 
 
 hoisting
@@ -145,13 +187,34 @@ module pattern
 native objects
 
 
+polyfill
+
+
+Promise
+
+
+rest syntax
+
+
 same-origin policy
+
+
+scope
+
+
+spread syntax
+
+
+ternary expression
 
 
 this
 
 
 UA String
+
+
+use strict
 
 
 XMLHttpRequest
