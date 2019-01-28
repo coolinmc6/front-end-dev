@@ -34,7 +34,11 @@ curly brackets), it has access to the outer function's variables, and it has acc
 > A closure is an inner function that has access to the outer (enclosing) function’s variables—scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function’s variables, and it has access to the global variables.
 > The inner function has access not only to the outer function’s variables, but also to the outer function’s parameters. Note that the inner function cannot call the outer function’s arguments object, however, even though it can call the outer function’s parameters directly.
 
-- Those definitions alone don't really narrow things down. Here is a super simple example:
+[FEIH: JavaScript](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md#what-is-a-closure-and-howwhy-would-you-use-one)
+
+> Closures are functions that have access to the outer (enclosing) function's variables—scope chain even after the outer function has returned.
+
+- Those definitions alone are hard to visualize. Here is a super simple example with code:
 
 ```js
 var c = 13;
@@ -50,7 +54,6 @@ function outer() {
 
 var X = outer();
 X();
-console.dir(X);
 ```
 
 - in the above example, it's easy to see that the only thing that really "happens" is that the inner function (conveniently called `inner()`) simply logs the sum of three variables: `a`, `b`, and `c`.
