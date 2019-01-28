@@ -1,6 +1,13 @@
 [Back](https://github.com/coolinmc6/front-end-dev#front-end-development)
 <a name="top"></a>
-# JavaScript Questions
+# JavaScript Questions & Definitions
+
+### Table of Contents
+
+- [Hard Questions](#hard) 
+- [Intermediate Questions](#intermediate)
+- [Easy Questions](#easy)
+- [Glossary](#glossary)
 
 ## Hard
 
@@ -62,4 +69,61 @@ console.log(a);
 * Concatenation of scripts written in different strict modes might cause issues.
 
 [back to top](#top)
+
+
+## Glossary
+
+AJAX
+apply
+bind
+call
+classical inheritance
+closure
+CORS
+DOMContentLoaded
+event bubbling
+feature detection
+feature inference
+fetch
+hoisting
+host objects
+HTML attribute
+HTML property
+IIFE
+JavaScript templating
+JSON
+JSONP
+lexical environment
+load
+module pattern
+native objects
+same-origin policy
+this
+UA String
+XMLHttpRequest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
