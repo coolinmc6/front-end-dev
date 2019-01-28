@@ -34,6 +34,73 @@ curly brackets), it has access to the outer function's variables, and it has acc
 > A closure is an inner function that has access to the outer (enclosing) function’s variables—scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function’s variables, and it has access to the global variables.
 > The inner function has access not only to the outer function’s variables, but also to the outer function’s parameters. Note that the inner function cannot call the outer function’s arguments object, however, even though it can call the outer function’s parameters directly.
 
+- Those definitions alone don't really narrow things down. Here is a super simple example:
+
+```js
+var c = 13;
+function outer() {
+    var b = 10;
+    var d = 9;
+    function inner() {
+        var a = 6;
+        console.log(a+b+c);
+    }
+    return inner;
+}
+
+var X = outer();
+X();
+console.dir(X);
+```
+
+- in the above example, it's easy to see that the only thing that really "happens" is that the inner function (conveniently called `inner()`) simply logs the sum of three variables: `a`, `b`, and `c`.
+- The function `outer()` returns the function `inner()` so when I  `var X = outer()`, I'm not executing the function. 
+- I execute it on the next line `X()`. When I do that, I get 29 in the console, showing essentially what the definition of a closure says that it does: it has access to the following scope chains:
+	+ the `inner` function's own scope: `a`
+	+ the `outer` function's variables that **it have been enclosed in inner**: `b`
+		* *Note*: I won't have access to the variable `d` because it has NOT been enclosed in the `inner()` function
+	+ the global scope's variable: `c`
+- Wrapping that all up, when I execute `X()`, I am running the `inner` function which, because of closures, has access to all those variables and I can show `29` in the console.
+- So that's a good example of closures that I can recreate whenever I want. If someone asks to demonstrate a simple example of closures, do the above example.
+- Here is the above example extended to show a simple example of how the values of the outer function can "carry" into the inner function:
+
+```js
+var c = 13;
+function outer() {
+    var b = 10;
+    function inner() {
+        var a = 6;
+        console.log('Total: ', a+b+c);
+        console.log('a = ', a, ' b = ', b);
+        a++;
+        b++;
+    }
+    return inner;
+}
+
+var X = outer();
+X();
+X();
+X();
+X();
+/*
+* Console Output
+*
+* Total:  29
+* a =  6  b =  10
+* Total:  30
+* a =  6  b =  11
+* Total:  31
+* a =  6  b =  12
+* Total:  32
+* a =  6  b =  13
+* 
+*/
+```
+
+- notice how incrementing `a` does nothing because I am setting it within the `inner` function to 6
+- `c` never changes
+- and `b` is being incrememnted so that with each call ( `X()` ), the value of `b` is carried over and so it goes from `6 + 10 + 13` to `6 + 11 + 13` to `6 + 12 + 13`, etc.
 
 
 ## Intermediate
