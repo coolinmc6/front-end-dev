@@ -43,14 +43,16 @@
 
 **JavaScript**
 
+- **Colin's JavaScript Questions:** [github/coolinmc6: JavaScript](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md)
 - [ES6 JavaScript Course](https://github.com/coolinmc6/ES6-javascript)
+- [ES6 Features](https://babeljs.io/docs/en/learn/) (has examples; worth taking a look at)
+- [ES6 Katas](http://es6katas.org/)
+- [JavaScript Algorithms: AlgoCasts](https://github.com/coolinmc6/AlgoCasts)
+- [JavaScript Is Sexy: OOP in JavaScript](http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/)
+- [JavaScript Questions](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md)
 - [Random ES2015 Notes & Lectures](https://github.com/coolinmc6/es2015)
 - [Udemy: Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
 - [Udemy: Modern JavaScript](https://github.com/coolinmc6/modern-javascript)
-- [JavaScript Algorithms: AlgoCasts](https://github.com/coolinmc6/AlgoCasts)
-- [JavaScript Questions](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md)
-- [ES6 Features](https://babeljs.io/docs/en/learn/) (has examples; worth taking a look at)
-- [ES6 Katas](http://es6katas.org/)
 - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
 
 
