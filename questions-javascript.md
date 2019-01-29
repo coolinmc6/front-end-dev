@@ -114,6 +114,83 @@ X();
 
 ## Easy
 
+### Explain "hoisting".
+
+- A simple definition of *hoisting* is the declaration of functions and variables "moved" to the top of the current scope.
+- Your code isn't magically being moved to the top - what's actualy happening is that your declarations are added to memory during the compile phase.
+- Here are some examples to show how it applies to variables and functions and some take-aways to remember:
+
+```js
+console.log(a); // undefined
+var a = 5;
+console.log(a); // 5
+
+console.log(b); // ReferenceError: b is not defined
+```
+
+- There are a few things to notice here:
+    + first, I am logging the value of `a` right away and I get `undefined`. This right here is **hoisting** in action. It gets `undefined` because I declared `a` in the second line (`var a = 5`)
+    + Skipping to the bottom, notice how `b`, which is never declared, does NOT get the same `undefined`, it gets a ReferenceError. There was no `b` declaration to hoist therefore JavaScript has no idea what the hell `b` is
+    + On line 2 I define `a` and then print out its value on line 3. Nothing controversial there; that's normal behavior.
+    + The key thing to notice is the difference between what happens on line 1 (`undefined` is logged) because `a` has been declared SOMEWHERE in the code and what happens on line 5 (`ReferenceError`) because `b` was never declared.
+- That's the first example: simple `var` declarations. A take-away here is that **only declarations are hoisted**, not *initializations*. 
+- Sticking with variables, the next example shows how hoisting only applies to variables declared with `var`:
+
+```js
+console.log(a); // ReferenceError: a is not defined
+let a = 5;
+console.log(a); // [NEVER EXECUTED]: because of the error, this is never run
+```
+
+```js
+console.log(a); // ReferenceError: a is not defined
+const a = 5;
+console.log(a); // [NEVER EXECUTED]: because of the error, this is never run
+```
+
+- In these two examples, we are using the `let` and `const` keywords as opposed to `var`. 
+- The key take-away here is that they cannot be hoisted! 
+    + `var`: Yes, it is hoisted
+    + `let`: NO, it is **not** hoisted
+    + `const`: NO, it is **not** hoisted
+- Moving onto functions:
+
+```js
+sayHello('Colin');  // Hello, Colin
+function sayHello(name) {
+    console.log('Hello, ', name);
+}
+sayHello('Colin');  // Hello, Colin
+```
+
+- Notice that it works both times! I call `sayHello()` on line 1 despite declaring in line 2 and it still works!
+- The Line 5 call of `sayHello()` also works as expected
+- As a quick sidenote, the way I've declared `sayHello` above is called a *function declaration*. It uses the function keyword and then name of the argument. In the above example, `sayHello` was hoisted. The same does not apply to *function expressions* like below:
+
+```js
+sayHello('Colin');  // TypeError: sayHello is not a function
+var sayHello = function(name) {
+    console.log('Hello, ', name);
+}
+sayHello('Colin');
+```
+
+- Notice how I get a `TypeError` - it has no idea what `sayHello` is.
+
+|Type|Code|Hoisted?|
+|:---:|:---:|:---:|
+|Variable|`var` declaration|Yes|
+|Variable|`let` declaration|No|
+|Variable|`const` declaration|No|
+|Function|Function declaration<br>`function sayHello(){}`|Yes|
+|Function|Function expression<br>`var sayHello = function(){}`|No|
+
+
+**References**
+
+- [Medium: What is Hoisting?](https://codeburst.io/javascript-what-is-hoisting-dfa84512dd28)
+- 
+
 ### What is "use strict" and what does it do?
 
 - `"use strict"` is used to enable strict mode to an entire script (e.g. place at top of page) or individual functions. Strict mode is a way to opt into a restricted variant of JavaScript.
