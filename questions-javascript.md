@@ -5,6 +5,7 @@
 ### Table of Contents
 
 - [Hard Questions](#hard) 
+- 
 - [Intermediate Questions](#intermediate)
 - [Easy Questions](#easy)
 - [Glossary](#glossary)
@@ -295,6 +296,12 @@ feature inference
 
 
 fetch
+
+
+function declaration
+
+
+function expression
 
 
 higher-order function
