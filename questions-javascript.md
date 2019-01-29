@@ -176,20 +176,22 @@ sayHello('Colin');
 ```
 
 - Notice how I get a `TypeError` - it has no idea what `sayHello` is.
+- Here is a quick table about hoisting:
 
 |Type|Code|Hoisted?|
 |:---:|:---:|:---:|
-|Variable|`var` declaration|Yes|
+|Variable|`var` declaration|**Yes**|
 |Variable|`let` declaration|No|
 |Variable|`const` declaration|No|
-|Function|Function declaration<br>`function sayHello(){}`|Yes|
+|Function|Function declaration<br>`function sayHello(){}`|**Yes**|
 |Function|Function expression<br>`var sayHello = function(){}`|No|
 
 
 **References**
 
 - [Medium: What is Hoisting?](https://codeburst.io/javascript-what-is-hoisting-dfa84512dd28)
-- 
+- [FEIH: Explain Hosting](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md#explain-hoisting)
+- [coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-9-what-is-variable-hoisting)
 
 ### What is "use strict" and what does it do?
 
