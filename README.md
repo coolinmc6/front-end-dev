@@ -44,6 +44,7 @@
 **JavaScript**
 
 - **Colin's JavaScript Questions:** [github/coolinmc6: JavaScript](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md)
+- [Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
 - [ES6 JavaScript Course](https://github.com/coolinmc6/ES6-javascript)
 - [ES6 Features](https://babeljs.io/docs/en/learn/) (has examples; worth taking a look at)
 - [ES6 Katas](http://es6katas.org/)

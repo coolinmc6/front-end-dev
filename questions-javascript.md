@@ -4,11 +4,29 @@
 
 ### Table of Contents
 
+- [OOP in JavaScript](#oop-in-javascript)
 - [Hard Questions](#hard) 
-- 
 - [Intermediate Questions](#intermediate)
 - [Easy Questions](#easy)
 - [Glossary](#glossary)
+
+## OOP in JavaScript
+
+- I've struggled to really dig deep into object-oriented JavaScript. It's not really that difficult but there's just a lot going on. I'm going to try to do two things:
+    + define the terms or concepts with both explanations and code
+    + break down "object-oriented JavaScript" into concrete, specific examples or questions that I can quickly use to explain it
+
+- Lay the foundation for OOP in JavaScript. Why is it so different than other languages?
+- Explain the difference between prototypal and classical inheritance.
+- Demonstrate the concepts of Encapsulation in object-oriented JavaScript
+- Demonstrate the concept of Inheritance in object-oriented JavaScript.
+- Explain ES6 Classes and how they relate to ES5 object-oriented JavaScript.
+- Explain ALL the major concepts of object-oriented JavaScript, front-to-back.
+
+
+**Links**
+
+- [JavaScript is Sexy: OOP In JavaScript](http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/)
 
 ## Hard
 
@@ -109,7 +127,21 @@ X();
 
 ## Intermediate
 
+### Explain how prototypal inheritance works
+
+- Prototypal inheritance and JavaScript Objects generally don't feel incredibly difficult but explaining *prototypes* in a succinct way is a bit tricky. I've read a lot of definitions that feel the need to address the fact that JavaScript classes don't *really* inherit methods the way other programming languages with classes do. The following "definition" is really just a list of important points relating to prototypes and then some code that explains it.
+- All JavaScript objects have a prototype property that is a reference to another object.
+- When you ask for a property or method on an object, if it's not there, JavaScript will traverse (go up) the prototype chain and try to find that property or method on the linked object. If it isn't there, it traverses again up the prototype chain looking for that property/method.
+- This will keep happening until it finds the property/method OR it runs out of objects to traverse.
+- This link explains more of the computer science answer as to why "prototypal inheritance" doesn't quite apply to JavaScript if you use the word "inheritance" as it's intended from classical languages: [Quora: What is Prototypal Inheritance](https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson)
+- Here is another good link from Kyle Simpson's **You Don't Know JS**: [Chapter 5: Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md#chapter-5-prototypes)
+- Other links:
+    + [MDN: Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+    + [coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-16-what-is-the-prototype-chain)
+    + 
+
 ### What is JSONP?
+
 
 
 
