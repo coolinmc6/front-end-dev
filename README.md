@@ -33,6 +33,7 @@
 
 **General Front End**
 
+
 - [Grab Front End Guide](https://github.com/grab/front-end-guide)
 - [General Tech Interview Guide](https://github.com/yangshun/tech-interview-handbook)
 
@@ -45,6 +46,7 @@
 
 - **Colin's JavaScript Questions:** [github/coolinmc6: JavaScript](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md)
 - [Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
+- [Clean Code in JavaScript](https://github.com/ryanmcdermott/clean-code-javascript)
 - [ES6 JavaScript Course](https://github.com/coolinmc6/ES6-javascript)
 - [ES6 Features](https://babeljs.io/docs/en/learn/) (has examples; worth taking a look at)
 - [ES6 Katas](http://es6katas.org/)
