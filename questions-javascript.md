@@ -43,12 +43,46 @@
 
 > Generally, the ability to appear in many forms. In object-oriented programming, polymorphism refers to a programming language's ability to process objects differently depending on their data type or class. More specifically, it is the ability to redefine methods for derived classes.
 
-- Lay the foundation for OOP in JavaScript. Why is it so different than other languages?
-- Explain the difference between prototypal and classical inheritance.
+- **Lay the foundation for OOP in JavaScript. Why is it so different than other languages?**
+- **Explain the difference between prototypal and classical inheritance.**
     + "Classical" inheritance is really talking about the methods of object orientation.
     + A "class" that acts as a blueprint or architectual diagram for an object and then you need to create an instance of that class in JavaScript, inheritance works using prototypes - in prototypal inheritance, new objects are created using previously created objects.
         + there is a parent "Object" for all objects in JavaScript
     + There is a method of JavaScript of emulating the more classical object-oriented form using classes and that's called the Pseudo-Classical Pattern but, again, it's only faking it...all inheritance in JavaScript is prototypal
+- **Show a basic example of object-oriented JavaScript: properties, methods, instantiation.**
+
+```js
+function Person(first_name, last_name) {
+    this.first_name = first_name;   // basic property
+    this.last_name = last_name; 
+
+    this.hello = function(name) {   // method
+        console.log('Hello, ', name);
+    }
+};
+
+var dude = new Person('Steve', 'Smith');    // instantiating new object
+console.log(dude);    // Person {first_name: "Colin", last_name: "McNamara", hello: ƒ}
+dude.hello("Matt");   // calling the method
+```
+
+  - that's a basic example of creating a "class" for the object, Person, with basic properties and a method.
+- **Using the example above, add a method or property to your `Person` object.**
+
+```js
+Person.prototype.full_name = function() {
+    console.log(this.first_name + ' ' + this.last_name);
+}
+
+Person.prototype.monopoly = {
+    money: 1500,
+    cards: []
+}
+
+dude.full_name();           // Steve Smith
+console.log(dude.monopoly); // {money: 1500, cards: Array(0)}
+```
+  - notice how both are logged out. Despite not being instantiated with either the `full_name()` method or the `monopoly` property, the `dude` object has access to them.
 - Demonstrate the concepts of Encapsulation in object-oriented JavaScript
 - Demonstrate the concept of Inheritance in object-oriented JavaScript.
 - Demonstrate the concept of Polymorphism in object-oriented JavaScript.
