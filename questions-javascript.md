@@ -47,6 +47,13 @@
 
 **Lay the foundation for OOP in JavaScript. Why is it so different than other languages?**
 
+- This is a super-quick overview of object-oriented programming in JavaScript.
+- JavaScript is different than "classical languages" in how it does inheritance. This is so important because that is essentially how object-oriented programming works: a class of objects with certain behaviors/properties that can be passed down to instances of that object OR serve as a parent class of another class of objects.
+- JavaScript uses prototypal inheritance which means instead of a property being "passed down" or copied into the "child" object or class, what's really happening is *behavior delegation*. 
+- Behavior delegation is essentially when a programmer asks for a method/property on an object, if that property isn't there, it looks to its *prototype* or *parent* object for that property. This is called the prototype chain.
+- Instead of "copying down" the methods/properties, the child object "delegate up" the prototype chain in search of that method or property. So it could theoretically go from *child object* to *parent object*; if the method isn't there, it could go from *parent object* to *grandparent object* looking for the method/property. Eventually, it goes up the chain until you find the method. That chain ends with the parent for **all** objects in JavaScript, the Object, wherein if the method/property isn't there, it is `undefined`.
+- So with that foundation, I've learned that object-oriented JavaScript is really an implementation of OOP principles using different techniques to mimic certain features that the language doesn't natively support.
+- In addition to the major feature I mentioned above, **inheritance**, there are patterns and best practices of how to implement certain other features of OOP like private properties, getter/setter functions, etc.
 
 **Explain the difference between prototypal and classical inheritance.**
 
