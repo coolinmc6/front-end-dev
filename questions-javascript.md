@@ -120,6 +120,8 @@ console.log(dude.monopoly); // {money: 1500, cards: Array(0)}
 
 - [Eloquent JavaScript](http://eloquentjavascript.net/)
 - [Eloquent JavaScript: Object Oriented Programming](https://eloquentjavascript.net/1st_edition/chapter8.html)
+- [FreeCodeCamp: Intro to Object Oriented Programming in JavaScript](https://medium.freecodecamp.org/an-introduction-to-object-oriented-programming-in-javascript-8900124e316a)
+- [JavaScript.info](https://javascript.info/object-oriented-programming)
 - [JavaScript is Sexy: OOP In JavaScript](http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/)
 - [Medium: Is JavaScript a (true) OOP language?](https://medium.com/@andrea.chiarelli/is-javascript-a-true-oop-language-c87c5b48bdf0)
 
