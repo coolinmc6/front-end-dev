@@ -72,8 +72,9 @@ console.log(dude);    // Person {first_name: "Steve", last_name: "Smith", hello
 dude.hello("Matt");   // calling the method
 ```
 
-  - that's a basic example of creating a "class" for the object, Person, with basic properties and a method.
-- **Using the example above, add a method or property to your `Person` object.**
+  - that's a basic example of creating a "class" for the object, `Person`, with basic properties and a method.
+
+**Using the example above, add a method or property to your** `Person` **object.**
 
 ```js
 Person.prototype.full_name = function() {
