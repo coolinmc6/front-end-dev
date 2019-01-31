@@ -15,41 +15,47 @@
 - I've struggled to really dig deep into object-oriented JavaScript. It's not really that difficult but there's just a lot going on. I'm going to try to do two things:
     + define the terms or concepts with both explanations and code
     + break down "object-oriented JavaScript" into concrete, specific examples or questions that I can quickly use to explain it
-- What is object-oriented programming (OOP)?
-    + A widely accepted definition of OOP that is used to classify a language as "object-oriented" is based on two requirements:
-        * its capability to model a problem through objects
-        * its support of a few principles that grant modularity (break code into smaller pieces) and code reuse
-    + Those two requirements can each be broken down into three principles.
-    + Here is the first requirement broken down:
-        * Association: an objects capability to refer to another independent object
-            - `var bill = {name: 'Bill'}`
-            - `var steve = {name: 'Steve'}`
-            - `steve.parent = bill;`
-            - Here, we have two objects and there is an association created between these two completely independent objects
-        * Aggregation: the aboject's capability to embed one or more *independent* objects
-            - `var company = {name: 'ABC Corporation', employees: []}`
-            - `company.employees.push(bill);`
-            - A different object, `company`, has a property `employees` which holds an array. I can add the `bill` object to that array
-        * Composition: the object's capability to embed one or more *dependent* objects
-            - `bill.address = {street: '123 Main Street', city: 'Philadelphia', state: 'PA'}`
-            - The `address` property is just an object with multiple properties for Bill's address. It is a dependent object because it doesn't exist outside of `bill`
-    + Here is the second component broken down:
-        * Encapsulation: This is the capability to concentrate into a single entity data and code that manipulates it, hiding its internal details
-            - there is nothing *natively* in JavaScript that hides internal details. All properties are public automatically. But there are techniques that can be used to mimic the principle of encapsulation.
-        * Inheritance: This is the mechanism by which an object acquires some or all features from one or more other objects
-            - JavaScript has prototypal inheritance which is a complicated subject. It isn't exactly *inheritance* the way other "classical languages" use it but there is an inheritance mechanism that allows an object to have access to the methods of its prototype object.
-        * Polymorphism: This is the capability to process objects differently based on their data type or structure
-            - This is a definition I found:
+
+**What is object-oriented programming (OOP)?**
+
+- A widely accepted definition of OOP that is used to classify a language as "object-oriented" is based on two requirements:
+    * its capability to model a problem through objects
+    * its support of a few principles that grant modularity (break code into smaller pieces) and code reuse
+- Those two requirements can each be broken down into three principles.
+- Here is the first requirement broken down:
+    * Association: an objects capability to refer to another independent object
+        - `var bill = {name: 'Bill'}`
+        - `var steve = {name: 'Steve'}`
+        - `steve.parent = bill;`
+        - Here, we have two objects and there is an association created between these two completely independent objects
+    * Aggregation: the aboject's capability to embed one or more *independent* objects
+        - `var company = {name: 'ABC Corporation', employees: []}`
+        - `company.employees.push(bill);`
+        - A different object, `company`, has a property `employees` which holds an array. I can add the `bill` object to that array
+    * Composition: the object's capability to embed one or more *dependent* objects
+        - `bill.address = {street: '123 Main Street', city: 'Philadelphia', state: 'PA'}`
+        - The `address` property is just an object with multiple properties for Bill's address. It is a dependent object because it doesn't exist outside of `bill`
+- Here is the second component broken down:
+    * Encapsulation: This is the capability to concentrate into a single entity data and code that manipulates it, hiding its internal details
+        - there is nothing *natively* in JavaScript that hides internal details. All properties are public automatically. But there are techniques that can be used to mimic the principle of encapsulation.
+    * Inheritance: This is the mechanism by which an object acquires some or all features from one or more other objects
+        - JavaScript has prototypal inheritance which is a complicated subject. It isn't exactly *inheritance* the way other "classical languages" use it but there is an inheritance mechanism that allows an object to have access to the methods of its prototype object.
+    * Polymorphism: This is the capability to process objects differently based on their data type or structure
+        - This is a definition I found:
 
 > Generally, the ability to appear in many forms. In object-oriented programming, polymorphism refers to a programming language's ability to process objects differently depending on their data type or class. More specifically, it is the ability to redefine methods for derived classes.
 
-- **Lay the foundation for OOP in JavaScript. Why is it so different than other languages?**
-- **Explain the difference between prototypal and classical inheritance.**
-    + "Classical" inheritance is really talking about the methods of object orientation.
-    + A "class" that acts as a blueprint or architectual diagram for an object and then you need to create an instance of that class in JavaScript, inheritance works using prototypes - in prototypal inheritance, new objects are created using previously created objects.
-        + there is a parent "Object" for all objects in JavaScript
-    + There is a method of JavaScript of emulating the more classical object-oriented form using classes and that's called the Pseudo-Classical Pattern but, again, it's only faking it...all inheritance in JavaScript is prototypal
-- **Show a basic example of object-oriented JavaScript: properties, methods, instantiation.**
+**Lay the foundation for OOP in JavaScript. Why is it so different than other languages?**
+
+
+**Explain the difference between prototypal and classical inheritance.**
+
+- "Classical" inheritance is really talking about the methods of object orientation.
+- A "class" that acts as a blueprint or architectual diagram for an object and then you need to create an instance of that class in JavaScript, inheritance works using prototypes - in prototypal inheritance, new objects are created using previously created objects.
+    + there is a parent "Object" for all objects in JavaScript
+- There is a method of JavaScript of emulating the more classical object-oriented form using classes and that's called the Pseudo-Classical Pattern but, again, it's only faking it...all inheritance in JavaScript is prototypal
+
+**Show a basic example of object-oriented JavaScript: properties, methods, instantiation.**
 
 ```js
 function Person(first_name, last_name) {
@@ -62,7 +68,7 @@ function Person(first_name, last_name) {
 };
 
 var dude = new Person('Steve', 'Smith');    // instantiating new object
-console.log(dude);    // Person {first_name: "Colin", last_name: "McNamara", hello: ƒ}
+console.log(dude);    // Person {first_name: "Steve", last_name: "Smith", hello: ƒ}
 dude.hello("Matt");   // calling the method
 ```
 
@@ -83,11 +89,22 @@ dude.full_name();           // Steve Smith
 console.log(dude.monopoly); // {money: 1500, cards: Array(0)}
 ```
   - notice how both are logged out. Despite not being instantiated with either the `full_name()` method or the `monopoly` property, the `dude` object has access to them.
-- Demonstrate the concepts of Encapsulation in object-oriented JavaScript
-- Demonstrate the concept of Inheritance in object-oriented JavaScript.
-- Demonstrate the concept of Polymorphism in object-oriented JavaScript.
-- Explain ES6 Classes and how they relate to ES5 object-oriented JavaScript.
-- Explain ALL the major concepts of object-oriented JavaScript, front-to-back.
+
+**Demonstrate the concepts of Encapsulation in object-oriented JavaScript**
+
+
+**Demonstrate the concept of Inheritance in object-oriented JavaScript.**
+
+
+**Demonstrate the concept of Polymorphism in object-oriented JavaScript.**
+
+
+**Explain ES6 Classes and how they relate to ES5 object-oriented JavaScript.**
+
+
+**Explain ALL the major concepts of object-oriented JavaScript, front-to-back.**
+
+
 
 
 **Links**
