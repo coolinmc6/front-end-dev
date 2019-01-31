@@ -61,6 +61,7 @@
 - A "class" that acts as a blueprint or architectual diagram for an object and then you need to create an instance of that class in JavaScript, inheritance works using prototypes - in prototypal inheritance, new objects are created using previously created objects.
     + there is a parent "Object" for all objects in JavaScript
 - There is a method of JavaScript of emulating the more classical object-oriented form using classes and that's called the Pseudo-Classical Pattern but, again, it's only faking it...all inheritance in JavaScript is prototypal
+- [Quora: What is Prototypal Inheritance?](https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson)
 
 **Show a basic example of object-oriented JavaScript: properties, methods, instantiation.**
 
