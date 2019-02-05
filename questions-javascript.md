@@ -224,6 +224,8 @@ X();
 
 ## Intermediate
 
+### How do you organize your code? (module pattern, classical inheritance?) Explain the Module Pattern. Explain Classical Inheritance.
+
 ### Explain how prototypal inheritance works
 
 - Prototypal inheritance and JavaScript Objects generally don't feel incredibly difficult but explaining *prototypes* in a succinct way is a bit tricky. I've read a lot of definitions that feel the need to address the fact that JavaScript classes don't *really* inherit methods the way other programming languages with classes do. The following "definition" is really just a list of important points relating to prototypes and then some code that explains it.
@@ -237,12 +239,53 @@ X();
     + [coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-16-what-is-the-prototype-chain)
     + 
 
-### What is JSONP?
+### What is JSONP? How does it work and how is it different than AJAX?
+
+### Describe event bubbling.
+
+### What is a Promise? How does a Promise work?
 
 
+### How do you debug JavaScript? What tools and techniques do you use debugging JavaScript code?
 
+### What language constructions do you use for iterating over object properties and array items?
+
+
+### Explain the difference between mutable and immutable objects.
+
+### Explain the difference between synchronous and asynchronous functions.
+
+### What is event loop? What is the difference between call stack and task queue?
+
+### Explain the differences on the usage of foo between function foo() {} and var foo = function() {}
+
+### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
+
+### Can you give an example of a curry function and why this syntax offers an advantage?
+
+### What are the benefits of using spread syntax and how is it different from rest syntax?
+
+### How can you share code between files?
+
+### Why you might want to create static class members?
 
 ## Easy
+
+
+### What are the differences between variables created using let, var or const?
+
+### What are the differences between ES6 class and ES5 function constructors?
+
+### What's the difference between an "attribute" and a "property"?
+
+### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
+
+### What advantage is there for using the arrow syntax for a method in a constructor?
+
+### What is the definition of a higher-order function?
+
+### Can you give an example for destructuring an object or an array?
+
 
 ### Explain "hoisting".
 
@@ -322,6 +365,17 @@ sayHello('Colin');
 - [Medium: What is Hoisting?](https://codeburst.io/javascript-what-is-hoisting-dfa84512dd28)
 - [FEIH: Explain Hosting](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md#explain-hoisting)
 - [coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-9-what-is-variable-hoisting)
+
+### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
+
+
+
+
+
+
+### What's a typical use case for anonymous functions?
+
+### What's the difference between host objects and native objects?
 
 ### What is "use strict" and what does it do?
 
