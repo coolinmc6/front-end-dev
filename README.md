@@ -33,7 +33,6 @@
 
 **General Front End**
 
-
 - [Grab Front End Guide](https://github.com/grab/front-end-guide)
 - [General Tech Interview Guide](https://github.com/yangshun/tech-interview-handbook)
 
@@ -53,18 +52,23 @@
 - [JavaScript Algorithms: AlgoCasts](https://github.com/coolinmc6/AlgoCasts)
 - [JavaScript Is Sexy: OOP in JavaScript](http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/)
 - [JavaScript Questions](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md)
+- [Learn X in Y Minutes: JavaScript](https://learnxinyminutes.com/docs/javascript/)
+- [Learn X in Y Minutes: JSON](https://learnxinyminutes.com/docs/json/)
+- [Learn X in Y Minutes: TypeScript](https://learnxinyminutes.com/docs/typescript/)
 - [Random ES2015 Notes & Lectures](https://github.com/coolinmc6/es2015)
 - [Udemy: Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
 - [Udemy: Modern JavaScript](https://github.com/coolinmc6/modern-javascript)
 - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
 
+**Programming**
+
+- [Learn X in Y Minutes](https://learnxinyminutes.com/)
+- [Professional Programming](https://github.com/charlax/professional-programming)
+
+
 
 **React**
 
-
-**Programming**
-
-- [Professional Programming](https://github.com/charlax/professional-programming)
 
 **Website Design**
 
@@ -80,3 +84,16 @@
 - [GitHub: FEIH - HTML](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/html-questions.md)
 - [GitHub: FEIH - CSS](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/css-questions.md)
 - [GitHub: FEIH - JS](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md)
+
+
+# Back End Development
+
+
+**PHP**
+
+- [Learn X in Y Minutes: PHP](https://learnxinyminutes.com/docs/php/)
+
+
+**Python**
+
+- [Learn X in Y Minutes: Python](https://learnxinyminutes.com/docs/python3/)
