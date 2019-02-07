@@ -62,6 +62,7 @@
 
 **Programming**
 
+- [Codility](https://app.codility.com/programmers/): training for coders
 - [Learn X in Y Minutes](https://learnxinyminutes.com/)
 - [Professional Programming](https://github.com/charlax/professional-programming)
 
