@@ -101,6 +101,50 @@ console.log(dude.monopoly); // {money: 1500, cards: Array(0)}
 
 **Demonstrate the concepts of Encapsulation in object-oriented JavaScript**
 
+- Here are some definitions of encapsulation:
+
+> Encapsulation is about hiding information and implementation. Objects should expose only those properties and methods which are required by the outside world to interact with them. Everything else should be hidden.
+
+> Encapsulation includes the idea that the data of an object should not be directly exposed.  Instead, callers that want to achieve a given result are coaxed into proper usage by invoking methods (rather than accessing the data directly).
+
+- Here is an example that I believe demonstrates encapsulation in ES5:
+
+```js
+function Person(name) {
+    this.name = name;
+
+    let species = "human";
+
+    this.setSpecies = function(input) {
+        species = input;
+    }
+
+    this.getSpecies = function() {
+        console.log(species);
+        return species;
+    }
+}
+
+var person = new Person("Dave");
+console.log(person);            // Person {name: "Dave", setSpecies: ƒ, getSpecies: ƒ}
+console.log(person.species);    // undefined
+person.getSpecies();            // human
+person.setSpecies('alien');
+person.getSpecies();            // alien
+```
+
+- In the above example, I am creating a new `Person` object called `person` and it has a property of "Dave"
+- The `species` variable cannot be accessed outside of `Person` so it is "private"
+- Using the `setSpecies()` and `getSpecies()` methods on the `Person` object, I can set and get the value of the `species` variable
+- `person.getSpecies();` returns "human"
+- `person.setSpecies();` changes the species to "alien"
+- `person.getSpecies();` returns "alien"
+- The above example work essentially because of closures. The inner functions `setSpecies` and `getSpecies`
+- It appears that creating encapsulation using Classes from ES6 is a little more difficult but there are a number of options like:
+    + WeakMaps
+    + Symbols
+    + Getters
+
 
 **Demonstrate the concept of Inheritance in object-oriented JavaScript.**
 
@@ -118,12 +162,19 @@ console.log(dude.monopoly); // {money: 1500, cards: Array(0)}
 
 **Links**
 
-- [Eloquent JavaScript](http://eloquentjavascript.net/)
-- [Eloquent JavaScript: Object Oriented Programming](https://eloquentjavascript.net/1st_edition/chapter8.html)
-- [FreeCodeCamp: Intro to Object Oriented Programming in JavaScript](https://medium.freecodecamp.org/an-introduction-to-object-oriented-programming-in-javascript-8900124e316a)
-- [JavaScript.info](https://javascript.info/object-oriented-programming)
-- [JavaScript is Sexy: OOP In JavaScript](http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/)
-- [Medium: Is JavaScript a (true) OOP language?](https://medium.com/@andrea.chiarelli/is-javascript-a-true-oop-language-c87c5b48bdf0)
+- *General OOP*
+    - [Eloquent JavaScript](http://eloquentjavascript.net/)
+    - [Eloquent JavaScript: Object Oriented Programming](https://eloquentjavascript.net/1st_edition/chapter8.html)
+    - [FreeCodeCamp: Intro to Object Oriented Programming in JavaScript](https://medium.freecodecamp.org/an-introduction-to-object-oriented-programming-in-javascript-8900124e316a)
+    - [JavaScript.info](https://javascript.info/object-oriented-programming)
+    - [JavaScript is Sexy: OOP In JavaScript](http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/)
+    - [Medium: Is JavaScript a (true) OOP language?](https://medium.com/@andrea.chiarelli/is-javascript-a-true-oop-language-c87c5b48bdf0)
+- *Encapsulation*
+    + Five different methods to hide data: [http://2ality.com/2016/01/private-data-classes.html](http://2ality.com/2016/01/private-data-classes.html)
+    + [https://www.sitepoint.com/object-oriented-javascript-deep-dive-es6-classes/](https://www.sitepoint.com/object-oriented-javascript-deep-dive-es6-classes/)
+    + [https://developers.redhat.com/blog/2016/11/08/data-hiding-in-es6/](https://developers.redhat.com/blog/2016/11/08/data-hiding-in-es6/)
+    + [http://tatiyants.com/groking-javascript-encapsulation/](http://tatiyants.com/groking-javascript-encapsulation/)
+    + 
 
 ## Hard
 
