@@ -309,6 +309,9 @@ console.log(twelve);            // 12
 
 ### How do you organize your code? (module pattern, classical inheritance?) Explain the Module Pattern. Explain Classical Inheritance.
 
+
+[[↑] Back to top](#top)
+
 ### Explain how prototypal inheritance works
 
 - Prototypal inheritance and JavaScript Objects generally don't feel incredibly difficult but explaining *prototypes* in a succinct way is a bit tricky. I've read a lot of definitions that feel the need to address the fact that JavaScript classes don't *really* inherit methods the way other programming languages with classes do. The following "definition" is really just a list of important points relating to prototypes and then some code that explains it.
@@ -641,16 +644,131 @@ baz = 'qux';            // TypeError: Assignment to constant variable.
 
 ### What are the differences between ES6 class and ES5 function constructors?
 
+Let's first look at example of each:
+
+```js
+// ES5 Function Constructor
+function Person(name) {
+  this.name = name;
+}
+
+// ES6 Class
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+```
+
+- For simple constructors, they look pretty similar.
+- The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+
+```js
+// ES5 Function Constructor
+function Student(name, studentId) {
+  // Call constructor of superclass to initialize superclass-derived members.
+  Person.call(this, name);
+
+  // Initialize subclass's own members.
+  this.studentId = studentId;
+}
+
+// if I don't add this, the __proto__ of my new student is Object, and I want it to be Person
+Student.prototype = Object.create(Person.prototype); 
+Student.prototype.constructor = Student;
+
+// ES6 Class
+class Student extends Person {
+  constructor(name, studentId) {
+    super(name);
+    this.studentId = studentId;
+  }
+}
+```
+
+- It's much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
+
+[[↑] Back to top](#top)
+
 ### What's the difference between an "attribute" and a "property"?
+
+> When writing HTML source code, you can define attributes on your HTML elements. Then, once the browser parses your code, a corresponding DOM node will be created. This node is an object, and therefore it has properties.
+
+- the above definition is pretty easy to understand. *Attributes* are in HTML and can be defined in the HTML elements. *Properties* are just like the properties on an object - and that's what it is: the browser parses the code and a corresponding DOM node is created. This node is an object that has properties.
+
+[[↑] Back to top](#top)
 
 ### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
 
+- One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the `function` keyword. 
+- The `this` within arrow functions is also bound to the enclosing scope which is different compared to regular functions where the `this` is determined by the object calling it. 
+- Lexically-scoped `this` is useful when invoking callbacks especially in React components.
+- Lexical Scoping just means that it uses `this` from the code that contains the Arrow Function.
+
+[[↑] Back to top](#top)
+
 ### What advantage is there for using the arrow syntax for a method in a constructor?
+
+
+
+[[↑] Back to top](#top)
 
 ### What is the definition of a higher-order function?
 
+- A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. 
+- Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. 
+- Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind` is one such example in JavaScript.
+
+[[↑] Back to top](#top)
+
 ### Can you give an example for destructuring an object or an array?
 
+- Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
+
+**Array destructuring**
+
+```js
+// Variable assignment.
+const foo = ['one', 'two', 'three'];
+
+const [one, two, three] = foo;
+console.log(one); // "one"
+console.log(two); // "two"
+console.log(three); // "three"
+```
+
+```js
+// Swapping variables
+let a = 1;
+let b = 3;
+
+[a, b] = [b, a];
+console.log(a); // 3
+console.log(b); // 1
+```
+
+**Object destructuring**
+
+```js
+// Variable assignment.
+const o = { p: 42, q: true };
+const { p, q } = o;
+
+console.log(p); // 42
+console.log(q); // true
+
+var person = {
+    name: "Colin", 
+    age: 12
+}
+
+const { age, name } = person;
+console.log(name) // Colin
+console.log(age)  // 12
+```
+
+
+[[↑] Back to top](#top)
 
 ### Explain "hoisting".
 
@@ -731,16 +849,102 @@ sayHello('Colin');
 - [FEIH: Explain Hosting](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md#explain-hoisting)
 - [coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-9-what-is-variable-hoisting)
 
+[[↑] Back to top](#top)
+
 ### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
 
+- **Undeclared** variables are created when you assign a value to an identifier that is not previously created using `var`, `let` or `const`. 
+- Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. 
+- Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
 
+```js
+function foo() {
+  x = 1; // Throws a ReferenceError in strict mode
+}
 
+foo();
+console.log(x); // 1
+```
 
+- A *variable* that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. 
+- If a *function* does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. 
+- To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. 
+  - Don't use `(x == 'undefined')` as it will also return `true` if the value is `null`.
 
+```js
+var foo;
+console.log(foo); // undefined
+console.log(foo === undefined); // true
+console.log(typeof foo === 'undefined'); // true
+
+console.log(foo == null); // true. This is Wrong! You need the strict equality operator
+
+function bar() {}
+var baz = bar();
+console.log(baz); // undefined
+```
+
+- A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. 
+- To check for `null,` simply compare using the strict equality operator. 
+- Just like `undefined` above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
+
+```js
+var foo = null;
+console.log(foo === null); // true
+console.log(typeof foo === 'object'); // true
+
+console.log(foo == undefined); // true. Wrong, don't use this to check!
+```
+
+[[↑] Back to top](#top)
 
 ### What's a typical use case for anonymous functions?
 
+- Here are the big three:
+  - IIFEs (wrap the function and call it right away)
+  - Callback that is used once and doesn't need to be used anywhere else( e.g. jQuery)
+  - Arguments to functional programming constructrs or Lodash
+- They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
+
+```js
+(function() {
+  // Some code here.
+})();
+```
+
+- As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
+
+```js
+// 
+setTimeout(function() {
+  console.log('Hello world!');
+}, 1000);
+
+// jQuery example
+$('.delete-btn').on('click', function() {
+    alert("Delete!!");
+})
+```
+
+- Arguments to functional programming constructs or Lodash (similar to callbacks).
+  - functional programming items like `map`, `filter`, etc.
+
+```js
+const arr = [1, 2, 3];
+const double = arr.map(function(el) {
+  return el * 2;
+});
+console.log(double); // [2, 4, 6]
+```
+
+[[↑] Back to top](#top)
+
 ### What's the difference between host objects and native objects?
+
+- Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as `String`, `Math`, `RegExp`, `Object`, `Function`, etc.
+- Host objects are provided by the runtime environment (browser or Node), such as `window`, `XMLHTTPRequest`, etc.
+
+[[↑] Back to top](#top)
 
 ### What is "use strict" and what does it do?
 
@@ -793,10 +997,15 @@ console.log(a);
 * No more access to `function.caller` and `function.arguments`.
 * Concatenation of scripts written in different strict modes might cause issues.
 
-[back to top](#top)
+[[↑] Back to top](#top)
 
 
 ## Glossary
+
+### A - M
+
+abstract equality operator
+
 
 AJAX
 
@@ -897,6 +1106,10 @@ load
 module pattern
 
 
+[[↑] Back to top](#top)
+
+### N - Z
+
 native objects
 
 
@@ -916,6 +1129,9 @@ scope
 
 
 spread syntax
+
+
+strict equality operator
 
 
 string interpolation
@@ -938,7 +1154,7 @@ XMLHttpRequest
 
 
 
-
+[[↑] Back to top](#top)
 
 
 
