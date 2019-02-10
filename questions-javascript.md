@@ -315,34 +315,244 @@ printData({ name: 'Yang Shun' });
 - JSONP can be unsafe and has some security implications. As JSONP is really JavaScript, it can do everything else JavaScript can do, so you need to trust the provider of the JSONP data.
 - These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the recommended approach and JSONP is seen as a hack.
 
+[[↑] Back to top](#top)
 
 ### Describe event bubbling.
 
+> When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors. The process is called “bubbling”, because events “bubble” from the inner element up through parents like a bubble in the water.
+
+- This means the event checks for a handler on **each** parent ancestor as it goes up the chain. So your event handler on the child it will check for that same event on the parent element. This CodePen shows that in code: [CodePen: Event Bubbling](https://codepen.io/coolinmc6/full/GzxOjz)
+  - There are two elements: a `div.child` and `div.parent`; the child is inside the parent
+  - THere are click handlers on both the child and parent to console.log something when clicked
+  - If you click on the `.child`, you get two logs: one from the child and then one from the parent (because there are two event handlers)
+  If you click on the `.parent`, you get only one log => **events bubbles UP from child -> parent -> all the way up to the `document` element**
+
+Sources: 
+- [https://www.sitepoint.com/event-bubbling-javascript/](https://www.sitepoint.com/event-bubbling-javascript/)
+- [https://javascript.info/bubbling-and-capturing](https://javascript.info/bubbling-and-capturing)
+
+[[↑] Back to top](#top)
+
 ### What is a Promise? How does a Promise work?
 
+> A promise represents the eventual result of an asynchronous operation. It is a placeholder into which the successful result value or reason for failure will materialize.
+
+> A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it’s not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
+
+- Promises are used to handle asynchronous code. They provide a simpler alternative to executing, composing, and managing asynchronous operations vs. traditional callback-based approaches
+- What are the 3 states of a Promise?
+- When are Promises used?
+- What is the traditional callback-based approach?
+- Show a basic example of a Promise.
+
+- Sources:
+  - [https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261)
+  - [https://spring.io/understanding/javascript-promises](https://spring.io/understanding/javascript-promises)
+  - [https://medium.com/@kvosswinkel/is-javascript-synchronous-or-asynchronous-what-the-hell-is-a-promise-7aa9dd8f3bfb](https://medium.com/@kvosswinkel/is-javascript-synchronous-or-asynchronous-what-the-hell-is-a-promise-7aa9dd8f3bfb)
+
+[[↑] Back to top](#top)
+
+### How do you use Async/Await?
+
+[[↑] Back to top](#top)
 
 ### How do you debug JavaScript? What tools and techniques do you use debugging JavaScript code?
 
+[[↑] Back to top](#top)
+
 ### What language constructions do you use for iterating over object properties and array items?
 
+**For objects:**
+
+* `for-in` loops - `for (var property in obj) { console.log(property); }`. However, this will also iterate through its inherited properties, and you will add an `obj.hasOwnProperty(property)` check before using it.
+* `Object.keys()` - `Object.keys(obj).forEach(function (property) { ... })`. `Object.keys()` is a static method that will lists all enumerable properties of the object that you pass it.
+* `Object.getOwnPropertyNames()` - `Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`. `Object.getOwnPropertyNames()` is a static method that lists all enumerable and non-enumerable properties of the object that you pass it.
+
+**For arrays:**
+
+* `for` loops - `for (var i = 0; i < arr.length; i++)`. The common pitfall here is that `var` is in the function scope and not the block scope and most of the time you would want block scoped iterator variable. ES2015 introduces `let` which has block scope and it is recommended to use that instead. So this becomes: `for (let i = 0; i < arr.length; i++)`.
+* `forEach` - `arr.forEach(function (el, index) { ... })`. This construct can be more convenient at times because you do not have to use the `index` if all you need is the array elements. There are also the `every` and `some` methods which will allow you to terminate the iteration early.
+* `for-of` loops - `for (let elem of arr) { ... }`. ES6 introduces a new loop, the `for-of` loop, that allows you to loop over objects that conform to the [iterable protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) such as `String`, `Array`, `Map`, `Set`, etc. It combines the advantages of the `for` loop and the `forEach()` method. The advantage of the `for` loop is that you can break from it, and the advantage of `forEach()` is that it is more concise than the `for` loop because you don't need a counter variable. With the `for-of` loop, you get both the ability to break from a loop and a more concise syntax. 
+
+- Also, when using the `for-of` loop, if you need to access both the index and value of each array element, you can do so with the ES6 Array `entries()` method and destructuring:
+
+```
+const arr = ['a', 'b', 'c'];
+
+for (let [index, elem] of arr.entries()) { 
+  console.log(index, ': ', elem);
+}
+```
+
+[[↑] Back to top](#top)
 
 ### Explain the difference between mutable and immutable objects.
 
+- The difference between these things are essentially in the definition: *mutable objects* can be changed after instantiation/creation while *immutable objects* cannot.
+
+> A mutable object is an object whose state can be modified after it is created. An immutable object is an object whose state cannot be modified after it is created.
+
+- Immutable objects are used in functional programming, especially React and Redux. In Redux, when you update state, you are essentially creating a new object with the updated value as opposed to changing the first object.
+- Using the `const` keyword will NOT make an array or object immutable. It does, however, make *primitive values* like `String` and `Number` variables unchangeable. See below:
+
+```js
+const arr = ['a', 'b', 'c'];    // ['a', 'b', 'c']
+arr.push('d');                  // ['a', 'b', 'c', 'd']
+arr.shift();                    // ['b', 'c', 'd']
+
+const apple = "apple";          // "apple"
+apple = "orange";               // TypeError: Assignment to constant variable.
+```
+- the `arr` variable can be added to, removed from, and even changed with index assignment `arr[0] = 'e'`. The `String` variable `apple` cannot be changed or re-assigned.
+
+[[↑] Back to top](#top)
+
 ### Explain the difference between synchronous and asynchronous functions.
+
+- Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case, the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
+- Asynchronous functions usually accept a callback as a parameter and execution continues on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
+- A `Promise` is used to handle asynchronous code. It allows you to make asynchronous code look synchronous
+- JavaScript is a single-threaded language
+
+[[↑] Back to top](#top)
 
 ### What is event loop? What is the difference between call stack and task queue?
 
-### Explain the differences on the usage of foo between function foo() {} and var foo = function() {}
+> The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
+
+- To understand the event loop, you need to understand what the call stack is. JavaScript has a single call stack in which it keeps track of what function we’re currently executing and what function is to be executed after that.
+  - when you see `stack`, think like the data structure; it is LIFO or FILO. Like a stack of plates, the plate on top is the first one removed
+- Every time you call a setTimeout function or you do some async operation — it is added to the Event Table. 
+- The Event Table does not execute functions and does not add them to the call stack on it’s own. It’s sole purpose is to keep track of events and send them to the Event Queue.
+- The Event Queue is a data structure similar to the stack — again you add items to the back but can only remove them from the front. It kind of stores the correct order in which the functions should be executed. It receives the function calls from the Event Table, but it needs to somehow send them to the Call Stack.
+- The event loop is constantly checking if the call stack is empty. If it is empty, it looks at the Event Queue. If there is something in the event queue that is waiting it is moved to the call stack. If not, then nothing happens.
+
+- References:
+  - [YouTube: What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ&feature=youtu.be)
+  - [https://hackernoon.com/understanding-js-the-event-loop-959beae3ac40](https://hackernoon.com/understanding-js-the-event-loop-959beae3ac40)
+
+[[↑] Back to top](#top)
+
+### Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`.
+
+- `function foo() {}` is a *function declaration* while `var foo = function() {}` is a function expression. 
+- The key difference is that a function declaration has its body hoisted but the body of a function expression is not (they have the same hoisting behavior as variables).
+
+**Function Declaration**
+
+```js
+foo(); // 'FOOOOO'
+function foo() {
+  console.log('FOOOOO');
+}
+```
+
+**Function Expression**
+
+```js
+foo(); // Uncaught TypeError: foo is not a function
+var foo = function() {
+  console.log('FOOOOO');
+};
+
+// Similar to variables:
+console.log(a);     // undefined
+var a = 'hey there!';
+```
+
+[[↑] Back to top](#top)
 
 ### ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
 
+- The main uses are simply *string interpolation* and *multi-line strings*. 
+- Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
+
+```js
+var person = { name: 'Colin', age: 12 };
+console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!');
+// 'Hi, my name is Colin and I am 12 years old!'
+```
+
+- With template literals, you can now create that same output like this instead:
+
+```js
+const person = { name: 'Colin', age: 12 };
+console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
+// 'Hi, my name is Colin and I am 12 years old!'
+```
+
+- Note that you use backticks, not quotes, to indicate that you are using a template literal and that you can insert expressions inside the `${}` placeholders.
+- A second helpful use case is in creating multi-line strings. Before ES2015, you could create a multi-line string like this:
+
+```js
+console.log('This is line one.\nThis is line two.');
+// This is line one.
+// This is line two.
+```
+
+- Or if you wanted to break it up into multiple lines in your code so you didn't have to scroll to the right in your text editor to read a long string, you could also write it like this:
+
+```js
+console.log('This is line one.\n' +
+	'This is line two.');
+// This is line one.
+// This is line two.
+```
+
+- Template literals, however, preserve whatever spacing you add to them. For example, to create that same multi-line output that we created above, you can simply do:
+
+```js
+console.log(`This is line one.
+This is line two.`);
+// This is line one.
+// This is line two.
+```
+
+[[↑] Back to top](#top)
+
 ### Can you give an example of a curry function and why this syntax offers an advantage?
+
+> Currying is when you break down a function that takes multiple arguments into a series of functions that take part of the arguments.
+
+- Here is a super simple example:
+
+```js
+function curriedFn(a) {
+    return function(b) {
+        return a * b;
+    }
+}
+
+var multiplyBy3 = curriedFn(3);
+var twelve = multiplyBy3(4);
+console.log(twelve);            // 12
+```
+
+- When do you use currying? 
+- Show a more advanced example of currying.
+- Be able to explain currying.
+
+- References:
+  - [https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe](https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe)
+  - [https://stackoverflow.com/questions/36314/what-is-currying](https://stackoverflow.com/questions/36314/what-is-currying)
+  - [https://bjouhier.wordpress.com/2011/04/04/currying-the-callback-or-the-essence-of-futures/](https://bjouhier.wordpress.com/2011/04/04/currying-the-callback-or-the-essence-of-futures/)
+
+
+[[↑] Back to top](#top)
 
 ### What are the benefits of using spread syntax and how is it different from rest syntax?
 
+
+
+[[↑] Back to top](#top)
+
 ### How can you share code between files?
 
+[[↑] Back to top](#top)
+
 ### Why you might want to create static class members?
+
+[[↑] Back to top](#top)
 
 ## Easy
 
@@ -523,6 +733,9 @@ bind
 call
 
 
+call stack
+
+
 classical inheritance
 
 
@@ -545,6 +758,12 @@ event bubbling
 
 
 event loop
+
+
+event queue
+
+
+event table
 
 
 feature detection
@@ -617,6 +836,9 @@ scope
 
 
 spread syntax
+
+
+string interpolation
 
 
 ternary expression
