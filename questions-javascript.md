@@ -272,6 +272,38 @@ X();
 - `c` never changes
 - and `b` is being incrememnted so that with each call ( `X()` ), the value of `b` is carried over and so it goes from `6 + 10 + 13` to `6 + 11 + 13` to `6 + 12 + 13`, etc.
 
+[[↑] Back to top](#top)
+
+### Can you give an example of a curry function and why this syntax offers an advantage?
+
+> Currying is when you break down a function that takes multiple arguments into a series of functions that take part of the arguments.
+
+- Here is a super simple example:
+
+```js
+function curriedFn(a) {
+    return function(b) {
+        return a * b;
+    }
+}
+
+var multiplyBy3 = curriedFn(3);
+var twelve = multiplyBy3(4);
+console.log(twelve);            // 12
+```
+
+- When do you use currying? 
+- Show a more advanced example of currying.
+- Be able to explain currying.
+
+- References:
+  - [https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe](https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe)
+  - [https://stackoverflow.com/questions/36314/what-is-currying](https://stackoverflow.com/questions/36314/what-is-currying)
+  - [https://bjouhier.wordpress.com/2011/04/04/currying-the-callback-or-the-essence-of-futures/](https://bjouhier.wordpress.com/2011/04/04/currying-the-callback-or-the-essence-of-futures/)
+
+
+[[↑] Back to top](#top)
+
 
 ## Intermediate
 
@@ -510,35 +542,7 @@ This is line two.`);
 
 [[↑] Back to top](#top)
 
-### Can you give an example of a curry function and why this syntax offers an advantage?
 
-> Currying is when you break down a function that takes multiple arguments into a series of functions that take part of the arguments.
-
-- Here is a super simple example:
-
-```js
-function curriedFn(a) {
-    return function(b) {
-        return a * b;
-    }
-}
-
-var multiplyBy3 = curriedFn(3);
-var twelve = multiplyBy3(4);
-console.log(twelve);            // 12
-```
-
-- When do you use currying? 
-- Show a more advanced example of currying.
-- Be able to explain currying.
-
-- References:
-  - [https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe](https://medium.com/@kbrainwave/currying-in-javascript-ce6da2d324fe)
-  - [https://stackoverflow.com/questions/36314/what-is-currying](https://stackoverflow.com/questions/36314/what-is-currying)
-  - [https://bjouhier.wordpress.com/2011/04/04/currying-the-callback-or-the-essence-of-futures/](https://bjouhier.wordpress.com/2011/04/04/currying-the-callback-or-the-essence-of-futures/)
-
-
-[[↑] Back to top](#top)
 
 ### What are the benefits of using spread syntax and how is it different from rest syntax?
 
