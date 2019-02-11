@@ -490,6 +490,10 @@ console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
 console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
 ```
 
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
 
 ### The following recursive code will cause a stack overflow if the array list is too large. How can you fix this and still retain the recursive pattern?
 
@@ -569,6 +573,20 @@ girl ();
 - [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
 [[↑] Back to top](#top)
+
+
+### Object Equality - How would you compare two objects in JavaScript?
+
+
+
+- [http://www.thatjsdude.com/interview/js2.html#objectEquality](http://www.thatjsdude.com/interview/js2.html#objectEquality)
+
+
+[[↑] Back to top](#top)
+
+
+
+
 
 
 
