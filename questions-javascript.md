@@ -321,8 +321,43 @@ console.log(twelve);            // 12
 
 ### Discuss possible ways to write a function `isInteger(x)` that determines if `x` is an integer.
 
+```js
+// ES6 solution pretty much already does this:
+Number.isInteger()
 
-[https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+// ES5 Solutions:
+
+// bitwise XOR operator:
+function isInteger(x) {
+    return (x ^ 0) === x;
+}
+
+// This rounds down (or up; Math.ceil() works as well)
+function isInteger(x) {
+    return Math.floor(x) === x;
+}
+
+// Must check that it is a number
+function isInteger(x) {
+    return (typeof x === 'number') && (x % 1 === 0);
+}
+
+//============================================
+// INCORRECT SOLUTIONS 
+// This fails BECAUSE "false" would be classified as an integer:
+function isInteger(x) {
+    return (x % 1 === 0);
+}
+
+// This fails when x becomes really large due to how parseInt() converts scientific notation
+function isInteger(x) { 
+    return parseInt(x, 10) === x; 
+}
+
+```
+
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
 [[↑] Back to top](#top)
 
@@ -337,9 +372,31 @@ console.log(twelve);            // 12
     console.log(4);
 })();
 ```
-- Understanding the above is connected to the call stack and event table and event queue.
 
-[https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+- The answer is: 1, 4, 3, 2
+- 1 and 4 are displayed first because they're simple `console.log()` calls
+- 3 is logged next because it has only a 0 millisecond delay
+- 2 is logged last because of 1 second delay
+- Understanding the above is connected to the call stack and event table and event queue.
+- `setTimeout()` puts its execution of its referenced function into the event queue if the browser is busy. This example below illustrates exactly this:
+
+```js
+for(let i = 0; i < 3000; i++) {
+    if(i % 2 == 0) {
+        setTimeout(function() {
+            console.log(i)
+        }, 0)
+    } else {
+        console.log(i)
+    }
+}
+```
+
+- even though there is a `setTimeout()` with 0 seconds delayed, **NONE** of the even numbers are logged to the console until **every** odd number is. I went as high as 3000 to show that this is not just a matter of there being too few logs between 1 and 4 as shown above. In my example, every single odd number is logged *before* any of the even numbers
+
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+- [http://javascript.info/settimeout-setinterval](http://javascript.info/settimeout-setinterval) - more info on setTimeout() and things like that
 
 [[↑] Back to top](#top)
 
@@ -370,6 +427,35 @@ console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
 ```
 
+- Completing this question required an understanding of the `arguments` parameter in functions. I've learned this before but have not just it very frequently. Here is one way to solve the problem:
+
+```js
+// Method #1
+function sum(x) {
+    if(arguments.length == 2) {
+        return arguments[0] + arguments[1]
+    } else {
+        return function(y) {
+            return x + y
+        }
+    }
+}
+```
+
+- simply use the `arguments` parameter to count how many arguments you actually received. If you received two, just return the sum of those numbers; if you received 1, return a function that takes one argument and returns the sum of those two numbers
+- The next method requires two arguments at the outset and checks if `y` is undefined. 
+
+```js
+function sum(x, y) {
+  if (y !== undefined) {
+    return x + y;
+  } else {
+    return function(y) { 
+        return x + y; 
+    }
+  }
+}
+```
 
 - [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
@@ -1184,10 +1270,16 @@ console.log(a);
 abstract equality operator
 
 
+activation objects
+
+
 AJAX
 
 
 apply
+
+
+arguments object
 
 
 asynchronous
@@ -1230,6 +1322,9 @@ event queue
 
 
 event table
+
+
+execution contexts
 
 
 feature detection
@@ -1321,6 +1416,9 @@ this
 
 
 UA String
+
+
+variable objects
 
 
 use strict
