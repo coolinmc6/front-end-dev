@@ -61,7 +61,13 @@
 - A "class" that acts as a blueprint or architectual diagram for an object and then you need to create an instance of that class in JavaScript, inheritance works using prototypes - in prototypal inheritance, new objects are created using previously created objects.
     + there is a parent "Object" for all objects in JavaScript
 - There is a method of JavaScript of emulating the more classical object-oriented form using classes and that's called the Pseudo-Classical Pattern but, again, it's only faking it...all inheritance in JavaScript is prototypal
+
+> **Class Inheritance**: instances inherit from classes (like a blueprint — a description of the class), and create sub-class relationships: hierarchical class taxonomies. Instances are typically instantiated via constructor functions with the `new` keyword. Class inheritance may or may not use the `class` keyword from ES6.
+
+> **Prototypal Inheritance**: instances inherit directly from other objects. Instances are typically instantiated via factory functions or `Object.create()`. Instances may be composed from many different objects, allowing for easy selective inheritance.
+
 - [Quora: What is Prototypal Inheritance?](https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson)
+- [Medium: 10 JavaScript Interview Questions](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95)
 
 **Show a basic example of object-oriented JavaScript: properties, methods, instantiation.**
 
@@ -312,6 +318,176 @@ console.log(twelve);            // 12
 
 [[↑] Back to top](#top)
 
+
+### Discuss possible ways to write a function `isInteger(x)` that determines if `x` is an integer.
+
+
+[https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
+
+### In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?
+
+```js
+(function() {
+    console.log(1); 
+    setTimeout(function(){console.log(2)}, 1000); 
+    setTimeout(function(){console.log(3)}, 0); 
+    console.log(4);
+})();
+```
+- Understanding the above is connected to the call stack and event table and event queue.
+
+[https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
+
+### Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a string is a palindrome.
+
+```js
+// My solution (case sensitive)
+const p = (s) => s === s.split('').reverse().join('');
+```
+
+```js
+function isPalindrome(str) {
+  str = str.replace(/\W/g, '').toLowerCase();
+  return (str == str.split('').reverse().join(''));
+}
+```
+
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
+### Write a `sum` method which will work properly when invoked using either syntax below.
+
+```js
+console.log(sum(2,3));   // Outputs 5
+console.log(sum(2)(3));  // Outputs 5
+```
+
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
+
+### Consider the following code snippet (and determine what gets logged to the console):
+
+```js
+for (var i = 0; i < 5; i++) {
+  var btn = document.createElement('button');
+  btn.appendChild(document.createTextNode('Button ' + i));
+  btn.addEventListener('click', function(){ console.log(i); });
+  document.body.appendChild(btn);
+}
+```
+
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
+
+### Array-Reverse: What will the code below output to the console and why?
+
+```js
+var arr1 = "john".split('');
+var arr2 = arr1.reverse();
+var arr3 = "jones".split('');
+arr2.push(arr3);
+console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
+console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+```
+
+
+### The following recursive code will cause a stack overflow if the array list is too large. How can you fix this and still retain the recursive pattern?
+
+```js
+var list = readHugeList();
+
+var nextListItem = function() {
+    var item = list.pop();
+
+    if (item) {
+        // process the list item...
+        nextListItem();
+    }
+};
+```
+
+- this answer is related to the call stack
+
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
+
+### Closures - What will be the output of the following code:
+
+```js
+for (var i = 0; i < 5; i++) {
+	setTimeout(function() { console.log(i); }, i * 1000 );
+}
+```
+**Explain your answer. How could the use of closures help here?**
+
+
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
+
+### This - Testing your `this` knowledge in JavaScript: What is the output of the following code?
+
+```js
+var length = 10;
+function fn() {
+	console.log(this.length);
+}
+
+var obj = {
+  length: 5,
+  method: function(fn) {
+    fn();
+    arguments[0]();
+  }
+};
+
+obj.method(fn, 1);
+```
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
+
+
+### Hoisting - What will be the output of this code?
+
+```js
+var x = 21;
+var girl = function () {
+    console.log(x);
+    var x = 20;
+};
+girl ();
+```
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
+
+
+
+
 ### Explain how prototypal inheritance works
 
 - Prototypal inheritance and JavaScript Objects generally don't feel incredibly difficult but explaining *prototypes* in a succinct way is a bit tricky. I've read a lot of definitions that feel the need to address the fact that JavaScript classes don't *really* inherit methods the way other programming languages with classes do. The following "definition" is really just a list of important points relating to prototypes and then some code that explains it.
@@ -324,6 +500,8 @@ console.log(twelve);            // 12
     + [MDN: Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
     + [coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-16-what-is-the-prototype-chain)
     + 
+
+[[↑] Back to top](#top)
 
 ### What is JSONP? How does it work and how is it different than AJAX?
 
@@ -562,7 +740,6 @@ This is line two.`);
 [[↑] Back to top](#top)
 
 ## Easy
-
 
 ### What are the differences between variables created using let, var or const?
 

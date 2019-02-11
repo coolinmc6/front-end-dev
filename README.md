@@ -38,6 +38,7 @@
 
 **HTML & CSS**
 
+- [Dev.io: CSS Curriculum](https://dev.to/imm9o/i-built-my-own-css-curriculum-to-master-it-2ec2)
 - [Wes Box Flexbox](https://github.com/coolinmc6/wesbos-flexbox)
 - [HTML, CSS, and Javascript for Web Developers](https://github.com/coolinmc6/JHU-HTML-CSS-Intro-Course)
 
@@ -56,6 +57,7 @@
 - [Learn X in Y Minutes: JSON](https://learnxinyminutes.com/docs/json/)
 - [Learn X in Y Minutes: TypeScript](https://learnxinyminutes.com/docs/typescript/)
 - [Random ES2015 Notes & Lectures](https://github.com/coolinmc6/es2015)
+- [Toptal: JavaScript Hiring Guide](https://www.toptal.com/javascript#hiring-guide)
 - [Udemy: Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
 - [Udemy: Modern JavaScript](https://github.com/coolinmc6/modern-javascript)
 - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
