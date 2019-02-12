@@ -527,7 +527,22 @@ for (var i = 0; i < 5; i++) {
 ```
 **Explain your answer. How could the use of closures help here?**
 
+- The number 5 is printed 5 times
+- I've seen this type of closure question before. Here is how you can solve it:
 
+```js
+for (var i = 0; i < 5; i++) {
+    (function(i) {
+        setTimeout(function() { console.log(i); }, i * 1000 );     
+    })(i)
+   
+}
+```
+
+- First, why does it NOT work? As I've seen from other questions, the `setTimeout()` functions will not get executed until after the `for` loop is done. This means that when it is done, each execution will reference the last value of `i`, which will be 5.
+- So how do we fix this? We can fix this with closures to create a unique scope for each iteration and storing the value of the `i` variable we want within its scope.
+- By wrapping the `setTimeout` in an IIFE and passing `i` to the IIFE as opposed to directly to to the `setTimeout`, I can enclose each value of `i` in the closure so that particular value is logged and attached to the function.
+- We can also solve this using ES6 syntax and using `let` as opposed to `var`. As a reminder, `let` and `const` have block-level scope while `var` has function level scope. 
 
 - [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
@@ -553,6 +568,14 @@ var obj = {
 obj.method(fn, 1);
 ```
 
+- Answer: 10 2
+- Everything starts at the bottom: `obj.method(fn, 1)`. The function `method` takes only argument, a function, but in this example we give it two...
+- Inside `method`, we see only two lines: `fn()` and `arguments[0]()`. The first is pretty easy; it's just calling the function, `fn`, which was defined above. The second is trickier but that is really just the `arguments` array that comes with every function and it is just calling `fn()` again. So we get two `fn()` calls.
+- So we have two function calls of `fn` but this is where it gets tricky. In the `fn()` function declaration, it simply logs `this.length` which, at its first call, `this` is the global `window` object. And because the first line, `var length = 10`, is declared on the global scope, `this.length` is equal to 10.
+- The first log is 10
+- For the second log, even though we are just calling `fn()` again, inside the `fn`, the scope of this function becomes the arguments arraw, and logging the length of `arguments[]` will return 2.
+- CM - I need to run through a few more `this` examples, I don't think I entirely get this. I can recreate it
+
 - [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
 [[↑] Back to top](#top)
@@ -570,25 +593,63 @@ var girl = function () {
 girl ();
 ```
 
+- Neither 21 nor 20, the result is `undefined`
+- I would've initially thought 21 but what is really happening is related to hoisting. So first, it's not 21 because when the function is executed, it sees that there is a local `x` variable present.
+- So 21 is NOT used because there's a local `x`
+- Hoisting in JavaScript means that variable declarations (`var x;`) are hoisted but NOT initializations `var x = 20`. So in this scenario, the `x` that it's looking for will be `var x = 20` but that initial value isn't given until after the console.log.
+
 - [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
 [[↑] Back to top](#top)
 
 
+### Object Clone - How do you clone an object?
+
+```js
+var obj = {a: '4', b: 'apple'};
+
+var clone = Object.assign({}, obj);
+```
+
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
 ### Object Equality - How would you compare two objects in JavaScript?
 
+- Answering this question completely requires an understanding of how JavaScript tests for equality. Primitives (undefined, null, boolean, string, and number) are compared by their value while Objects (which includes objects (e.g. user-defined objects), arrays, dates) are compared by reference.
+- Comparing "by reference" pretty much means assessing whether these two objects are pointing to the same location in memory.
+- So to check two objects that do not point to the same location in memory, we need to check whether the objects have the same properties and same values in those properties. If all the properties have the same value, they are equal.
+- Here are two solutions:
 
+```js
+function isEqual(a, b) {
+    var aProps = Object.getOwnPropertyNames(a),
+        bProps = Object.getOwnPropertyNames(b);
 
+    if (aProps.length != bProps.length) {
+        return false;
+    }
+
+    for (var i = 0; i < aProps.length; i++) {
+        var propName = aProps[i];
+        
+        if (a[propName] !== b[propName]) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+- The solution I came up with is not 100% correct because it uses `Object.keys()` which is not the same as `Object.getOwnPropertyNames()`. Here is a good explanation of the difference between them: [https://stackoverflow.com/questions/22658488/object-getownpropertynames-vs-object-keys](https://stackoverflow.com/questions/22658488/object-getownpropertynames-vs-object-keys)
+    + the short answer is that `Object.keys()` returns all *enumerable* own properties on the object. So if you manually set a property to `{enumerable: false}`, then `Object.keys()` won't have that property in the resulting array.
+    + I have never manually made a property not enumerable but just FYI
 - [http://www.thatjsdude.com/interview/js2.html#objectEquality](http://www.thatjsdude.com/interview/js2.html#objectEquality)
 
 
 [[↑] Back to top](#top)
-
-
-
-
-
-
 
 
 
@@ -1404,6 +1465,9 @@ native objects
 
 
 polyfill
+
+
+Primitives
 
 
 Promise
