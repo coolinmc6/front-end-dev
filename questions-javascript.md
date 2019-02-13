@@ -16,7 +16,7 @@
     + define the terms or concepts with both explanations and code
     + break down "object-oriented JavaScript" into concrete, specific examples or questions that I can quickly use to explain it
 
-**What is object-oriented programming (OOP)?**
+### What is object-oriented programming (OOP)?
 
 - A widely accepted definition of OOP that is used to classify a language as "object-oriented" is based on two requirements:
     * its capability to model a problem through objects
@@ -45,7 +45,7 @@
 
 > Generally, the ability to appear in many forms. In object-oriented programming, polymorphism refers to a programming language's ability to process objects differently depending on their data type or class. More specifically, it is the ability to redefine methods for derived classes.
 
-**Lay the foundation for OOP in JavaScript. Why is it so different than other languages?**
+### Lay the foundation for OOP in JavaScript. Why is it so different than other languages?
 
 - This is a super-quick overview of object-oriented programming in JavaScript.
 - JavaScript is different than "classical languages" in how it does inheritance. This is so important because that is essentially how object-oriented programming works: a class of objects with certain behaviors/properties that can be passed down to instances of that object OR serve as a parent class of another class of objects.
@@ -55,7 +55,7 @@
 - So with that foundation, I've learned that object-oriented JavaScript is really an implementation of OOP principles using different techniques to mimic certain features that the language doesn't natively support.
 - In addition to the major feature I mentioned above, **inheritance**, there are patterns and best practices of how to implement certain other features of OOP like private properties, getter/setter functions, etc.
 
-**Explain the difference between prototypal and classical inheritance.**
+### Explain the difference between prototypal and classical inheritance.
 
 - "Classical" inheritance is really talking about the methods of object orientation.
 - A "class" that acts as a blueprint or architectual diagram for an object and then you need to create an instance of that class in JavaScript, inheritance works using prototypes - in prototypal inheritance, new objects are created using previously created objects.
@@ -69,7 +69,7 @@
 - [Quora: What is Prototypal Inheritance?](https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson)
 - [Medium: 10 JavaScript Interview Questions](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95)
 
-**Show a basic example of object-oriented JavaScript: properties, methods, instantiation.**
+### Show a basic example of object-oriented JavaScript: properties, methods, instantiation.
 
 ```js
 function Person(first_name, last_name) {
@@ -88,7 +88,7 @@ dude.hello("Matt");   // calling the method
 
   - that's a basic example of creating a "class" for the object, `Person`, with basic properties and a method.
 
-**Using the example above, add a method or property to your** `Person` **object.**
+### Using the example above, add a method or property to your** `Person` **object.
 
 ```js
 Person.prototype.full_name = function() {
@@ -152,16 +152,28 @@ person.getSpecies();            // alien
     + Getters
 
 
-**Demonstrate the concept of Inheritance in object-oriented JavaScript.**
+### Demonstrate the concept of Inheritance in object-oriented JavaScript.
 
 
-**Demonstrate the concept of Polymorphism in object-oriented JavaScript.**
+### Demonstrate the concept of Polymorphism in object-oriented JavaScript.
 
 
-**Explain ES6 Classes and how they relate to ES5 object-oriented JavaScript.**
+### Explain ES6 Classes and how they relate to ES5 object-oriented JavaScript.
 
 
-**Explain ALL the major concepts of object-oriented JavaScript, front-to-back.**
+### Explain ALL the major concepts of object-oriented JavaScript, front-to-back.
+
+
+### Explain how prototypal inheritance works
+
+- Prototypal inheritance and JavaScript Objects generally don't feel incredibly difficult but explaining *prototypes* in a succinct way is a bit tricky. I've read a lot of definitions that feel the need to address the fact that JavaScript classes don't *really* inherit methods the way other programming languages with classes do. The following "definition" is really just a list of important points relating to prototypes and then some code that explains it.
+- All JavaScript objects have a prototype property that is a reference to another object.
+- When you ask for a property or method on an object, if it's not there, JavaScript will traverse (go up) the prototype chain and try to find that property or method on the linked object. If it isn't there, it traverses again up the prototype chain looking for that property/method.
+- This will keep happening until it finds the property/method OR it runs out of objects to traverse.
+- This link explains more of the computer science answer as to why "prototypal inheritance" doesn't quite apply to JavaScript if you use the word "inheritance" as it's intended from classical languages: [Quora: What is Prototypal Inheritance](https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson)
+- Here is another good link from Kyle Simpson's **You Don't Know JS**: [Chapter 5: Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md#chapter-5-prototypes)
+- Other links:
+    
 
 
 
@@ -180,7 +192,11 @@ person.getSpecies();            // alien
     + [https://www.sitepoint.com/object-oriented-javascript-deep-dive-es6-classes/](https://www.sitepoint.com/object-oriented-javascript-deep-dive-es6-classes/)
     + [https://developers.redhat.com/blog/2016/11/08/data-hiding-in-es6/](https://developers.redhat.com/blog/2016/11/08/data-hiding-in-es6/)
     + [http://tatiyants.com/groking-javascript-encapsulation/](http://tatiyants.com/groking-javascript-encapsulation/)
-    + 
++ *Prototypes & Inheritance*
+    + [coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-16-what-is-the-prototype-chain)
+    + [Master JavaScript Prototypes & Inheritance](https://codeburst.io/master-javascript-prototypes-inheritance-d0a9a5a75c4e)
+    + [MDN: Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+    
 
 ## Hard
 
@@ -313,8 +329,45 @@ console.log(twelve);            // 12
 
 ## Intermediate
 
+### Can you name two programming paradigms important for JavaScript app developers?
+
+> JavaScript is a multi-paradigm language, supporting imperative/procedural programming along with OOP (Object-Oriented Programming) and functional programming. JavaScript supports OOP with prototypal inheritance.
+
+
+
+[[↑] Back to top](#top)
+
+
+### What is functional programming?
+
+> Functional programming produces programs by composing mathematical functions and avoids shared state & mutable data.
+
+- Functional programming has pure functions:
+    + no side-effects
+    + same input returns the same output every time
+
+
+
 ### How do you organize your code? (module pattern, classical inheritance?) Explain the Module Pattern. Explain Classical Inheritance.
 
+- Here is an example of the Module Pattern:
+
+```js
+var Module = (function() {
+    function privateMethod() {
+        // do something
+    }
+
+    return {
+        publicMethod: function() {
+            // can call privateMethod();
+        }
+    };
+})();
+
+Module.publicMethod(); // works
+Module.privateMethod(); // Uncaught ReferenceError: privateMethod is not defined
+```
 
 [[↑] Back to top](#top)
 
@@ -581,6 +634,68 @@ obj.method(fn, 1);
 [[↑] Back to top](#top)
 
 
+### The Rules of `this`
+
+1 - If the `new` keyword is used when calling the function, `this` inside the function is a brand new object created by the JavaScript engine.
+
+```js
+function ConstructorExample() {
+    console.log(this);
+    this.value = 10;
+    console.log(this);
+}
+
+new ConstructorExample();
+
+// -> ConstructorExample {}
+// -> ConstructorExample { value: 10 }
+```
+
+2 - If `apply`, `call`, or `bind` are used to call a function, `this` inside the function is the object that is passed in as the argument.
+
+```js
+function fn() {
+    console.log(this);
+}
+
+var obj = {
+    value: 5
+};
+
+var boundFn = fn.bind(obj);
+
+boundFn(); // -> { value: 5 }
+fn.call(obj); // -> { value: 5 }
+fn.apply(obj); // -> { value: 5 }
+```
+
+3 - If a function is called as a method — that is, if dot notation is used to invoke the function — `this` is the object that the function is a property of. In other words, when a dot is to the left of a function invocation, `this` is the object to the left of the dot. (`ƒ` symbolizes function in the code blocks)
+
+```js
+const obj = {
+    value: 5,
+    printThis: function() {
+      console.log(this);
+    }
+};
+
+obj.printThis(); // -> { value: 5, printThis: ƒ }
+```
+
+4 - If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In a browser, it’s `window`.
+
+```js
+function fn() {
+    console.log(this);
+}
+
+// if called in browser:
+fn(); // -> Window {stop: ƒ, open: ƒ, alert: ƒ, ...}
+```
+
+
+- Source: [https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040](https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040)
+
 
 ### Hoisting - What will be the output of this code?
 
@@ -653,18 +768,7 @@ function isEqual(a, b) {
 
 
 
-### Explain how prototypal inheritance works
 
-- Prototypal inheritance and JavaScript Objects generally don't feel incredibly difficult but explaining *prototypes* in a succinct way is a bit tricky. I've read a lot of definitions that feel the need to address the fact that JavaScript classes don't *really* inherit methods the way other programming languages with classes do. The following "definition" is really just a list of important points relating to prototypes and then some code that explains it.
-- All JavaScript objects have a prototype property that is a reference to another object.
-- When you ask for a property or method on an object, if it's not there, JavaScript will traverse (go up) the prototype chain and try to find that property or method on the linked object. If it isn't there, it traverses again up the prototype chain looking for that property/method.
-- This will keep happening until it finds the property/method OR it runs out of objects to traverse.
-- This link explains more of the computer science answer as to why "prototypal inheritance" doesn't quite apply to JavaScript if you use the word "inheritance" as it's intended from classical languages: [Quora: What is Prototypal Inheritance](https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson)
-- Here is another good link from Kyle Simpson's **You Don't Know JS**: [Chapter 5: Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md#chapter-5-prototypes)
-- Other links:
-    + [MDN: Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
-    + [coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-16-what-is-the-prototype-chain)
-    + 
 
 [[↑] Back to top](#top)
 
@@ -791,6 +895,22 @@ apple = "orange";               // TypeError: Assignment to constant variable.
 - Asynchronous functions usually accept a callback as a parameter and execution continues on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
 - A `Promise` is used to handle asynchronous code. It allows you to make asynchronous code look synchronous
 - JavaScript is a single-threaded language
+
+[[↑] Back to top](#top)
+
+### What is asynchronous programming, and why is it important in JavaScript?
+
+- On synchronous programming:
+
+> Synchronous programming means that, barring conditionals and function calls, code is executed sequentially from top-to-bottom, blocking on long-running tasks such as network requests and disk I/O.
+
+- vs. asynchronous:
+
+> Asynchronous programming means that the engine runs in an event loop. When a blocking operation is needed, the request is started, and the code keeps running without blocking for the result. When the response is ready, an interrupt is fired, which causes an event handler to be run, where the control flow continues. In this way, a single program thread can handle many concurrent operations.
+
+
+
+
 
 [[↑] Back to top](#top)
 
@@ -1060,6 +1180,11 @@ class Student extends Person {
 - A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. 
 - Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. 
 - Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind` is one such example in JavaScript.
+
+
+**Links:**
+
+- [https://www.sitepoint.com/higher-order-functions-javascript/](https://www.sitepoint.com/higher-order-functions-javascript/)
 
 [[↑] Back to top](#top)
 
