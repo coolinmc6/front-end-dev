@@ -1,10 +1,10 @@
 <table>
 	<thead>
 		<tr>
-			<th colspan="4" style="text-align: center;"><strong>Subjects of Study</strong></th>
+			<th colspan="5" style="text-align: center;"><strong>Subjects of Study</strong></th>
 		</tr>
 		<tr>
-			<td colspan="4">The links below are to the parent GitHub repos of completed courses, resources, my own notes, links to articles, etc. about the topics shown below. They are designed to be my "go-to" place for teaching myself the given subject.</td>
+			<td colspan="5">The links below are to the parent GitHub repos of completed courses, resources, my own notes, links to articles, etc. about the topics shown below. They are designed to be my "go-to" place for teaching myself the given subject.</td>
 		</tr>
 	</thead>
 	<tbody>
