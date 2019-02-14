@@ -4,11 +4,23 @@
 
 ### Table of Contents
 
+#### TOC by Difficulty
+
 - [OOP in JavaScript](#oop-in-javascript)
 - [Hard Questions](#hard) 
 - [Intermediate Questions](#intermediate)
 - [Easy Questions](#easy)
 - [Glossary](#glossary)
+
+#### TOC by Concept
+
+<details>
+<summary>Object-Oriented JavaScript</summary>
+
+* [Example](#)
+* [Example](#)
+* [Example](#)
+</details>
 
 ## OOP in JavaScript
 
@@ -914,7 +926,7 @@ apple = "orange";               // TypeError: Assignment to constant variable.
 
 [[↑] Back to top](#top)
 
-### What is event loop? What is the difference between call stack and task queue?
+### What is the event loop? What is the difference between call stack and task queue?
 
 > The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
 
@@ -1159,6 +1171,29 @@ class Student extends Person {
 - the above definition is pretty easy to understand. *Attributes* are in HTML and can be defined in the HTML elements. *Properties* are just like the properties on an object - and that's what it is: the browser parses the code and a corresponding DOM node is created. This node is an object that has properties.
 
 [[↑] Back to top](#top)
+
+
+### What is the DOM?
+
+[[↑] Back to top](#top)
+
+
+### What is REST, and why do people use it?
+
+[[↑] Back to top](#top)
+
+### My website is slow. Walk me through diagnosing and fixing it. What are some performance optimizations people use, and when should they be used?
+
+
+
+[[↑] Back to top](#top)
+
+
+### What frameworks have you used? What are the pros and cons of each? Why do people use frameworks? What kinds of problems do frameworks solve?
+
+
+[[↑] Back to top](#top)
+
 
 ### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
 
