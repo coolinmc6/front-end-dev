@@ -7,4 +7,6 @@
 - [https://www.sanfoundry.com/computer-network-questions-answers/](https://www.sanfoundry.com/computer-network-questions-answers/)
 - [https://www.softwaretestinghelp.com/networking-interview-questions-2/](https://www.softwaretestinghelp.com/networking-interview-questions-2/)
 - [https://www.educba.com/computer-network-interview-questions/](https://www.educba.com/computer-network-interview-questions/)
+- [https://www.educba.com/networking-interview-questions/](https://www.educba.com/networking-interview-questions/)
+- [https://www.educba.com/network-security-interview-questions/](https://www.educba.com/network-security-interview-questions/)
 
