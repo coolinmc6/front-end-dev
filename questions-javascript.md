@@ -31,7 +31,7 @@
 
 ### Table of Contents
 
-#### TOC by Difficulty
+#### By Difficulty
 
 - [OOP in JavaScript](#oop-in-javascript)
 - [Hard Questions](#hard) 
@@ -39,15 +39,117 @@
 - [Easy Questions](#easy)
 - [Glossary](#glossary)
 
-#### TOC by Concept
+#### By Concept
+
+<details>
+<summary>Asynchronous JavaScript</summary>
+
+* [What is a Promise? How does a Promise work?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-a-promise-how-does-a-promise-work)
+* [How do you use Async/Await?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#how-do-you-use-asyncawait)
+* [Explain the difference between synchronous and asynchronous functions.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#explain-the-difference-between-synchronous-and-asynchronous-functions)
+* [What is asynchronous programming, and why is it important in JavaScript?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-asynchronous-programming-and-why-is-it-important-in-javascript)
+</details>
+
+
+<details>
+<summary>Basic JavaScript</summary>
+
+* [What language constructions do you use for iterating over object properties and array items?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items)
+* [What's the difference between a variable that is: null, undefined or undeclared? How would you go about checking for any of these states?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
+* [What is "use strict" and what does it do?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-use-strict-and-what-does-it-do)
+</details>
+
+
+
+<details>
+<summary>ES6</summary>
+
+* [ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)
+* [What are the benefits of using spread syntax and how is it different from rest syntax?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
+* [What are the differences between variables created using let, var or const?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-are-the-differences-between-variables-created-using-let-var-or-const)
+* [What are the differences between ES6 class and ES5 function constructors?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-are-the-differences-between-es6-class-and-es5-function-constructors)
+* [What advantage is there for using the arrow syntax for a method in a constructor?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
+* [Can you give an example for destructuring an object or an array?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#can-you-give-an-example-for-destructuring-an-object-or-an-array)
+</details>
+
+
+<details>
+<summary>How JavaScript Works</summary>
+
+* [In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#in-what-order-will-the-numbers-1-4-be-logged-to-the-console-when-the-code-below-is-executed-why)
+* [Describe event bubbling.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#describe-event-bubbling)
+* [What is the event loop? What is the difference between call stack and task queue?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-the-event-loop-what-is-the-difference-between-call-stack-and-task-queue)
+</details>
+
+
+
+
+<details>
+<summary>JavaScript Objects and `this`</summary>
+
+* [The Rules of `this`](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#the-rules-of-this)
+* [This - Testing your this knowledge in JavaScript: What is the output of the following code?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#this---testing-your-this-knowledge-in-javascript-what-is-the-output-of-the-following-code)
+* [Object Clone - How do you clone an object?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#object-clone---how-do-you-clone-an-object)
+* [Object Equality - How would you compare two objects in JavaScript?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#object-equality---how-would-you-compare-two-objects-in-javascript)
+</details>
+
+
+
+
+<details>
+<summary>Miscellaneous</summary>
+
+* [Can you name two programming paradigms important for JavaScript app developers?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#can-you-name-two-programming-paradigms-important-for-javascript-app-developers)
+* [Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a string is a palindrome.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#write-a-simple-function-less-than-160-characters-that-returns-a-boolean-indicating-whether-or-not-a-string-is-a-palindrome)
+* [Write a sum method which will work properly when invoked using either syntax below.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#write-a-sum-method-which-will-work-properly-when-invoked-using-either-syntax-below)
+* [What is JSONP? How does it work and how is it different than AJAX?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-jsonp-how-does-it-work-and-how-is-it-different-than-ajax)
+* [How do you debug JavaScript? What tools and techniques do you use debugging JavaScript code?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#how-do-you-debug-javascript-what-tools-and-techniques-do-you-use-debugging-javascript-code)
+* [Explain the difference between mutable and immutable objects.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#explain-the-difference-between-mutable-and-immutable-objects)
+</details>
 
 <details>
 <summary>Object-Oriented JavaScript</summary>
+
+* [What is object-oriented programming (OOP)?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-object-oriented-programming-oop)
+* [Lay the foundation for OOP in JavaScript. Why is it so different than other languages?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#lay-the-foundation-for-oop-in-javascript-why-is-it-so-different-than-other-languages)
+* [Explain the difference between prototypal and classical inheritance.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#explain-the-difference-between-prototypal-and-classical-inheritance)
+* [Show a basic example of object-oriented JavaScript: properties, methods, instantiation.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#show-a-basic-example-of-object-oriented-javascript-properties-methods-instantiation)
+* [Using the example above, add a method or property to your `Person` object.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#using-the-example-above-add-a-method-or-property-to-your-person-object)
+* [Explain how prototypal inheritance works](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#explain-how-prototypal-inheritance-works)
+</details>
+
+
+<details>
+<summary>Scope</summary>
 
 * [Example](#)
 * [Example](#)
 * [Example](#)
 </details>
+
+<details>
+<summary>Tricky JavaScript Topics</summary>
+
+* [What is a closure, and how/why would you use one?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-a-closure-and-howwhy-would-you-use-one)
+* [Closures - What will be the output of the following code](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#closures---what-will-be-the-output-of-the-following-code)
+* [Can you give an example of a curry function and why this syntax offers an advantage?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage)
+* [Hoisting - What will be the output of this code?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#hoisting---what-will-be-the-output-of-this-code)
+* [Explain "hoisting".](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#explain-hoisting)
+* [What's a typical use case for anonymous functions?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#whats-a-typical-use-case-for-anonymous-functions)
+</details>
+
+
+<details>
+<summary>Template</summary>
+
+* [Example](#)
+* [Example](#)
+* [Example](#)
+</details>
+
+
+
+
 
 ## OOP in JavaScript
 
@@ -335,6 +437,39 @@ X();
 
 [[↑] Back to top](#top)
 
+### Closures - What will be the output of the following code:
+
+```js
+for (var i = 0; i < 5; i++) {
+    setTimeout(function() { console.log(i); }, i * 1000 );
+}
+```
+**Explain your answer. How could the use of closures help here?**
+
+- The number 5 is printed 5 times
+- I've seen this type of closure question before. Here is how you can solve it:
+
+```js
+for (var i = 0; i < 5; i++) {
+    (function(i) {
+        setTimeout(function() { console.log(i); }, i * 1000 );     
+    })(i)
+   
+}
+```
+
+- First, why does it NOT work? As I've seen from other questions, the `setTimeout()` functions will not get executed until after the `for` loop is done. This means that when it is done, each execution will reference the last value of `i`, which will be 5.
+- So how do we fix this? We can fix this with closures to create a unique scope for each iteration and storing the value of the `i` variable we want within its scope.
+- By wrapping the `setTimeout` in an IIFE and passing `i` to the IIFE as opposed to directly to to the `setTimeout`, I can enclose each value of `i` in the closure so that particular value is logged and attached to the function.
+- We can also solve this using ES6 syntax and using `let` as opposed to `var`. As a reminder, `let` and `const` have block-level scope while `var` has function level scope. 
+
+- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+
+[[↑] Back to top](#top)
+
+
+
+
 ### Can you give an example of a curry function and why this syntax offers an advantage?
 
 > Currying is when you break down a function that takes multiple arguments into a series of functions that take part of the arguments.
@@ -610,37 +745,6 @@ var nextListItem = function() {
 [[↑] Back to top](#top)
 
 
-### Closures - What will be the output of the following code:
-
-```js
-for (var i = 0; i < 5; i++) {
-	setTimeout(function() { console.log(i); }, i * 1000 );
-}
-```
-**Explain your answer. How could the use of closures help here?**
-
-- The number 5 is printed 5 times
-- I've seen this type of closure question before. Here is how you can solve it:
-
-```js
-for (var i = 0; i < 5; i++) {
-    (function(i) {
-        setTimeout(function() { console.log(i); }, i * 1000 );     
-    })(i)
-   
-}
-```
-
-- First, why does it NOT work? As I've seen from other questions, the `setTimeout()` functions will not get executed until after the `for` loop is done. This means that when it is done, each execution will reference the last value of `i`, which will be 5.
-- So how do we fix this? We can fix this with closures to create a unique scope for each iteration and storing the value of the `i` variable we want within its scope.
-- By wrapping the `setTimeout` in an IIFE and passing `i` to the IIFE as opposed to directly to to the `setTimeout`, I can enclose each value of `i` in the closure so that particular value is logged and attached to the function.
-- We can also solve this using ES6 syntax and using `let` as opposed to `var`. As a reminder, `let` and `const` have block-level scope while `var` has function level scope. 
-
-- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
-
-[[↑] Back to top](#top)
-
-
 ### This - Testing your `this` knowledge in JavaScript: What is the output of the following code?
 
 ```js
@@ -735,6 +839,87 @@ fn(); // -> Window {stop: ƒ, open: ƒ, alert: ƒ, ...}
 
 - Source: [https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040](https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040)
 
+
+### Explain "hoisting".
+
+- A simple definition of *hoisting* is the declaration of functions and variables "moved" to the top of the current scope.
+- Your code isn't magically being moved to the top - what's actualy happening is that your declarations are added to memory during the compile phase.
+- Here are some examples to show how it applies to variables and functions and some take-aways to remember:
+
+```js
+console.log(a); // undefined
+var a = 5;
+console.log(a); // 5
+
+console.log(b); // ReferenceError: b is not defined
+```
+
+- There are a few things to notice here:
+    + first, I am logging the value of `a` right away and I get `undefined`. This right here is **hoisting** in action. It gets `undefined` because I declared `a` in the second line (`var a = 5`)
+    + Skipping to the bottom, notice how `b`, which is never declared, does NOT get the same `undefined`, it gets a ReferenceError. There was no `b` declaration to hoist therefore JavaScript has no idea what the hell `b` is
+    + On line 2 I define `a` and then print out its value on line 3. Nothing controversial there; that's normal behavior.
+    + The key thing to notice is the difference between what happens on line 1 (`undefined` is logged) because `a` has been declared SOMEWHERE in the code and what happens on line 5 (`ReferenceError`) because `b` was never declared.
+- That's the first example: simple `var` declarations. A take-away here is that **only declarations are hoisted**, not *initializations*. 
+- Sticking with variables, the next example shows how hoisting only applies to variables declared with `var`:
+
+```js
+console.log(a); // ReferenceError: a is not defined
+let a = 5;
+console.log(a); // [NEVER EXECUTED]: because of the error, this is never run
+```
+
+```js
+console.log(a); // ReferenceError: a is not defined
+const a = 5;
+console.log(a); // [NEVER EXECUTED]: because of the error, this is never run
+```
+
+- In these two examples, we are using the `let` and `const` keywords as opposed to `var`. 
+- The key take-away here is that they cannot be hoisted! 
+    + `var`: Yes, it is hoisted
+    + `let`: NO, it is **not** hoisted
+    + `const`: NO, it is **not** hoisted
+- Moving onto functions:
+
+```js
+sayHello('Colin');  // Hello, Colin
+function sayHello(name) {
+    console.log('Hello, ', name);
+}
+sayHello('Colin');  // Hello, Colin
+```
+
+- Notice that it works both times! I call `sayHello()` on line 1 despite declaring in line 2 and it still works!
+- The Line 5 call of `sayHello()` also works as expected
+- As a quick sidenote, the way I've declared `sayHello` above is called a *function declaration*. It uses the function keyword and then name of the argument. In the above example, `sayHello` was hoisted. The same does not apply to *function expressions* like below:
+
+```js
+sayHello('Colin');  // TypeError: sayHello is not a function
+var sayHello = function(name) {
+    console.log('Hello, ', name);
+}
+sayHello('Colin');
+```
+
+- Notice how I get a `TypeError` - it has no idea what `sayHello` is.
+- Here is a quick table about hoisting:
+
+|Type|Code|Hoisted?|
+|:---:|:---:|:---:|
+|Variable|`var` declaration|**Yes**|
+|Variable|`let` declaration|No|
+|Variable|`const` declaration|No|
+|Function|Function declaration<br>`function sayHello(){}`|**Yes**|
+|Function|Function expression<br>`var sayHello = function(){}`|No|
+
+
+**References**
+
+- [Medium: What is Hoisting?](https://codeburst.io/javascript-what-is-hoisting-dfa84512dd28)
+- [FEIH: Explain Hosting](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md#explain-hoisting)
+- [coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-9-what-is-variable-hoisting)
+
+[[↑] Back to top](#top)
 
 ### Hoisting - What will be the output of this code?
 
@@ -1293,92 +1478,12 @@ var person = {
 
 const { age, name } = person;
 console.log(name) // Colin
-console.log(age)  // 12
+console.log(age);  // 12
 ```
 
 
 [[↑] Back to top](#top)
 
-### Explain "hoisting".
-
-- A simple definition of *hoisting* is the declaration of functions and variables "moved" to the top of the current scope.
-- Your code isn't magically being moved to the top - what's actualy happening is that your declarations are added to memory during the compile phase.
-- Here are some examples to show how it applies to variables and functions and some take-aways to remember:
-
-```js
-console.log(a); // undefined
-var a = 5;
-console.log(a); // 5
-
-console.log(b); // ReferenceError: b is not defined
-```
-
-- There are a few things to notice here:
-    + first, I am logging the value of `a` right away and I get `undefined`. This right here is **hoisting** in action. It gets `undefined` because I declared `a` in the second line (`var a = 5`)
-    + Skipping to the bottom, notice how `b`, which is never declared, does NOT get the same `undefined`, it gets a ReferenceError. There was no `b` declaration to hoist therefore JavaScript has no idea what the hell `b` is
-    + On line 2 I define `a` and then print out its value on line 3. Nothing controversial there; that's normal behavior.
-    + The key thing to notice is the difference between what happens on line 1 (`undefined` is logged) because `a` has been declared SOMEWHERE in the code and what happens on line 5 (`ReferenceError`) because `b` was never declared.
-- That's the first example: simple `var` declarations. A take-away here is that **only declarations are hoisted**, not *initializations*. 
-- Sticking with variables, the next example shows how hoisting only applies to variables declared with `var`:
-
-```js
-console.log(a); // ReferenceError: a is not defined
-let a = 5;
-console.log(a); // [NEVER EXECUTED]: because of the error, this is never run
-```
-
-```js
-console.log(a); // ReferenceError: a is not defined
-const a = 5;
-console.log(a); // [NEVER EXECUTED]: because of the error, this is never run
-```
-
-- In these two examples, we are using the `let` and `const` keywords as opposed to `var`. 
-- The key take-away here is that they cannot be hoisted! 
-    + `var`: Yes, it is hoisted
-    + `let`: NO, it is **not** hoisted
-    + `const`: NO, it is **not** hoisted
-- Moving onto functions:
-
-```js
-sayHello('Colin');  // Hello, Colin
-function sayHello(name) {
-    console.log('Hello, ', name);
-}
-sayHello('Colin');  // Hello, Colin
-```
-
-- Notice that it works both times! I call `sayHello()` on line 1 despite declaring in line 2 and it still works!
-- The Line 5 call of `sayHello()` also works as expected
-- As a quick sidenote, the way I've declared `sayHello` above is called a *function declaration*. It uses the function keyword and then name of the argument. In the above example, `sayHello` was hoisted. The same does not apply to *function expressions* like below:
-
-```js
-sayHello('Colin');  // TypeError: sayHello is not a function
-var sayHello = function(name) {
-    console.log('Hello, ', name);
-}
-sayHello('Colin');
-```
-
-- Notice how I get a `TypeError` - it has no idea what `sayHello` is.
-- Here is a quick table about hoisting:
-
-|Type|Code|Hoisted?|
-|:---:|:---:|:---:|
-|Variable|`var` declaration|**Yes**|
-|Variable|`let` declaration|No|
-|Variable|`const` declaration|No|
-|Function|Function declaration<br>`function sayHello(){}`|**Yes**|
-|Function|Function expression<br>`var sayHello = function(){}`|No|
-
-
-**References**
-
-- [Medium: What is Hoisting?](https://codeburst.io/javascript-what-is-hoisting-dfa84512dd28)
-- [FEIH: Explain Hosting](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md#explain-hoisting)
-- [coolinmc6/advanced_javascript](https://github.com/coolinmc6/advanced_javascript#lecture-9-what-is-variable-hoisting)
-
-[[↑] Back to top](#top)
 
 ### What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?
 
