@@ -136,6 +136,7 @@
 ## OOP in JavaScript
 
 
+
 ### What is object-oriented programming (OOP)?
 
 - A widely accepted definition of OOP that is used to classify a language as "object-oriented" is based on two requirements:
