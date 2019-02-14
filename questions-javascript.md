@@ -43,27 +43,19 @@
 
 <details>
 <summary>Asynchronous JavaScript</summary>
-
 * [What is a Promise? How does a Promise work?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-a-promise-how-does-a-promise-work)
 * [How do you use Async/Await?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#how-do-you-use-asyncawait)
 * [Explain the difference between synchronous and asynchronous functions.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#explain-the-difference-between-synchronous-and-asynchronous-functions)
 * [What is asynchronous programming, and why is it important in JavaScript?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-asynchronous-programming-and-why-is-it-important-in-javascript)
 </details>
-
-
 <details>
 <summary>Basic JavaScript</summary>
-
 * [What language constructions do you use for iterating over object properties and array items?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items)
 * [What's the difference between a variable that is: null, undefined or undeclared? How would you go about checking for any of these states?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#whats-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)
 * [What is "use strict" and what does it do?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-use-strict-and-what-does-it-do)
 </details>
-
-
-
 <details>
 <summary>ES6</summary>
-
 * [ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)
 * [What are the benefits of using spread syntax and how is it different from rest syntax?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
 * [What are the differences between variables created using let, var or const?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-are-the-differences-between-variables-created-using-let-var-or-const)
@@ -71,34 +63,21 @@
 * [What advantage is there for using the arrow syntax for a method in a constructor?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
 * [Can you give an example for destructuring an object or an array?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#can-you-give-an-example-for-destructuring-an-object-or-an-array)
 </details>
-
-
 <details>
 <summary>How JavaScript Works</summary>
-
 * [In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#in-what-order-will-the-numbers-1-4-be-logged-to-the-console-when-the-code-below-is-executed-why)
 * [Describe event bubbling.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#describe-event-bubbling)
 * [What is the event loop? What is the difference between call stack and task queue?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-the-event-loop-what-is-the-difference-between-call-stack-and-task-queue)
 </details>
-
-
-
-
 <details>
 <summary>JavaScript Objects and `this`</summary>
-
 * [The Rules of `this`](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#the-rules-of-this)
 * [This - Testing your this knowledge in JavaScript: What is the output of the following code?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#this---testing-your-this-knowledge-in-javascript-what-is-the-output-of-the-following-code)
 * [Object Clone - How do you clone an object?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#object-clone---how-do-you-clone-an-object)
 * [Object Equality - How would you compare two objects in JavaScript?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#object-equality---how-would-you-compare-two-objects-in-javascript)
 </details>
-
-
-
-
 <details>
 <summary>Miscellaneous</summary>
-
 * [Can you name two programming paradigms important for JavaScript app developers?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#can-you-name-two-programming-paradigms-important-for-javascript-app-developers)
 * [Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a string is a palindrome.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#write-a-simple-function-less-than-160-characters-that-returns-a-boolean-indicating-whether-or-not-a-string-is-a-palindrome)
 * [Write a sum method which will work properly when invoked using either syntax below.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#write-a-sum-method-which-will-work-properly-when-invoked-using-either-syntax-below)
@@ -106,10 +85,8 @@
 * [How do you debug JavaScript? What tools and techniques do you use debugging JavaScript code?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#how-do-you-debug-javascript-what-tools-and-techniques-do-you-use-debugging-javascript-code)
 * [Explain the difference between mutable and immutable objects.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#explain-the-difference-between-mutable-and-immutable-objects)
 </details>
-
 <details>
 <summary>Object-Oriented JavaScript</summary>
-
 * [What is object-oriented programming (OOP)?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-object-oriented-programming-oop)
 * [Lay the foundation for OOP in JavaScript. Why is it so different than other languages?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#lay-the-foundation-for-oop-in-javascript-why-is-it-so-different-than-other-languages)
 * [Explain the difference between prototypal and classical inheritance.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#explain-the-difference-between-prototypal-and-classical-inheritance)
@@ -117,19 +94,15 @@
 * [Using the example above, add a method or property to your `Person` object.](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#using-the-example-above-add-a-method-or-property-to-your-person-object)
 * [Explain how prototypal inheritance works](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#explain-how-prototypal-inheritance-works)
 </details>
-
-
 <details>
 <summary>Scope</summary>
-
-* [Example](#)
-* [Example](#)
-* [Example](#)
+* [What is a closure, and how/why would you use one?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-a-closure-and-howwhy-would-you-use-one)
+* [Closures - What will be the output of the following code](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#closures---what-will-be-the-output-of-the-following-code)
+* [Hoisting - What will be the output of this code?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#hoisting---what-will-be-the-output-of-this-code)
+* [Explain "hoisting".](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#explain-hoisting)
 </details>
-
 <details>
 <summary>Tricky JavaScript Topics</summary>
-
 * [What is a closure, and how/why would you use one?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-is-a-closure-and-howwhy-would-you-use-one)
 * [Closures - What will be the output of the following code](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#closures---what-will-be-the-output-of-the-following-code)
 * [Can you give an example of a curry function and why this syntax offers an advantage?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#can-you-give-an-example-of-a-curry-function-and-why-this-syntax-offers-an-advantage)
