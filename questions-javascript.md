@@ -135,7 +135,7 @@
 
 ## OOP in JavaScript
 
-
+![OOP Example](https://github.com/coolinmc6/front-end-dev/blob/master/assets/oop-cool.png)
 
 ### What is object-oriented programming (OOP)?
 
@@ -340,6 +340,8 @@ person.getSpecies();            // alien
 
 ## Hard
 
+![Difficult Questions](https://github.com/coolinmc6/front-end-dev/blob/master/assets/physics-equations-mugs.jpg)
+
 ### What is a closure, and how/why would you use one?
 
 - Here are a number of different definitions for closures from a number of different sources:
@@ -501,6 +503,8 @@ console.log(twelve);            // 12
 
 
 ## Intermediate
+
+![Intermediate Questions](https://github.com/coolinmc6/front-end-dev/blob/master/assets/struggle.jpg)
 
 ### Can you name two programming paradigms important for JavaScript app developers?
 
@@ -1248,6 +1252,8 @@ This is line two.`);
 [[↑] Back to top](#top)
 
 ## Easy
+
+![Easy Questions](https://github.com/coolinmc6/front-end-dev/blob/master/assets/building-blocks.jpg)
 
 ### What are the differences between variables created using let, var or const?
 
