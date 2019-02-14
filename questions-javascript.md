@@ -135,9 +135,6 @@
 
 ## OOP in JavaScript
 
-- I've struggled to really dig deep into object-oriented JavaScript. It's not really that difficult but there's just a lot going on. I'm going to try to do two things:
-    + define the terms or concepts with both explanations and code
-    + break down "object-oriented JavaScript" into concrete, specific examples or questions that I can quickly use to explain it
 
 ### What is object-oriented programming (OOP)?
 
@@ -168,6 +165,8 @@
 
 > Generally, the ability to appear in many forms. In object-oriented programming, polymorphism refers to a programming language's ability to process objects differently depending on their data type or class. More specifically, it is the ability to redefine methods for derived classes.
 
+[[↑] Back to top](#top)
+
 ### Lay the foundation for OOP in JavaScript. Why is it so different than other languages?
 
 - This is a super-quick overview of object-oriented programming in JavaScript.
@@ -177,6 +176,8 @@
 - Instead of "copying down" the methods/properties, the child object "delegate up" the prototype chain in search of that method or property. So it could theoretically go from *child object* to *parent object*; if the method isn't there, it could go from *parent object* to *grandparent object* looking for the method/property. Eventually, it goes up the chain until you find the method. That chain ends with the parent for **all** objects in JavaScript, the Object, wherein if the method/property isn't there, it is `undefined`.
 - So with that foundation, I've learned that object-oriented JavaScript is really an implementation of OOP principles using different techniques to mimic certain features that the language doesn't natively support.
 - In addition to the major feature I mentioned above, **inheritance**, there are patterns and best practices of how to implement certain other features of OOP like private properties, getter/setter functions, etc.
+
+[[↑] Back to top](#top)
 
 ### Explain the difference between prototypal and classical inheritance.
 
@@ -211,6 +212,8 @@ dude.hello("Matt");   // calling the method
 
   - that's a basic example of creating a "class" for the object, `Person`, with basic properties and a method.
 
+[[↑] Back to top](#top)
+
 ### Using the example above, add a method or property to your** `Person` **object.
 
 ```js
@@ -228,7 +231,9 @@ console.log(dude.monopoly); // {money: 1500, cards: Array(0)}
 ```
   - notice how both are logged out. Despite not being instantiated with either the `full_name()` method or the `monopoly` property, the `dude` object has access to them.
 
-**Demonstrate the concepts of Encapsulation in object-oriented JavaScript**
+[[↑] Back to top](#top)
+
+### Demonstrate the concepts of Encapsulation in object-oriented JavaScript
 
 - Here are some definitions of encapsulation:
 
@@ -275,17 +280,26 @@ person.getSpecies();            // alien
     + Getters
 
 
+[[↑] Back to top](#top)
+
 ### Demonstrate the concept of Inheritance in object-oriented JavaScript.
 
+
+[[↑] Back to top](#top)
 
 ### Demonstrate the concept of Polymorphism in object-oriented JavaScript.
 
 
+[[↑] Back to top](#top)
+
 ### Explain ES6 Classes and how they relate to ES5 object-oriented JavaScript.
 
+[[↑] Back to top](#top)
 
 ### Explain ALL the major concepts of object-oriented JavaScript, front-to-back.
 
+
+[[↑] Back to top](#top)
 
 ### Explain how prototypal inheritance works
 
@@ -299,7 +313,7 @@ person.getSpecies();            // alien
     
 
 
-
+[[↑] Back to top](#top)
 
 **Links**
 
@@ -320,6 +334,8 @@ person.getSpecies();            // alien
     + [Master JavaScript Prototypes & Inheritance](https://codeburst.io/master-javascript-prototypes-inheritance-d0a9a5a75c4e)
     + [MDN: Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
     
+
+[[↑] Back to top](#top)
 
 ## Hard
 
