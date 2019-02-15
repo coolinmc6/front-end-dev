@@ -502,6 +502,29 @@ console.log(twelve);            // 12
 [[↑] Back to top](#top)
 
 
+### How would you implement currying for any function?
+
+- Curring is partial invocation of a function. Currying means that the first few arguments of a function are pre-processed and a function is returned. The returning function can add more arguments to the curried function.
+
+```js
+function addBase(base){
+  return function(num){
+    return base + num;
+  }
+}
+
+var addTen = addBase(10);
+addTen(5); //15
+addTen(80); //90
+addTen(-5); //5
+```
+
+- You are essentially creating a closure. So the new function "remembers" the `base` variable you entered for `addBase()`. So now, every time you call `addBase` you have that `10` still locked in there.
+
+[[↑] Back to top](#top)
+
+
+
 ## Intermediate
 
 ![Intermediate Questions](https://github.com/coolinmc6/front-end-dev/blob/master/assets/struggle.jpg)
@@ -547,6 +570,35 @@ Module.privateMethod(); // Uncaught ReferenceError: privateMethod is not defined
 ```
 
 [[↑] Back to top](#top)
+
+### Describe the Singleton Pattern in Javascript
+
+
+
+
+
+
+- Source: [https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-27-describe-singleton-pattern-in-javascript](https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-27-describe-singleton-pattern-in-javascript)
+
+
+[[↑] Back to top](#top)
+
+### What are the ways of creating objects in JavaScript?
+
+
+
+- Source: [https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-28-what-are-the-ways-of-creating-objects-in-javascript-](https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-28-what-are-the-ways-of-creating-objects-in-javascript-)
+
+[[↑] Back to top](#top)
+
+### Write a function called deepClone which takes an object and creates a object copy of it.
+
+
+- Source: [https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-29-write-a-function-called-deepclone-which-takes-an-object-and-creates-a-object-copy-of-it](https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-29-write-a-function-called-deepclone-which-takes-an-object-and-creates-a-object-copy-of-it)
+
+[[↑] Back to top](#top)
+
+
 
 
 ### Discuss possible ways to write a function `isInteger(x)` that determines if `x` is an integer.
@@ -843,6 +895,21 @@ fn(); // -> Window {stop: ƒ, open: ƒ, alert: ƒ, ...}
 - Source: [https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040](https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040)
 
 
+### What is `this` in JavaScript (and how does it work)?
+
+- At the time of execution of every function, the JavaScript engine sets a property to the function called `this` which refer to the current execution context. `this` always refers to an object and depends on how the function is called. There are 7 different cases where the value of `this` varies:
+    + In the global context or inside a function this refers to the window object.
+    + Inside IIFE (immediate invoking function) if you use "use strict", value of this is undefined. To pass access window inside IIFE with "use strict", you have to pass this.
+    + While executing a function in the context of an object, the object becomes the value of this
+    + Inside a setTimeout function, the value of this is the window object.
+    + If you use a constructor (by using new keyword) to create an object, the value of this will refer to the newly created object.
+    + You can set the value of this to any arbitrary object by passing the object as the first parameter of bind, call or apply
+    + For dom event handler, value of this would be the element that fired the event
+
+
+- Source: [http://www.thatjsdude.com/interview/js2.html#this](http://www.thatjsdude.com/interview/js2.html#this)
+
+
 ### Explain "hoisting".
 
 - A simple definition of *hoisting* is the declaration of functions and variables "moved" to the top of the current scope.
@@ -1058,6 +1125,19 @@ Sources:
   - [https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261)
   - [https://spring.io/understanding/javascript-promises](https://spring.io/understanding/javascript-promises)
   - [https://medium.com/@kvosswinkel/is-javascript-synchronous-or-asynchronous-what-the-hell-is-a-promise-7aa9dd8f3bfb](https://medium.com/@kvosswinkel/is-javascript-synchronous-or-asynchronous-what-the-hell-is-a-promise-7aa9dd8f3bfb)
+
+[[↑] Back to top](#top)
+
+
+### What are promises and how they are useful?
+
+- We use promises for handling asynchronous interactions in a sequential manner. They are especially useful when we need to do an async operation and **THEN** do another async operation based on the results of the first one. For example, if you want to request the list of all flights and then for each flight you want to request some details about it. The promise represents the future value. It has an internal state (`pending`, `fulfilled` and `rejected`) and works like a state machine.
+- A promise object has then method, where you can specify what to do when the promise is fulfilled or rejected.
+- You can chain `then()` blocks, thus avoiding the callback hell. You can handle errors in the `catch()` block. After a promise is set to fulfilled or rejected state, it becomes immutable.
+
+
+- Source: [https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-32-what-are-promises-and-how-they-are-useful](https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-32-what-are-promises-and-how-they-are-useful)
+- Read through: [https://opensourceconnections.com/blog/2014/02/16/a-simple-promise-implementation-in-about-20-lines-of-javascript/](https://opensourceconnections.com/blog/2014/02/16/a-simple-promise-implementation-in-about-20-lines-of-javascript/)
 
 [[↑] Back to top](#top)
 
@@ -1732,6 +1812,16 @@ console.log(Object.prototype.toString.call(Math));  // [object Math]
 
 
 **Answer:** 0
+
+- See this table for a good look at what is truthy: [https://dorey.github.io/JavaScript-Equality-Table/](https://dorey.github.io/JavaScript-Equality-Table/)
+- Source: [http://www.thatjsdude.com/interview/js2.html#trueLies](http://www.thatjsdude.com/interview/js2.html#trueLies)
+
+
+
+
+
+
+
 
 
 
