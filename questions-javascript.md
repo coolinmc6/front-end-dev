@@ -1639,6 +1639,102 @@ console.log(a);
 [[↑] Back to top](#top)
 
 
+### How do you check if an object is an array or not?
+
+```js
+var arrayList = [1,2,3];
+
+// Version 1
+if(Object.prototype.toString.call(arrayList) === '[object Array]') {
+    console.log('Array!');
+}
+
+// Examples of Object.prototype.toString()
+var obj = {a: 'object!!'};
+var str = 'string!!';
+var num = 8;
+var nul = null;
+var und = undefined;
+var bool = true;
+
+console.log(Object.prototype.toString.call(obj))    // [object Object]
+console.log(Object.prototype.toString.call(str))    // [object String]
+console.log(Object.prototype.toString.call(num))    // [object Number]
+console.log(Object.prototype.toString.call(nul))    // [object Null]
+console.log(Object.prototype.toString.call(und))    // [object Undefined]
+console.log(Object.prototype.toString.call(bool))   // [object Boolean]
+console.log(Object.prototype.toString.call(Math));  // [object Math]
+```
+
+- **Note:** using `typeof arrayList` won't solve your problem because it returns `object`. Using the `toString()` function and then calling it with whatever you're looking at allows you to see specifically what it is.
+
+- [https://www.codementor.io/nihantanu/21-essential-javascript-tech-interview-practice-questions-answers-du107p62z#question-7](https://www.codementor.io/nihantanu/21-essential-javascript-tech-interview-practice-questions-answers-du107p62z#question-7)
+
+[[↑] Back to top](#top)
+
+### Tricky Boolean Questions
+
+**Question:** Is `'false'` is false?
+
+
+**Answer:** No. Because, it's a string with length greater than 0. Only empty string is false.
+
+
+**Question:** Is `' '` is false?
+
+
+**Answer:** No. Because, it's not an empty string. There is a white space in it.
+
+
+**Question:** What about `{}`?
+
+
+**Answer:** true. It's an object. An object without any property is an object can't be falsy.
+
+
+**Question:** Tell me about `[]`?
+
+
+**Answer:** This is also truthy. It's an array object (array is child of object) is truthy.
+
+
+**Question:** You talked bout `''` to be falsy. What about `new String('')`?
+
+
+**Answer:** Though you are passing empty string to the string constructor, it is creating a String object. More precisely an instance of String object. It becomes an object. Hence, it is not false. so, it is truthy.
+
+
+**Question:** Tell me about `new Boolean(false)`
+
+
+**Answer:** truthy. As it creates an instance of the Boolean object which is an object. Object is truthy.
+
+
+**Question:** `Boolean(function(){})`
+
+
+**Answer:** `true` if you pass a truthy value to Boolean, it will be true.
+
+
+**Question:** `Boolean(/foo/)`
+
+
+**Answer:** `true`
+
+
+**Question:** `true%1`
+
+
+**Answer:** 0. When you are trying to find reminder of true, true becomes 1 and reminder of 1 while dividing by 1 is 0. you will get same result if you do `false%1`
+
+
+**Question:** `''%1`
+
+
+**Answer:** 0
+
+
+
 ## JavaScript Array Methods & Properties
 
 **References:**
