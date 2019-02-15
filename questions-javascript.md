@@ -1839,39 +1839,221 @@ console.log(Object.prototype.toString.call(Math));  // [object Math]
 
 - [MDN: Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
-concat
-constructor
-copyWithin
-entries
-every
-fill
-filter
-find
-findIndex
-flat
-flatMap
-forEach
-includes
-indexOf
-join
-keys
-lastIndexOf
-length
-map
-pop
-push
-reduce
-reduceRight
-reverse
-shift
-slice
-some
-sort
-splice
-toLocaleString
-toString
-unshift
-values
+
+**Array Methods: Original Untouched**
+
+- `concat()`
+
+**Array Methods: Original Altered**
+
+- `reverse()`
+- `sort()`
+
+### Array Methods - Alphabetical
+
+**concat**
+
+- `concat` does **not** mutate the original array.
+
+```js
+const arr1 = [1,2,3];
+const arr2 = [4,5,6];
+
+arr1.concat(arr2);
+
+console.log(arr1); // [1, 2, 3]
+
+const arr3 = arr1.concat(arr2)
+
+console.log(arr3); // [1, 2, 3, 4, 5, 6]
+```
+
+**copyWithin**
+
+
+
+**entries**
+
+
+
+**every**
+
+
+
+**fill**
+
+> The `fill()` method fills all the elements of an array from a start index to an end index with a static value. If the end index is not included, it will modify all the elements from the start index to the end of the array. It returns the modified array.
+
+- The array must exist before using this. You can't fill *nothing* with something.
+
+```js
+//============================
+// Create new array with numbers 1 - 10
+let arr = new Array(10).fill(1).map((num, idx) => num * (idx+1));
+// output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+//============================
+// MDN Example
+var array1 = [1, 2, 3, 4];
+
+// fill with 0 from position 2 until position 4
+console.log(array1.fill(0, 2, 4));
+// expected output: [1, 2, 0, 0]
+
+// fill with 5 from position 1
+console.log(array1.fill(5, 1));
+// expected output: [1, 5, 5, 5]
+
+console.log(array1.fill(6));
+// expected output: [6, 6, 6, 6]
+```
+
+**filter**
+
+
+
+**find**
+
+> The `find()` method returns the value of the first element in the array that satisfies the provided testing function. Otherwise `undefined` is returned.
+
+- *Note:* it returns the value, not an array containing the value. Similar to `filter` except it only returns one item and it's just the value you're looking for, not an array. I think `filter` is probably much more valuable.
+
+
+**findIndex**
+
+
+
+**flat**
+
+
+
+**flatMap**
+
+
+
+**forEach**
+
+
+
+**includes**
+
+
+
+**indexOf**
+
+> The `indexOf()` method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+```js
+let arr = new Array(10).fill(1).map((num, idx) => num * (idx+1));
+
+var index = arr.indexOf(10)
+console.log(index); // 9
+var index2 = arr.indexOf(11);
+console.log(index2); // -1
+```
+
+
+**join**
+
+
+
+**keys**
+
+
+
+**lastIndexOf**
+
+
+
+**length**
+
+
+
+**map**
+
+
+
+**pop**
+
+
+
+**push**
+
+
+
+**reduce**
+
+
+
+**reduceRight**
+
+
+
+**reverse**
+
+> The `reverse()` method reverses an array in place. The first array element becomes the last, and the last array element becomes the first.
+
+- **ALTERS THE ARRAY**. If you don't want to alter the array, you need to make a copy. 
+- "In-place" means that it transforms the input without using an auxiliary data structure (hence altering the original array).
+- See below a basic example:
+
+```js
+let arr = new Array(10).fill(1).map((num, idx) => num * (idx+1));
+arr.reverse();
+console.log(arr);   // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
+
+- If you don't want to alter the array, make a copy and then reverse it:
+
+```js
+let arr = new Array(10).fill(1).map((num, idx) => num * (idx+1));
+let arr2 = arr.slice();
+arr2.reverse();
+console.log(arr);   // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+console.log(arr2);  // [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
+
+- `arr` is untouched
+
+**shift**
+
+
+
+**slice**
+
+
+
+**some**
+
+
+
+**sort**
+
+> The `sort()` method sorts the elements of an array in place and returns the array. The default sort order is built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
+
+
+
+**splice**
+
+
+
+**toLocaleString**
+
+
+
+**toString**
+
+
+
+**unshift**
+
+
+
+**values**
+
+
+
 
 
 ## JavaScript Object Methods & Properties
