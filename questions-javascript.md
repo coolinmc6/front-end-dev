@@ -1339,6 +1339,53 @@ This is line two.`);
 
 [[↑] Back to top](#top)
 
+
+### Explain the Decorator Pattern.
+
+[[↑] Back to top](#top)
+
+
+### Explain the Factory Pattern.
+
+[[↑] Back to top](#top)
+
+
+### Explain the Singleton Pattern.
+
+[[↑] Back to top](#top)
+
+
+### Explain the Revealing Module Pattern.
+
+[[↑] Back to top](#top)
+
+
+### Explain the Facade Pattern.
+
+[[↑] Back to top](#top)
+
+
+### Explain the Observer Pattern.
+
+[[↑] Back to top](#top)
+
+
+### Explain the MVC (Model-View-Controller) Pattern.
+
+[[↑] Back to top](#top)
+
+
+### Explain the MVP (Model-View-Presenter) Pattern.
+
+[[↑] Back to top](#top)
+
+
+### Explain the MVVM (Model View ViewModel)Pattern.
+
+[[↑] Back to top](#top)
+
+
+
 ## Easy
 
 ![Easy Questions](https://github.com/coolinmc6/front-end-dev/blob/master/assets/building-blocks.jpg)

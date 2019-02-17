@@ -42,8 +42,12 @@
 
 **General Front End**
 
-- [Grab Front End Guide](https://github.com/grab/front-end-guide)
-- [General Tech Interview Guide](https://github.com/yangshun/tech-interview-handbook)
+- [Grab Front End Guide](https://github.com/grab/front-end-guide) (repo)
+- [General Tech Interview Guide](https://github.com/yangshun/tech-interview-handbook) (repo)
+- [Front End Preparation Guide](https://github.com/Jobeir/front-end-interview-preparation-guide) (repo)
+- [Front End Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions) (repo)
+- [Cracking the Front End Interview](https://medium.freecodecamp.org/cracking-the-front-end-interview-9a34cd46237) (article)
+  - good info on design patterns to learn
 
 **HTML & CSS**
 
