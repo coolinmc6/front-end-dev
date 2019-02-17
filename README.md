@@ -42,12 +42,15 @@
 
 **General Front End**
 
-- [Grab Front End Guide](https://github.com/grab/front-end-guide) (repo)
-- [General Tech Interview Guide](https://github.com/yangshun/tech-interview-handbook) (repo)
-- [Front End Preparation Guide](https://github.com/Jobeir/front-end-interview-preparation-guide) (repo)
-- [Front End Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions) (repo)
 - [Cracking the Front End Interview](https://medium.freecodecamp.org/cracking-the-front-end-interview-9a34cd46237) (article)
+- [Craking the (Frontend) Interview](https://blog.usejournal.com/cracking-the-frontend-coding-interview-ec7d5b1e6755) (article - different and worth reviewing)
+- [Front End Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions) (repo)
   - good info on design patterns to learn
+- [Front End Masters: Front-End Developer Handbook 2018](https://frontendmasters.com/books/front-end-handbook/2018/) (large list of items)
+- [Front End Preparation Guide](https://github.com/Jobeir/front-end-interview-preparation-guide) (repo)
+- [General Tech Interview Guide](https://github.com/yangshun/tech-interview-handbook) (repo)
+- [Grab Front End Guide](https://github.com/grab/front-end-guide) (repo)
+- [The Kyle: Data Structures and Algorithms](https://github.com/jamiebuilds/itsy-bitsy-data-structures)
 
 **HTML & CSS**
 
