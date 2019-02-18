@@ -50,15 +50,73 @@
 
 ### What are sprites and why would use them? How do you go about creating them? What are possible alternatives to sprites?
 
+- Here are a few definitions of "sprites":
+
+> CSS Sprites are a means of combining multiple images into a single image file for use on a website, to help with performance.
+
+> The term "sprites" comes from a technique in computer graphics, most often used in video games. The idea was that the computer could fetch a graphic into memory, and then only display parts of that image at a time, which was faster than having to continually fetch new images. The sprite was the big combined graphic.
+
+- Because a sprite is one large image, you need to know "where" the image you want is located on the sprite. Here's an example of how to use one. In this example, we've combined the three separate images of flags into one image. You then set the same `background-image` on several CSS classes and then set the appropriate position and dimensions of the individual classes. Here is an example of the CSS:
+
+```css
+.flags-canada, .flags-mexico, .flags-usa {
+  background-image: url('../images/flags.png');
+  background-repeat: no-repeat;
+}
+
+.flags-canada {
+  height: 128px;
+  background-position: -5px -5px;
+}
+
+.flags-usa {
+  height: 135px;
+  background-position: -5px -143px;
+}
+
+.flags-mexico {
+  height: 147px;
+  background-position: -5px -288px;
+}
+```
+
+- There are a number of ways to create sprites, one is a node package you can use via Grunt/Gulp/Node called "sprity" ([https://www.npmjs.com/package/sprity](https://www.npmjs.com/package/sprity)).
+	+ It looks you install sprity (`npm i sprity -g`) and then generate sprites and the corresponding stylesheet: `sprity ./output-directory/ ./input-directory/*.png`
+- You can also Compass, ImageMagick, Sprite Cow, SpritePad and SpriteMe.
+- The smaller overall image is, dimensionally, the better. They recommend organizing images into a grid.
+- There are a few alternatives to sprites, each with their own benefits and drawbacks:
+	+ *Data URIs* - allow you to embed the image data directly into a stylesheet
+		* to learn more: [https://css-tricks.com/data-uris/](https://css-tricks.com/data-uris/)
+	+ *Icon Fonts* - Icon fonts are similar to sprites in that the achieve the same thing: combining multiple images into a single request.
+	+ *SVGs* - SVG images can be combined into a sprite as well and used as an icon system. It's a slightly different approach though, utilizing the syntax and strengths of SVG. You may need to think about a fallback system though, as SVG doesn't have as deep of browser support as CSS background-image (which essentially has no browser support issues at all).
+
+- [https://css-tricks.com/css-sprites/](https://css-tricks.com/css-sprites/)
 
 [[↑] Back to top](#top)
 
 ### What are some accessibility concerns that come up in CSS?
 
+- Make text readable
+	+ 12px is just not good enough anymore. Sites were using 15px - 18px for awhile but now the ideal range is around 18-20px.
+		* Recommended article: [Your Body Text is Too Small](https://blog.marvelapp.com/body-text-small/)
+	+ Ideal line height is 1.5 despite default line height in browsers being 1.2
+- Align text left or right (don't justify)
+	+ Despite the attractiveness (for some) of `text-align: justify`, it's considered bad practice.
+	+ The uneven spaces between words can harm readability
+	+ *CM* - I swore that I read somewhere that said the opposite. I will defer to this article for now but I had this feeling that justify made the site more attractive.
+- Define paragraph width: max 65 characters
+	+ Designers should strive for line widths of 45-85 characters with 65 characters being the sweet spot
+	+ You can use the "ch unit": `p { max-width: 65ch; }`
+- Use content in speudo elements cautiously
+
+- **Sources**
+	- [https://developer.mozilla.org/en-US/docs/Learn/Accessibility/CSS_and_JavaScript](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/CSS_and_JavaScript)
+	- [https://medium.com/@matuzo/writing-css-with-accessibility-in-mind-8514a0007939](https://medium.com/@matuzo/writing-css-with-accessibility-in-mind-8514a0007939)
 
 [[↑] Back to top](#top)
 
 ### What tools do you use for cross-browser testing?
+
 
 
 [[↑] Back to top](#top)

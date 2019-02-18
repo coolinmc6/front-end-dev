@@ -1342,45 +1342,116 @@ This is line two.`);
 
 ### Explain the Decorator Pattern.
 
+- Decorators are a structural design pattern that aim to promote code re-use.
+- In CM's words: decorators appear to be used to update, replace or extend certain functions or properties on a certain class but on an as-needed basis. If it was that important, it'd be on the base class, so with decorators, developers can create these functions that update one particular thing for an object.
+- Decorators are used to modify existing systems *without* heavily changing a lot of the underlying code. If we have an object that we want to change, we can write a decorator to change just one function or property it won't affect the other objects.
+
+> The Decorator pattern isn't heavily tied to how objects are created but instead focuses on the problem of extending their functionality. Rather than just relying on prototypal inheritance, we work with a single base object and progressively add decorator objects which provide the additional capabilities. The idea is that rather than sub-classing, we add (decorate) properties or methods to a base object so it's a little more streamlined.
+
+- Here is a basic example:
+
+```js
+function MacBook() {
+    this.cost = function() { return 997; };
+    this.screenSize = function() { return 11.6; };
+}
+
+// Decorator #1
+function memory(macbook) {
+    var cost = macbook.cost();
+    macbook.cost = function() {
+        return cost + 75;
+    }
+}
+
+// Decorator #2
+function engraving(macbook) {
+    var cost = macbook.cost();
+    macbook.cost = function() {
+        return cost + 200;
+    }
+}
+
+// Decorator 3
+function insurance( macbook ){
+  var cost = macbook.cost();
+  macbook.cost = function(){
+     return cost + 250;
+  };
+}
+
+var mb = new MacBook();
+memory(mb);
+engraving(mb);
+insurance(mb)
+
+console.log(mb.cost())       // 1522 => 997 (orig) + 75 + 200 + 250
+console.log(mb.screenSize()); // 11.6 => original size
+```
+
+
+
+- [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#decoratorpatternjavascript](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#decoratorpatternjavascript)
+
 [[↑] Back to top](#top)
 
 
 ### Explain the Factory Pattern.
+
+
+- [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#factorypatternjavascript](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#factorypatternjavascript)
 
 [[↑] Back to top](#top)
 
 
 ### Explain the Singleton Pattern.
 
+
+- [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript)
+
 [[↑] Back to top](#top)
 
 
 ### Explain the Revealing Module Pattern.
+
+
+- [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript)
 
 [[↑] Back to top](#top)
 
 
 ### Explain the Facade Pattern.
 
+- [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#facadepatternjavascript](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#facadepatternjavascript)
+
 [[↑] Back to top](#top)
 
 
 ### Explain the Observer Pattern.
+
+- [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#observerpatternjavascript](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#observerpatternjavascript)
 
 [[↑] Back to top](#top)
 
 
 ### Explain the MVC (Model-View-Controller) Pattern.
 
+- [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvc](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvc)
+
 [[↑] Back to top](#top)
 
 
 ### Explain the MVP (Model-View-Presenter) Pattern.
 
+
+- [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvp](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvp)
+
 [[↑] Back to top](#top)
 
 
 ### Explain the MVVM (Model View ViewModel)Pattern.
+
+- [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvvm](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#detailmvvm)
 
 [[↑] Back to top](#top)
 
