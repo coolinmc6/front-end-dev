@@ -1598,6 +1598,12 @@ class Student extends Person {
 
 ### What is the DOM?
 
+- The DOM or Document Object Model is a programming interface for HTML and XML documents...so it is NOT the page itself!
+- It represents the page so that programs can change parts of the document like structure, style and content.
+- The DOM represents the document (HTML or XML) as nodes and objects so that programming languages can connect to the page. Below is an image of what the DOM would look like:
+
+
+
 [[↑] Back to top](#top)
 
 
