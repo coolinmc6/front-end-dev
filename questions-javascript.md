@@ -1670,6 +1670,14 @@ console.log(transformedES6);    // (2) [div.target, div.target]
 
 - returns a list of elements that match the selector. This is **NOT** an array, but a `NodeList`. The variable called `transformed` shows you can convert that `NodeList` into an array. There are two versions, the first with ES5 and the second with ES6.
 
+`getElementByID`
+
+
+`getElementsByClassName`
+
+
+- Others: `getElementsByName`, `getElementsByTagName`, `getElementByTagNameNS`
+
 #### Get value of an input using Vanilla JavaScript.
 
 ```js
@@ -1691,6 +1699,23 @@ function getValueDoStuff() {
     console.log(value)
 }
 ```
+
+#### Create a new DOM Element
+
+
+#### Remove an element from the DOM
+
+
+#### Add/Remove a class to/from an element.
+
+
+#### Change an element's class completely.
+
+
+#### Get an attribute from a DOM element.
+
+
+#### Get window properties like window height, scroll position, etc.
 
 
 [[↑] Back to top](#top)
