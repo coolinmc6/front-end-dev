@@ -1599,15 +1599,44 @@ class Student extends Person {
 ### What is the DOM?
 
 - The DOM or Document Object Model is a programming interface for HTML and XML documents...so it is NOT the page itself!
+    + as a quick reminder, a web page is just a document! It can be displayed in a text editor (like Sublime) or it can be displayed in a browser window.
 - It represents the page so that programs can change parts of the document like structure, style and content.
 - The DOM represents the document (HTML or XML) as nodes and objects so that programming languages can connect to the page. Below is an image of what the DOM would look like:
 
+![DOM Image](https://github.com/coolinmc6/front-end-dev/blob/master/assets/pic_htmltree.gif)
 
+- The DOM is an object-oriented representation of the web page that a scripting language like JavaScript can manipulate.
+- The DOM is **NOT** a programming language.
+- The W3C DOM and WHATWG DOM standards are implemented in most modern browsers but not all browsers are the same and often extend the standard in different ways.
+- One example of a common standard is `getElementsByTagName`. That standard specifies that that method must return a list of all elements that are of that tag in the parentheses:
+
+```js
+var paragraphs = document.getElementsByTagName("p");
+```
+
+- Sources:
+    + [MDN: What is the DOM?](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
 
 [[↑] Back to top](#top)
 
 
 ### What is REST, and why do people use it?
+
+- REST stands for Representational State Transfer
+- REST is a web standards architecture style that uses HTTP protocol for data communication.  In a REST application, all components are resources and the resources are accessed using HTTP standards.
+- RESTful applications use HTTP requests to post data (create and/or update), read data (e.g., make queries), and delete data. Thus, REST uses HTTP for all four CRUD (Create / Read / Update / Delete) operations
+- In REST architecture, a REST Server simply provides access to resources and a REST client accesses and presents the resources.
+- REST has six constraints
+    - Client-Server - separation of user interface with the database/data storage concerns
+    - Stateless - each request from the client to the server must contain all the necessary information for the server to understand it (all state is kept on the client)
+    - Cacheable - information can be marked "cacheable" so that a client can reuse data from a previous request for future requests
+    - Uniform Interface - 
+    - Layered System - 
+    - Code on Demand (optional) - 
+- Links: 
+    - [https://restfulapi.net/](https://restfulapi.net/)
+    - [https://www.sitepoint.com/developers-rest-api/](https://www.sitepoint.com/developers-rest-api/)
+
 
 [[↑] Back to top](#top)
 
