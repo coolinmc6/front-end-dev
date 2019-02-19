@@ -1640,6 +1640,61 @@ var paragraphs = document.getElementsByTagName("p");
 
 [[↑] Back to top](#top)
 
+
+### Common Vanilla JavaScript functions.
+
+#### Select elements from the DOM
+
+
+`querySelector`
+
+```js
+var element = document.querySelector('.target');
+console.log(element);   // "<div class='target'></div>"
+```
+
+- This method returns the **first element** that matches.
+
+`querySelectorAll`
+
+```js
+var targets = document.querySelectorAll('.target')
+console.log(targets);           // NodeList(2) [div.target, div.target]
+
+var transformed = Array.prototype.slice.call(targets);
+console.log(transformed);       // (2) [div.target, div.target]
+
+var transformedES6 = Array.from(targets);
+console.log(transformedES6);    // (2) [div.target, div.target]
+```
+
+- returns a list of elements that match the selector. This is **NOT** an array, but a `NodeList`. The variable called `transformed` shows you can convert that `NodeList` into an array. There are two versions, the first with ES5 and the second with ES6.
+
+#### Get value of an input using Vanilla JavaScript.
+
+```js
+var text = document.querySelector('.text');
+
+// Version #1: Anonymous Function
+text.addEventListener('keyup', function() {
+    var value = this.value;
+    
+    console.log(value)
+});
+
+// Version #2: Named function
+text.addEventListener('keyup', getValueDoStuff)
+
+function getValueDoStuff() {
+    var value = this.value;
+    
+    console.log(value)
+}
+```
+
+
+[[↑] Back to top](#top)
+
 ### My website is slow. Walk me through diagnosing and fixing it. What are some performance optimizations people use, and when should they be used?
 
 
