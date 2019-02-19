@@ -1708,17 +1708,48 @@ function getValueDoStuff() {
 
 #### Add/Remove a class to/from an element.
 
+```js
+myElement.classList.add('foo');
+myElement.classList.remove('bar');
+myElement.classList.toggle('baz');
+```
+
+
+- [https://www.sitepoint.com/add-remove-css-class-vanilla-js/](https://www.sitepoint.com/add-remove-css-class-vanilla-js/)
+
 
 #### Change an element's class completely.
 
 
 #### Get an attribute from a DOM element.
 
+```js
+// Get an attribute value
+const value = myElement.value
+
+// Set an attribute as an element property
+myElement.value = 'foo'
+
+// Set multiple properties using Object.assign()
+Object.assign(myElement, {
+  value: 'foo',
+  id: 'bar'
+})
+
+// Remove an attribute
+myElement.value = null
+```
+
+> Note that there are also the methods `.getAttibute()`, `.setAttribute()` and `.removeAttribute()`. These directly modify the HTML attributes (as opposed to the DOM properties) of an element, thus causing a browser redraw (you can observe the changes by inspecting the element with your browser’s dev tools). Not only is such a browser redraw more expensive than just setting DOM properties, but these methods also can have unexpected results.
 
 #### Get window properties like window height, scroll position, etc.
 
 
+- Sources:
+    + [The Basics of DOM Manipulation in Vanilla JavaScript ](https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/)
+
 [[↑] Back to top](#top)
+
 
 ### My website is slow. Walk me through diagnosing and fixing it. What are some performance optimizations people use, and when should they be used?
 
