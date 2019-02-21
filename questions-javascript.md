@@ -190,14 +190,46 @@
 
 ### Explain the difference between prototypal and classical inheritance.
 
-- "Classical" inheritance is really talking about the methods of object orientation.
-- A "class" that acts as a blueprint or architectual diagram for an object and then you need to create an instance of that class in JavaScript, inheritance works using prototypes - in prototypal inheritance, new objects are created using previously created objects.
-    + there is a parent "Object" for all objects in JavaScript
-- There is a method of JavaScript of emulating the more classical object-oriented form using classes and that's called the Pseudo-Classical Pattern but, again, it's only faking it...all inheritance in JavaScript is prototypal
+- All inheritance in JavaScript is prototypal. The *Pseudo-Classical Pattern* is a method of JavaScript that tries to emulate the more classical object-oriented form using classes but because of how JavaScript truly operates, everything has a prototype.
+- There is a parent "Object" for all objects in JavaScript
+- In prototypal inheritance, new objects are created using previously created objects.
 
 > **Class Inheritance**: instances inherit from classes (like a blueprint — a description of the class), and create sub-class relationships: hierarchical class taxonomies. Instances are typically instantiated via constructor functions with the `new` keyword. Class inheritance may or may not use the `class` keyword from ES6.
 
+- Here is a simple example of *Pseudo-Classical Inheritance* or as they call it, *Classical Inheritance*:
+
+```js
+function Person(first_name, last_name) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+};
+
+var dude = new Person("asim", "hussain");
+console.log(dude);
+```
+
 > **Prototypal Inheritance**: instances inherit directly from other objects. Instances are typically instantiated via factory functions or `Object.create()`. Instances may be composed from many different objects, allowing for easy selective inheritance.
+
+- Here is an example of Prototypal Inheritance Pattern:
+
+```js
+"use strict"
+
+var Person = {
+    init: function(first_name, last_name) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        return this;
+    },
+    full_name: function() {
+        return this.first_name + ' ' + this.last_name;
+    }
+}
+
+var asim = Object.create(Person);
+asim.init("asim", "hussain");
+console.log(asim.full_name());
+```
 
 - [Quora: What is Prototypal Inheritance?](https://www.quora.com/What-is-prototypal-inheritance/answer/Kyle-Simpson)
 - [Medium: 10 JavaScript Interview Questions](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95)
