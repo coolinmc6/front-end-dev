@@ -344,7 +344,7 @@ person.getSpecies();            // alien
 
 ### Explain how prototypal inheritance works
 
-- Prototypal inheritance and JavaScript Objects generally don't feel incredibly difficult but explaining *prototypes* in a succinct way is a bit tricky. I've read a lot of definitions that feel the need to address the fact that JavaScript classes don't *really* inherit methods the way other programming languages with classes do. The following "definition" is really just a list of important points relating to prototypes and then some code that explains it.
+- JavaScript classes don't *really* inherit methods the way other programming languages with classes do. The following "definition" is really just a list of important points relating to prototypes and then some code that explains it.
 - All JavaScript objects have a prototype property that is a reference to another object.
 - When you ask for a property or method on an object, if it's not there, JavaScript will traverse (go up) the prototype chain and try to find that property or method on the linked object. If it isn't there, it traverses again up the prototype chain looking for that property/method.
 - This will keep happening until it finds the property/method OR it runs out of objects to traverse.
