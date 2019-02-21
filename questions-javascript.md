@@ -578,6 +578,11 @@ addTen(-5); //5
 [[↑] Back to top](#top)
 
 
+### What is RegExp? Explain and demonstrate its basic usage.
+
+
+
+[[↑] Back to top](#top)
 
 ## Intermediate
 
@@ -600,42 +605,6 @@ addTen(-5); //5
     + no side-effects
     + same input returns the same output every time
 
-
-
-### How do you organize your code? (module pattern, classical inheritance?) Explain the Module Pattern. Explain Classical Inheritance.
-
-- Here is an example of the Module Pattern:
-
-```js
-var Module = (function() {
-    function privateMethod() {
-        // do something
-    }
-
-    return {
-        publicMethod: function() {
-            // can call privateMethod();
-        }
-    };
-})();
-
-Module.publicMethod(); // works
-Module.privateMethod(); // Uncaught ReferenceError: privateMethod is not defined
-```
-
-[[↑] Back to top](#top)
-
-### Describe the Singleton Pattern in Javascript
-
-
-
-
-
-
-- Source: [https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-27-describe-singleton-pattern-in-javascript](https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-27-describe-singleton-pattern-in-javascript)
-
-
-[[↑] Back to top](#top)
 
 ### What are the ways of creating objects in JavaScript?
 
@@ -718,7 +687,7 @@ function isInteger(x) {
 
 ```js
 for(let i = 0; i < 3000; i++) {
-    if(i % 2 == 0) {
+    if(i % 2 === 0) {
         setTimeout(function() {
             console.log(i)
         }, 0)
@@ -728,8 +697,7 @@ for(let i = 0; i < 3000; i++) {
 }
 ```
 
-- even though there is a `setTimeout()` with 0 seconds delayed, **NONE** of the even numbers are logged to the console until **every** odd number is. I went as high as 3000 to show that this is not just a matter of there being too few logs between 1 and 4 as shown above. In my example, every single odd number is logged *before* any of the even numbers
-
+- even though there is a `setTimeout()` with 0 seconds delayed, **NONE** of the even numbers are logged to the console until **EVERY** odd number is. I went as high as 3000 to show that this is not just a matter of there being too few logs between 1 and 4 as shown above. In my example, every single odd number is logged *before* any of the even numbers
 
 - [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 - [http://javascript.info/settimeout-setinterval](http://javascript.info/settimeout-setinterval) - more info on setTimeout() and things like that
@@ -750,7 +718,6 @@ function isPalindrome(str) {
   return (str == str.split('').reverse().join(''));
 }
 ```
-
 
 - [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
@@ -826,7 +793,28 @@ console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
 console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
 ```
 
-- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+- Here is the answer:
+
+```js
+// "array 1: length=5 last=j,o,n,e,s"
+// "array 2: length=5 last=j,o,n,e,s"
+```
+
+- So *why* are they saying essentially the same thing? And where exactly is "j,o,n,e,s" coming from?
+- We're going to go line-by-line to understand how this works.
+- **Line 1**: `var arr1 = "john".split('');` - this just creates an array with the letters of the "john". If you logged that array, this is what you'd get: `["j", "o", "h", "n"]`
+- **Line 2**: `var arr2 = arr1.reverse()`. JavaScript passes objects and arrays (which are Objects) by reference, not value. So here, we are essentially setting `arr2` to equal `arr1`. This means, that what happens to one, happens to the other. Also, in this line, we are using `reverse()` on `arr1`. The `reverse()` method alters the array so now both the `arr1` and `arr2` variables point to the same array and `["j", "o", "h", "n"]` is now `["n", "h", "o", "j"]`
+- **Line 3**: just like Line 1 but with a different string: `["j", "o", "n", "e", "s"]`
+- **Line 4**: We are using the `push()` method to add the entire `arr3` array to `arr2` (which, remember, is the same as `arr1`). We are *NOT* spreading it or concatting it which means we now have an array of four strings and then the fifth element is an array. This is what we have now: `["n", "h", "o", "j", ["j", "o", "n", "e", "s"]]`
+- Lines 5 and 6 are going to output the same thing because they both point to the same array. So what is the length? We know the length is 5: 4 Strings plus 1 Array. How about that last part? This is tricky because you need to know that `slice()` does **not** alter the array (so the second console.log won't be affected) AND you need to know how an array will be outputted when it is outputted as a string. As the answer above shows, when outputting an array as a string, it separates each string with a comma.
+    + See the example below:
+
+```js
+console.log("array 3: " + arr3);     // "array 3: j,o,n,e,s"
+```
+
+- Source: 
+    - [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
 [[↑] Back to top](#top)
 
@@ -1455,7 +1443,9 @@ console.log(mb.screenSize()); // 11.6 => original size
 ### Explain the Singleton Pattern.
 
 
-- [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript)
+- Sources:
+    - [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript)
+    - [https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-27-describe-singleton-pattern-in-javascript](https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions#question-27-describe-singleton-pattern-in-javascript)
 
 [[↑] Back to top](#top)
 
@@ -1466,6 +1456,30 @@ console.log(mb.screenSize()); // 11.6 => original size
 - [https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript)
 
 [[↑] Back to top](#top)
+
+### Explain the Module Pattern.
+
+- Here is an example of the Module Pattern:
+
+```js
+var Module = (function() {
+    function privateMethod() {
+        // do something
+    }
+
+    return {
+        publicMethod: function() {
+            // can call privateMethod();
+        }
+    };
+})();
+
+Module.publicMethod(); // works
+Module.privateMethod(); // Uncaught ReferenceError: privateMethod is not defined
+```
+
+[[↑] Back to top](#top)
+
 
 
 ### Explain the Facade Pattern.
