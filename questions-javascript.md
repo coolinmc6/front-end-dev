@@ -813,8 +813,7 @@ console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
 console.log("array 3: " + arr3);     // "array 3: j,o,n,e,s"
 ```
 
-- Source: 
-    - [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+- Source: [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
 [[↑] Back to top](#top)
 
@@ -936,25 +935,26 @@ fn(); // -> Window {stop: ƒ, open: ƒ, alert: ƒ, ...}
 
 - Source: [https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040](https://www.educative.io/collection/page/5679346740101120/5707702298738688/5676830073815040)
 
+[[↑] Back to top](#top)
 
 ### What is `this` in JavaScript (and how does it work)?
 
 - At the time of execution of every function, the JavaScript engine sets a property to the function called `this` which refer to the current execution context. `this` always refers to an object and depends on how the function is called. There are 7 different cases where the value of `this` varies:
-    + In the global context or inside a function this refers to the window object.
-    + Inside IIFE (immediate invoking function) if you use "use strict", value of this is undefined. To pass access window inside IIFE with "use strict", you have to pass this.
+    + In the global context or inside a function `this` refers to the window object.
+    + Inside IIFE (immediate invoking function) if you use "use strict", the value of `this` is undefined. To pass access window inside IIFE with "use strict", you have to pass `this`.
     + While executing a function in the context of an object, the object becomes the value of this
-    + Inside a setTimeout function, the value of this is the window object.
-    + If you use a constructor (by using new keyword) to create an object, the value of this will refer to the newly created object.
-    + You can set the value of this to any arbitrary object by passing the object as the first parameter of bind, call or apply
-    + For dom event handler, value of this would be the element that fired the event
-
+    + Inside a setTimeout function, the value of `this` is the window object.
+    + If you use a constructor (by using `new` keyword) to create an object, the value of `this` will refer to the newly created object.
+    + You can set the value of `this` to any arbitrary object by passing the object as the first parameter of `bind`, `call` or `apply`
+    + For a DOM event handler, value of `this` would be the element that fired the event
 
 - Source: [http://www.thatjsdude.com/interview/js2.html#this](http://www.thatjsdude.com/interview/js2.html#this)
 
+[[↑] Back to top](#top)
 
 ### Explain "hoisting".
 
-- A simple definition of *hoisting* is the declaration of functions and variables "moved" to the top of the current scope.
+- *Hoisting* in JavaScript is when the declaration of functions and variables is "moved" to the top of the current scope.
 - Your code isn't magically being moved to the top - what's actualy happening is that your declarations are added to memory during the compile phase.
 - Here are some examples to show how it applies to variables and functions and some take-aways to remember:
 
@@ -967,8 +967,8 @@ console.log(b); // ReferenceError: b is not defined
 ```
 
 - There are a few things to notice here:
-    + first, I am logging the value of `a` right away and I get `undefined`. This right here is **hoisting** in action. It gets `undefined` because I declared `a` in the second line (`var a = 5`)
-    + Skipping to the bottom, notice how `b`, which is never declared, does NOT get the same `undefined`, it gets a ReferenceError. There was no `b` declaration to hoist therefore JavaScript has no idea what the hell `b` is
+    + first, I am logging the value of `a` right away and I get `undefined`. This right here is **hoisting** in action. It logs `undefined` because I declared `a` in the second line (`var a = 5`)
+    + Skipping to the bottom, notice how `b`, which is never declared, does NOT get the same `undefined`, it gets a ReferenceError. There was no `b` declaration to hoist therefore JavaScript has no idea what `b` is
     + On line 2 I define `a` and then print out its value on line 3. Nothing controversial there; that's normal behavior.
     + The key thing to notice is the difference between what happens on line 1 (`undefined` is logged) because `a` has been declared SOMEWHERE in the code and what happens on line 5 (`ReferenceError`) because `b` was never declared.
 - That's the first example: simple `var` declarations. A take-away here is that **only declarations are hoisted**, not *initializations*. 
@@ -1041,15 +1041,15 @@ var girl = function () {
     console.log(x);
     var x = 20;
 };
-girl ();
+girl();
 ```
 
 - Neither 21 nor 20, the result is `undefined`
-- I would've initially thought 21 but what is really happening is related to hoisting. So first, it's not 21 because when the function is executed, it sees that there is a local `x` variable present.
+- I would've initially thought 21 but what is really happening is related to *hoisting*. So first, it's not 21 because when the function is executed, it sees that there is a local `x` variable present.
 - So 21 is NOT used because there's a local `x`
 - Hoisting in JavaScript means that variable declarations (`var x;`) are hoisted but NOT initializations `var x = 20`. So in this scenario, the `x` that it's looking for will be `var x = 20` but that initial value isn't given until after the console.log.
 
-- [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
+- Source: [https://www.toptal.com/javascript/interview-questions](https://www.toptal.com/javascript/interview-questions)
 
 [[↑] Back to top](#top)
 
@@ -1094,7 +1094,7 @@ function isEqual(a, b) {
 }
 ```
 
-- The solution I came up with is not 100% correct because it uses `Object.keys()` which is not the same as `Object.getOwnPropertyNames()`. Here is a good explanation of the difference between them: [https://stackoverflow.com/questions/22658488/object-getownpropertynames-vs-object-keys](https://stackoverflow.com/questions/22658488/object-getownpropertynames-vs-object-keys)
+- The solution I originally came up with is not 100% correct because it uses `Object.keys()` which is not the same as `Object.getOwnPropertyNames()`. Here is a good explanation of the difference between them: [https://stackoverflow.com/questions/22658488/object-getownpropertynames-vs-object-keys](https://stackoverflow.com/questions/22658488/object-getownpropertynames-vs-object-keys)
     + the short answer is that `Object.keys()` returns all *enumerable* own properties on the object. So if you manually set a property to `{enumerable: false}`, then `Object.keys()` won't have that property in the resulting array.
     + I have never manually made a property not enumerable but just FYI
 - [http://www.thatjsdude.com/interview/js2.html#objectEquality](http://www.thatjsdude.com/interview/js2.html#objectEquality)
@@ -1176,7 +1176,7 @@ Sources:
 ### What are promises and how they are useful?
 
 - We use promises for handling asynchronous interactions in a sequential manner. They are especially useful when we need to do an async operation and **THEN** do another async operation based on the results of the first one. For example, if you want to request the list of all flights and then for each flight you want to request some details about it. The promise represents the future value. It has an internal state (`pending`, `fulfilled` and `rejected`) and works like a state machine.
-- A promise object has then method, where you can specify what to do when the promise is fulfilled or rejected.
+- A promise object has a `then()` method, where you can specify what to do when the promise is fulfilled or rejected.
 - You can chain `then()` blocks, thus avoiding the callback hell. You can handle errors in the `catch()` block. After a promise is set to fulfilled or rejected state, it becomes immutable.
 
 
@@ -1740,6 +1740,17 @@ console.log(transformedES6);    // (2) [div.target, div.target]
 
 - Others: `getElementsByName`, `getElementsByTagName`, `getElementByTagNameNS`
 
+#### Add Event Listener
+
+```js
+var button = document.querySelector('.button');
+
+button.addEventListener('click', function(e) {
+    console.log(e.type + ' got fired');
+});
+
+```
+
 #### Get value of an input using Vanilla JavaScript.
 
 ```js
@@ -1764,6 +1775,39 @@ function getValueDoStuff() {
 
 #### Create a new DOM Element
 
+- Here is a simple example:
+
+```js
+var d = document.createElement('div');
+
+var sp = document.createElement('span');
+```
+
+- Here is a function I created to created to simplify the creation of complex elements (element has a class, content in the element, attributes):
+
+```js
+/*
+ * elem         => String: 'div', 'span', 'h1'...whatever the HTML tag you want to create
+ * elemClass    => String: 'button blue', 'btn btn-primary', etc...the element's class
+ * text         => String: "Click here", "Delete Item?", "&times;" ... the text in the element
+ * attributes   => Object: { target: "_blank", href: "www.google.com"} other HTML attributes
+ *
+ *
+ **/
+function makeHTMLElement(elem, elemClass, text, attributes) {
+    var d = document.createElement(elem);
+    d.className = elemClass;
+    d.innerHTML = text;
+
+    for(var prop in attributes) {
+        d.setAttribute(prop, attributes[prop])
+    }
+
+    return d;
+}
+
+var button = makeHTMLElement('button', 'btn btn-primary', 'Add Vehicle', {"href": "www.cars.com", carID: car.id});
+```
 
 #### Remove an element from the DOM
 
