@@ -2000,7 +2000,7 @@ console.log(foo == undefined); // true. Wrong, don't use this to check!
 - Here are the big three:
   - IIFEs (wrap the function and call it right away)
   - Callback that is used once and doesn't need to be used anywhere else( e.g. jQuery)
-  - Arguments to functional programming constructrs or Lodash
+  - Arguments to functional programming constructors or Lodash
 - They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
 
 ```js
@@ -2020,7 +2020,7 @@ setTimeout(function() {
 // jQuery example
 $('.delete-btn').on('click', function() {
     alert("Delete!!");
-})
+});
 ```
 
 - Arguments to functional programming constructs or Lodash (similar to callbacks).
