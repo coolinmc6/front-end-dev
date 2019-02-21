@@ -47,6 +47,7 @@
 </table>
 
 <a name="top"></a>
+
 # CSS Questions
 
 
@@ -132,6 +133,9 @@
 ### What tools do you use for cross-browser testing?
 
 
+
+- Sources:
+	- [MDN: Cross Browser Testing](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing)
 
 [[↑] Back to top](#top)
 
@@ -220,6 +224,11 @@ body ~ p {
 
 
 [[↑] Back to top](#top)
+
+### Explain CSS Animations. 
+
+
+- [https://css-tricks.com/almanac/properties/a/animation/](https://css-tricks.com/almanac/properties/a/animation/)
 
 ### Describe floats and how they work.
 
