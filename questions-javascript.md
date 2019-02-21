@@ -544,7 +544,7 @@ console.log(twelve);            // 12
 
 ### How would you implement currying for any function?
 
-- Curring is partial invocation of a function. Currying means that the first few arguments of a function are pre-processed and a function is returned. The returning function can add more arguments to the curried function.
+- Currying is partial invocation of a function. Currying means that the first few arguments of a function are pre-processed and a function is returned. The returning function can add more arguments to the curried function.
 
 ```js
 function addBase(base){
@@ -1152,6 +1152,8 @@ Sources:
 ### What is a Promise? How does a Promise work?
 
 > A promise represents the eventual result of an asynchronous operation. It is a placeholder into which the successful result value or reason for failure will materialize.
+
+> Essentially, a Promise is a returned object you attach callbacks to, instead of passing callbacks into a function.
 
 > A promise is an object that may produce a single value some time in the future: either a resolved value, or a reason that it’s not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
 
