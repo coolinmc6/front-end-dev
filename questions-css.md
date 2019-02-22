@@ -130,6 +130,24 @@
 
 [[↑] Back to top](#top)
 
+
+### What is cross-browser testing?
+
+> Cross browser testing is the practice of making sure that the web sites and web apps you create work across an acceptable number of web browsers.
+
+- Developers need to make sure that not does their project work but that it works for all users, no matter their browser, device, or any assistive tools they're using.
+- This doesn't mean necessarily achieving 100% perfectly workign across all browsers but the goal is to get "an acceptable number of web browsers"
+- **Why do cross-browser issues occur?**
+	+ sometimes browsers have bugs but most work to follow today's standards
+	+ some browsers have different levels of support for technology features
+	+ some devices have constraints that cause a website to run slowly or display badly
+
+[[↑] Back to top](#top)
+
+### Explain cross-browser testing.
+
+- MDN recommends testing your website on virtual machines
+
 ### What tools do you use for cross-browser testing?
 
 
@@ -159,12 +177,39 @@
 
 [[↑] Back to top](#top)
 
-### What are the benefits of SVG?
+### What is SVG? What are the benefits of SVG?
 
+- SVG stands for Scalable Vector Graphics and is used to define *vector-based graphics* for the Web.
+- SVG is a W3C recommendation
+- SVG defines the graphics in XML format
+- Here are some of the advantages of using SVG of other formats like `.jpg` or `.gif`:
+	+ SVG images can be created and edited with any text editor
+	+ SVG images can be searched, indexed, scripted, and compressed
+	+ SVG images are scalable
+	+ SVG images can be printed with high quality at any resolution
+	+ SVG images are zoomable
+	+ SVG graphics do NOT lose any quality if they are zoomed or resized
+	+ SVG is an open standard
+	+ SVG files are pure XML
+- You can create SVG images with any text editor but it's often more convenient to create SVG images with a drawing program like [Inkscape](https://inkscape.org/)
 
 [[↑] Back to top](#top)
 
-### Have you ever created a print stylesheet for a website?
+### Can you give an example of an @media property other than screen?
+
+- Yes, there four types of `@media` properties (including *screen*):
+	+ `all` - for all media type devices
+	+ `print` - for printers
+	+ `speech` - for screenreaders that "reads" the page out loud
+	+ `screen` - for computer screens, tablets, smart-phones etc.
+
+```css
+@media print {
+  body {
+    color: black;
+  }
+}
+```
 
 
 
@@ -227,6 +272,88 @@ body ~ p {
 
 ### Explain CSS Animations. 
 
+> The `animation` property in CSS can be used to animate many other CSS properties such as color, background-color, height, or width. Each animation needs to be defined with the `@keyframes` at-rule which is then called with the animation property.
+
+- Here is a simple example:
+
+```css
+@keyframes pulse {
+  0%, 100% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: red;
+  }
+}
+/* assign to element */
+.box {
+	height: 100px;
+	width: 100px;
+	animation: pulse 4s infinite linear;
+}
+```
+
+- The above code shows the animation short-hand. Here the animation sub-properties:
+	+ `animation-name`: declares the name of the `@keyframes` at-rule to manipulate.
+	+ `animation-duration`: the length of time it takes for an animation to complete one cycle.
+	+ `animation-timing`-function: establishes preset acceleration curves such as ease or linear.
+	+ `animation-delay`: the time between the element being loaded and the start of the animation sequence.
+	+ `animation-direction`: sets the direction of the animation after the cycle. Its default resets on each cycle.
+	+ `animation-iteration`-count: the number of times the animation should be performed.
+	+ `animation-fill-mode`: sets which values are applied before/after the animation. For example, you can set the last state of the animation to remain on screen, or you can set it to switch back to before when the animation began.
+	+ `animation-play-state`: pause/play the animation.
+- Here are those sub-properties broken out:
+
+```css
+@keyframes stretch {
+  /* declare animation actions here */
+}
+
+.element {
+  animation-name: stretch;
+  animation-duration: 1.5s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running; 
+}
+
+/*
+  is the same as:
+*/
+
+.element {
+  animation: 
+    stretch 		/* animation-name */
+    1.5s			/* animation-duration */
+    ease-out 		/* animation-timing-function */
+    0s 				/* animation-delay */
+    alternate 		/* animation-direction */
+    infinite 		/* animation-iteraction-count */
+    none 			/* animation-fill-mode */
+    running; 		/* animation-play-state */
+}
+```
+
+- The table below shows the sub-property and possible values for each:
+
+|Sub Property|Potential Values|
+|:---:|:---|
+|animation-timing-function|ease, ease-out, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2) (e.g. cubic-bezier(0.5, 0.2, 0.3, 1.0))|
+|animation-duration|Xs or Xms|
+|animation-delay|Xs or Xms|
+|animation-iteration-count|X|
+|animation-fill-mode|forwards, backwards, both, none|
+|animation-direction|normal, alternate|
+|animation-play-state|paused, running, running|
+
+- You should consider performance but there are certain combinations that can be animated safely:
+	+ `transform: translate()`
+	+ `transform: scale()`
+	+ `transform: rotate()`
+	+ `opacity`
 
 - [https://css-tricks.com/almanac/properties/a/animation/](https://css-tricks.com/almanac/properties/a/animation/)
 
