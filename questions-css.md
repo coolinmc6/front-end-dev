@@ -287,9 +287,9 @@ body ~ p {
 }
 /* assign to element */
 .box {
-	height: 100px;
-	width: 100px;
-	animation: pulse 4s infinite linear;
+  height: 100px;
+  width: 100px;
+  animation: pulse 4s infinite linear;
 }
 ```
 
