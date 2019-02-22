@@ -327,12 +327,12 @@ body ~ p {
 .element {
   animation: 
     stretch 		/* animation-name */
-    1.5s	/* animation-duration */
+    1.5s		/* animation-duration */
     ease-out 		/* animation-timing-function */
-    0s 		/* animation-delay */
+    0s 			/* animation-delay */
     alternate 		/* animation-direction */
     infinite 		/* animation-iteraction-count */
-    none 	/* animation-fill-mode */
+    none 		/* animation-fill-mode */
     running; 		/* animation-play-state */
 }
 ```
