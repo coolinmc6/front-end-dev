@@ -61,6 +61,14 @@
 
 ### What are Sass, Less, and Stylus? Why do people use them? How does something like Compass relate to Sass?
 
+- They are CSS preprocessors. They are an abstraction layer on top of CSS. They are a special syntax/language that compile down into CSS. 
+- They make managing CSS easier, with things like variables and mixins to handle vendor prefixes (among other things). They make doing best practices easier, like concatenating and compressing CSS.
+- Other questions related to these:
+	+ What are the differences between Sass, Less and Stylus?
+	+ What is Compass?
+	+ What are Bourbon, LESSHat, Nib?
+
+
 [[↑] Back to top](#top)
 
 ### What are sprites and why would use them? How do you go about creating them? What are possible alternatives to sprites?
@@ -131,6 +139,25 @@
 [[↑] Back to top](#top)
 
 
+### Explain to me what's going on in this CSS selector:
+
+```css
+[role=navigation] > ul a:not([href^=mailto]) {
+
+}
+```
+
+- **Condensed Answer:** This selects anchor links that are not email links that are decedents of an unordered list that is the direct child of any element with a role attribute of 'navigation'.
+- **Bulleted Answer**
+	+ (1) The first selector is `[role=navigation]` but it doesn't specifically pick any particular tags. So it is *ANY* element with a role attribute of "navigation"
+	+ (2) The `>` means that the `ul` is a direct child. So right now, I am looking at all `ul` elements that are a direct child of *ANY* element that has a role attribute of "navgation"
+	+ (3) The `ul a` means that the anchor element is a direct descendant of the `ul` - that means any anchor inside the `ul`
+	+ (4) The `a:not()` means we will want anchor elements that are NOT whatever is inside the parens
+	+ (5) `[href^=mailto]` I don't entirely understand but I know that `mailto` is for email addresses so this means that the anchor tags can't be email links
+	+ Putting everything together, we know that this selector applies to (3) anchor elements that are (4/5) NOT email links but are (3) direct descendants of any unordered list that is a (2) direct child of (1) ANY element with a role attribute of "navigation"
+
+[[↑] Back to top](#top)
+
 ### What is cross-browser testing?
 
 > Cross browser testing is the practice of making sure that the web sites and web apps you create work across an acceptable number of web browsers.
@@ -159,6 +186,7 @@
 
 ### What is responsive design all about?
 
+- It's about making websites work wherever the web is. Different devices with different sizes and different capabilities. Responsive design is about taking one code base and making it work for all of them. Part of that is media queries and different visuals. Part of that is different resources (e.g. different JavaScript to handle touch vs click or different images to accommodate the screen).
 
 [[↑] Back to top](#top)
 
@@ -425,6 +453,16 @@ body ~ p {
 [[↑] Back to top](#top)
 
 ### What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+
+- **Resetting** - Resetting is meant to strip all default browser styling on elements. For e.g. margins, paddings, font-sizes of all elements are reset to be the same. You will have to redeclare styling for common typographic elements.
+- **Normalizing** - Normalizing preserves useful default styles rather than "unstyling" everything. It also corrects bugs for common browser dependencies. Here is a full list of bullets for Normalize.css
+	+ **Normalize.css preserves useful defaults rather than "unstyling" everything.** For example, elements like sup or sub "just work" after including normalize.css (and are actually made more robust) whereas they are visually indistinguishable from normal text after including reset.css. So, normalize.css does not impose a visual starting point (homogeny) upon you. This may not be to everyone's taste. The best thing to do is experiment with both and see which gels with your preferences.
+	+ **Normalize.css corrects some common bugs that are out of scope for reset.css.** It has a wider scope than reset.css, and also provides bug fixes for common problems like: display settings for HTML5 elements, the lack of font inheritance by form elements, correcting font-size rendering for pre, SVG overflow in IE9, and the button styling bug in iOS.
+	+ **Normalize.css doesn't clutter your dev tools.** A common irritation when using reset.css is the large inheritance chain that is displayed in browser CSS debugging tools. This is not such an issue with normalize.css because of the targeted stylings.
+	+ **Normalize.css is more modular.** The project is broken down into relatively independent sections, making it easy for you to potentially remove sections (like the form normalizations) if you know they will never be needed by your website.
+	+ **Normalize.css has better documentation.** The normalize.css code is documented inline as well as more comprehensively in the GitHub Wiki. This means you can find out what each line of code is doing, why it was included, what the differences are between browsers, and more easily run your own tests. The project aims to help educate people on how browsers render elements by default, and make it easier for them to be involved in submitting improvements.
+- Here is [Normalize.css](https://github.com/necolas/normalize.css)
+- 
 
 
 [[↑] Back to top](#top)
