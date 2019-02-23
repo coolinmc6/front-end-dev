@@ -1820,12 +1820,16 @@ myElement.classList.remove('bar');
 myElement.classList.toggle('baz');
 ```
 
-
 - [https://www.sitepoint.com/add-remove-css-class-vanilla-js/](https://www.sitepoint.com/add-remove-css-class-vanilla-js/)
-
 
 #### Change an element's class completely.
 
+- One way to do that is to use to the `setAttribute()` method and completely overwrite the class:
+
+```js
+var button = document.querySelector('.unclassed');  // grab element with the class: "unclassed"
+button.setAttribute('class', 'btn btn-danger');     // replace it with class: "btn btn-danger"
+```
 
 #### Get an attribute from a DOM element.
 
@@ -1850,12 +1854,78 @@ myElement.value = null
 
 #### Get window properties like window height, scroll position, etc.
 
+**Height**
+
+- There are two "heights" you should know about: `window.innerHeight` and `window.outerHeight`. You can read more about them here: [Window.innerHeight](https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight), [Window.outerHeight](https://developer.mozilla.org/en-US/docs/Web/API/Window/outerHeight). Both of these are *readonly* properties and can be accessed in the global scope by simply typing `innerHeight` or `outerHeight`.
+- `Window.innerHeight` gets the height (in pixels) of the browser window viewport including, if rendered, the horizontal scrollbar.
+    - this shrinks when you open Chrome devtools whereas the `outerHeight` is untouched
+- `Window.outerHeight` gets the height in pixels of the whole browser window. It represents the height of the whole browser window including sidebar (if expanded), window chrome and window resizing borders/handles.
+
+**Scroll Position**
+
+- For scroll position and where you "are" on the page can be achieved with two other *read only* `window` properties: `pageXOffset` and `pageYOffset`. It appears, however, that not every browser supports those
+properties so you need alternatives if trying implement a functionality that needs to know your position
+like infinite scroll.
+- Learn more about those properties here: [pageXOffset](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageXOffset), [pageYOffset](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageYOffset)
+- Both `pageXOffset` and `pageYOffset` can be accessed in the global scope with just `pageXOffset` and `pageYOffset` as well as `window.pageXOffset` and `window.pageYOffset`
+- To account for the fact that those properties are not always available, here is a function that
+returns the (x,y) coordinates of your position on a page.
+
+```js
+document.getScroll = function() {
+    if (window.pageYOffset != undefined) {
+        return [pageXOffset, pageYOffset];
+    } else {
+        var sx, sy, d = document,
+            r = d.documentElement,
+            b = d.body;
+        sx = r.scrollLeft || b.scrollLeft || 0;
+        sy = r.scrollTop || b.scrollTop || 0;
+        return [sx, sy];
+    }
+}
+```
+
+- the other properties being used here are `scrollLeft` and `scrollTop`
+- To solve the problem of availability of properties, it check for `pageYOffset`; if it is `undefined`
+then it looks to get the position of the `documentElement`, then `body`, then defaults to `0`.
+  - `document.documentElement` is the root element of the document (for example, the `html` element for all HTML documents). Learn more: [MDN: Document.documentElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement)
+
+
+**Summary**
+
+|Property|Use For|Measures|
+|:---:|:---:|:---|
+|`pageYOffset`|Position|Vertical scroll position<br>It is not available in every browser so you may need to use `scrollTop` of another element|
+|`pageXOffset`|Position|Horizontal scroll position<br>Like `pageYOffset`, not available in every browser.|
 
 - Sources:
     + [The Basics of DOM Manipulation in Vanilla JavaScript ](https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/)
 
 [[↑] Back to top](#top)
 
+### What is the difference between the `window` object and the `document` object?
+
+**Answer #1**
+
+- `Window` is the main JavaScript object root, aka the global object in a browser, also can be treated as the root of the document object model. You can access it as `window` in most of the cases (in the browser);
+- `window.screen` is a small information object about physical screen dimensions.
+- `window.document` or just `document` is the main object of the visible (or better yet: rendered) document object model/DOM
+
+**Answer #2**
+
+- Overview:
+    - `window` is the execution context and global object for that context's JavaScript
+    - `document` contains the DOM, initialized by parsing HTML
+    - `screen` describes the physical display's full screen
+- The most basic relationship among the three is that each browser tab has its own `window`, and a `window` has `window.document` and `window.screen` properties. The browser tab's window is the global context, so `document` and `screen` refer to `window.document` and `window.screen`
+- **Window**
+
+
+- Sources:
+    - [Stack Overflow: What is the difference between window, screen, and document in Javascript?](https://stackoverflow.com/questions/9895202/what-is-the-difference-between-window-screen-and-document-in-javascript)
+
+[[↑] Back to top](#top)
 
 ### My website is slow. Walk me through diagnosing and fixing it. What are some performance optimizations people use, and when should they be used?
 
