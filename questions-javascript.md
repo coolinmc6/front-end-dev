@@ -1896,8 +1896,12 @@ then it looks to get the position of the `documentElement`, then `body`, then de
 
 |Property|Use For|Measures|
 |:---:|:---:|:---|
+|`innerHeight`|Height|Height of inner window viewport; this figure gets smaller when you view devtools|
+|`outerHeight`|Height|Height of entire window; unaffected by devtools opening BUT will get larger when user resizes window to be larger|
 |`pageYOffset`|Position|Vertical scroll position<br>It is not available in every browser so you may need to use `scrollTop` of another element|
 |`pageXOffset`|Position|Horizontal scroll position<br>Like `pageYOffset`, not available in every browser.|
+|`scrollTop`|Position|Vertical scroll position|
+|`scrollLeft`|Position|Horizontal scroll position|
 
 - Sources:
     + [The Basics of DOM Manipulation in Vanilla JavaScript ](https://www.sitepoint.com/dom-manipulation-vanilla-javascript-no-jquery/)
