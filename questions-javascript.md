@@ -1827,9 +1827,20 @@ myElement.classList.toggle('baz');
 - One way to do that is to use to the `setAttribute()` method and completely overwrite the class:
 
 ```js
+// Version #1
 var button = document.querySelector('.unclassed');  // grab element with the class: "unclassed"
 button.setAttribute('class', 'btn btn-danger');     // replace it with class: "btn btn-danger"
+
+// Version #2 => DOES NOT SHOW UP IN THE BROWSER
+var button = document.querySelector('.unclassed');
+Object.assign(button, {
+    'class': 'btn btn-danger unclassed'
+});
 ```
+
+- Version #1 is visible to users. Version #2 *does* change the class but there is no redraw which, 
+for most purposes (for me, at least), does not really help. 
+- **Quick Answer:** use `setAttribute()`
 
 #### Get an attribute from a DOM element.
 
