@@ -48,6 +48,8 @@
   - good info on design patterns to learn
 - [Front End Masters: Front-End Developer Handbook 2018](https://frontendmasters.com/books/front-end-handbook/2018/) (large list of items)
 - [Front End Preparation Guide](https://github.com/Jobeir/front-end-interview-preparation-guide) (repo)
+- [Front End Roadmap](https://github.com/kamranahmedse/developer-roadmap)
+	- good info and listing of concepts I should re-visit
 - [General Tech Interview Guide](https://github.com/yangshun/tech-interview-handbook) (repo)
 - [Grab Front End Guide](https://github.com/grab/front-end-guide) (repo)
 - [The Kyle: Data Structures and Algorithms](https://github.com/jamiebuilds/itsy-bitsy-data-structures)
