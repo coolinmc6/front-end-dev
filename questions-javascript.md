@@ -1711,6 +1711,15 @@ var paragraphs = document.getElementsByTagName("p");
 
 [[↑] Back to top](#top)
 
+### What is a Map? How is it different than an Object? Why would you use one?
+
+
+
+- Sources:
+    + [Frontend Weekly: ES6 — Map vs Object — What and when?](https://medium.com/front-end-weekly/es6-map-vs-object-what-and-when-b80621932373)
+    + [GeeskforGeeks: Map in JavaScript](https://www.geeksforgeeks.org/map-in-javascript/)
+
+[[↑] Back to top](#top)
 
 ### Common Vanilla JavaScript functions.
 
