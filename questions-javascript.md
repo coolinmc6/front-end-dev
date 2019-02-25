@@ -588,6 +588,9 @@ addTen(-5); //5
 
 ![Intermediate Questions](https://github.com/coolinmc6/front-end-dev/blob/master/assets/struggle.jpg)
 
+
+
+
 ### Can you name two programming paradigms important for JavaScript app developers?
 
 > JavaScript is a multi-paradigm language, supporting imperative/procedural programming along with OOP (Object-Oriented Programming) and functional programming. JavaScript supports OOP with prototypal inheritance.
@@ -1682,6 +1685,12 @@ var paragraphs = document.getElementsByTagName("p");
 [[↑] Back to top](#top)
 
 
+### What is the Shadow DOM? How does it relate to the DOM?
+
+
+
+[[↑] Back to top](#top)
+
 ### What is REST, and why do people use it?
 
 - REST stands for Representational State Transfer
@@ -1894,7 +1903,7 @@ document.getScroll = function() {
         sy = r.scrollTop || b.scrollTop || 0;
         return [sx, sy];
     }
-}
+};
 ```
 
 - the other properties being used here are `scrollLeft` and `scrollTop`
@@ -1954,6 +1963,29 @@ then it looks to get the position of the `documentElement`, then `body`, then de
 
 [[↑] Back to top](#top)
 
+
+### What are build tools? Name some examples of build tools and explain how they work.
+
+- Linters and Formatters
+- Module Bundlers
+- Task Runners
+
+[[↑] Back to top](#top)
+
+
+### How do you test your application? What are some frameworks? What are the different kinds of testing?
+
+- Jest, Enzyme, Cypress
+- Test Types: Unit, Integration, Functional
+
+[[↑] Back to top](#top)
+
+
+### What is Web Assembly (WASM)?
+
+
+
+[[↑] Back to top](#top)
 
 ### Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
 
