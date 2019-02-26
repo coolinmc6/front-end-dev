@@ -424,6 +424,9 @@ body ~ p {
 
 
 
+- Sources & Notes:
+	+ [CSS Advanced Layouts with Grid (course notes)](https://github.com/coolinmc6/front-end-dev/tree/master/css/CSS-advanced-layouts-with-grid)
+
 [[↑] Back to top](#top)
 
 ### How does Z index function?

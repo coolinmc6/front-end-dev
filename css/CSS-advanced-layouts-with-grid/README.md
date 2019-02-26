@@ -119,6 +119,12 @@
 
 - the particular heights and widths of the top/bottom and left/right don't really matter. What's really cool is that in those lines of code, I have the basics of the holy grail. I can have a top header and bottom footer of height around 100px AND left/right side-areas of width 150px. That middle area is the content. 
 
-# Planning for Grid Layouts
+# 2. Planning for Grid Layouts
 
-# Multi-Column Layout
+# 3. Multi-Column Layout
+
+# 4. Full-Bleed Single Column Layout
+
+# 5. Various Card Layouts
+
+# 6. Accessible Off-Screen Navigation Layouts
