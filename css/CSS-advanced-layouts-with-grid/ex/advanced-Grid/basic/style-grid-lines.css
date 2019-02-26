@@ -1,0 +1,30 @@
+.site {
+    display: grid;
+    grid-template-columns: [main-start] 2fr [sidebar-start] 1fr [sidebar-half] 1fr [main-end];
+    grid-template-rows: [header-start] auto [header-end] 1fr 3fr;
+}
+
+.masthead {
+    grid-column: sidebar-start/main-end;
+    grid-row: 2/3;
+}
+
+.page-title {
+    grid-column: main;
+    grid-row: header;
+}
+
+.main-content {
+    grid-column: main-start/sidebar-start;
+    grid-row: header-end/4;
+}
+
+.sidebar {
+    grid-column: sidebar-start/sidebar-half;
+    grid-row: 3;
+}
+
+.footer-content {
+    grid-column: sidebar-half;
+    grid-row: 3;
+}

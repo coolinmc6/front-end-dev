@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Slide-over off-canvas navigation with CSS Grid</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Source+Sans+Pro:400,400i,600,600i" rel="stylesheet">
+    <link rel="stylesheet" href="style-main.css" type="text/css" media="all">
+	<script src="functions.js" defer></script>
+</head>
+
+<body class="site">
+    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+    <header class="masthead">
+        <h1 class="site-title">Slide-over off-canvas navigation</h1>
+    </header><!-- .masthead -->
+
+	<section class="main-nav">
+		<button class="trigger" aria-expanded="false">Menu<span class="screen-reader-text">Reveal menu</span></button>
+
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Resources</a></li>
+				<li><a href="#">Tutorials</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+	</section><!-- .main-nav -->
+
+    <main id="content" class="main-area">
+        <ul class="cards">
+            <li class="card-item double">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/lines.jpg" alt="Lines on a tropical leaf.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">Lines of Growth</h3>
+							<p>Everything that grows creates lines; the abstract telling of the story of a life.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li class="card-item">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/nerve.jpg" alt="Leaves of the Nerve Plant.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">Pattern Recognition</h3>
+							<p>Human beings are hard-wired to look for patterns in all things.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li class="card-item">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/tree.jpg" alt="The silhouette of a tree during sundown.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">In the Field</h3>
+							<p>Did you know the word "silhouette" is the last name of a French 18th century politician?</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li class="card-item">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/blocks.jpg" alt="Classic wooden letter blocks.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">Spelling the Future</h3>
+							<p>Long before they made colourful plastic bricks they made toys from hardwood.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li class="card-item">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/fjord.jpg" alt="Sundown over the Oslo fjord.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">Water, Earth, and Sky</h3>
+							<p>For some, water is a means of bodily sustenance. For others, it's a medium of transportation.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li class="card-item">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/grass.jpg" alt="A baby sits on a carpet in the grass.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">Flying Carpet</h3>
+							<p>Looking at this photo it's easy to see how the idea of a flying carpet came about.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+			<li class="card-item">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/lines.jpg" alt="Lines on a tropical leaf.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">Lines of Growth</h3>
+							<p>Everything that grows creates lines; the abstract telling of the story of a life.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li class="card-item double">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/nerve.jpg" alt="Leaves of the Nerve Plant.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">Pattern Recognition</h3>
+							<p>Human beings are hard-wired to look for patterns in all things.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li class="card-item">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/tree.jpg" alt="The silhouette of a tree during sundown.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">In the Field</h3>
+							<p>Did you know the word "silhouette" is the last name of a French 18th century politician?</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li class="card-item">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/blocks.jpg" alt="Classic wooden letter blocks.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">Spelling the Future</h3>
+							<p>Long before they made colourful plastic bricks they made toys from hardwood.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li class="card-item">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/fjord.jpg" alt="Sundown over the Oslo fjord.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">Water, Earth, and Sky</h3>
+							<p>For some, water is a means of bodily sustenance. For others, it's a medium of transportation.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+            <li class="card-item">
+                <a href="#">
+                    <figure class="card">
+                        <img src="images/grass.jpg" alt="A baby sits on a carpet in the grass.">
+                        <figcaption class="caption">
+                            <h3 class="caption-title">Flying Carpet</h3>
+							<p>Looking at this photo it's easy to see how the idea of a flying carpet came about.</p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+
+        </ul>
+    </main>
+
+	<section class="sidebar">
+		<aside class="twin">
+			<h2 class="content-title">Grid lets you do unusual things</h2>
+			<p>Creating this layout, where two items share the total available viewport width evenly alongside full-width and centered content, is suprisingly complex if you don't have CSS Grid available.</p>
+		</aside>
+		<aside class="twin">
+			<h2 class="content-title">Grid requires a rethink</h2>
+			<p>Seeing this layout you may still think it's better to just use old methods with auto-margins and max-widths. And you <em>can</em>, but looking at the CSS you'll see the Grid approach is both cleaner and easier to understand.</p>
+		</aside>
+	</section><!-- .twins -->
+
+	<footer class="colophon">
+		<aside>All photos: <a href="https://twitter.com/mor10" target="_blank" rel="nofollow">Morten Rand-Hendriksen</a>.</aside>
+        <aside>For more information, visit <a href="https://linkedin.com/learning" target="_blank" rel="nofollow">LinkedIn Learning</a>.</aside>
+    </footer>
+
+</body>
+
+</html>

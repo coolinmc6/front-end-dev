@@ -1,0 +1,30 @@
+.site {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto 1fr 3fr;
+}
+
+.masthead {
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+.page-title {
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+.main-content {
+    grid-column: 1/2;
+    grid-row: 2/4;
+}
+
+.sidebar {
+    grid-column: 2/3;
+    grid-row: 3;
+}
+
+.footer-content {
+    grid-column: 3/4;
+    grid-row: 3;
+}

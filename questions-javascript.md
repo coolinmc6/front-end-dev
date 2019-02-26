@@ -1960,6 +1960,15 @@ then it looks to get the position of the `documentElement`, then `body`, then de
 
 [[↑] Back to top](#top)
 
+
+### What are some of the "features" of JavaScript?
+
+- JavaScript is most commonly used as a client-side scripting language. This means that an HTML page with JavaScript is sent to the browser and the browser runs the JavaScript.
+- JavaScript is an interpreted language which means that it produces a result from the program (whatever you wrote in JavaScript) while a compiled language is a language where a compiler is required to take your code and compile it into a program in assembly language.
+- JavaScript is an object-based language but uses prototypal inheritance unlike more classical OO languages.
+- JavaScript is light weight.
+- JavaScript is case sensitive.
+
 ### My website is slow. Walk me through diagnosing and fixing it. What are some performance optimizations people use, and when should they be used?
 
 

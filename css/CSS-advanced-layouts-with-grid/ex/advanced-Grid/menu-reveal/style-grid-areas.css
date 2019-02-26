@@ -1,0 +1,71 @@
+@media screen and (min-width: 40em) {
+
+    .site {
+        overflow-x: hidden;
+        position: relative;
+        left: -18em;
+        display: grid;
+        grid-template-columns: 20em calc(100% - 3em);
+        grid-column-gap: 1em;
+        grid-template-areas:
+            "masthead header"
+            "masthead main"
+            "masthead footer";
+        transition: left .4s;
+    }
+
+    .reveal {
+        left: 0;
+    }
+
+    .masthead {
+        
+        grid-area: masthead;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    .trigger {
+
+    }
+
+    .masthead nav {
+        display: none;
+    }
+
+    .reveal .masthead nav {
+        display: block;
+    }
+
+
+
+    .main-content {
+
+    }
+
+    .main-content,
+    .secondary {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 3em minmax(2em, 5em) auto;
+        grid-column-gap: 1em;
+    }
+
+    .title {
+        grid-column: span 2;
+        background: red;
+    }
+
+
+    .sidebar {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .footer-content {
+        grid-area: footer;
+    }
+
+}

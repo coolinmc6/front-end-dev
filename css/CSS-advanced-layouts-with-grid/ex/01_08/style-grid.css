@@ -1,0 +1,40 @@
+.site {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto 1fr 3fr;
+	grid-template-areas:
+		"title title"
+		"main masthead"
+		"main sidebar"
+		"footer footer";
+}
+
+@media screen and (min-width: 600px) {
+	.site {
+		grid-template-columns: 2fr 1fr 1fr;
+		grid-template-areas:
+			"title title title"
+			"main masthead masthead"
+			"main sidebar footer";
+	}
+}
+
+.masthead {
+	grid-area: masthead;
+}
+
+.page-title {
+	grid-area: title;
+}
+
+.main-content {
+	grid-area: main;
+}
+
+.sidebar {
+	grid-area: sidebar;
+}
+
+.footer-content {
+	grid-area: footer;
+}

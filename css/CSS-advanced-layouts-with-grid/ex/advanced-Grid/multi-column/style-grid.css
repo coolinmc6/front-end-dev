@@ -1,0 +1,80 @@
+/*--------------------------------------------------------------
+Basic responsive layout for all browsers:
+--------------------------------------------------------------*/
+
+.site {
+	max-width: 50em;
+	margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+CSS Grid layout for wider screens, when browser supports grid:
+--------------------------------------------------------------*/
+/* Layout with CSS Grid */
+@supports (grid-area: auto) {
+    @media screen and (min-width: 60em) {
+
+		/* Two-column layout. Left column has fixed width of 20em: */
+		.site {
+			display: grid;
+            max-width: none;
+			grid-template-columns: minmax(auto, 20em) minmax(40em, auto);
+            grid-template-areas:
+                "logo feature"
+                ". main"
+                "buckets buckets"
+                ". sidebar"
+                "footer footer";
+		}
+
+        .masthead {
+            grid-area: logo;
+        }
+
+        .feature {
+            grid-area: feature;
+        }
+
+        .main-area {
+            grid-area: main;
+        }
+
+        .buckets {
+            grid-area: buckets;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+        }
+
+        .colophon {
+            grid-area: footer;
+        }
+
+        .main-area>* {
+            grid-area: main;
+            display: grid;
+            grid-template-columns: minmax(0, auto) minmax(35em, 47em) minmax(0, auto);
+        }
+
+        .main-area>*>* {
+            grid-column: 2/3;
+        }
+
+	}
+
+    @media screen and (min-width: 80em) {
+
+		/* Three-column layout. Left and right columns have fixed widths of 20em: */
+		.site {
+			grid-template-columns: minmax(auto, 20em) 1fr minmax(auto, 20em);
+            grid-template-areas:
+                "logo feature feature"
+                ". main sidebar"
+                "buckets buckets sidebar"
+                "footer footer footer";
+		}
+
+	}
+
+}

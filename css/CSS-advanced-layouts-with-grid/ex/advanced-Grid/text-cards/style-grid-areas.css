@@ -1,0 +1,47 @@
+@media screen and (min-width: 40em) {
+
+    .site {
+        position: relative;
+        left: -21em;
+        display: grid;
+        grid-template-columns: 20em 100%;
+        grid-column-gap: 1em;
+        grid-template-areas:
+            "masthead header"
+            "masthead main"
+            "masthead footer";
+    }
+
+    .masthead {
+        grid-area: masthead;
+    }
+
+    .main-content {
+
+    }
+
+    .main-content,
+    .secondary {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 3em minmax(2em, 5em) auto;
+        grid-column-gap: 1em;
+    }
+
+    .title {
+        grid-column: span 2;
+        background: red;
+    }
+
+
+    .sidebar {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .footer-content {
+        grid-area: footer;
+    }
+
+}
