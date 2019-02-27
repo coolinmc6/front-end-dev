@@ -301,3 +301,12 @@ Basic responsive layout for all browsers:
 /*--------------------------------------------------------------
 CSS Grid layout for modern browsers:
 --------------------------------------------------------------*/
+
+@supports (grid-area: auto) {
+	
+}
+
+
+
+
+

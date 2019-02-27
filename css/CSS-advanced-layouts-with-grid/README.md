@@ -119,12 +119,94 @@
 
 - the particular heights and widths of the top/bottom and left/right don't really matter. What's really cool is that in those lines of code, I have the basics of the holy grail. I can have a top header and bottom footer of height around 100px AND left/right side-areas of width 150px. That middle area is the content. 
 
+## Grid Gap
+
+- Grid gap can put space between your elements
+- `grid-gap` goes on your grid container item
+
+```css
+.site {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto 1fr 3fr;
+	grid-template-areas:
+		"title title"
+		"main masthead"
+		"main sidebar"
+		"footer footer";
+	grid-gap: 1em;  /* 1em gap for both columns and rows  */
+	grid-column-gap: 1em; /*  1em gap for columns (left and right) */
+	grid-row-gap: 1em; /* 1em gap for rows (top and bottom)  */
+	grid-gap: 1em 2em; /*  1em gap for rows (top and bottom) 2em gap for columns (left & right) */
+}
+```
+
+
 # 2. Planning for Grid Layouts
+
+## CSS Grid Means Rethinking Web Layouts
+
+- CSS grid brings outside-in, two-dimensional layouts to the web browser
+- Grid Items
+	+ direct first-level descendants of the grid container
+	+ second-level descendants need their own grid
+	+ subgrids are not supported
+	+ resist the urge to "flatten" your HTML elements
+- True Grids
+	+ The "masonry" layout (think Pinterest) is the opposite of a grid
+	+ CSS grid is a true grid with straight lines
+- Content Stacking
+	+ Any grid item can be placed anywhere on the ground
+	+ the includes placing them on top of each other
+- Content Order
+	+ Any grid item can be placed anywhere on the grid
+	+ Manual placement is not impacted by the source order
+	+ Make sure visible content order matches the source content order to preserve meaningful communication
+- Pure CSS Grids
+	+ grids are defined using pure CSS
+	+ Grids can be nested inside media queries
+	+ Grids can be appliced conditionally
+	+ Grids can be added, changed, or removed without affecting the HTML
+
+## Start Layouts with Pen and Paper
+
+- start with small screens and then move up
+- Draw gridlines to see where the grid changes from small to large
+- Break grid apart to identify where nesting is needed
+- Repeat the process for each content model/view
+- Resist the urge to make grid frameworks or classic x-column grids
+
+## A New Approach to Backward Compatibility
+
+- Reponsive design has taught us a website does not need to look the same across all viewports and browsers
+- Start using CSS Grid today - it **WILL** be the standard, I must learn it now
+- Start with the mobile sizing and then progressively enhance experience with CSS Grid for browsers with CSS Grid support
+- In 2-3 years any fallback will be irrelevant
 
 # 3. Multi-Column Layout
 
+## Check for Grid Support
+
+```css
+@supports (grid-area: auto) {
+	
+}
+```
+
+- Like a media query
+
+
 # 4. Full-Bleed Single Column Layout
+
+
+
 
 # 5. Various Card Layouts
 
+
+
+
 # 6. Accessible Off-Screen Navigation Layouts
+
+
+
