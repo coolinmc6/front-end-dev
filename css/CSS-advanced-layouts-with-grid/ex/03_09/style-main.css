@@ -325,7 +325,8 @@ CSS Grid layout for modern browsers:
 		}
 
 		.sidebar {
-			grid-column: 2/3;
+			grid-column: 1/2;
+			grid-row: 2/4;
 		}
 
 		.colophon {
@@ -342,6 +343,18 @@ CSS Grid layout for modern browsers:
 
 		.masthead {
 			grid-column: 1/4;
+		}
+
+		.sidebar {
+			display: inherit;
+			grid-template-columns: inherit;
+			grid-column: 1/4;
+			grid-row: 2/3;
+			height: 0;
+		}
+
+		.twin:last-of-type {
+			grid-column: 3/4;
 		}
 
 		.colophon {

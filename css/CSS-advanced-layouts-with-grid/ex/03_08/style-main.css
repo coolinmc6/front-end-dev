@@ -338,7 +338,8 @@ CSS Grid layout for modern browsers:
 	@media screen and (min-width: 65em) {
 
 		.site {
-			grid-template-columns: 15em auto 15em;
+			grid-template-columns: 15em minmax(auto, 30em) 15em;
+			justify-content: center;
 		}
 
 		.feature {

@@ -304,4 +304,16 @@ CSS Grid layout for modern browsers:
 
 @supports (grid-area: auto) {
 
+	
+	@media screen and (min-width: 50em) {
+		.site {
+			max-width: none;
+			display: grid;
+			grid-template-columns: 15em auto;	
+		}
+		
+	}
+
+
+
 }

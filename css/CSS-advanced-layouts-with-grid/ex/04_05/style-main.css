@@ -298,6 +298,15 @@ CSS Grid layout for modern browsers:
 	.main-area > *,
 	.colophon {
 		display: grid;
+		grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr;
+	}
+
+	.splash-content, .more-content, .buckets ul {
+		grid-column: 2/4;
+	}
+
+	.twin, .colophon aside {
+		grid-column: span 2;
 	}
 
 

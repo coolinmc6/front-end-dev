@@ -314,6 +314,7 @@ CSS Grid layout for modern browsers:
 
 		.masthead {
 			grid-column: 1/2;
+			grid-row: 1/3;
 		}
 
 		.feature {
@@ -331,6 +332,23 @@ CSS Grid layout for modern browsers:
 		.colophon {
 			grid-column: 1/3;
 		}
+	}
+
+	@media screen and (min-width: 65em) {
+
+		.site {
+			grid-template-columns: 15em auto 15em;
+		}
+		
+		.sidebar {
+			grid-column: 3/4;
+			grid-row: 1/3;
+		}
+
+		.colophon {
+			grid-column: 1/4;
+		}
+
 	}
 
 }

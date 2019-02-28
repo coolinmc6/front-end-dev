@@ -312,6 +312,26 @@ CSS Grid layout for modern browsers:
 			grid-template-columns: 15em auto;
 		}
 
+		.masthead {
+			grid-column: 1/2;
+		}
+
+		.feature {
+			grid-column: 2/3;
+		}
+
+		.main-area {
+			grid-column: 2/3;
+		}
+
+		.sidebar {
+			grid-column: 2/3;
+		}
+
+		.colophon {
+			grid-column: 1/3
+		}
+
 	}
 
 }
