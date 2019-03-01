@@ -358,8 +358,74 @@
 
 # 5. Various Card Layouts
 
+- We first turn each card into a grid:
 
+```css
+.card a {
+	display: grid;
+	grid-template-columns: 6em auto;
+	grid-template-rows: 1fr 1fr;
+}
+```
 
+- Next, we place our items in each card (date, header, meta div) into their respective positions in the grid. We want the date vertically and horizontally centered in the left column and the header and meta div in the right column. Here is how we made those changes:
+
+```css
+.card a {
+	display: grid;
+	grid-template-columns: 6em auto;
+	grid-template-rows: 1fr 1fr;
+	padding: 0;
+	text-align: left;
+}
+
+.time {
+	grid-column: 1;
+	grid-row: 1/3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.card h2 {
+	grid-column: 2;
+	grid-row: 1;
+
+}
+
+.meta {
+	grid-column: 2;
+	grid-row: 2;
+}
+```
+
+- The placement part of the elements made sense but I wanted to dig into the use of flexbox on the `.time` element. But first, it helps to understand what is in the `.time` div:
+
+```html
+<time class="time" datetime="2017-07-24T09:00">
+	<div class="month">Jul</div>
+	<div class="date">24</div>
+</time>
+```
+
+- It is a parent `<time>` element with two `<div>`'s inside, a month and day.
+- After placing `.time` where we wanted it on the grid, it wasn't centered vertically or horizontally. So we used flexbox to do that:
+	- First, by adding `display: flex`, we are enabling flexbox. This puts the two items (month and day) next to each other; not at all what we want.
+	- Next, we added `flex-direction: column;` which vertically stacked them. *I need to look this up later to really understand how it works*.
+	- Now that we have the vertical placement we want, just needed to vertically and horizontally center them. We do vertical alignment with `justify-content: center;` and horizontal alignment with `align-items: center;`
+- We also use flexbox to finish up the work to do a few more things:
+	- To make the card take up the full vertical height, we add `display: flex:` to the `.card` element and give the `<a>` element `width: 100%`
+	- To make the `<h2>` element "stick" to the bottom of the grid cell, we add `align-self: flex-end` to it
+
+## 5.7 - Change Appearance of Cards with Flex
+
+- One thing he did that was interesting was the changing of the image size to fix the incompatible size. Instead of doing some CSS magic, he cropped the image
+
+## 5.10 - Magazine-style Grid
+
+- Really attractive layout - I should definitely come back to this
+- The coolest take away is just how easily you can make an item take up more space. For any `.double` elements, we simply set `grid-row: span 3` and it now takes up 3 rows (vertical space). After tweaking the CSS for the image, we made that really attractive look similar to Twitter moments.
 
 # 6. Accessible Off-Screen Navigation Layouts
 

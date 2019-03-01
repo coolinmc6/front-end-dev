@@ -243,12 +243,33 @@ Card grid:
 
 @supports (grid-area: auto) {
 
+	@media screen and (min-width: 50em) {
+
+		.cards {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 1em;
+		}
+
+		.card {
+			margin-bottom: 0;
+			display: flex;
+		}
+
+		.card a {
+			width: 100%;
+		}
+
+
+
+	}
 	.card a {
 		display: grid;
 		grid-template-columns: 6em auto;
 		grid-template-rows: 1fr 1fr;
 		padding: 0;
 		text-align: left;
+		padding: 0 1em 0 0;
 	}
 
 	.time {
