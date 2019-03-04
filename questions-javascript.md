@@ -51,6 +51,10 @@
 <a name="top"></a>
 # JavaScript Questions & Definitions
 
+- [DOM Questions](http://thatjsdude.com/interview/index.html)
+    + take a look and take notes; good stuff in here
+
+
 ### Table of Contents
 
 #### By Difficulty
@@ -1681,6 +1685,8 @@ var paragraphs = document.getElementsByTagName("p");
 
 - Sources:
     + [MDN: What is the DOM?](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+    + [DOM Questions](http://thatjsdude.com/interview/index.html)
+        * great questions that I need to follow up on.
 
 [[↑] Back to top](#top)
 
