@@ -1,0 +1,7 @@
+/* Styles for mixed menu (drop-down + social) */
+.nav-mixed {
+    display: flex;
+    background: hsl(0, 0%, 15%);
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

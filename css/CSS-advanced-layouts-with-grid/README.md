@@ -8,6 +8,11 @@
 - [CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
 - Some CodePens:
 	+ [CSS Grid Basics - 001](https://codepen.io/coolinmc6/pen/NJrQeN)
+		* shows some basic grid-template-areas.
+	+ [CSS Grid Basics - 002](https://codepen.io/coolinmc6/pen/MxjgWO)
+		* basic grid, same design, but with `grid-row` and `grid-column` as opposed to `grid-template-areas`
+	+ [CSS Grid Basics - 003](https://codepen.io/coolinmc6/pen/VRKZPZ)
+		* same as #002 but with grid-gap.
 
 # 1. CSS Grid: Core Principles
 

@@ -1,0 +1,13 @@
+/* Styles for mixed menu (drop-down + social) */
+.nav-mixed {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background: hsl(0, 0%, 15%);
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}

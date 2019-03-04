@@ -1,0 +1,63 @@
+/* Base styles */
+
+.site-title {
+	margin-bottom: 0;
+}
+.main-menu {
+	padding: .4em 1em;
+	color: white;
+	background: hsl(0, 0%, 20%);
+}
+
+.post-content {
+	padding: 0 1.4em 1.4em;
+}
+
+.sidebar {
+	padding: .5em 1.4em 1em;
+	background: hsl(0, 0%, 90%);
+}
+
+.example-menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.example-menu a {
+	display: block;
+	padding: .4em 0;
+	color: inherit;
+	text-decoration: none;
+	transition: all 0.5s ease;
+}
+
+.example-menu a:hover,
+.example-menu a:focus {
+	padding: .4em 1em;
+	background: hsl(0, 0%, 20%);
+	color: white;
+}
+
+.footer-area {
+	padding: .4em 1em;
+	text-align: center;
+	background: hsl(0, 0%, 75%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
