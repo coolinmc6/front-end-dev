@@ -1,6 +1,13 @@
 
 # CSS: Advanced Layouts with Grid
 
+# Sources to Check Out
+
+- [Grid by Example](https://gridbyexample.com/)
+- [MDN: CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout)
+- [CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- Some CodePens:
+	+ [CSS Grid Basics - 001](https://codepen.io/coolinmc6/pen/NJrQeN)
 
 # 1. CSS Grid: Core Principles
 
@@ -428,6 +435,52 @@
 - The coolest take away is just how easily you can make an item take up more space. For any `.double` elements, we simply set `grid-row: span 3` and it now takes up 3 rows (vertical space). After tweaking the CSS for the image, we made that really attractive look similar to Twitter moments.
 
 # 6. Accessible Off-Screen Navigation Layouts
+
+## 6.3 - Set-up the Main Grid
+
+- It was a good reminder of how the `grid-template-areas` property works. Remember, you set the layout of the grid with the name of the area and then you pick the divs that get those areas:
+
+```css
+.site {
+	display: grid;
+	grid-template-areas: 
+		"header"
+		"main"
+		"sidebar"
+		"footer";
+}
+
+.masthead {
+	grid-area: header;
+}
+
+.main-area {
+	grid-area: main;
+}
+
+.sidebar {
+	grid-area: sidebar;
+}
+
+.colophon {
+	grid-area: footer;
+}
+
+
+@media screen and (min-width: 76em) {
+	.site {
+		grid-template-columns: auto 15em;
+		grid-template-areas: 
+			"header header"
+			"main sidebar"
+			"footer footer"
+		;
+	}
+}
+```
+
+- notice how for the larger screen, we want the `header` to take up both columns, then `main` and `sidebar` each have a column, and then `footer` has the entire width
+
 
 
 

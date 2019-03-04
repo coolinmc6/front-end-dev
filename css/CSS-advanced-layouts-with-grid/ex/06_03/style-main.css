@@ -294,6 +294,31 @@ CSS Grid layout for wider screens, when browser supports grid:
 
 	@media screen and (min-width: 27em) {
 
+		.site {
+			display: grid;
+			grid-template-areas: 
+				"header"
+				"main"
+				"sidebar"
+				"footer";
+		}
+
+		.masthead {
+			grid-area: header;
+		}
+
+		.main-area {
+			grid-area: main;
+		}
+
+		.sidebar {
+			grid-area: sidebar;
+		}
+
+		.colophon {
+			grid-area: footer;
+		}
+
 		.cards {
 			margin: 0 auto;
 			padding: 1em;
@@ -336,6 +361,21 @@ CSS Grid layout for wider screens, when browser supports grid:
 		.double .card {
 			display: block;
 		}
+
+	}
+
+	@media screen and (min-width: 78em) {
+
+
+		.site {
+			grid-template-columns: auto 15em;
+			grid-template-areas: 
+				"header header"
+				"main sidebar"
+				"footer footer"
+			;
+		}
+
 
 	}
 
