@@ -114,6 +114,31 @@
 
 [[↑] Back to top](#top)
 
+### What are the differences between controlled and uncontrolled components?
+
+|Controlled Components|Uncontrolled Components|
+|:---|:---|
+|1. They do not maintain their own state |1. They maintain their own state|
+|2. Data is controlled by the parent component   |2. Data is controlled by the DOM|
+|3. They take in the current values through props and then notify the changes via callbacks  |3. Refs are used to get their current values|
+
+
+[[↑] Back to top](#top)
+
+### What are refs in React?
+
+- Refs is the short hand for References in React. 
+- It is an attribute which helps to store a reference to a particular React element or component, which will be returned by the components render configuration function. 
+- It is used to return references to a particular element or component returned by `render()`. They come in handy when we need DOM measurements or to add methods to the components.
+- Here are some cases of when to use refs:
+    + When you need to manage focus, select text or media playback
+    + To trigger imperative animations
+    + Integrate with third-party DOM libraries
+
+**Links:**
+
+- [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
+
 ## Easy
 
 ### What is React?
@@ -304,7 +329,7 @@ React then updates only the part of the real DOM that has been changed
 - Events are passed as functions instead of strings.
 - Here is a simple example of an event in React:
 
-```react
+```babel
 class MyComponent extends Component {
     show(e) {
 
@@ -368,6 +393,28 @@ class MyComponent extends Component {
 
 [[↑] Back to top](#top)
 
+
+### What is the significance of keys in React?
+
+- Keys are used for identifying unique Virtual DOM Elements with their corresponding data driving the UI. - They help React to optimize the rendering by recycling all the existing elements in the DOM. 
+- These keys must be a unique number or string, using which React just reorders the elements instead of re-rendering them. 
+- This leads to an increase in application’s performance.
+
+[[↑] Back to top](#top)
+
+
+
+
+
+
+
+
+
+
+
+
+===
+
 # Redux Questions
 
 ## Sources & Links:
@@ -379,6 +426,18 @@ class MyComponent extends Component {
 ### What is Redux?
 
 - It is a predictable state container for JavaScript applications and is used for the entire applications state management. Applications developed with Redux are easy to test and can run in different environments showing consistent behavior.
+
+[[↑] Back to top](#top)
+
+### What are the advantages of Redux?
+
+- **Predictability of outcome** – Since there is always one source of truth, i.e. the store, there is no confusion about how to sync the current state with actions and other parts of the application.
+- **Maintainability** – The code becomes easier to maintain with a predictable outcome and strict structure.
+- **Server-side rendering** – You just need to pass the store created on the server, to the client side. This is very useful for initial render and provides a better user experience as it optimizes the application performance.
+- **Developer tools** – From actions to state changes, developers can track everything going on in the application in real time.
+- **Community and ecosystem** – Redux has a huge community behind it which makes it even more captivating to use. A large community of talented individuals contribute to the betterment of the library and develop various applications with it.
+- **Ease of testing** – Redux’s code is mostly functions which are small, pure and isolated. This makes the code testable and independent.
+- **Organization** – Redux is precise about how code should be organized, this makes the code more consistent and easier when a team works with it.
 
 [[↑] Back to top](#top)
 
@@ -408,5 +467,122 @@ class MyComponent extends Component {
 
 
 [[↑] Back to top](#top)
+
+### How does data flow through Redux?
+
+- Here's an image describing the flow:
+
+![OOP Example](https://github.com/coolinmc6/front-end-dev/blob/master/assets/redux-data-flow.png)
+
+[[↑] Back to top](#top)
+
+### How are actions defined in Redux?
+
+- Actions are just JavaScript objects that are used by Reducers
+- Actions must have a 'type' property that indicates the type of action being performed.
+- The type is a string that typically describes what the action is trying to achieve. In the example below, I am trying to change the page to whatever the id of that page is
+- Actions also have a "payload" property that is the value that they are trying to pass.
+- So, again, actions have two properties:
+    + type
+    + payload / data
+- Actions are created by Action Creators.
+
+```js
+// the function itself is the 'action creator'; the JS object being returned is the 'action'
+export function changePage(id) {
+    return {
+        type: CHANGE_PAGE,
+        payload: id
+    }
+}
+```
+
+
+[[↑] Back to top](#top)
+
+
+### Explain the role of the Reducer.
+
+- Reducers are *pure functions* that specify how the application's state changes in response to an action.
+- Reducers take two arguments: the previous state and an action
+- They then return a new state based on whatever the action tells it to do
+- Below is part of one reducer I created for [Code Assist](https://github.com/coolinmc6/code-assist):
+
+```js
+export default function(state = defaultJSNotes, action) {
+    switch(action.type) {
+        case FETCH_LIBRARY:
+            let temp = [];
+            if(ENV == 'dev') {
+                temp = [...action.payload.data];
+            } else {
+                temp = [...action.payload.data["code"]];
+            }
+
+            // let uniqueTags = [...temp.map(o => o.snipRawTags)].sort((a,b) => a - b)
+            let uniqueTags = temp.reduce((acc, val) => acc.concat(val.snipTags), []).sort();
+            
+            return {
+                ...state,
+                // library: [...action.payload.data["code"]]
+                library: [...temp], 
+                uniqueTags: [...uniqueTags]
+            }
+            
+        // OTHER CASES
+
+        default:
+            return state;
+    }
+};
+```
+
+- *Link to the reducer:* [Code Assist Reducer](https://github.com/coolinmc6/code-assist/blob/master/src/reducers/code_assist_reducer.js)
+
+- Another important aspect to note is that you can create separate reducer files so that instead of one massive reducer, you can separate the work. To do that, you'll need a function to combine reducers. Here is an example:
+
+```js
+import { combineReducers } from 'redux';
+import CodeAssistReducer from './code_assist_reducer';
+import CodeReducer from './code_editor_reducer'
+
+const rootReducer = combineReducers({   
+    code_blocks: CodeAssistReducer,
+    my_code: CodeReducer
+}); 
+    
+export default rootReducer;
+```
+
+
+[[↑] Back to top](#top)
+
+
+### What is the significance of Store in Redux?
+
+- A store is a JavaScript object which can hold the application’s state and provide a few helper methods to access the state, dispatch actions and register listeners. 
+- The entire state/object tree of an application is saved in a single store. As a result of this, Redux is very simple and predictable. 
+- We can pass middleware to the store to handle the processing of data as well as to keep a log of various actions that change the state of stores. All the actions return a new state via reducers.
+
+
+[[↑] Back to top](#top)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
