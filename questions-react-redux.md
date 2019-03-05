@@ -63,6 +63,9 @@
 - [5 Essential React Interview Questions](https://www.codementor.io/blog/5-essential-reactjs-interview-questions-du1084ym1 )
 - [Edureka: 50 React Interview Questions](https://www.edureka.co/blog/interview-questions/react-interview-questions/)
 - [Pau1Fitz: React Interview](https://github.com/Pau1fitz/react-interview)
+- [sudheerj/reactjs-interview-questions](https://github.com/sudheerj/reactjs-interview-questions)
+    + pretty comprehensive - must revisit
+- [TopTal: 13 Essential Raect.js Interview Questions](https://www.toptal.com/react/interview-questions)
 - [Tyler McGinnis: React Interview Questions](https://tylermcginnis.com/react-interview-questions/)
 
 
@@ -76,17 +79,27 @@
 
 ### What are some of the most important Lifecycle Methods?
 
-- **componentWillMount()** - Invoked once, on both client & server before rendering occurs.
+- **componentWillMount()** (deprecated) - Invoked once, on both client & server before rendering occurs.
 - **componentDidMount()** - Invoked once, only on the client, after rendering occurs.
-- **componentWillReceiveProps()** - Invoked as soon as the props are received from the parent class and before another render is called
+- **componentWillReceiveProps()** (deprecated) - Invoked as soon as the props are received from the parent class and before another render is called
 - **shouldComponentUpdate()** - Returns true or false value based on certain conditions. If you want your component to update, return true else return false. By default, it returns false.
-- **componentWillUpdate()** – Called just before rendering takes place in the DOM.
+- **componentWillUpdate()** (deprecated) – Called just before rendering takes place in the DOM.
 - **componentDidUpdate()** – Called immediately after rendering takes place.
 - **componentWillUnmount()** – Called after the component is unmounted from the DOM. It is used to clear up the memory spaces.
+- Here are all the lifecycle methods:
 
+![React Lifecycle Methods](https://github.com/coolinmc6/front-end-dev/blob/master/assets/react-lifecycle.png)
 
 [[↑] Back to top](#top)
 
+
+### Where in a React component should you make an AJAX request?
+
+- `componentDidMount` is where an AJAX request should be made in a React component. This method will be executed when the component “mounts” (is added to the DOM) for the first time. 
+- This method is only executed once during the component’s life. Importantly, you can’t guarantee the AJAX request will have resolved before the component mounts. If it doesn't, that would mean that you’d be trying to `setState` on an unmounted component, which would not work. 
+- Making your AJAX request in `componentDidMount` will guarantee that there’s a component to update.
+
+[[↑] Back to top](#top)
 
 ### Explain Differences between State and Props.
 
@@ -177,6 +190,11 @@
 
 [[↑] Back to top](#top)
 
+### How does React work?
+
+- React creates a virtual DOM. When state changes in a component it firstly runs a "diffing" algorithm, which identifies what has changed in the virtual DOM. The second step is reconciliation, where it updates the DOM with the results of diff.
+
+[[↑] Back to top](#top)
 
 ### What are some of the major features of React?
 
@@ -316,6 +334,10 @@ React then updates only the part of the real DOM that has been changed
     - **Initial Rendering Phase**: This is the phase when the component is about to start its life journey and make its way to the DOM.
     - **Updating Phase**: Once the component gets added to the DOM, it can potentially update and re-render only when a prop or state change occurs. That happens only in this phase.
     - **Unmounting Phase**: This is the final phase of a component’s life cycle in which the component is destroyed and removed from the DOM.
+- Alternate names:
+    + **Initialization**
+    + **State/Property Updates**
+    + **Destruction**
 
 
 [[↑] Back to top](#top)
@@ -472,7 +494,7 @@ class MyComponent extends Component {
 
 - Here's an image describing the flow:
 
-![OOP Example](https://github.com/coolinmc6/front-end-dev/blob/master/assets/redux-data-flow.png)
+![Redux Data Flow](https://github.com/coolinmc6/front-end-dev/blob/master/assets/redux-data-flow.png)
 
 [[↑] Back to top](#top)
 

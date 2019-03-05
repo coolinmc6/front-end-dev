@@ -20,15 +20,8 @@
 			<td></td>
 			<td></td>
 			<td></td>
-			<td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md">JavaScript Questions & Glossary</a></td>
+			<td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md">Interview Questions</a></td>
 		</tr>
-		<tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-css.md">CSS Questions & Glossary</a></td>
-		</tr>  	
 	</tbody>
 </table>
 

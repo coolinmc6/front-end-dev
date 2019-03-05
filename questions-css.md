@@ -16,6 +16,20 @@
 			<td><strong><a href="https://github.com/coolinmc6/front-end-dev">Front End Development</a></strong></td>
 		</tr>
 		<tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-accessibility.md">Accessibility Questions & Glossary</a></td>
+		</tr>
+		<tr>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td></td>
+		    <td><em>CSS Questions & Glossary</em></td>
+		</tr>
+		<tr>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -27,21 +41,7 @@
 		    <td></td>
 		    <td></td>
 		    <td></td>
-		    <td><em>CSS Questions & Glossary</em></td>
-		</tr>
-		<tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
 		    <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-networking-web.md">Networking Questions & Glossary</a></td>
-		</tr>
-		<tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-accessibility.md">Accessibility Questions & Glossary</a></td>
 		</tr>
 		<tr>
 		    <td></td>

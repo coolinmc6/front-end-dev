@@ -20,7 +20,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md">JavaScript Questions & Glossary</a></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-accessibility.md">Accessibility Questions & Glossary</a></td>
         </tr>
         <tr>
             <td></td>
@@ -34,15 +34,15 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><em>Networking Questions & Glossary</em></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md">JavaScript Questions & Glossary</a></td>
         </tr>
         <tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-accessibility.md">Accessibility Questions & Glossary</a></td>
-		</tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><em>Networking Questions & Glossary</em></td>
+        </tr>
         <tr>
             <td></td>
             <td></td>
