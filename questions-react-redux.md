@@ -112,6 +112,8 @@
 |4. Stateless components notify them about the requirement of the state change, then they send down the props to them.|4. They receive the props from the Stateful components and treat them as callback functions|
 
 
+[[↑] Back to top](#top)
+
 ## Easy
 
 ### What is React?
@@ -295,12 +297,28 @@ React then updates only the part of the real DOM that has been changed
 
 
 
-### What is an event in React?
+### What is an event in React? How do you create one?
 
 - Event handlers in React are placed directly on the element. 
 - Events are named using camel case instead of just using the lowercase.
 - Events are passed as functions instead of strings.
+- Here is a simple example of an event in React:
 
+```react
+class MyComponent extends Component {
+    show(e) {
+
+    },
+
+    render() {
+
+        return (
+            <div onClick={this.show} className="awesome-div">Click Here!</div>
+        );
+    }
+}
+
+```
 
 [[↑] Back to top](#top)
 
