@@ -175,35 +175,35 @@ React then updates only the part of the real DOM that has been changed
 [[↑] Back to top](#top)
 
 ### How does React render the virtual DOM?
-Usually you have a root HTML element in your index.html file that has an id of 'root' but I've also seen other names. This div is called the "root" DOM node because everything in it is managed by React DOM.
-To render an element, we call the ReactDOM.render() method which takes two parameters: the element you want to render and the root DOM node.
-The element you want to render usually houses the entire application so it'll typically be called App or something like that
-The root DOM node is actually selected using JavaScript  document.getElementById('root')
-Usually, the ReactDOM.render() method is called once and then the state of the app changes which causes the components to re-render
-React DOM compares the element and its children to the previous version of it and then updates what has changed
+- Usually you have a root HTML element in your `index.html` file that has an id of 'root' but I've also seen other names. This div is called the "root" DOM node because everything in it is managed by React DOM.
+- To render an element, we call the `ReactDOM.render()` method which takes two parameters: the element you want to render and the root DOM node.
+- The element you want to render usually houses the entire application so it'll typically be called `App` or something like that
+- The root DOM node is actually selected using JavaScript: `document.getElementById('root')`
+- Usually, the `ReactDOM.render()` method is called once and then the state of the app changes which causes the components to re-render
+- React DOM compares the element and its children to the previous version of it and then updates what has changed
 
 
 [[↑] Back to top](#top)
 
 ### Explain the sentence: "In React, everything is a component."
-Components are the building blocks of a React application's user interface (UI).
-These components split the entire UI into small, independent and reusable pieces.
-React then renders these components independent of each other without affecting the UI.
+- Components are the building blocks of a React application's user interface (UI).
+- These components split the entire UI into small, independent and reusable pieces.
+- React then renders these components independent of each other without affecting the UI.
 
 
 [[↑] Back to top](#top)
 
 ### What is a React Component?
-Components are the building blocks of React apps. 
-They can be either functional components or class-based components.
-In addition to returning the JSX that you want, class components can also have state which stores information in a JavaScript object
-What is a functional component?
-Functional components are written like normal JavaScript functions that return some JSX that React turns into HTML
-What is a Class component?
-Class components are written like JavaScript classes. 
-The basic syntax is something like:
-class MyComponent extends React.Component {}
-Every React component must have a render() function that returns the JSX of our component
+- Components are the building blocks of React apps. 
+- They can be either functional components or class-based components.
+- In addition to returning the JSX that you want, class components can also have state which stores information in a JavaScript object
+- **What is a functional component?**
+    - Functional components are written like normal JavaScript functions that return some JSX that React turns into HTML
+- **What is a Class component?**
+    - Class components are written like JavaScript classes. 
+    - The basic syntax is something like:
+    - `class MyComponent extends React.Component {}`
+    - Every React component must have a render() function that returns the JSX of our component
 
 
 [[↑] Back to top](#top)
