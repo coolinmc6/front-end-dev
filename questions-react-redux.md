@@ -99,6 +99,18 @@
 |Set initial value for child components|Yes|Yes|
 |Changes inside child components|No|Yes|
 
+[[↑] Back to top](#top)
+
+
+### What are the differences between stateful and stateless components?
+
+|Stateful Component|Stateless Component|
+|:---|:---|
+|1. Stores info about component’s state change in memory |1. Calculates the internal state of the components
+|2. Have authority to change state   |2. Do not have the authority to change state
+|3. Contains the knowledge of past, current and possible future changes in state |3. Contains no knowledge of past, current and possible future state changes
+|4. Stateless components notify them about the requirement of the state change, then they send down the props to them.|4. They receive the props from the Stateful components and treat them as callback functions|
+
 
 ## Easy
 
