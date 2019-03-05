@@ -503,6 +503,32 @@ X();
 
 [[↑] Back to top](#top)
 
+### Real world example of a closure in action
+
+```js
+function apiConnect(apiKey) {
+  function get(route) {
+    return fetch(`${route}?key=${apiKey}`);
+  }
+  function post(route, params) {
+    return fetch(route, {
+      method: 'POST',
+      body: JSON.stringify(params),
+        headers: {
+          'Authorization': `Bearer ${apiKey}`
+        }
+      })
+  }
+  return { get, post }
+}
+const api = apiConnect('my-secret-key');
+// No need to include the apiKey anymore
+api.get('http://www.example.com/get-endpoint');
+api.post('http://www.example.com/post-endpoint', { name: 'Joe' });
+```
+
+- **Source:** [12 Concepts That Will Level Up Your JavaScript Skills](https://hackernoon.com/12-javascript-concepts-that-will-level-up-your-development-skills-b37d16ad7104)
+
 ### Closures - What will be the output of the following code:
 
 ```js

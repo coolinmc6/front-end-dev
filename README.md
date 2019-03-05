@@ -57,7 +57,10 @@
 
 - **Colin's JavaScript Questions:** [github/coolinmc6: JavaScript](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md)
 - [123 Essential JavaScript Interview Questions](https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions) **must revisit - a LOT here!**
+- [12 Concepts That Will Level Up Your JavaScript Skills](https://hackernoon.com/12-javascript-concepts-that-will-level-up-your-development-skills-b37d16ad7104)
+	+ **basic items that I should add to my JS questions**
 - [21 Essential JavaScript Interview Questions](https://www.codementor.io/nihantanu/21-essential-javascript-tech-interview-practice-questions-answers-du107p62z) **must revisit - tricky examples worth exploring**
+- 
 - [Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
 - [Clean Code in JavaScript](https://github.com/ryanmcdermott/clean-code-javascript)
 - [ES6 JavaScript Course](https://github.com/coolinmc6/ES6-javascript)
