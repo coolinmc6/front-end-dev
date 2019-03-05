@@ -42,7 +42,14 @@
 		    <td></td>
 		    <td></td>
 		    <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-accessibility.md">Accessibility Questions & Glossary</a></td>
-		</tr>       
+		</tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-react-redux.md">React & Redux Questions</a></td>
+        </tr>       
     </tbody>
 </table>
 
