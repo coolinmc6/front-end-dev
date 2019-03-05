@@ -74,10 +74,31 @@
 
 ## Intermediate
 
+### What are some of the most important Lifecycle Methods?
 
+- **componentWillMount()** - Invoked once, on both client & server before rendering occurs.
+- **componentDidMount()** - Invoked once, only on the client, after rendering occurs.
+- **componentWillReceiveProps()** - Invoked as soon as the props are received from the parent class and before another render is called
+- **shouldComponentUpdate()** - Returns true or false value based on certain conditions. If you want your component to update, return true else return false. By default, it returns false.
+- **componentWillUpdate()** – Called just before rendering takes place in the DOM.
+- **componentDidUpdate()** – Called immediately after rendering takes place.
+- **componentWillUnmount()** – Called after the component is unmounted from the DOM. It is used to clear up the memory spaces.
 
 
 [[↑] Back to top](#top)
+
+
+### Explain Differences between State and Props.
+
+|Conditions|State|Props|
+|:---:|:---:|:---:|
+|Receive initial value from parent component|Yes|Yes|
+|Parent component can change value|No|Yes|
+|Set default values inside component|Yes|Yes|
+|Changes inside component|Yes|No|
+|Set initial value for child components|Yes|Yes|
+|Changes inside child components|No|Yes|
+
 
 ## Easy
 
@@ -127,12 +148,33 @@
 
 [[↑] Back to top](#top)
 
+
+### What are some advantages of React?
+
+- It increases the application’s performance
+- It can be conveniently used on the client as well as server side
+- Because of JSX, code’s readability increases
+- React is easy to integrate with other frameworks like Meteor, Angular, etc
+- Using React, writing UI test cases become extremely easy
+
+[[↑] Back to top](#top)
+
+### What are some limitations of React?
+
+- React is just a library, not a full-blown framework
+- Its library is very large and takes time to understand
+- It can be little difficult for the novice programmers to understand
+- Coding gets complex as it uses inline templating and JSX
+
+[[↑] Back to top](#top)
+
 ### What is JSX?
 
 - JSX is the JavaScript-HTML hybrid that you write React in. 
 - JSX allows you to embed JavaScript expressions into your code by wrapping it in curly braces. This includes something like '2+2' or printing the `age` property from your `person` object.
 - JSX can look like HTML but attributes in your elements use camelCase and often have different attribute names (i.e. `className` instead of just `class`)
 - JSX compiles down to `React.createElement()` calls using Babel. So as I said, JSX is really just a user-friendly way to create these JavaScript objects that React uses to build the virtual DOM.
+- Browsers can't read JSX because it is not JavaScript. For React to work, JSX must be transformed into JavaScript using a JSX transformer like Babel and then passed to the browser.
 
 
 [[↑] Back to top](#top)
@@ -175,6 +217,7 @@ React then updates only the part of the real DOM that has been changed
 [[↑] Back to top](#top)
 
 ### How does React render the virtual DOM?
+
 - Usually you have a root HTML element in your `index.html` file that has an id of 'root' but I've also seen other names. This div is called the "root" DOM node because everything in it is managed by React DOM.
 - To render an element, we call the `ReactDOM.render()` method which takes two parameters: the element you want to render and the root DOM node.
 - The element you want to render usually houses the entire application so it'll typically be called `App` or something like that
@@ -186,6 +229,7 @@ React then updates only the part of the real DOM that has been changed
 [[↑] Back to top](#top)
 
 ### Explain the sentence: "In React, everything is a component."
+
 - Components are the building blocks of a React application's user interface (UI).
 - These components split the entire UI into small, independent and reusable pieces.
 - React then renders these components independent of each other without affecting the UI.
@@ -194,6 +238,7 @@ React then updates only the part of the real DOM that has been changed
 [[↑] Back to top](#top)
 
 ### What is a React Component?
+
 - Components are the building blocks of React apps. 
 - They can be either functional components or class-based components.
 - In addition to returning the JSX that you want, class components can also have state which stores information in a JavaScript object
@@ -209,79 +254,129 @@ React then updates only the part of the real DOM that has been changed
 [[↑] Back to top](#top)
 
 ### What is Props?
-The word "props" is shorthand for properties and refers to the read-only data that a component has access to.
-They are usually passed down from parent to child component though props is also used by Redux.
-A child component can never pass a prop up to a parent component, hence the "uni-directional" data flow.
+
+- The word "props" is shorthand for properties and refers to the read-only data that a component has access to.
+- They are usually passed down from parent to child component though props is also used by Redux.
+- A child component can never pass a prop up to a parent component, hence the "uni-directional" data flow.
 
 
 [[↑] Back to top](#top)
 
 ### What is state in React and how is it used?
-States are the source of data and must be kept as simple as possible. 
-Basically, states are objects which determine components rendering and behavior. 
-They are mutable unlike the props and create dynamic and interactive components. They are accessed via this.state().
+
+- States are the source of data and must be kept as simple as possible. 
+- Basically, states are objects which determine components rendering and behavior. 
+- They are mutable unlike the props and create dynamic and interactive components. They are accessed via `this.state()`.
 
 
 [[↑] Back to top](#top)
 
 ### What are the different phases of a React component’s lifecycle?
-There are three different phases to know:
-Initial Rendering Phase: This is the phase when the component is about to start its life journey and make its way to the DOM.
-Updating Phase: Once the component gets added to the DOM, it can potentially update and re-render only when a prop or state change occurs. That happens only in this phase.
-Unmounting Phase: This is the final phase of a component’s life cycle in which the component is destroyed and removed from the DOM.
+
+- There are three different phases to know:
+    - **Initial Rendering Phase**: This is the phase when the component is about to start its life journey and make its way to the DOM.
+    - **Updating Phase**: Once the component gets added to the DOM, it can potentially update and re-render only when a prop or state change occurs. That happens only in this phase.
+    - **Unmounting Phase**: This is the final phase of a component’s life cycle in which the component is destroyed and removed from the DOM.
 
 
 [[↑] Back to top](#top)
 
-### What are some of the most important Lifecycle Methods?
-componentWillMount() - Invoked once, on both client & server before rendering occurs.
-componentDidMount() - Invoked once, only on the client, after rendering occurs.
-componentWillReceiveProps() - Invoked as soon as the props are received from the parent class and before another render is called
-shouldComponentUpdate() - Returns true or false value based on certain conditions. If you want your component to update, return true else return false. By default, it returns false.
-componentWillUpdate() – Called just before rendering takes place in the DOM.
-componentDidUpdate() – Called immediately after rendering takes place.
-componentWillUnmount() – Called after the component is unmounted from the DOM. It is used to clear up the memory spaces.
 
-
-[[↑] Back to top](#top)
 
 ### What is an event in React?
-Event handlers in React are placed directly on the element. 
-Events are named using camel case instead of just using the lowercase.
-Events are passed as functions instead of strings.
+
+- Event handlers in React are placed directly on the element. 
+- Events are named using camel case instead of just using the lowercase.
+- Events are passed as functions instead of strings.
 
 
 [[↑] Back to top](#top)
 
 ### What are synthetic events in React?
-Synthetic events are the objects which act as a cross-browser wrapper around the browser’s native event. 
-They combine the behavior of different browsers into one API. 
-This is done to make sure that the events show consistent properties across different browsers.
+- Synthetic events are the objects which act as a cross-browser wrapper around the browser’s native event. 
+- They combine the behavior of different browsers into one API. 
+- This is done to make sure that the events show consistent properties across different browsers.
 
 
 [[↑] Back to top](#top)
 
 ### What are Higher Order Components(HOC)?
-Higher Order Component is an advanced way of reusing the component logic. 
-Basically, it’s a pattern that is derived from React’s compositional nature. 
-HOC are custom components which wraps another component within it. They can accept any dynamically provided child component but they won’t modify or copy any behavior from their input components. 
-You can say that HOC are ‘pure’ components.
-HOC's are used for:
-Code reuse, logic and bootstrap abstraction
-Render High jacking
-State abstraction and manipulation
-Props manipulation
+
+- Higher Order Component is an advanced way of reusing the component logic. 
+- Basically, it’s a pattern that is derived from React’s compositional nature. 
+- HOCs are custom components which wraps another component within it. They can accept any dynamically provided child component but they won’t modify or copy any behavior from their input components. 
+- You can say that HOC are ‘pure’ components.
+- HOC's are used for:
+    - Code reuse, logic and bootstrap abstraction
+    - Render High jacking
+    - State abstraction and manipulation
+    - Props manipulation
+
+[[↑] Back to top](#top)
 
 
+### How is React different than Angular?
+
+|Area|React|Angular|
+|:---:|:---:|:---:|
+|ARCHITECTURE|Only the View of MVC|Complete MVC|
+|RENDERING|Server-side rendering|Client-side rendering|
+|DOM|Uses virtual DOM|Uses real DOM|
+|DATA BINDING|One-way data binding|Two-way data binding|
+|DEBUGGING|Compile time debugging|Runtime debugging|
+|AUTHOR|Facebook|Google|
+
+[[↑] Back to top](#top)
 
 
+### Explain the purpose of `render()` in React.
+
+- Each React component must have a `render()` mandatorily. 
+- It returns a single React element which is the representation of the native DOM component. 
+- If more than one HTML element needs to be rendered, then they must be grouped together inside one enclosing tag such as `<form>`, `<group>`, `<div>` etc. 
+- This function must be kept pure i.e., it must return the same result each time it is invoked.
+
+[[↑] Back to top](#top)
+
+# Redux Questions
+
+## Sources & Links:
+
+- [How Does Redux Work?](https://daveceddia.com/how-does-redux-work/)
+
+## Questions
+
+### What is Redux?
+
+- It is a predictable state container for JavaScript applications and is used for the entire applications state management. Applications developed with Redux are easy to test and can run in different environments showing consistent behavior.
+
+[[↑] Back to top](#top)
+
+### What are the three principles that Redux follows?
+
+- **Single source of truth:** The state of the entire application is stored in an object/ state tree within a single store. The single state tree makes it easier to keep track of changes over time and debug or inspect the application.
+- **State is read-only:** The only way to change the state is to trigger an action. An action is a plain JS object describing the change. Just like state is the minimal representation of data, the action is the minimal representation of the change to that data. 
+- **Changes are made with pure functions:** In order to specify how the state tree is transformed by actions, you need pure functions. Pure functions are those whose return value depend solely on the values of their arguments
+
+[[↑] Back to top](#top)
+
+### Explain the concept of "Single source of truth".
+
+- Redux use the 'Store' for storing the application's entire state - all in one place.
+- So for every component, the data that populates those components are all in Store and are updated by the Store for the app.
+- The single state tree makes it easier to keep track of changes over time and debug or inspect the application.
+
+[[↑] Back to top](#top)
+
+### List the components of Redux.
+
+- Action - a simple JavaScript object that describes what happened.
+    - It usually contains at least two properties: the "type" (for reducers) and the payload or data that it is delivering
+- Reducer - a function that determines how the state will change
+- Store - the state / object tree of the entire application is saved in Store
+- View - simply displays the data of the store
 
 
-
-
-
-
-
-
+[[↑] Back to top](#top)
 
 
