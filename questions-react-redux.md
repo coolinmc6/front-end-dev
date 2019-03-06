@@ -66,12 +66,50 @@
 - [React Resources](https://reactresources.com/)
 - [sudheerj/reactjs-interview-questions](https://github.com/sudheerj/reactjs-interview-questions)
     + pretty comprehensive - must revisit
-- [TopTal: 13 Essential Raect.js Interview Questions](https://www.toptal.com/react/interview-questions)
+- [TopTal: 13 Essential React.js Interview Questions](https://www.toptal.com/react/interview-questions)
 - [Tyler McGinnis: React Interview Questions](https://tylermcginnis.com/react-interview-questions/)
 
+## Topics
+
+- Lifecycle Methods
+    + [React Christmas: The Definitive Guide to Lifecycle Events](https://react.christmas/2017/22)
+    + 
 
 
 ## Hard
+
+### Explain the standard JavaScript toolchain, transpilation (via Babel or other compilers), JSX, and these items’ significance in recent development. What sort of tools might you use in the build steps to optimize the compiled output React code?
+
+- The bleeding edge JavaScript toolchain can seem quite complex, and it’s very important to feel confident in the toolchain and to have a mental picture of how the pieces fit together.
+- There are a couple primary pillars in the JavaScript toolchain: Dependency Management, Linting, Style-checking, Transpilation, and Compilation, Minification, Source-Mapping.
+- Typically, we use build tools like Gulp, Watchify/Browserify, Broccoli, or Webpack to watch thea filesystem for file events (like when you add or edit a file). After this occurs, the build tool is configured to carry out a group of sequential or parallel tasks.
+- This part is the most complex piece, and is the center of the development process.
+- The rest of the tools belong in that group of sequential or parallel tasks:
+    - **Style linting** - typically a linter like JSCS is used to ensure the source code is following a certain structure and style
+    - **Dependency Management** - for JavaScript projects, most people use other packages from npm; some plugins exist for build systems (e.g. Webpack) and compilers (e.g. Babel) that allow automatic installation of packages being `import`ed or `require()`‘d
+    - **Transpilation** - a specific sub-genre of compilation, transpilation involves compiling code from one source version to another, only to a similar runtime level (e.g. ES6 to ES5)
+    - **Compilation** - specifically separate from transpiling ES6 and JSX to ES5, is the act of including assets, processing CSS files as JSON, or other mechanisms that can load and inject external assets and code into a file. In addition, there are all sorts of build steps that can analyze your code and even optimize it for you.
+    - **Minification and Compression** - typically part of – but not exclusively controlled by – compilation, is the act of minifying and compressing a JS file into fewer and/or smaller files
+    - **Source-Mapping** - another optional part of compilation is building source maps, which help identify the line in the original source code that corresponds with the line in the output code (i.e. where an error occurred)
+
+- Source: [https://www.toptal.com/react/interview-questions](https://www.toptal.com/react/interview-questions)
+
+[[↑] Back to top](#top)
+
+
+### Compare and contrast the various React Component lifecycle methods. How might understanding these help build certain interfaces/features?
+
+- There are several React lifecycle methods that help us manage the asynchronous and non-determinate nature of a Component during it’s lifetime in an app – we need provided methods to help us handle when a component is created, rendered, updates, or removed from the DOM.
+- **The “Will’s”** - invoked right before the event represented occurs.
+    - `componentWillMount()` - Invoked once, both on the client and server, immediately before the initial rendering occurs. If you call setState within this method, render() will see the updated state and will be executed only once despite the state change.
+    - `componentWillReceiveProps(object nextProps)` - Invoked when a component is receiving new props. This method is not called for the initial render. Calling this.setState() within this function will not trigger an additional render. One common mistake is for code executed during this lifecycle method to assume that props have changed.
+    - `componentWillUnmount()` - Invoked immediately before a component is unmounted from the DOM. Perform any necessary cleanup in this method, such as invalidating timers or cleaning up any DOM elements that were created in componentDidMount.
+    - `componentWillUpdate(object nextProps, object nextState)` - Invoked immediately before rendering when new props or state are being received. This method is not called for the initial render.
+- **The “Did’s”**
+    - `componentDidMount()` - Invoked once, only on the client (not on the server), immediately after the initial rendering occurs. At this point in the lifecycle, you can access any refs to your children (e.g., to access the underlying DOM representation). The componentDidMount() method of child components is invoked before that of the parent component.
+    - `componentDidUpdate(object prevProps, object prevState)` - Invoked immediately after the component’s updates are flushed to the DOM. This method is not called for the initial render. Use this as an opportunity to operate on the DOM when the component has been updated.
+- **The “Should’s”**
+    - `shouldComponentUpdate(object nextState, object nextProps)` - Invoked before rendering when new props or state are being received. This method is not called for the initial render or when forceUpdate() is used. Use this as an opportunity to return false when you’re certain that the transition to the new props and state will not require a component update.
 
 
 [[↑] Back to top](#top)
@@ -152,6 +190,61 @@
 **Links:**
 
 - [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
+
+[[↑] Back to top](#top)
+
+### What is the significance of refs in React?
+
+- Similarly to keys, refs are added as an attribute to a `React.createElement()` call, such as `<li ref="someName"/>`. The `ref` serves a different purpose, it provides us quick and simple access to the DOM Element represented by a React Element.
+- Refs can be either a string or a function. Using a string will tell React to automatically store the DOM Element as `this.refs[refValue]`. For example:
+
+```js
+class List extends Component {
+    constructor(p){
+        super(p);
+    }
+
+    _printValue(){
+        console.log(this.refs.someThing.value);
+    }
+
+    render() {
+        return <div onClick={e => this._printValue()}>
+            <p>test</p>
+            <input type="text" ref="someThing" />
+        </div>
+    }
+}
+
+DOM.render(<List />, document.body);
+```
+- `this.refs.someThing` inside `componentDidUpdate()` used to refer to a special identifier that we could use with React.findDOMNode(refObject) – which would provide us with the DOM node that exists on the DOM at this very specific instance in time. Now, React automatically attaches the DOM node to the ref, meaning that `this.refs.someThing` will directly point to a DOM Element instance.
+- Additionally, a ref can be a function that takes a single input. This is a more dynamic means for you to assign and store the DOM nodes as variables in your code. For example:
+
+```js
+class List extends Component {
+    constructor(p){
+        super(p)
+    }
+
+    _printValue(){
+        console.log(this.myTextInput.value)
+    }
+
+    render() {
+        return <div onClick={e => this._printValue()}>
+            <p>test</p>
+            <input type="text" ref={node => this.myTextInput = node} />
+        </div>
+    }
+}
+
+DOM.render(<List />, document.body);
+```
+
+
+
+[[↑] Back to top](#top)
 
 ## Easy
 
@@ -425,16 +518,47 @@ class MyComponent extends Component {
 
 [[↑] Back to top](#top)
 
+### What is state in React?
 
+- *State* of a component is an object that holds some information that may change over the lifetime of the component. We should always try to make our state as simple as possible and minimize the number of stateful components. Let's create a user component with message state:
 
+```js
+class User extends React.Component {
+  constructor(props) {
+    super(props)
 
+    this.state = {
+      message: 'Welcome to React world'
+    }
+  }
 
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+      </div>
+    )
+  }
+}
+```
 
+- State is similar to props, but it is private and fully controlled by the component. i.e, It is not accessible to any component other than the one that owns and sets it.
 
+[[↑] Back to top](#top)
 
+### What are props in React?
 
+- Props are inputs to components. They are single values or objects containing a set of values that are passed to components on creation using a naming convention similar to HTML-tag attributes. They are data passed down from a parent component to a child component.
+- The primary purpose of props in React is to provide following component functionality:
+    - Pass custom data to your component.
+    - Trigger state changes.
+    - Use via this.props.reactProp inside component's render() method.
 
+[[↑] Back to top](#top)
 
+### What is the difference between state and props?
+
+- Both props and state are plain JavaScript objects. While both of them hold information that influences the output of render, they are different in their functionality with respect to component. Props get passed to the component similar to function parameters whereas state is managed within the component similar to variables declared within a function.
 
 ---
 
