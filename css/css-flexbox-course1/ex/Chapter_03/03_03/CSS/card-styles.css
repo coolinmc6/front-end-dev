@@ -39,3 +39,18 @@ body {
 .card-content p {
 	font-size: 95%;
 }
+
+/* Flexbox Stuff */
+
+.cards {
+	display: flex;
+	justify-content: space-between;
+	/* justify-content: space-around; */
+	/* justify-content: flex-end; */
+	flex-wrap: wrap;
+}
+
+.card {
+	/* flex: 0 1 calc(33% - 1em); */
+	width: calc(33% - 1em);
+}

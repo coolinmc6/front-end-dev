@@ -59,7 +59,8 @@
     }
     
     .main-area {
-        flex: 1 1 auto;
+		flex: 1 1 auto;
+		order: 1;
     }
     
     .post-content {
@@ -68,22 +69,9 @@
     }
     
     .sidebar {
-        flex: 0 0 12em;
+		flex: 0 0 12em;
+		order: 0;
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

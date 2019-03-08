@@ -53,6 +53,7 @@ body {
     .card {
         flex: 0 1 calc(50% - .5em);
         margin-bottom: 1em;
+        display: flex;
     }
 }
 
@@ -66,14 +67,3 @@ body {
         margin-bottom: 2em;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

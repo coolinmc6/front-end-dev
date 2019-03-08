@@ -66,9 +66,14 @@
 
 ### Using Flexbox to control multilevel menus with dropdowns
 
+
+
+
 [[↑] Back to top](#top)
 
 ### Creating a social media menu
+
+
 
 [[↑] Back to top](#top)
 
@@ -78,9 +83,32 @@
 
 ## Chapter 3. Responsive Card Layouts
 
+- The code below is pretty neat as it creates that typical card layout that you like with standard heights of each element in a row. Flexbox does that for you automatically.
+
+```css
+.cards {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.card {
+    flex: 0 1 calc(33% - 1em);
+    /* width: calc(33% - 1em); */
+}
+```
+
+- First, we set the parent container to `display: flex` and wrap the content with `flex-wrap: wrap`. The `justify-content: space-between;` ensures that the cards are not right up against each other.
+- Next, we size the cards. Our styling above dictated that each card take up the full width. Using the short-hand that I learned, we know that: `flex: 0 1 calc(33% - 1em);` means that the content flex-shrinks by a factor 0 (**read:** no shrinking), it flex-grows by a factor of 1, and its flex-basis is 1/3 of the width minus 1em (I guess like a minimum width)
+    - notice the width is put in there as a fallback that achieves essentially the same thing
+
+
 [[↑] Back to top](#top)
 
 ## Chapter 4. Holy Grail Layout
+
+
+
 
 [[↑] Back to top](#top)
 

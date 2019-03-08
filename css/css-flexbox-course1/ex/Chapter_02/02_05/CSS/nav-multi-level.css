@@ -11,10 +11,13 @@
 
 @media screen and (min-width: 30em){
 	.multi-level-nav ul {
-
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 	}	
 
 	.multi-level-nav li {
+		flex: 1 0 auto;
 		position: relative;
 	}
 
@@ -29,11 +32,11 @@
 	}
 
 	.multi-level-nav ul ul li {
-        
+        flex: 1 1 auto;
 	}
 
 	.multi-level-nav ul .toggled-on {
-		display: block;
+		display: flex;
 	}
 
 	.dropdown-toggle {
