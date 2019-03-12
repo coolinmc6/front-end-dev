@@ -11,5 +11,12 @@
             $('.sidebar').removeClass('sidebar-left');
         };
     });
+
+
+    $('a.no-sidebar-toggle').click(function() {
+        if (!$('.content').hasClass('no-sidebar')){
+            $('.content').addClass('no-sidebar');
+        };
+    });
     
 })( jQuery );

@@ -102,6 +102,10 @@
         order: 2;
     }
 
+    .sidebar-left {
+    	order: 0;
+    }
+
 }
 
 
