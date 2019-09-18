@@ -98,6 +98,7 @@
 * [What are the differences between ES6 class and ES5 function constructors?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-are-the-differences-between-es6-class-and-es5-function-constructors)
 * [What advantage is there for using the arrow syntax for a method in a constructor?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
 * [Can you give an example for destructuring an object or an array?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#can-you-give-an-example-for-destructuring-an-object-or-an-array)
+* [How do you export an object in JavaScript?](#)
 </details>
 <details>
 <summary>How JavaScript Works</summary>
@@ -177,24 +178,24 @@
     * its support of a few principles that grant modularity (break code into smaller pieces) and code reuse
 - Those two requirements can each be broken down into three principles.
 - Here is the first requirement broken down:
-    * Association: an objects capability to refer to another independent object
+    * **Association**: an objects capability to refer to another independent object
         - `var bill = {name: 'Bill'}`
         - `var steve = {name: 'Steve'}`
         - `steve.parent = bill;`
         - Here, we have two objects and there is an association created between these two completely independent objects
-    * Aggregation: the aboject's capability to embed one or more *independent* objects
+    * **Aggregation**: the object's capability to embed one or more *independent* objects
         - `var company = {name: 'ABC Corporation', employees: []}`
         - `company.employees.push(bill);`
         - A different object, `company`, has a property `employees` which holds an array. I can add the `bill` object to that array
-    * Composition: the object's capability to embed one or more *dependent* objects
+    * **Composition**: the object's capability to embed one or more *dependent* objects
         - `bill.address = {street: '123 Main Street', city: 'Philadelphia', state: 'PA'}`
         - The `address` property is just an object with multiple properties for Bill's address. It is a dependent object because it doesn't exist outside of `bill`
 - Here is the second component broken down:
-    * Encapsulation: This is the capability to concentrate into a single entity data and code that manipulates it, hiding its internal details
+    * **Encapsulation**: This is the capability to concentrate into a single entity data and code that manipulates it, hiding its internal details
         - there is nothing *natively* in JavaScript that hides internal details. All properties are public automatically. But there are techniques that can be used to mimic the principle of encapsulation.
-    * Inheritance: This is the mechanism by which an object acquires some or all features from one or more other objects
+    * **Inheritance**: This is the mechanism by which an object acquires some or all features from one or more other objects
         - JavaScript has prototypal inheritance which is a complicated subject. It isn't exactly *inheritance* the way other "classical languages" use it but there is an inheritance mechanism that allows an object to have access to the methods of its prototype object.
-    * Polymorphism: This is the capability to process objects differently based on their data type or structure
+    * **Polymorphism**: This is the capability to process objects differently based on their data type or structure
         - This is a definition I found:
 
 > Generally, the ability to appear in many forms. In object-oriented programming, polymorphism refers to a programming language's ability to process objects differently depending on their data type or class. More specifically, it is the ability to redefine methods for derived classes.
@@ -2301,6 +2302,54 @@ console.log(Object.prototype.toString.call(Math));  // [object Math]
 - **Note:** using `typeof arrayList` won't solve your problem because it returns `object`. Using the `toString()` function and then calling it with whatever you're looking at allows you to see specifically what it is.
 
 - [https://www.codementor.io/nihantanu/21-essential-javascript-tech-interview-practice-questions-answers-du107p62z#question-7](https://www.codementor.io/nihantanu/21-essential-javascript-tech-interview-practice-questions-answers-du107p62z#question-7)
+
+[[↑] Back to top](#top)
+
+### How do you export an object in JavaScript?
+
+**Export Default**
+
+- When it is one variable, you can just use `export default stuff` or whatever the name of your variable is
+
+```js
+// stuff.js
+const stuff = {
+    items: ['apple', 'calculator'],
+    name: 'Backpack',
+    quantity: 1
+};
+
+export default stuff;
+```
+
+```js
+// App.js
+import stuff from './stuff';
+```
+
+**Export Multiple Variables**
+
+```js
+// file.js
+const item = 'Backpack';
+const quantity = 25;
+const price = {
+    'good': 1,
+    'fair': 0.65,
+    'poor': 0.3
+};
+
+export { item, quantity, price};
+```
+
+```js
+// App.js
+import { item, quantity, price } from './file';
+```
+
+- Notice that I'm simply exporting an object, `{}`, which has keys of `item`, `quantity`, and `price`. With ES6 syntax, I don't have
+to do `{ item: item, ...}`, I can just do `export { item, quantity, price}`.
+- On the import statement, I'm destructuring that object using the import statement
 
 [[↑] Back to top](#top)
 
