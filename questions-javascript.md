@@ -98,7 +98,7 @@
 * [What are the differences between ES6 class and ES5 function constructors?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-are-the-differences-between-es6-class-and-es5-function-constructors)
 * [What advantage is there for using the arrow syntax for a method in a constructor?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)
 * [Can you give an example for destructuring an object or an array?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#can-you-give-an-example-for-destructuring-an-object-or-an-array)
-* [How do you export an object in JavaScript?](#)
+* [How do you export an object in JavaScript?](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md#how-do-you-export-an-object-in-javascript)
 </details>
 <details>
 <summary>How JavaScript Works</summary>
