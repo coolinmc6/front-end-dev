@@ -2327,6 +2327,8 @@ export default stuff;
 import stuff from './stuff';
 ```
 
+- Notice that you don't need to destructure anything - you are just importing it.
+
 **Export Multiple Variables**
 
 ```js
