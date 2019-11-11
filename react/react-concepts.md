@@ -45,3 +45,12 @@
         </tr>
     </tbody>
 </table>
+
+# React Concepts
+
+- **Higher Order Components**
+  - TBD
+- **Hooks**
+  - [https://github.com/coolinmc6/front-end-dev/blob/master/react/hooks.md](https://github.com/coolinmc6/front-end-dev/blob/master/react/hooks.md)
+- **React Patterns**
+  - Render Props - TBD
