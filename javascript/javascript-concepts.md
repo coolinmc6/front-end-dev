@@ -34,7 +34,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><em><a href="https://github.com/coolinmc6/front-end-dev/blob/master/javascript/javascript-concepts.md">JavaScript Concepts</a></em></td>
+            <td><em>JavaScript Concepts</em></td>
         </tr>
         <tr>
             <td></td>
