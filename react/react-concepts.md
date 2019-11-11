@@ -20,28 +20,28 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>CSS Concepts</td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/css/css-concepts.md">CSS Concepts</a></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td>HTML Concepts</td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/html/html-concepts.md">HTML Concepts</a></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td>JavaScript Concepts</td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/javascript/javascript-concepts.md">JavaScript Concepts</a></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td>React Concepts</td>
+            <td><em>React Concepts</em></td>
         </tr>
     </tbody>
 </table>
