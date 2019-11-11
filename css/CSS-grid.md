@@ -1,7 +1,7 @@
 
 # CSS Grid
 
-- Flexbox is one-dimensional, CSS Grids is two-dimensional\
+- Flexbox is one-dimensional, CSS Grids is two-dimensional
 
 ![Flexbox vs. CSS Grids](https://github.com/coolinmc6/front-end-dev/blob/master/assets/flexbox-vs-css-grids.png)
 
