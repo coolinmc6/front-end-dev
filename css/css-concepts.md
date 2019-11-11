@@ -20,7 +20,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><em>>CSS Concepts</em></td>
+            <td><em>CSS Concepts</em></td>
         </tr>
         <tr>
             <td></td>
