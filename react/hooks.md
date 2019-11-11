@@ -127,3 +127,56 @@ function FirstHook() {
 
 export default FirstHook;
 ```
+
+- The following example is from the [React docs](https://reactjs.org/docs/hooks-effect.html#example-using-hooks) 
+but it shows a simple example of `useEffect`:
+
+```js
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+- so every time the count changes, we are updating the document title to show how many times.
+- `useEffect` is our way of telling React that something else has to happen after render. It runs 
+both after the first render and after *every other update*.
+- Here is an example that I've seen used for loading data from some asynchronous source:
+
+```js
+import React, { useState, useEffect } from 'react';
+
+const Component = () => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const init = async () => {
+      loadMap();
+      setLoaded(true);
+    }
+
+    if(!loaded) init();
+  })
+}
+
+export default Component;
+```
+- First of all, it is a slightly different syntax but it's still a functional component; instead of
+`function Component()`, I am just using the variable declaration syntax: `const Component = () => {}`
+- the `useState` initializes my `loaded` variable
+- When the component mounts, `useEffect` is run. Inside, there is a function called `init()`. It is an
+asynchronous function that after the map loads, will allow the `loaded` variable to be set to true.
+  - This prevents `init()` from running on each update

@@ -53,3 +53,9 @@
 - [Hooks](https://github.com/coolinmc6/front-end-dev/blob/master/react/hooks.md)
 - **React Patterns**
   - Render Props - TBD
+
+
+## Sources & Links
+
+  - Render Props:
+    - [https://reactjs.org/docs/render-props.html](https://reactjs.org/docs/render-props.html)
