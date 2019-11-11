@@ -59,3 +59,4 @@
 
   - Render Props:
     - [https://reactjs.org/docs/render-props.html](https://reactjs.org/docs/render-props.html)
+    - [https://css-tricks.com/an-overview-of-render-props-in-react/](https://css-tricks.com/an-overview-of-render-props-in-react/)
