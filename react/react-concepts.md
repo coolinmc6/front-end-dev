@@ -49,7 +49,7 @@
 # React Concepts
 
 - Fragment
-- Higher Order Components
+- [Higher Order Components](https://github.com/coolinmc6/front-end-dev/blob/master/react/hoc.md)
 - [Hooks](https://github.com/coolinmc6/front-end-dev/blob/master/react/hooks.md)
 - **React Patterns**
   - Render Props - TBD
