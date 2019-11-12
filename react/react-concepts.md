@@ -48,6 +48,7 @@
 
 # React Concepts
 
+- [Components](https://github.com/coolinmc6/front-end-dev/blob/master/react/components.md)
 - Fragment
 - [Higher Order Components](https://github.com/coolinmc6/front-end-dev/blob/master/react/hoc.md)
 - [Hooks](https://github.com/coolinmc6/front-end-dev/blob/master/react/hooks.md)
@@ -56,7 +57,8 @@
 
 
 ## Sources & Links
-
-  - Render Props:
-    - [https://reactjs.org/docs/render-props.html](https://reactjs.org/docs/render-props.html)
-    - [https://css-tricks.com/an-overview-of-render-props-in-react/](https://css-tricks.com/an-overview-of-render-props-in-react/)
+- Hooks
+  - [https://reactjs.org/docs/hooks-reference.html](https://reactjs.org/docs/hooks-reference.html)
+- Render Props:
+  - [https://reactjs.org/docs/render-props.html](https://reactjs.org/docs/render-props.html)
+  - [https://css-tricks.com/an-overview-of-render-props-in-react/](https://css-tricks.com/an-overview-of-render-props-in-react/)
