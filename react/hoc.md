@@ -40,7 +40,8 @@
 > HOCs are not part of the React API, per se. They are a pattern that emerges from React’s compositional nature.
 
 - HOC's often have some descriptor in their name. For example, `withAuth()` suggests
-that the component passed will receive the `withAuth()` props.
+that the component passed will receive the `withAuth()` props and, presumably, require
+authentication for users to view.
 
 ```js
 const EnhancedComponent = higherOrderComponent(WrappedComponent);
