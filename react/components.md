@@ -101,7 +101,7 @@ This works when you have one function you are exporting and you can *name* the c
 file that you are importing it.
 
 ```js
-export default (({ handleClick, className, text }) => (
+export default ({ handleClick, className, text }) => (
   <button className={className} onClick={handleClick}>{text}</button>
 )
 ```
