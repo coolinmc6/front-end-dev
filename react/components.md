@@ -105,3 +105,7 @@ export default ({ handleClick, className, text }) => (
   <button className={className} onClick={handleClick}>{text}</button>
 )
 ```
+
+## Class-Based Components
+
+
