@@ -20,7 +20,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/css/css-concepts.md">CSS Concepts</a></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/css/">CSS Concepts</a></td>
         </tr>
         <tr>
             <td></td>

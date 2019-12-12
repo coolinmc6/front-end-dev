@@ -20,33 +20,28 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><em>CSS Concepts</em></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/css/">CSS Concepts</a></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/html/html-concepts.md">HTML Concepts</a></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/html/">HTML Concepts</a></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/javascript/javascript-concepts.md">JavaScript Concepts</a></td>
+            <td><em>JavaScript Concepts</em></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/react/react-concepts.md">React Concepts</a></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/react/">React Concepts</a></td>
         </tr>
     </tbody>
 </table>
-
-# CSS Concept List
-
-- [CSS Grid](https://github.com/coolinmc6/front-end-dev/blob/master/css/CSS-grid.md)
-- Flexbox

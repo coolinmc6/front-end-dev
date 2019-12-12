@@ -20,7 +20,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/react/react-concepts.md">React Concepts</a></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/react/">React Concepts</a></td>
         </tr>
         <tr>
             <td></td>

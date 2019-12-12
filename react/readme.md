@@ -20,28 +20,45 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/css/css-concepts.md">CSS Concepts</a></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/css/">CSS Concepts</a></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/html/html-concepts.md">HTML Concepts</a></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/html/">HTML Concepts</a></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td><em>JavaScript Concepts</em></td>
+            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/javascript/">JavaScript Concepts</a></td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/react/react-concepts.md">React Concepts</a></td>
+            <td><em>React Concepts</em></td>
         </tr>
     </tbody>
 </table>
+
+# React Concepts
+
+- [Components](https://github.com/coolinmc6/front-end-dev/blob/master/react/components.md)
+- Fragment
+- [Higher Order Components](https://github.com/coolinmc6/front-end-dev/blob/master/react/hoc.md)
+- [Hooks](https://github.com/coolinmc6/front-end-dev/blob/master/react/hooks.md)
+- **React Patterns**
+  - Render Props - TBD
+
+
+## Sources & Links
+- Hooks
+  - [https://reactjs.org/docs/hooks-reference.html](https://reactjs.org/docs/hooks-reference.html)
+- Render Props:
+  - [https://reactjs.org/docs/render-props.html](https://reactjs.org/docs/render-props.html)
+  - [https://css-tricks.com/an-overview-of-render-props-in-react/](https://css-tricks.com/an-overview-of-render-props-in-react/)
