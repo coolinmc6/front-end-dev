@@ -34,6 +34,9 @@
 
 # CSS Grid
 
+
+### Introduction
+
 - Flexbox is one-dimensional, CSS Grids is two-dimensional
 
 ![Flexbox vs. CSS Grids](https://github.com/coolinmc6/front-end-dev/blob/master/assets/flexbox-vs-css-grids.png)
@@ -50,6 +53,8 @@
 - Notice how the large div with only the word "Hey" is the same height as the text-heavy div to its right. The word "Hey" is in the third div so it gets 70% of the width
 
 ![CSS Grid Example 1](https://github.com/coolinmc6/front-end-dev/blob/master/assets/css-grid-example1.png)
+
+
 
 ```css
 .wrapper {
@@ -71,3 +76,7 @@
 - As I said above, you can add a gap using `grid-gap: 1rem;` 
 - You can set the height with `grid-auto-rows: 120px;` 
 	+ if there is a chance that you'll have differently-sized items, `grid-auto-rows:minmax(100px, auto);` allows you to set a minimum height and maximum height
+
+### Links
+
+- [CSS Grid Examples (Multiple)](https://codepen.io/coolinmc6/pen/qBENKMK)
