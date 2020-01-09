@@ -118,7 +118,7 @@
 
 ### How do you use `useEffect()`?
 
-
+### How do you use `useMemo()`?
 
 
 ## Intermediate
