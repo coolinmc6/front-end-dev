@@ -114,6 +114,13 @@
 
 [[↑] Back to top](#top)
 
+### How do you use Hooks? Give some examples.
+
+### How do you use `useEffect()`?
+
+
+
+
 ## Intermediate
 
 ### What are some of the most important Lifecycle Methods?
