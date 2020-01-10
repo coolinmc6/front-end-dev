@@ -62,27 +62,26 @@
 
 **JavaScript**
 
-- **Colin's JavaScript Questions:** [github/coolinmc6: JavaScript](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md)
+- **coolinmc6:** [github/coolinmc6: JavaScript](https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md)
+- **coolinmc6:** [Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
+- **coolinmc6:** [JavaScript Algorithms: AlgoCasts](https://github.com/coolinmc6/AlgoCasts)
+- **coolinmc6:** [ES6 JavaScript Course](https://github.com/coolinmc6/ES6-javascript)
+- **coolinmc6:** [Random ES2015 Notes & Lectures](https://github.com/coolinmc6/es2015)
+- **coolinmc6:** [Udemy: Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
+- **coolinmc6:** [Udemy: Modern JavaScript](https://github.com/coolinmc6/modern-javascript)
 - [123 Essential JavaScript Interview Questions](https://github.com/ganqqwerty/123-Essential-JavaScript-Interview-Questions) **must revisit - a LOT here!**
 - [12 Concepts That Will Level Up Your JavaScript Skills](https://hackernoon.com/12-javascript-concepts-that-will-level-up-your-development-skills-b37d16ad7104)
 	+ **basic items that I should add to my JS questions**
 - [21 Essential JavaScript Interview Questions](https://www.codementor.io/nihantanu/21-essential-javascript-tech-interview-practice-questions-answers-du107p62z) **must revisit - tricky examples worth exploring**
-- 
-- [Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
 - [Clean Code in JavaScript](https://github.com/ryanmcdermott/clean-code-javascript)
-- [ES6 JavaScript Course](https://github.com/coolinmc6/ES6-javascript)
 - [ES6 Features](https://babeljs.io/docs/en/learn/) (has examples; worth taking a look at)
 - [ES6 Katas](http://es6katas.org/)
-- [JavaScript Algorithms: AlgoCasts](https://github.com/coolinmc6/AlgoCasts)
 - [JavaScript Is Sexy: OOP in JavaScript](http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/)
 - [JavaScript Questions](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/javascript-questions.md)
 - [Learn X in Y Minutes: JavaScript](https://learnxinyminutes.com/docs/javascript/)
 - [Learn X in Y Minutes: JSON](https://learnxinyminutes.com/docs/json/)
 - [Learn X in Y Minutes: TypeScript](https://learnxinyminutes.com/docs/typescript/)
-- [Random ES2015 Notes & Lectures](https://github.com/coolinmc6/es2015)
 - [Toptal: JavaScript Hiring Guide](https://www.toptal.com/javascript#hiring-guide)
-- [Udemy: Advanced JavaScript](https://github.com/coolinmc6/advanced_javascript)
-- [Udemy: Modern JavaScript](https://github.com/coolinmc6/modern-javascript)
 - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
 
 **Programming**
@@ -90,8 +89,6 @@
 - [Codility](https://app.codility.com/programmers/): training for coders
 - [Learn X in Y Minutes](https://learnxinyminutes.com/)
 - [Professional Programming](https://github.com/charlax/professional-programming)
-
-
 
 **React**
 

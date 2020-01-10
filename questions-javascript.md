@@ -1226,6 +1226,199 @@ Sources:
 
 [[↑] Back to top](#top)
 
+### Write 10 simple examples of promises.
+
+**#0: Undefined Promise**
+
+```js
+const promise00 = new Promise();
+console.log(promise00)
+// Uncaught TypeError: Promise resolver undefined is not a function
+```
+- you can't just create a new promise without a resolve function. This code causes an error as nothing
+is resolved.
+
+**#0-b: Incomplete Resolve**
+
+```js
+const promise00b = new Promise(() => {
+    return 'a'
+});
+console.log(promise00b);
+console.log(promise00b.then((res) => {console.log(res)}));
+/*
+Promise {<pending>}
+Promise {<pending>}
+*/
+```
+- both lines return `Promise {<pending>}` because you didn't complete the promise.
+There is no explicit "resolve" function, really. Notice how returning "a" didn't 
+log it to the console.
+
+**#0-c: Resolved Promise**
+
+```js
+const promise00c = new Promise((a) => {
+    a('a')
+});
+console.log(promise00c)
+promise00c.then((res) => {console.log(res)})
+/*
+Promise {<resolved>: "a"}
+    __proto__: Promise
+    [[PromiseStatus]]: "resolved"
+    [[PromiseValue]]: "a"
+a
+*/
+```
+- the name of my resolve function is `a` and I am returning the letter "a". As you can see in the console, 
+the promise is resovled. You can expand the `Promise` object in the console and see both the
+`[[PromiseStatus]]` and `[[PromiseValue]]`.
+
+**#0-d: Unresolved Promise**
+
+```js
+const promise00d = new Promise((a) => {
+    return 'a';
+    a('a')
+});
+console.log(promise00d)
+promise00d.then((res) => {console.log(res)})
+// Promise {<pending>}
+```
+- This results in an unresolved promise but it's not undefined. So a promise needs to have a resolve
+function, which this one does, but that still doesn't guarantee that it is correct. In this case, 
+I have a `return` statement before my resolve function, `a`.
+- Notice the console: promise is pending and will be pending forever based on how this promise
+is written.
+
+**#1**
+```js
+const promise01 = new Promise((res, rej) => res("hey"));
+console.log(promise01)
+promise01.then((res) => { console.log(res)})
+/*
+Promise
+    __proto__: Promise
+    [[PromiseStatus]]: "resolved"
+    [[PromiseValue]]: "hey"
+hey
+*/
+```
+- This is a working promise. It has a resolve function that returns the word "hey"
+- I then use the `.then()` syntax to get that value. I pass my anonymous function into `then()`
+to simply log the result, which is "hey".
+
+**#2**
+```js
+function promiseBuilder() {
+    return new Promise((resolve, reject) => {
+        return Math.random() < 0.5 ? resolve('success') : reject('rejected')
+    })
+}
+
+for(let i = 0; i < 5; i++) {
+    const promise02 = promiseBuilder();
+    promise02.then((res) => { console.log(i ,res)}).catch((err) => { console.log(i, err)})
+    console.log(`${i}: `, promise02)
+}
+/*
+0:  Promise {<rejected>: "rejected"}
+1:  Promise {<resolved>: "success"}
+2:  Promise {<resolved>: "success"}
+3:  Promise {<resolved>: "success"}
+4:  Promise {<rejected>: "rejected"}
+1 "success"
+2 "success"
+3 "success"
+0 "rejected"
+4 "rejected"
+*/
+```
+- the `promiseBuilder()` function simply returns a promise with a 50% chance of resolving or rejecting.
+If `Math.random() < 0.5`, we resolve "success", else we reject and give message of "rejected"
+- I then created five (5) promises and resolved/rejected them right away.
+- Notice that I have both a `then()` and `catch()`. If I rejected the promise and only specified a
+resolve function, I couldn't get the error message.
+    - for both the resolve and reject I return the iteration counter, `i`, and the message. 
+    - I don't understand why but the "success" messages appear to have been logged first. As 
+    you can see by the numbers, the first was actually "rejected" but printed only after the 
+    successes
+- Notice how I can log the count and the promise in the for-loop and then once the iterations are done, 
+the promises are resolved
+
+**#3**
+```js
+const promise03 = new Promise((resolve) => {
+    console.log('Promise #1')
+    resolve('hey')
+})
+promise03.then(value => {
+    return new Promise((resolve) => {
+        console.log('Promise #2')
+        resolve(value)
+    })
+}).then(value => {
+    console.log(value)
+})
+/*
+Promise #1
+Promise #2
+hey
+*/
+```
+- this isn't anything too difficult but I am simply creating a process and then in my
+returned value, I'm returning another promise.
+- The first promise logs "Promise #1" and then resolves the value "hey"
+- the second promise logs "Promise #2" and then resolves the value it received from the first one
+- finally, in the `.then()` of Promise #2, it logs "hey"
+
+**#4**
+```js
+const promise04 = new Promise((res, rej) => {
+    setTimeout(() => {res('asynchronous response')}, 1000)
+})
+console.log(promise04)
+promise04.then(res => { 
+    console.log(res)
+    console.log(promise04)
+})
+/*
+Promise {<pending>}
+asynchronous response
+Promise {<resolved>: "asynchronous response"}
+*/
+```
+- In this example, we used `setTimeout()` to delay the resolve by one second, simulating an actual asynchronous
+request.
+- As you can see in the logs, first it is the unresolved promise, then the response, and then the
+resolved promise
+
+**#5**
+```js
+const promise05a = new Promise((res) => {console.log('promise #1'); setTimeout(() => {res('success #1')}, 5000)})
+const promise05b = new Promise((res) => {console.log('promise #2'); setTimeout(() => {res('success #2')}, 3000)})
+const promise05c = new Promise((res) => {console.log('promise #3'); setTimeout(() => {res('success #3')}, 1000)})
+
+Promise.all([promise05a, promise05b, promise05c]).then(res => {
+    console.log(res);
+})
+/*
+promise #1
+promise #2
+promise #3
+(3) ["success #1", "success #2", "success #3"]
+*/
+```
+- This code creates three different promises. Each one first logs which promise it is
+(e.g. promise #1) and then has a `setTimeout()` function with a different time. Each one
+then resolves "success" and a number
+- Notice how the promises are instantiated synchronously (obviously)
+- The result of the `Promise.all()` does not happen for 5 seconds or 5000 ms, which is the
+length of the longest resolve time, promise #1. The array that is returned has each of
+the resolve values from each promise
+
+
 ### How do you use Async/Await?
 
 [[↑] Back to top](#top)
