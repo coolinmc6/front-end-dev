@@ -42,6 +42,7 @@
 
 **General Front End**
 
+- **coolinmc6:** [Front End Trends](/front-end-trends)
 - [Cracking the Front End Interview](https://medium.freecodecamp.org/cracking-the-front-end-interview-9a34cd46237) (article)
 - [Craking the (Frontend) Interview](https://blog.usejournal.com/cracking-the-frontend-coding-interview-ec7d5b1e6755) (article - different and worth reviewing)
 - [Front End Developer Interview Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions) (repo)
