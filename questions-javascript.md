@@ -1418,6 +1418,29 @@ then resolves "success" and a number
 length of the longest resolve time, promise #1. The array that is returned has each of
 the resolve values from each promise
 
+**#6: Qlik Session Object**
+
+```jsx
+// qDocPromise is a promise that returns the global doc
+getSessionObject(qProp) {
+    return new Promise((resolve) => {
+        qDocPromise.then((doc) => {
+            doc.createSessionObject(qProp).then((obj) => {
+                resolve(obj);
+            });
+        });
+    });
+}
+```
+- First, notice that this method is returning a promise. It takes an argument, `qProp`, and
+returns a promise that has a lot going on
+- The purpose of the method is to return a session object. To that, I need to call 
+`createSessionObject()` on `doc`. The resulting object is what I'll need.
+- In this complicated example, there are a number of things that are happening:
+    - using qDocPromise is an async function so I have to wait for the doc
+    - I then use the `doc` to call `createSessionObject()` and pass in the `qProp`
+    - I can then return the `obj` using my `resolve()` function from the parent promise
+
 
 ### How do you use Async/Await?
 
