@@ -22,6 +22,10 @@
 
 # Front End Trends
 
+- [2020](#front-end-dev-in-2020)
+
+
+
 ### Front End Dev in 2020
 
 #### CM's List: 2020
@@ -35,9 +39,9 @@ predictions but also gaps in my professional knowledge, broader industry trends,
 achieve "100% coverage". These following libraries / testing frameworks appear to be the most popular
 and should have staying power:
   - Jest
-	- react-testing-library
-	- Cypress
-	- Enzyme
+  - react-testing-library
+  - Cypress
+  - Enzyme
 
 **#2. React: Fundamentals and Advanced Features**
 
@@ -49,7 +53,7 @@ Concepts like Hooks, Context API, Higher Order Components (pattern), etc.
 - Python is a popular language used for data science, machine learning, etc; I'd like to get better at it. I've signed up for a number
 of online classes so finishing at least 1-2 and coming away with the fundamentals is key.
   - [Courses in Progress](https://github.com/coolinmc6/CS-concepts#targeted-computer-science-courses)
-	- [Python Cheat Sheet](https://github.com/coolinmc6/CS-concepts/blob/master/cheat-sheets/python.md)
+  - [Python Cheat Sheet](https://github.com/coolinmc6/CS-concepts/blob/master/cheat-sheets/python.md)
 
 **#4. React Design Patterns**
 
@@ -74,6 +78,7 @@ items and on the others that I don't have time to dig into, at least ask the que
 so that I have the basic frame to come back to. Questions on HTTP, CORS, front-end, CSS, the DOM, whatever - 
 write them down in the appropriate repo. This includes future technology like WASM, micro front-end, etc.
 
+[[↑] Back to top](#top)
 
 #### Article Notes: 2020
 
@@ -96,6 +101,7 @@ learned a lot of what's in here, I'm taking away the top items I should focus on
 	- Cypress
 	- Enzyme
 
+[[↑] Back to top](#top)
 
 **[11 Must-Know FrontEnd Trends for 2020](https://blog.bitsrc.io/11-must-know-frontend-trends-for-2020-cea8a629b08)**
 
@@ -110,7 +116,9 @@ learned a lot of what's in here, I'm taking away the top items I should focus on
 - State Management: Redux vs. Context API vs Mobx
 - ES Modules
 	- [ES modules: A cartoon deep-dive](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
-- Web Assembly
+- Web Assembly (WASM)
+
+[[↑] Back to top](#top)
 
 **[5 Front-End Predictions and Trends for 2020](https://dev.to/blarzhernandez/5-front-end-predictions-and-trends-for-2020-327o)**
 
@@ -123,6 +131,8 @@ learned a lot of what's in here, I'm taking away the top items I should focus on
 	- Composing software
 	- functional programming
 	- Promise.allSettled, optional chaining for JavaScript, Object.fromEntries()
+
+[[↑] Back to top](#top)
 
 **[7 FrontEnd JavaScript Trends and Tools You Should Know for 2020](https://hackernoon.com/7-frontend-javascript-trends-and-tools-you-should-know-for-2020-fb1476e41083)**
 
@@ -139,6 +149,8 @@ learned a lot of what's in here, I'm taking away the top items I should focus on
 - GraphQL API clients for data-driven apps
 - Component-based design tools
 	- Atomic Design; here's a cool article: [Atomic Design With React And Bit: Simplify a Complex UI](https://blog.bitsrc.io/simplify-complex-ui-by-implementing-the-atomic-design-in-react-with-bit-f4ad116ec8db)
+
+[[↑] Back to top](#top)
 
 **[The Latest Trends in Web App Development for 2020: What to Expect from the Industry](https://themindstudios.com/blog/web-app-development-trends/)**
 
@@ -190,6 +202,8 @@ learned a lot of what's in here, I'm taking away the top items I should focus on
 - Data security and privacy
 - Load speed
 
+[[↑] Back to top](#top)
+
 
 **Sources:**
 
@@ -200,4 +214,4 @@ learned a lot of what's in here, I'm taking away the top items I should focus on
 - [7 FrontEnd JavaScript Trends and Tools You Should Know for 2020](https://hackernoon.com/7-frontend-javascript-trends-and-tools-you-should-know-for-2020-fb1476e41083)
 - [The Latest Trends in Web App Development for 2020: What to Expect from the Industry](https://themindstudios.com/blog/web-app-development-trends/)
 
-
+[[↑] Back to top](#top)
