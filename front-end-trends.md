@@ -85,6 +85,11 @@ items and on the others that I don't have time to dig into, at least ask the que
 so that I have the basic frame to come back to. Questions on HTTP, CORS, front-end, CSS, the DOM, whatever - 
 write them down in the appropriate repo. This includes future technology like WASM, micro front-end, etc.
 
+**Optional: Web Assembly**
+
+- MDN Intro to WebAssembly: [WebAssembly Concepts](https://developer.mozilla.org/en-US/docs/WebAssembly/Concepts)
+- [AssemblyScript](https://docs.assemblyscript.org/quick-start) - a subset of TypeScript
+
 [[↑] Back to top](#top)
 
 #### Article Notes: 2020
@@ -220,5 +225,6 @@ learned a lot of what's in here, I'm taking away the top items I should focus on
 - [5 Front-End Predictions and Trends for 2020](https://dev.to/blarzhernandez/5-front-end-predictions-and-trends-for-2020-327o)
 - [7 FrontEnd JavaScript Trends and Tools You Should Know for 2020](https://hackernoon.com/7-frontend-javascript-trends-and-tools-you-should-know-for-2020-fb1476e41083)
 - [The Latest Trends in Web App Development for 2020: What to Expect from the Industry](https://themindstudios.com/blog/web-app-development-trends/)
+- [The Future of JavaScript - New Features and Disruptive Trends in 2020](https://youtu.be/f0DrPLKf6Ro) (Video)
 
 [[↑] Back to top](#top)
