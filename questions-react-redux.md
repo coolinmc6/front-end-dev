@@ -80,9 +80,16 @@
 
 ### Explain the standard JavaScript toolchain, transpilation (via Babel or other compilers), JSX, and these items’ significance in recent development. What sort of tools might you use in the build steps to optimize the compiled output React code?
 
-- The bleeding edge JavaScript toolchain can seem quite complex, and it’s very important to feel confident in the toolchain and to have a mental picture of how the pieces fit together.
-- There are a couple primary pillars in the JavaScript toolchain: Dependency Management, Linting, Style-checking, Transpilation, and Compilation, Minification, Source-Mapping.
-- Typically, we use build tools like Gulp, Watchify/Browserify, Broccoli, or Webpack to watch thea filesystem for file events (like when you add or edit a file). After this occurs, the build tool is configured to carry out a group of sequential or parallel tasks.
+- The bleeding edge JavaScript toolchain can seem quite complex, and it’s very 
+important to feel confident in the toolchain and to have a mental picture of 
+how the pieces fit together.
+- There are a couple primary pillars in the JavaScript toolchain: Dependency 
+Management, Linting, Style-checking, Transpilation, and Compilation, Minification, 
+Source-Mapping.
+- Typically, we use build tools like Gulp, Watchify/Browserify, Broccoli, or 
+Webpack to watch the filesystem for file events (like when you add or edit
+a file). After this occurs, the build tool is configured to carry out a group
+of sequential or parallel tasks.
 - This part is the most complex piece, and is the center of the development process.
 - The rest of the tools belong in that group of sequential or parallel tasks:
     - **Style linting** - typically a linter like JSCS is used to ensure the source code is following a certain structure and style
