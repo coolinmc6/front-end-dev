@@ -31,4 +31,4 @@
 
 |Name|Repo|Comments|
 |:---|:---|:---|
-|Webpack: Getting Started|[coolinmc6/wp-practice001](https://github.com/coolinmc6/wp-practice001)|Basic run through with notes|
+|Webpack: Getting Started|[coolinmc6/wp-practice001](https://github.com/coolinmc6/wp-practice001)|**Gettings Started**<br>Basic run through with notes|
