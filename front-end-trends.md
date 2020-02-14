@@ -216,6 +216,26 @@ learned a lot of what's in here, I'm taking away the top items I should focus on
 
 [[↑] Back to top](#top)
 
+**[A Recap of Frontend Development in 2019](https://levelup.gitconnected.com/a-recap-of-frontend-development-in-2019-1e7d07966d6c)**
+
+- There are a lot of good concepts/trends in the article; here are some of the most interesting to me:
+  - WASM
+  - TypeScript
+  - React changes/trends: Hooks, React Tools, etc.
+  - Native lazy loading in HTML (pretty sweet: `<img src="celebration.jpg" loading="lazy" alt="..." />`)
+  - Accessibility (a11y) and internationalization (i18n) are becoming more of a priority
+  - ES2019 Features
+    - Where are my notes on 2016/17/18? If I haven't already, I should add them
+  - Flutter seems to be growing vs. React Native
+  - Svelte
+  - JAMStack
+  - GraphQL (haven't used for awhile)
+  - CSS-in-JS
+- The article also made some predictions:
+  - "Codeless" apps? What?
+    - [https://medium.com/crowdbotics/the-best-low-and-no-code-mobile-app-development-platforms-53bc0b4f3558](https://medium.com/crowdbotics/the-best-low-and-no-code-mobile-app-development-platforms-53bc0b4f3558)
+  - CSS-in-JS will continue to grow
+
 
 **Sources:**
 
@@ -226,5 +246,6 @@ learned a lot of what's in here, I'm taking away the top items I should focus on
 - [7 FrontEnd JavaScript Trends and Tools You Should Know for 2020](https://hackernoon.com/7-frontend-javascript-trends-and-tools-you-should-know-for-2020-fb1476e41083)
 - [The Latest Trends in Web App Development for 2020: What to Expect from the Industry](https://themindstudios.com/blog/web-app-development-trends/)
 - [The Future of JavaScript - New Features and Disruptive Trends in 2020](https://youtu.be/f0DrPLKf6Ro) (Video)
+- [A Recap of Frontend Development in 2019](https://levelup.gitconnected.com/a-recap-of-frontend-development-in-2019-1e7d07966d6c)
 
 [[↑] Back to top](#top)
