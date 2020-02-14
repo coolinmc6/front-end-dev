@@ -29,6 +29,10 @@
 
 # Webpack 4
 
-|Name|Repo|Comments|
-|:---|:---|:---|
-|Webpack: Getting Started|[coolinmc6/wp-practice001](https://github.com/coolinmc6/wp-practice001)|**Gettings Started**<br>Basic run through with notes|
+|Name|Repo|Comments|Link|
+|:---|:---|:---|:---:|
+|Webpack: Getting Started|[coolinmc6/wp-practice001](https://github.com/coolinmc6/wp-practice001)|Basic run through with notes||
+|Webpack: Asset Management|[coolinmc6/wp-practice002](https://github.com/coolinmc6/wp-practice002)|**incomplete**|[Link](https://webpack.js.org/guides/asset-management/)|
+|Webpack: Output Management||**incomplete**||
+|Webpack: Development||**incomplete**|[Link](https://webpack.js.org/guides/development/)|
+|Webpack: Code Splitting||**incomplete**<br />extends getting started and output management|[Link](https://webpack.js.org/guides/code-splitting/)|
