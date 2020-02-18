@@ -32,7 +32,7 @@
 |Name|Repo|Comments|Link|
 |:---|:---|:---|:---:|
 |Webpack: Getting Started|[coolinmc6/wp-practice001](https://github.com/coolinmc6/wp-practice001)|Basic run through with notes|[Link](https://webpack.js.org/guides/getting-started/)|
-|Webpack: Asset Management|[coolinmc6/wp-practice002](https://github.com/coolinmc6/wp-practice002)|**incomplete**|[Link](https://webpack.js.org/guides/asset-management/)|
+|Webpack: Asset Management|[coolinmc6/wp-practice002](https://github.com/coolinmc6/wp-practice002)|Introduction on importing CSS, images, fonts, and other files.|[Link](https://webpack.js.org/guides/asset-management/)|
 |Webpack: Output Management||**incomplete**||
 |Webpack: Development||**incomplete**|[Link](https://webpack.js.org/guides/development/)|
 |Webpack: Code Splitting||**incomplete**<br />extends getting started and output management|[Link](https://webpack.js.org/guides/code-splitting/)|
