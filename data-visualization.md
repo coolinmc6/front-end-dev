@@ -16,14 +16,6 @@
             <td><strong><a href="https://github.com/coolinmc6/front-end-dev">Front End Development</a></strong></td>
             <td><em>Data Visualization</em></td>
         </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
     </tbody>
 </table>
 
