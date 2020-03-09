@@ -1,10 +1,10 @@
 <table>
 	<thead>
 		<tr>
-			<th colspan="5" style="text-align: center;"><strong>Subjects of Study</strong></th>
+			<th colspan="6" style="text-align: center;"><strong>Subjects of Study</strong></th>
 		</tr>
 		<tr>
-			<td colspan="5">The links below are to the parent GitHub repos of completed courses, resources, my own notes, links to articles, etc. about the topics shown below. They are designed to be my "go-to" place for teaching myself the given subject.</td>
+			<td colspan="6">The links below are to the parent GitHub repos of completed courses, resources, my own notes, links to articles, etc. about the topics shown below. They are designed to be my "go-to" place for teaching myself the given subject.</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -14,6 +14,7 @@
 			<td><a href="https://github.com/coolinmc6/design-ux-ui#product-design--development">Product Development</a></td>
 			<td><a href="https://github.com/coolinmc6/design-ux-ui">UX / UI Design</a></td>
 			<td><strong><em><a href="https://github.com/coolinmc6/front-end-dev">Front End Development</a></em></strong></td>
+			<td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/data-visualization.md">Data Visualization</a></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -21,6 +22,7 @@
 			<td></td>
 			<td></td>
 			<td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/questions-javascript.md">Interview Questions</a></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -28,6 +30,7 @@
 			<td></td>
 			<td></td>
 			<td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/javascript/">Concepts</a></td>
+			<td></td>
 		</tr>
 	</tbody>
 </table>
