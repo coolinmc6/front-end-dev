@@ -450,8 +450,6 @@ React then updates only the part of the real DOM that has been changed
 
 [[↑] Back to top](#top)
 
-
-
 ### What is an event in React? How do you create one?
 
 - Event handlers in React are placed directly on the element. 
@@ -459,20 +457,19 @@ React then updates only the part of the real DOM that has been changed
 - Events are passed as functions instead of strings.
 - Here is a simple example of an event in React:
 
-```babel
+```js
 class MyComponent extends Component {
-    show(e) {
+  show(e) {
 
-    },
+  },
 
-    render() {
+  render() {
 
-        return (
-            <div onClick={this.show} className="awesome-div">Click Here!</div>
-        );
-    }
+    return (
+        <div onClick={this.show} className="awesome-div">Click Here!</div>
+    );
+  }
 }
-
 ```
 
 [[↑] Back to top](#top)
@@ -481,7 +478,6 @@ class MyComponent extends Component {
 - Synthetic events are the objects which act as a cross-browser wrapper around the browser’s native event. 
 - They combine the behavior of different browsers into one API. 
 - This is done to make sure that the events show consistent properties across different browsers.
-
 
 [[↑] Back to top](#top)
 
@@ -573,6 +569,16 @@ class User extends React.Component {
 ### What is the difference between state and props?
 
 - Both props and state are plain JavaScript objects. While both of them hold information that influences the output of render, they are different in their functionality with respect to component. Props get passed to the component similar to function parameters whereas state is managed within the component similar to variables declared within a function.
+
+[[↑] Back to top](#top)
+
+### What is prop drilling?
+
+- Prop drilling is the process of getting data from component A to component Z by passing it through multiple layers of intermediary React components.
+
+[https://www.toptal.com/react/react-context-api](https://www.toptal.com/react/react-context-api)
+
+[[↑] Back to top](#top)
 
 ---
 

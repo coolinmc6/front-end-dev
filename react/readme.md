@@ -49,6 +49,7 @@
 # React Concepts
 
 - [Components](https://github.com/coolinmc6/front-end-dev/blob/master/react/components.md)
+- [Context](https://github.com/coolinmc6/front-end-dev/blob/master/react/context.md)
 - Fragment
 - [Higher Order Components](https://github.com/coolinmc6/front-end-dev/blob/master/react/hoc.md)
 - [Hooks](https://github.com/coolinmc6/front-end-dev/blob/master/react/hooks.md)
