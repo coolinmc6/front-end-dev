@@ -111,7 +111,7 @@ var app = new Vue({
 ```html
 <!-- VueMastery Solution -->
 <p v-else :class="{out: !inStock, bold: !inStock}">Out of Stock</p>
-
+<!-- CM Solution -->
 <p v-else :class="inStock ? '' : 'out'">Out of Stock</p>
 ```
 
@@ -121,3 +121,90 @@ and in the parens there is an object. Here is the breakdown:
   - the `out` property is based on the `inStock` variable. If `inStock` is false, it is displayed
 - My solution was a ternary where I gave it an empty string class or `'out'`. Probably better the first one but my
 solution worked as well. 
+
+**Computed Properties**
+
+- Computed properties are properties that are calculated / computed by Vue and then displayed as opposed to ones
+that are stored by Vue. In the example below, we are using properties from our data object.
+- They are stored in a `computed` property in the Vue object. This is what it looks like:
+
+```js
+var app = new Vue({
+  el: '#app',
+  data: {
+    product: 'Socks',
+    brand: 'Vue Mastery',
+    cart: 0
+  },
+  methods: {
+    addToCart: function () {
+      this.cart += 1
+    },
+    updateProduct: function (index) {
+      this.selectedVariant = index
+      console.log(index)
+    }
+  },
+  computed: {
+    title() {
+      return this.brand + ' ' + this.product
+    },
+    displaySale() {
+      return `${this.brand} ${this.product} are ON SALE`
+      // return "HEY";
+    }
+  }
+})
+```
+
+**Components**
+
+- Here is how you create a new component:
+
+```js
+Vue.component('product', {
+  props: { // what you're passing to your component
+    isLoggedIn: { // looks like built-in props typing
+      type: Boolean,
+      required: true
+    }
+  },
+  template: ` 
+    <div>
+      <h1>{{ product }}</h1>
+    <div>
+  `, // Like React, must be one element
+  data() {
+    return {
+      product: 'Amazing Socks',
+      cart: 0,
+      // other properties
+    }
+  },
+  methods: {
+    addToCart: () {
+      this.cart += 1
+    }
+  },
+  computed: {
+    title() {
+      return 'Nike ' + this.product
+    }
+  }
+})
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    premium: true
+  }
+})
+```
+
+```html
+<div id="app">
+  <product :premium="premium"></product>
+</div> 
+```
+
+- So that's how you create and use a Vue component.
