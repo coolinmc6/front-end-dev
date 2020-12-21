@@ -208,3 +208,112 @@ var app = new Vue({
 ```
 
 - So that's how you create and use a Vue component.
+
+**Communicating Events**
+
+- Like in React, if you want to change parent-level state, you need to pass the handler
+down to the component. This is what it would look like:
+
+```html
+<div id="app">
+  <product 
+    :premium="premium"
+    @add-to-cart="updateCart"><!-- handler prop and the function -->
+</div>
+```
+
+```js
+var app = new Vue({
+  el: '#app',
+  data: {
+    premium: true
+  },
+  methods: {
+    addToCart: function(id) {
+      this.cart.push(id)
+    }
+  }
+})
+
+Vue.component('product', {
+  template: `
+    <button v-on:click="addToCart" 
+      :disabled="!inStock"
+      :class="{ disabledButton: !inStock }"
+      >
+    Add to cart
+    </button>`,
+})
+```
+
+- **Notice** how the `@add-to-cart` is transformed to camelCase `addToCart` in the `v-on:click`.
+
+**Forms**
+
+- Good example here [https://codepen.io/coolinmc6/pen/rNMzKdR?editors=1010](https://codepen.io/coolinmc6/pen/rNMzKdR?editors=1010)
+- Vue uses two-way data-binding which is pretty sweet:
+
+```html
+<p>
+  <label for="name">Name:</label>
+  <input id="name" v-model="name">
+</p>
+```
+```js
+Vue.component('product-review', {
+  template: ``, // see above for html
+  data() {
+    return {
+      name: null
+    }
+  }
+})
+```
+- And that's it! Now, every time the user updates the input with the `v-model` attribute of "name", the
+"name" property will be updated. Super simple.
+- **Note:** this is NOT like React. React is one way - so I'd normally have to create an onChange handler
+to update my "name" property...I don't have to do that here.
+- Another important item to note is the preventDefault on a form submit. Take a look:
+
+```html
+<form class="review-form" @submit.prevent="onSubmit">
+  <!-- CODE -->
+</form>
+```
+- the `@submit.prevent="onSubmit"` => the `@submit` is the event handler, the `.prevent` is shorthand for preventing
+the default behavior on form submission, and the `"onSubmit"` is our customer handler which is not shown here.
+- In the example in the link above, the `onSubmit` emits an event and passes the *productReview* object up to the
+parent. The example is worth reviewing again - a lot of good stuff in there.
+
+**Event Bus**
+
+- I want to revisit this topic as I don't entirely understand it but here's a working [CodePen](https://codepen.io/coolinmc6/pen/RwGZJzV).
+It looks like a common pattern to simplify or bring together event handlers. I'll quickly show an example but I'll need to revisit:
+
+```js
+// initialize eventBus
+var eventBus = new Vue()
+
+// in the <product> component
+Vue.components('product', {
+  props: {},
+  template: ``,
+  data() {
+    return {}
+  },
+  methods: {},
+  mounted() {
+    eventBus.$on('review-submitted', productReview => {
+      this.reviews.push(productReview)
+    })
+  }
+})
+
+// in the event handler for the review
+eventBus.$emit('review-submitted', productReview)
+```
+- The example has the `product-review` component inside the `product` component. The lifecycle method `mounted` uses
+the eventBus. So there are three places you need it:
+  - initialize the eventBus
+  - mount it to the parent of the component
+  - use it / emit the event in your handler
