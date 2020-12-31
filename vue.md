@@ -2,6 +2,8 @@
 
 # Vue
 
+[Vue Playground Simple](https://coolinmc6.github.io/vue-playground-simple/)
+
 **Vue Instance and Displaying a Variable**
 
 ```vue
