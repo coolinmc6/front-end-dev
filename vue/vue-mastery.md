@@ -15,7 +15,7 @@ Repo: [https://github.com/Code-Pop/Unit-Testing-Vue2](https://github.com/Code-Po
 - Using the vue-cli to get started with a custom build was pretty interesting. It was cool to see how custom you could make
 the project, including adding a bunch of normal items like Vuex, Testing (in Jest), and Vuetify
 
-**2**
+### 2
 
 - Here are the basic steps of writing a unit test:
   - Create a test suite (block of tests) using the `describe` statement
@@ -50,7 +50,7 @@ wasn't matching - there were no tests that it could find. Unlike when the video 
 was like this: `tests/unit/components/AppHeader.spec.js`. I added the "components" because it looks like that's
 how they want you to write tests.
 
-**3**
+### 3
 
 - Here are the tests for the RandomNumber component and a few things to look for:
   - 1: find an element in the DOM
@@ -97,7 +97,7 @@ describe("RandomNumer", () => {
 });
 ```
 
-**4**
+### 4
 
 - Here are the tests from Lesson 4 and some things to look for:
   - 1: `it` instead of `test`
@@ -134,7 +134,7 @@ describe("LoginForm", () => {
 });
 ```
 
-**5**
+### 5
 
 - Here are our tests and some things to look for:
   - 1: a package like flush promises is used in testing to make this work. See 
@@ -180,7 +180,7 @@ describe("MessageDisplay", () => {
 });
 ```
 
-**6**
+### 6
 
 ```js
 // Stub = placeholder, canned response, substitute for our child component

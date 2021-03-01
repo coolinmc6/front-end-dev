@@ -4,6 +4,8 @@
 
 [Live Vue Playground Simple](https://coolinmc6.github.io/vue-playground-simple/) | [Code](https://github.com/coolinmc6/vue-playground-simple)
 
+[Vue Mastery Notes](https://github.com/coolinmc6/front-end-dev/blob/master/vue/vue-mastery.md)
+
 **Vue Instance and Displaying a Variable**
 
 ```vue
