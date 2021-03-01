@@ -2,8 +2,12 @@
 
 # Vue Mastery
 
-1. Intro to Vue 2 - **complete**
-2. Intro to Vue 3
+## Courses
+
+|Course|Status|Repo|Notes|
+|:---:|:---:|:---|:---:|
+|Intro to Vue 2|**complete**|||
+|Unit Testing Vue 2|**complete**||[Notes](#unit-testing-vue-2)|
 
 
 ## Unit Testing Vue 2
