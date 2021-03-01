@@ -7,7 +7,7 @@
 |Course|Status|Repo|Notes|
 |:---:|:---:|:---|:---:|
 |Intro to Vue 2|**complete**|||
-|Unit Testing Vue 2|**complete**||[Notes](#unit-testing-vue-2)|
+|Unit Testing Vue 2|**complete**|[VM-unit-testing-vue2](https://github.com/coolinmc6/VM-unit-testing-vue2)|[Notes](#unit-testing-vue-2)|
 
 
 ## Unit Testing Vue 2
