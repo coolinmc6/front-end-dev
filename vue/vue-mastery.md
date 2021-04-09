@@ -1,4 +1,4 @@
-[Home](https://github.com/coolinmc6/front-end-dev) | [Vue Notes]()
+[Home](https://github.com/coolinmc6/front-end-dev) | [Vue Notes](https://github.com/coolinmc6/front-end-dev/blob/master/vue.md)
 
 # Vue Mastery
 

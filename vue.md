@@ -2,9 +2,15 @@
 
 # Vue
 
+### Vue Write-ups
+
+1. [Vue Mastery](https://github.com/coolinmc6/front-end-dev/blob/master/vue/vue-mastery.md)
+2. [Vue Snippets](https://github.com/coolinmc6/front-end-dev/blob/master/vue/vue-snippets.md)
+3. [Vue Testing](https://github.com/coolinmc6/front-end-dev/blob/master/vue/vue-testing.md)
+### Demos
 [Live Vue Playground Simple](https://coolinmc6.github.io/vue-playground-simple/) | [Code](https://github.com/coolinmc6/vue-playground-simple)
 
-[Vue Mastery Notes](https://github.com/coolinmc6/front-end-dev/blob/master/vue/vue-mastery.md)
+
 
 **Vue Instance and Displaying a Variable**
 
