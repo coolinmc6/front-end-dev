@@ -35,6 +35,12 @@
 
 ### Front End Dev in 2020
 
+Articles:
+- https://productcoalition.com/front-end-development-trends-that-will-be-with-us-in-2021-a0ad023922ea
+- https://www.switchit.com/blog/front-end-development/ten-trends-frontend-developers-should-be-aware-of-in-2021.aspx
+- https://thesmartcoder.dev/10-things-front-end-developers-should-learn-in-2021/
+
+
 #### CM's List: 2020
 
 *Note:* these are the top items that I'd like to learn. The items are not based entirely on the front-end developer
