@@ -268,3 +268,25 @@ describe('auction-success.vue', () => {
 });
 ```
 - this file is more complicated
+
+# NOT CLEANED UP
+
+### Testing Watchers
+
+```js
+describe('watch', () => {
+  describe('highestOffer', () => {
+    it('should update purchasePrice if input is not focused', async () => {
+      await wrapper.vm.$options.watch.highestOffer.call(wrapper.vm, 1050);
+      expect(wrapper.vm.purchasePrice).toBe(1050);
+    });
+
+    it('should not update purchasePrice if input is focused', async () => {
+      wrapper.setData({
+        isFocused: true,
+      });
+      await wrapper.vm.$options.watch.highestOffer.call(wrapper.vm, 1050);
+      expect(wrapper.vm.purchasePrice).toBe(1000);
+    });
+  });
+});
