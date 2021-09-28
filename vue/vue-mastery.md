@@ -9,6 +9,7 @@
 |Intro to Vue 2|**complete**|||
 |Unit Testing Vue 2|**complete**|[VM-unit-testing-vue2](https://github.com/coolinmc6/VM-unit-testing-vue2)|[Notes](#unit-testing-vue-2)|
 |Vue 3 Composition API|Video 6|[Stackblitz: Composition API](https://stackblitz.com/edit/vue-tcs5zs)|
+|Real World Vue 2|Finished: Routing Video|[real-world-vue-2](https://github.com/coolinmc6/real-world-vue-2)|
 
 
 ## Unit Testing Vue 2
