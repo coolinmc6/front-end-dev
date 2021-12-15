@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 [Home](https://github.com/coolinmc6/front-end-dev)
 
 # Vue Snippets
@@ -14,6 +16,9 @@ import VueCompositionAPI from '@vue/composition-api'
 
 Vue.use(VueCompositionAPI)
 ```
+
+[[↑] Back to top](#top)
+
 ### Composition API Basics
 - Here is a basic counter example:
 
@@ -65,7 +70,7 @@ export default defineComponent({
   },
 });
 ```
-
+[[↑] Back to top](#top)
 
 ## Vuex
 
@@ -104,3 +109,18 @@ if(this.lastGamePlayed) {
   // do something
 }
 ```
+
+### useState in Composition API
+
+- This shows some items from the [vue-hooks](https://github.com/u3u/vue-hooks) that are available
+in Vue 3.
+
+```js
+const { data: userData } = useState('user', ['data']);
+const posts = computed(() => userData?.value.posts || []);
+
+
+const { doStuff } = useActions('app', ['doStuff']);
+const handleClick = () => doStuff();
+```
+
