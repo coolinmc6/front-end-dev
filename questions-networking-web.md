@@ -56,6 +56,9 @@
 
 <a name="top"></a>
 
+# Resources
+
+- BOOK: [Introduction to Networking](https://do1.dr-chuck.net/net-intro/EN_us/net-intro.pdf)
 
 # Networking Questions
 
@@ -104,6 +107,11 @@
 
 [[↑] Back to top](#top)
 
+### What happens when you click a link?
+
+- Source: [https://www.youtube.com/watch?v=keo0dglCj7I](https://www.youtube.com/watch?v=keo0dglCj7I)
+
+[[↑] Back to top](#top)
 ### Describe the process from the time you type in a website's URL to it finishing loading on your screen.
 
 - When I enter a website's URL, in the transport layer, it will ask a local DNS what is the IP of the provided URL. We know the IP of the local DNS server by the DHCP protocol, when a node connects to internet and gets an IP address.

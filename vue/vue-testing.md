@@ -269,6 +269,57 @@ describe('auction-success.vue', () => {
 ```
 - this file is more complicated
 
+### Advanced Component #2
+
+```js
+import { createLocalVue, shallowMount } from '@vue/test-utils';
+import Vuex from 'vuex';
+import EditAccountInformation from '../edit-account-information.vue';
+
+const localVue = createLocalVue();
+localVue.use(Vuex);
+
+describe('edit-account-information.vue', () => {
+  let wrapper;
+  let store;
+  beforeEach(() => {
+    store = new Vuex.Store({
+      modules: {
+        user: {
+          namespaced: true,
+          state: {
+            data: { // name of state property is "data"; within that is "userData" prop
+              userData: {
+                firstname: 'Joel',
+                lastname: 'Embiid',
+                username: 'jembiid',
+                phone: '215-888-7878',
+                email: 'jembiid@gmail.com',
+                address1: '123 Sixers Lane',
+                address2: '',
+                city: 'Philadelphia',
+                state: 'PA',
+                zipcode: 12345,
+              },
+            },
+          },
+        },
+      },
+    });
+    wrapper = shallowMount(EditAccountInformation, { localVue, store });
+  });
+
+  describe('snapshot', () => {
+    it('should match snapshot', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
+  });
+});
+```
+- This component requires Vuex. I needed to access the user module and to get the snapshot
+to work, I need to bring in Vuex. The trick is to create a `localVue`. The key part is
+shortly after the imports where I create the `localVue` and then do `localVue.use(Vuex);`.
+- After that, it's just a matter of adding my `store` instantiation in my `beforeEach`.
 # NOT CLEANED UP
 
 ### Testing Watchers
