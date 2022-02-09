@@ -42,3 +42,27 @@ interface Todo {
   id: number;
   completed: boolean;
 }
+
+/**
+ * The items below are for an object that requires at least one property but that
+ * property can be one of several. The situation is that we want a piece of personal
+ * information but it can be their DOB, first name, full SSN, etc. We don't need all of it, 
+ * but we do need at least one.
+ * 
+ * Original Solution: create an interface that just had 5 optional properties that are
+ * just dob?: (or whatever the syntax is).
+ * 
+ * This is the new solution. I've also included the link from where I think this
+ * solution came from: https://stackoverflow.com/questions/48230773/how-to-create-a-partial-like-that-requires-a-single-property-to-be-set/48244432
+ */
+type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
+  U[keyof U];
+interface PersonalInformationShape {
+  dob: string;
+  first_name: string;
+  last_name: string;
+  ssn: string;
+  address1: string;
+}
+
+export type PersonalInformation = AtLeastOne<PersonalInformationShape>;
