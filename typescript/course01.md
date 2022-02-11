@@ -48,4 +48,23 @@ file into a JavaScript file.
 extra stuff added (like with Babel) - in fact just the TypeScript stuff is removed...so how are types
 enforced?
 
-start here: https://www.youtube.com/watch?v=OVOJBKk4nIo&list=PLe30vg_FG4OQjsYa-iys5HUeaoSHzz-wk&index=4
+## 03: Define Types
+Video: https://www.youtube.com/watch?v=OVOJBKk4nIo&list=PLe30vg_FG4OQjsYa-iys5HUeaoSHzz-wk&index=4
+
+- Primitive Types:
+  - number
+  - string
+  - boolean
+  - null
+  - undefined
+  - symbol
+- Object Types:
+  - object
+  - array
+  - function
+
+## 04: Type Inference
+
+## 05: tsconfig Explained
+Video: https://www.youtube.com/watch?v=If8JzyG2EGc&list=PLe30vg_FG4OQjsYa-iys5HUeaoSHzz-wk&index=6
+
