@@ -68,3 +68,22 @@ Video: https://www.youtube.com/watch?v=OVOJBKk4nIo&list=PLe30vg_FG4OQjsYa-iys5HU
 ## 05: tsconfig Explained
 Video: https://www.youtube.com/watch?v=If8JzyG2EGc&list=PLe30vg_FG4OQjsYa-iys5HUeaoSHzz-wk&index=6
 
+- Run `tsc --init` to create a tsconfig.json file
+- In that directory, you can call `tsc` to compile the TypeScript file
+- You can also call `tsc --watch --outDir ./output` to watch for changes in the TypeScript file and
+compile it to JavaScript
+
+## 06: Using npm init
+Video: https://www.youtube.com/watch?v=NvyffQkrn98&list=PLe30vg_FG4OQjsYa-iys5HUeaoSHzz-wk&index=7
+
+- It was essentially just about adding `npm` via `npm init` and then adding a `start` script
+to run the `tsc --watch` command
+- We also added a `src` directory
+
+## 07: Generate types file
+Video: https://www.youtube.com/watch?v=NvyffQkrn98&list=PLe30vg_FG4OQjsYa-iys5HUeaoSHzz-wk&index=8
+
+## 08: Number Type
+
+## 09: number vs Number
+
