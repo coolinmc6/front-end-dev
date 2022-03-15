@@ -12,3 +12,12 @@ function sum(a: number, b:number): number {
 }
 
 console.log(sum(1, 3));
+
+enum Direction {
+  Up,
+  Down,
+  Left,
+  Right
+}
+
+console.log(Direction)

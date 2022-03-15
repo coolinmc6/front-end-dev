@@ -87,3 +87,86 @@ Video: https://www.youtube.com/watch?v=NvyffQkrn98&list=PLe30vg_FG4OQjsYa-iys5HU
 
 ## 09: number vs Number
 
+
+## 11: never vs void
+
+- a `never` type is a type that will never reach the end of the function. Here is an example:
+
+```ts
+function raiseError(message: string): never {
+  throw new Error(message);
+  console.log(message);
+}
+```
+
+- a `void` type is a type that will never return anything. Here is an example:
+
+```ts
+function sayHello(): void {
+  console.log('Hello');
+}
+// OR
+function sum(a: number, b: number): void {
+  console.log(a + b);
+}
+```
+
+## 12: enums
+
+- JavaScript doesn't have enums buy TypeScript does.
+- enums are a way to define a set of named constants
+- here is an example:
+```ts
+enum Direction {
+  Up,
+  Down,
+  Left,
+  Right
+}
+console.log(Direction.Up); // 0
+console.log(Direction[0]); // Up
+console.log(Direction[2]); // Left
+console.log(Direction);
+/*
+{
+  '0': 'Up',
+  '1': 'Down',
+  '2': 'Left',
+  '3': 'Right',
+  Up: 0,
+  Down: 1,
+  Left: 2,
+  Right: 3
+}
+*/
+
+enum Month {
+  January = 1, // I believe this starts the index at 1
+  February,
+  March,
+  April,
+  May,
+  June,
+  July,
+  August,
+  September,
+  October,
+  November,
+  December
+}
+
+// here's a string enum
+enum Direction {
+  Up = 'UP',
+  Down = 'DOWN',
+  Left = 'LEFT',
+  Right = 'RIGHT'
+}
+```
+- the resulting JavaScript creates an object with property values with BOTH the indices which
+correspond to the value ("0" => Up, "1" => Down, etc) and the string values which correspond to the
+index ("Up" => 0, "Down" => 1, etc)
+- in a string enum, you can only access it by the string value: `Dirction.Up`. Doing `Direction[0]`
+won't work.
+
+## 13: Object Type
