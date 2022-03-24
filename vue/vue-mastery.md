@@ -206,3 +206,50 @@ describe("MessageContainer", () => {
   });
 });
 ```
+
+## Vue 3 Reactivity
+### 1. Vue 3 Reactivity
+- how does Vue know to update the DOM when data changes?
+- effect, track, and trigger are actually in the Vue 3 source code
+- to store effects, we use a `dep` or dependency
+- Each property needs to have its own depdency. A dependency is a set of effets that should 
+get re-run when the values change
+  - a dep is a set: `let dep = new Set()`
+  - see 3:53
+- Our objects could have multiple properties, each property needs their own dep
+- a depsMap is a map where we store the dependency object for each property
+- weakMap is a map where the keys are objects
+
+![](../assets/vue-mastery/reactivity1.png)
+
+![](../assets/vue-mastery/reactivity2.png)
+### 2. Proxy and Reflect
+- Right now, we are manually calling track and trigger. We want our reactivity 
+system to do that for us. So...we call track whenever we access (GET) a property
+and trigger whenever we change (SET) a property.
+- Vue 2 - ES5 `Object.defineProperty()` and Vue 3 we use Proxy and Reflect
+- Proxy is a placeholder for another object, which be default delegates to the object
+- a `trap` allows us to intercept fundamental operations (property lookup, 
+enumeration, function invocation)
+
+![](../assets/vue-mastery/reactivity3.png)
+### 3. activeEffect & ref
+- Object accessors (a.k.a. computed properties)
+- Object accessors are functions that get or set a value
+
+
+### 4. Computed Values & Vue 3 Source
+
+![](../assets/vue-mastery/reactivity4.png)
+### 5. Q & A with Evan You
+
+![](../assets/vue-mastery/reactivity5.png)
+### 6. Reading Source Code with Evan You
+
+![](../assets/vue-mastery/reactivity6.png)
+
+### Take-aways and further work
+ - [VueJS docs: Reactivity in Depth](https://vuejs.org/guide/extras/reactivity-in-depth.html)
+ - [renderTriggered](https://vuejs.org/api/options-lifecycle.html#rendertriggered)
+   - I think this will help me understand why a component is re-rendering (when
+   maybe I don't want it to)
