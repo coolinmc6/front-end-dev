@@ -249,7 +249,9 @@ enumeration, function invocation)
 ![](../assets/vue-mastery/reactivity6.png)
 
 ### Take-aways and further work
- - [VueJS docs: Reactivity in Depth](https://vuejs.org/guide/extras/reactivity-in-depth.html)
- - [renderTriggered](https://vuejs.org/api/options-lifecycle.html#rendertriggered)
-   - I think this will help me understand why a component is re-rendering (when
-   maybe I don't want it to)
+- [VueJS docs: Reactivity in Depth](https://vuejs.org/guide/extras/reactivity-in-depth.html)
+- [Reactivity APIs](https://vuejs.org/api/#composition-api)
+- [renderTriggered](https://vuejs.org/api/options-lifecycle.html#rendertriggered)
+  - I think this will help me understand why a component is re-rendering (when
+  maybe I don't want it to)
+- [Understanding the New Reactivity System in Vue 3](https://www.sitepoint.com/vue-3-reactivity-system/)
