@@ -124,3 +124,21 @@ const { doStuff } = useActions('app', ['doStuff']);
 const handleClick = () => doStuff();
 ```
 
+- You can also import state from multiple modules like this:
+
+```js
+// Combined
+const { userWallet, editAccountDetails } = useState({
+  userWallet: ({ wallet }) => wallet?.userData,
+  editAccountDetails: ({ user }) => user.data?.edit_account_details,
+});
+
+// Individually
+const { userWallet } = useState('wallet', {
+  userWallet: state => state.wallet?.userData
+})
+
+const { editAccountDetails } = useState('user', {
+  editAccountDetails: state => state.user.data?.edit_account_details,
+})
+```
