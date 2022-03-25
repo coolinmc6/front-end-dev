@@ -1,5 +1,7 @@
 [Home](https://github.com/coolinmc6/front-end-dev) | [Vue Notes](https://github.com/coolinmc6/front-end-dev/blob/master/vue.md)
 
+<a name="top"></a>
+
 # Vue Mastery
 
 ## Courses
@@ -10,7 +12,8 @@
 |Unit Testing Vue 2|**complete**|[VM-unit-testing-vue2](https://github.com/coolinmc6/VM-unit-testing-vue2)|[Notes](#unit-testing-vue-2)|
 |Vue 3 Composition API|Video 6|[Stackblitz: Composition API](https://stackblitz.com/edit/vue-tcs5zs)|
 |Real World Vue 2|Finished: Routing Video|[real-world-vue-2](https://github.com/coolinmc6/real-world-vue-2)|
-
+|Vue 3 Reactivity|**complete**||[Notes](https://github.com/coolinmc6/front-end-dev/blob/master/vue/vue-mastery.md#vue-3-reactivity)|
+|Token-based Authentication|Not Started||[Notes](https://github.com/coolinmc6/front-end-dev/blob/master/vue/vue-mastery.md#token-based-authentication)|
 
 ## Unit Testing Vue 2
 
@@ -21,7 +24,7 @@ Repo: [https://github.com/Code-Pop/Unit-Testing-Vue2](https://github.com/Code-Po
 - Using the vue-cli to get started with a custom build was pretty interesting. It was cool to see how custom you could make
 the project, including adding a bunch of normal items like Vuex, Testing (in Jest), and Vuetify
 
-### 2
+### Video 2
 
 - Here are the basic steps of writing a unit test:
   - Create a test suite (block of tests) using the `describe` statement
@@ -56,7 +59,7 @@ wasn't matching - there were no tests that it could find. Unlike when the video 
 was like this: `tests/unit/components/AppHeader.spec.js`. I added the "components" because it looks like that's
 how they want you to write tests.
 
-### 3
+### Video 3
 
 - Here are the tests for the RandomNumber component and a few things to look for:
   - 1: find an element in the DOM
@@ -103,7 +106,7 @@ describe("RandomNumer", () => {
 });
 ```
 
-### 4
+### Video 4
 
 - Here are the tests from Lesson 4 and some things to look for:
   - 1: `it` instead of `test`
@@ -140,7 +143,7 @@ describe("LoginForm", () => {
 });
 ```
 
-### 5
+### Video 5
 
 - Here are our tests and some things to look for:
   - 1: a package like flush promises is used in testing to make this work. See 
@@ -186,7 +189,7 @@ describe("MessageDisplay", () => {
 });
 ```
 
-### 6
+### Video 6
 
 ```js
 // Stub = placeholder, canned response, substitute for our child component
@@ -206,7 +209,7 @@ describe("MessageContainer", () => {
   });
 });
 ```
-
+[[↑] Back to top](#top)
 ## Vue 3 Reactivity
 ### 1. Vue 3 Reactivity
 - how does Vue know to update the DOM when data changes?
@@ -255,3 +258,31 @@ enumeration, function invocation)
   - I think this will help me understand why a component is re-rendering (when
   maybe I don't want it to)
 - [Understanding the New Reactivity System in Vue 3](https://www.sitepoint.com/vue-3-reactivity-system/)
+
+[[↑] Back to top](#top)
+## Token-Based Authentication
+
+Videos:
+- **1. Intro to Authentication**: https://www.vuemastery.com/courses/token-based-authentication/intro-to-authentication
+- **2. Project Structure**: https://www.vuemastery.com/courses/token-based-authentication/project-structure
+- **3. User Registration:** https://www.vuemastery.com/courses/token-based-authentication/user-registration/
+- **4. User Login**: https://www.vuemastery.com/courses/token-based-authentication/user-login
+- **5. User Logout**: https://www.vuemastery.com/courses/token-based-authentication/user-logout
+- **6. Handling errors**: https://www.vuemastery.com/courses/token-based-authentication/handling-errors
+- **7. Automatic Login**: https://www.vuemastery.com/courses/token-based-authentication/automatic-login
+
+
+- Starting code: https://github.com/Code-Pop/authentication_course/releases/tag/course_START
+- Final code: https://github.com/Code-Pop/authentication_course/releases/tag/lesson7_FINISH
+- we'll be using JSON web tokens
+- JWT's have three parts:
+  - header: a header object that contains the algorithm and type of token
+  - payload: a payload object that contains the user's information
+  - signature: a signature that is used to verify the token (a hash of the header and payload)
+- CM TODO: I want to just breakdown the app (called "authentication_course") by sections and just
+explain the basics of each
+
+
+
+
+[[↑] Back to top](#top)
