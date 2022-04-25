@@ -15,6 +15,85 @@ describe('component-name.vue', () => {
 ```js
 import { shallowMount } from '@vue/test-utils';
 ```
+- Adding Vuex requires `createLocalVue`. It's not difficult but it is more code. You need to look
+at your component and understand what what items from Vuex you need.
+
+```js
+import { createLocalVue, shallowMount } from '@vue/test-utils';
+import Vuex from 'vuex';
+
+const localVue = createLocalVue();
+localVue.use(Vuex);
+```
+- And then when you need to mount your component, you can create your store like this:
+```js
+let store = new Vuex.Store({
+  modules: {
+    user: {
+      namespaced: true,
+      state: {
+        data: { // name of state property is "data"; within that is "userData" prop
+          userData: {
+            zipcode: 12345,
+            // etc.
+          },
+        },
+      },
+    },
+    wallet: {
+      namespaced: true,
+      actions: {
+        getWallet: jest.fn(),
+      }
+    }
+  }
+});
+```
+- When hitting an API, you need to mock the function. Assuming that it's a
+Promise with both resolve and reject, you can something like this:
+
+```js
+// Import the functions
+import {
+  updateAuthDevice,
+  updateUserInformation,
+} from 'my-awesome-api';
+
+// Mock the functions - here I'm mocking the module
+jest.mock('my-awesome-api', () => ({
+  updateAuthDevice: jest.fn(),
+  updateUserInformation: jest.fn(),
+}));
+
+// Mock a success or failure
+
+// Success
+describe('Update Account Phone Flow - Success Block', () => {
+  it(`if successful call to updateUserInformation, clear info,
+      show success message, and close modal`, async () => {
+    updateUserInformation.mockResolvedValue();
+    await wrapper.vm.noButtonAction();
+    jest.runAllTimers();
+    expect(userActions.clearAccountInfo).toHaveBeenCalled();
+    expect(userActions.showSuccessMessage).toHaveBeenCalled();
+    expect(wrapper.emitted('handleClose')).toHaveLength(1);
+  });
+});
+
+// Failure
+describe('Update Account Phone Flow - Catch Block', () => {
+  it('if the call fails, get the error message, save it to editPhoneError, and close modal', async () => {
+    updateUserInformation.mockRejectedValue({});
+    await wrapper.vm.noButtonAction();
+    jest.runAllTimers();
+    expect(userActions.setUserAccountInfo).toHaveBeenCalled();
+    expect(wrapper.emitted('handleClose')).toHaveLength(1);
+  });
+});
+```
+  - the important part is this: `updateUserInformation.mockResolvedValue();` I tell my test that I
+  want it to pass so that it reaches the `.then()`.
+- 
 
 ## Component Examples
 
@@ -320,6 +399,152 @@ describe('edit-account-information.vue', () => {
 to work, I need to bring in Vuex. The trick is to create a `localVue`. The key part is
 shortly after the imports where I create the `localVue` and then do `localVue.use(Vuex);`.
 - After that, it's just a matter of adding my `store` instantiation in my `beforeEach`.
+
+### Advanced Component #3
+
+```js
+import { createLocalVue, shallowMount } from '@vue/test-utils';
+import Vuex from 'vuex';
+import AlertModal from '../alert-modal';
+import {
+  updateAuthDevice,
+  updateUserInformation,
+} from 'my-awesome-api';
+
+const localVue = createLocalVue();
+localVue.use(Vuex);
+jest.useFakeTimers();
+jest.mock('my-awesome-api', () => ({
+  updateAuthDevice: jest.fn(),
+  updateUserInformation: jest.fn(),
+}));
+
+describe('changes-not-saved-modal', () => {
+  let wrapper;
+  let updateAuthBoolean = false;
+
+  const userActions = {
+    setUserAccountInfo: jest.fn(),
+    showSuccessMessage: jest.fn(),
+    clearAccountInfo: jest.fn(),
+  };
+  const appActions = {
+    changeModalInfo: jest.fn(),
+  };
+
+  const refreshWrapper = () => {
+    return (wrapper = shallowMount(AlertModal, {
+      propsData: {
+        open: true,
+      },
+      store: new Vuex.Store({
+        modules: {
+          user: {
+            namespaced: true,
+            actions: userActions,
+            state: {
+              editAccountInformation: {
+                phone: '1234567890',
+              },
+            },
+          },
+          app: {
+            namespaced: true,
+            actions: appActions,
+            state: {
+              modals: {
+                updateTwoFaPhone: {
+                  updateAuthBoolean,
+                },
+              },
+            },
+          },
+        },
+      }),
+      localVue,
+    }));
+  };
+  beforeEach(() => {
+    refreshWrapper();
+  });
+  describe('snapshot', () => {
+    it('should match snapshot', () => {
+      expect(wrapper.element).toMatchSnapshot();
+    });
+  });
+
+  describe('noButtonAction', () => {
+    describe('Update Account Phone Flow - Success Block', () => {
+      it(`if successful call to updateUserInformation, clear info,
+          show success message, and close modal`, async () => {
+        updateUserInformation.mockResolvedValue();
+        await wrapper.vm.noButtonAction();
+        jest.runAllTimers();
+        expect(userActions.clearAccountInfo).toHaveBeenCalled();
+        expect(userActions.showSuccessMessage).toHaveBeenCalled();
+        expect(wrapper.emitted('handleClose')).toHaveLength(1);
+      });
+    });
+
+    describe('Update Account Phone Flow - Catch Block', () => {
+      it('if the call fails, get the error message, save it to editPhoneError, and close modal', async () => {
+        updateUserInformation.mockRejectedValue({});
+        await wrapper.vm.noButtonAction();
+        jest.runAllTimers();
+        expect(userActions.setUserAccountInfo).toHaveBeenCalled();
+        expect(wrapper.emitted('handleClose')).toHaveLength(1);
+      });
+    });
+
+    describe('Update Two Fa Phone Flow - Success Block', () => {
+      beforeEach(() => {
+        updateAuthBoolean = true;
+        refreshWrapper();
+      });
+      it('should open TwoFaSetup modal with correct properties', async () => {
+        updateAuthDevice.mockResolvedValue();
+        await wrapper.vm.noButtonAction();
+        expect(appActions.changeModalInfo).toHaveBeenCalled();
+      });
+    });
+    describe('Update Two Fa Phone Flow - Catch Block', () => {
+      beforeEach(() => {
+        updateAuthBoolean = true;
+        refreshWrapper();
+      });
+      it('should set error value in user store and close modal', async () => {
+        updateAuthDevice.mockRejectedValue({});
+        await wrapper.vm.noButtonAction();
+        jest.runAllTimers();
+        expect(userActions.setUserAccountInfo).toHaveBeenCalled();
+        expect(wrapper.emitted('handleClose')).toHaveLength(1);
+      });
+    });
+  });
+
+  describe('yesButtonAction', () => {
+    describe('Update both Account and 2FA Phones - Success Block', () => {
+      it('if successful, load the twoFaSetup modal and close the update-two-fa-phone modal', async () => {
+        updateUserInformation.mockResolvedValue();
+        updateAuthDevice.mockResolvedValue();
+        await wrapper.vm.yesButtonAction();
+        jest.runAllTimers();
+        expect(appActions.changeModalInfo).toHaveBeenCalled();
+        expect(wrapper.emitted('handleClose')).toHaveLength(1);
+      });
+    });
+    describe('Update both Account and 2FA Phones - Failure', () => {
+      it('if calls fail, set error message and close the update-two-fa-phone modal', async () => {
+        updateUserInformation.mockRejectedValue();
+        await wrapper.vm.yesButtonAction();
+        jest.runAllTimers();
+        expect(userActions.setUserAccountInfo).toHaveBeenCalled();
+        expect(wrapper.emitted('handleClose')).toHaveLength(1);
+      });
+    });
+  });
+});
+```
 # NOT CLEANED UP
 
 ### Testing Watchers
