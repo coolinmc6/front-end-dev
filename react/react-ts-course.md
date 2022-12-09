@@ -2,6 +2,8 @@
 
 # Front End Masters: React and TypeScript
 
+course website: https://stevekinney.github.io/react-and-typescript/
+course repo: https://github.com/stevekinney/react-and-typescript-projects
 ## The Fundamentals
 
 ### Local Setup
@@ -161,6 +163,7 @@ source: https://frontendmasters.com/courses/react-typescript/typing-class-based-
 
 ### Typing Reducers
 source: https://frontendmasters.com/courses/react-typescript/typing-reducers/
+notes: https://stevekinney.github.io/react-and-typescript/reducers
 
 ```ts
 type PizzaData = {
@@ -203,7 +206,7 @@ const second: LinkedListNode<number> = {
 first.next = second;
 ```
 
-![Grid item placement](https://github.com/coolinmc6/front-end-dev/blob/master/assets/typescript01.png)
+![TypeScript Playground Error](https://github.com/coolinmc6/front-end-dev/blob/master/assets/typescript01.png)
 
 [[↑] Back to top](#top)
 

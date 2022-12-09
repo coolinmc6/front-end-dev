@@ -56,3 +56,4 @@ function arrayManipulation(n, queries) {
   }
   return max;
 }
+
