@@ -45,3 +45,8 @@
         </tr>
     </tbody>
 </table>
+
+# JavaScript
+
+- [Snippets](https://github.com/coolinmc6/front-end-dev/blob/master/javascript/snippets.js) - cool snippets
+- [Zustand](https://github.com/coolinmc6/front-end-dev/blob/master/javascript/zustand.md)
