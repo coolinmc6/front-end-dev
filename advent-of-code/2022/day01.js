@@ -36,6 +36,7 @@ console.log({
   elves_count: elves.length,
   zero_count: numbers.filter(n => n === 0).length,
   mostCalories,
+  simpleMax: Math.max(...elves),
   elves_descending,
   top_three: elves_descending.slice(0, 3).reduce((a, c) => a + c, 0),
 });
