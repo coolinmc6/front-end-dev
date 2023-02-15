@@ -46,8 +46,7 @@
     </tbody>
 </table>
 
-# React Concepts
-
+## My React Notes by Concept
 - [Components](https://github.com/coolinmc6/front-end-dev/blob/master/react/components.md)
 - [Context](https://github.com/coolinmc6/front-end-dev/blob/master/react/context.md)
 - Fragment
@@ -58,8 +57,17 @@
 
 
 ## Sources & Links
+- General
+  - [React Docs: Advanced React](https://reactjs.org/docs/refs-and-the-dom.html)
 - Hooks
   - [https://reactjs.org/docs/hooks-reference.html](https://reactjs.org/docs/hooks-reference.html)
+- Patterns
+  - [https://www.patterns.dev/posts/introduction/](https://www.patterns.dev/posts/introduction/)
 - Render Props:
   - [https://reactjs.org/docs/render-props.html](https://reactjs.org/docs/render-props.html)
   - [https://css-tricks.com/an-overview-of-render-props-in-react/](https://css-tricks.com/an-overview-of-render-props-in-react/)
+
+
+## React Courses
+- [Intermediate React](https://frontendmasters.com/courses/intermediate-react-v5/)
+  - [Course Website](https://react-v8.holt.courses/)

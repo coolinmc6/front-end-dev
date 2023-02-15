@@ -32,6 +32,8 @@
     </tbody>
 </table>
 
+<a name="top"></a>
+
 # Hooks
 
 - Hooks allow you to use React features (like state) without creating a class
