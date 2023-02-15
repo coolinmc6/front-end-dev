@@ -63,6 +63,7 @@
   - [https://reactjs.org/docs/hooks-reference.html](https://reactjs.org/docs/hooks-reference.html)
 - Patterns
   - [https://www.patterns.dev/posts/introduction/](https://www.patterns.dev/posts/introduction/)
+  - [https://blog.logrocket.com/react-design-patterns/](https://blog.logrocket.com/react-design-patterns/)
 - Render Props:
   - [https://reactjs.org/docs/render-props.html](https://reactjs.org/docs/render-props.html)
   - [https://css-tricks.com/an-overview-of-render-props-in-react/](https://css-tricks.com/an-overview-of-render-props-in-react/)
