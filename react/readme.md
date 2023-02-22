@@ -64,6 +64,9 @@
 - Patterns
   - [https://www.patterns.dev/posts/introduction/](https://www.patterns.dev/posts/introduction/)
   - [https://blog.logrocket.com/react-design-patterns/](https://blog.logrocket.com/react-design-patterns/)
+- React Rendering Behavior
+  - https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/
+  - https://www.zhenghao.io/posts/react-rerender
 - Render Props:
   - [https://reactjs.org/docs/render-props.html](https://reactjs.org/docs/render-props.html)
   - [https://css-tricks.com/an-overview-of-render-props-in-react/](https://css-tricks.com/an-overview-of-render-props-in-react/)
