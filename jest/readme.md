@@ -18,10 +18,14 @@
   <tbody>
     <tr>
       <td><a href="https://frontendmasters.com/courses/testing-practices-principles/">JavaScript Testing Practices and Principles</a></td>
-      <td>TBD</td>
+      <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/jest/fem-testing-practices-principles.md">Notes</a></td>
       <td><strong>Complete</strong></td>
     </tr>
-    Next: https://frontendmasters.com/courses/testing-react/
+    <tr>
+      <td><a href="https://frontendmasters.com/courses/testing-react/">Testing React Applications, v2</a></td>
+      <td><a href="https://github.com/coolinmc6/front-end-dev/blob/master/jest/fem-testing-practices-principles.md">Notes</a></td>
+      <td><strong></strong></td>
+    </tr>
   </tbody>
 </table>
 

@@ -1,4 +1,7 @@
+[Home][home] | [Jest Testing][jest-testing]
 
+[home]: https://github.com/coolinmc6/front-end-dev
+[jest-testing]: https://github.com/coolinmc6/front-end-dev/tree/master/jest
 # Front End Masters: Testing Practices and Principles
 
 - [Course Link](https://frontendmasters.com/courses/testing-practices-principles/course-code-walkthrough/)
