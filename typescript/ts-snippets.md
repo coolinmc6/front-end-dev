@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 # TypeScript Snippets
 
 - [Zustand](#zustand-typescript-snippets)
@@ -32,6 +34,7 @@ fruits[0] = 'pear'; // Error: Index signature in type 'readonly ["apple", "banan
 at runtime
 - this also means that we can't add additional properties to the object nor can we add or remove items from the fruits array
 
+[[↑] Back to top](#top)
 
 ## Zustand-TypeScript Snippets
 
@@ -77,3 +80,5 @@ error:
 
   > Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'MetaDataState & MetaDataActions'. No index signature with a parameter of type 'string' was found on type 'MetaDataState & MetaDataActions'
 - This is also a really good basic implementation of Zustand with `create` and `persist` middleware.
+
+[[↑] Back to top](#top)
