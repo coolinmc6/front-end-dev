@@ -32,6 +32,7 @@ fruits[0] = 'pear'; // Error: Index signature in type 'readonly ["apple", "banan
 at runtime
 - this also means that we can't add additional properties to the object nor can we add or remove items from the fruits array
 
+
 ## Zustand-TypeScript Snippets
 
 ```ts
