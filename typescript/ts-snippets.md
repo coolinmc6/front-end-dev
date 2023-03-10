@@ -2,6 +2,36 @@
 
 - [Zustand](#zustand-typescript-snippets)
 
+## General TypeScript
+
+### as const
+
+- In TypeScript, `as const` is a type assertion that tells the compiler to infer a "literal" type for an expression.
+- When applied to an object or an array, as const makes all the properties or elements read-only and immutable, so that they cannot be changed or reassigned. This can be useful for ensuring that certain values remain constant throughout the program.
+
+```js
+// Object Example
+const person = {
+  name: 'Alice',
+  age: 30,
+  address: {
+    city: 'London',
+    country: 'UK',
+  },
+} as const;
+
+person.name = 'Bob'; // Error: Cannot assign to 'name' because it is a read-only property.
+person.address.city = 'Paris'; // Error: Cannot assign to 'city' because it is a read-only property.
+
+// Array Example
+const fruits = ['apple', 'banana', 'orange'] as const;
+
+fruits[0] = 'pear'; // Error: Index signature in type 'readonly ["apple", "banana", "orange"]' only permits reading.
+```
+- with both the `person` object and the `fruits` array, we can ensure that neither of them can be changed or reassigned
+at runtime
+- this also means that we can't add additional properties to the object nor can we add or remove items from the fruits array
+
 ## Zustand-TypeScript Snippets
 
 ```ts
