@@ -1,6 +1,18 @@
 
 # TypeScript Questions
 
+<style>
+  
+  summary {
+    /* background-color: #fff; */
+    font-weight: bold;
+    width: 104%;
+  }
+  details {
+    margin-bottom: 1rem;
+  }
+</style>
+
 ```ts
   type Props = {
     app: string
