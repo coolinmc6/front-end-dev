@@ -6,6 +6,9 @@
 
 ## General TypeScript
 
+### Basics
+
+
 ### as const
 
 - In TypeScript, `as const` is a type assertion that tells the compiler to infer a "literal" type for an expression.

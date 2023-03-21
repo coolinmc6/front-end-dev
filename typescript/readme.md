@@ -51,3 +51,38 @@
 **Links:**
 
 - [https://www.youtube.com/watch?v=gp5H0Vw39yw](https://www.youtube.com/watch?v=gp5H0Vw39yw)
+
+## Notes
+
+### Interface vs Type
+
+- Both `interface` and `type` can be used to define custom types, but they are different.
+There's a table below that tries to sum up the differences.
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Interface</th>
+      <th>Type</th>
+      <th>Use / Concept / Ability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>:white_check_mark:</td>
+      <td>:x:</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
