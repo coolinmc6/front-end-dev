@@ -65,7 +65,7 @@ There's a table below that tries to sum up the differences.
     <tr>
       <th>Interface</th>
       <th>Type</th>
-      <th>Use / Concept / Ability</th>
+      <th>Use / Concept / Functionality</th>
     </tr>
   </thead>
   <tbody>
@@ -86,3 +86,16 @@ There's a table below that tries to sum up the differences.
     </tr>
   </tbody>
 </table>
+
+
+###
+
+In TypeScript, the angle brackets `<` `>` are used for type parameterization and are called "angle bracket syntax" or "type parameter syntax". They are also sometimes referred to as "generic syntax" or "generic type syntax".
+
+Type parameterization allows you to define generic types that can work with different data types, providing type safety while keeping code flexible and reusable.
+
+The angle bracket syntax is commonly used in TypeScript when defining generic types for collections such as arrays, sets, and maps, as well as for functions that can operate on multiple data types. For example, you might use angle bracket syntax when defining an array of strings: 
+
+```ts
+const myArray: Array<string> = ['hello', 'world'];`
+```

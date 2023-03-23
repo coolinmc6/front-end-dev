@@ -8,6 +8,17 @@
 
 ### Basics
 
+```ts
+const numbers: number[] = [1, 2, 3, 4, 5];
+
+const sum: number = numbers.reduce<number>((acc, curr) => {
+  return acc + curr;
+}, 0);
+
+console.log(sum); // Output: 15
+```
+In this example, the type parameter for the `reduce` method is specified as `number`, which indicates that the reduce method should expect an array of numbers.
+
 
 ### as const
 
