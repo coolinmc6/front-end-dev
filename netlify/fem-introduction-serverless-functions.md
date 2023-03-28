@@ -158,7 +158,16 @@ exports.handler = async () => {
 }
 ```
 
-Pick up at Rendering API Data: https://frontendmasters.com/courses/serverless-functions/rendering-api-data/
+### Rendering API Data
+
+- Remember: `ntl dev` to get started, not `npm run dev`
+- this was just a simple example to get show the data
+
+### Getting Setup with Hasura
+
+- **CM NOTE:** the free Heroku tier was deprecated. I might just have to skip the
+Hasura / GraphQL stuff. GraphiQL doesn't work with Planetscale so I can either switch
+to AWS or skip it.
 
 ## Database & Auth
 

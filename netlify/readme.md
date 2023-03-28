@@ -23,3 +23,7 @@
 </table>
 
 [[↑] Back to top](#top)
+
+## Questions
+
+- What is the `targetPort` in the `netlify.toml` file? Why wouldn't it already know what port to use?

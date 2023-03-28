@@ -2,6 +2,8 @@
 
 # TypeScript Snippets
 
+- [General TypeScript](#general-typescript)
+- [React TypeScript](#react-typescript)
 - [Zustand](#zustand-typescript-snippets)
 
 ## General TypeScript
@@ -49,6 +51,55 @@ at runtime
 - this also means that we can't add additional properties to the object nor can we add or remove items from the fruits array
 
 [[↑] Back to top](#top)
+
+## React TypeScript
+
+- Here is a basic functional component with TypeScript props
+
+```tsx
+import React from 'react';
+
+interface Props {
+  name: string;
+  age: number;
+}
+
+const MyComponent = ({ name, age }: Props) => {
+  return (
+    <div>
+      <p>Name: {name}</p>
+      <p>Age: {age}</p>
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+- Here is the same component but using the `FunctionComponent` type
+
+```tsx
+import React, { FunctionComponent } from 'react';
+
+interface Props {
+  name: string;
+  age: number;
+}
+
+const MyComponent: FunctionComponent<Props> = ({ name, age }) => {
+  return (
+    <div>
+      <p>Name: {name}</p>
+      <p>Age: {age}</p>
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+- Just looking around, I'm not sure there are real benefits to using the `FunctionComponent` type. See this [article](https://github.com/facebook/create-react-app/pull/8177#issue-537764080).
+
+[[↑] Back to top](#top)
+
 
 ## Zustand-TypeScript Snippets
 
