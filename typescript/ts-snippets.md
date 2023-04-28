@@ -50,6 +50,39 @@ fruits[0] = 'pear'; // Error: Index signature in type 'readonly ["apple", "banan
 at runtime
 - this also means that we can't add additional properties to the object nor can we add or remove items from the fruits array
 
+**Interface `as const` Example**
+- Here's another example:
+
+```ts
+const UserType = {
+  Admin: 'admin_user',
+  Basic: 'basic_user',
+} as const
+
+interface UserTypeResponse {
+  level: (typeof UserType)[keyof typeof UserType]
+  name: string
+  position: string
+}
+```
+- The above code defines an object `UserType` with two properties, `Admin` and `Basic`, which both have string values.
+- The `as const` assertion ensures that the properties of `UserType` are readonly and cannot be modified.
+- The interface `UserTypeResponse` is also defined and, in this example, is what we'd receive back
+from a server, for example. The interface has three properties:
+  - `level`: This property is defined as a union type that maps the keys of `UserType` to their corresponding values. This means that `level` can only have the values `'admin_user'` or `'basic_user'` (and NOT `'admin'` or `'basic'`')
+  - `name`: A string property that holds the name of the user.
+  - `position`: A string property that holds the position of the user.
+- The `UserTypeResponse` interface is then used as the type for the `user` variable, which is assigned an object that matches the interface.
+- The `user` variable is then logged to the console, which outputs the following:
+
+```ts
+{
+  level: 'admin_user',
+  name: 'John Doe',
+  position: 'Software Engineer'
+}
+```
+
 [[↑] Back to top](#top)
 
 ## React TypeScript
