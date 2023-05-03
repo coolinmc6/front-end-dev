@@ -3,6 +3,9 @@
 # TypeScript Snippets
 
 - [General TypeScript](#general-typescript)
+  - [Basics](#basics)
+  - [as const](#as-const)
+  - [Dynamically Creating Types](#dynamically-creating-types)
 - [React TypeScript](#react-typescript)
 - [Zustand](#zustand-typescript-snippets)
 
@@ -21,6 +24,7 @@ console.log(sum); // Output: 15
 ```
 In this example, the type parameter for the `reduce` method is specified as `number`, which indicates that the reduce method should expect an array of numbers.
 
+[[↑] Back to top](#top)
 
 ### as const
 
@@ -84,6 +88,60 @@ from a server, for example. The interface has three properties:
 ```
 
 [[↑] Back to top](#top)
+
+### Dynamically Creating Types
+
+- I had a situation where I needed to create a large object that had two levels: a broader level that (for
+this example) was the league type (e.g. `NFL` or `NBA`) and then the team city (e.g. `PHILADELPHIA` or `NEW YORK`).
+- So the object would look something like this with simple JavaScript:
+
+```js
+const NFL = 'NFL';
+const NBA = 'NBA';
+
+const PHILADELPHIA = 'PHILADELPHIA';
+const NEW_YORK = 'NEW_YORK';
+
+const teamObject = {
+  [NFL]: {
+    [`NFL-${PHILADELPHIA}`]: {
+      teams: ['Eagles'],
+    },
+    [`NBA-${NEW_YORK}`]: {
+      teams: ['Giants', 'Jets'],
+    },
+  },
+  [NBA]: {
+    [`NBA-${PHILADELPHIA}`]: {
+      teams: ['Sixers'],
+    },
+    [`NBA-${NEW_YORK}`]: {
+      teams: ['Knicks', 'Nets'],
+    },
+  },
+}
+```
+
+```ts
+export type TeamObject = {
+  teams: string[]
+}
+export type TEAM_REGIONS = 'PHILADELPHIA' | 'NEW_YORK'
+
+type LeagueCodesNFL = `NFL-${TEAM_REGIONS}`
+type LeagueCodesNBA = `NBA-${TEAM_REGIONS}`
+
+export type LeagueCodes =
+  | LeagueCodesNFL
+  | LeagueCodesNBA
+
+export type Leagues = {
+  NFL: Map<LeagueCodesNFL, TeamObject[]>
+  NBA: Map<LeagueCodesNBA, TeamObject[]>
+}
+
+export type LeaguesMap = Map<Leagues, TeamObject[]>
+```
 
 ## React TypeScript
 

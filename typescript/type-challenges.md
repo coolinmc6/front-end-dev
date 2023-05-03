@@ -91,4 +91,8 @@ the properties that `BaseObject` has
 - And now, in my `NewType` object, for each key `Property` in `NewType`, create a new property (`Property`) in
 the output type whose value is corresponding property of `BaseObject`.
 
+- Concepts:
+  - generics
+  - mapped types
+
 [[↑] Back to top](#top)
