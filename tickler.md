@@ -1,5 +1,8 @@
 - TS: https://deadsimplechat.com/blog/typescript-decorators-a-complete-guide/
 - TS: https://github.com/type-challenges/type-challenges - do these
+- Jest: favorite Jest methods and my most common uses
+- JS: ECMAScript through the years
+  - javascript/ecmascript-history.md
 - git worktree
   - Q: how to use git worktree?
   - Exercise: can you have multiple worktrees, pull a PR branch and look at the code?
