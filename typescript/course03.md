@@ -300,6 +300,16 @@ https://frontendmasters.com/courses/typescript-v3/top-types-any-unknown/ - START
 
 [[↑] Back to top](#top)
 ### Type Guards and Narrowing
+https://frontendmasters.com/courses/typescript-v3/type-guards-narrowing/
+- a type guard is an expression that performs a runtime check that guarantees the type in some scope
+- here is an example of a type guard:
+
+```ts
+function isString(a: unknown): a is string {
+  return typeof a === 'string';
+}
+```
+- a more complex example of a type guard:
 
 
 [[↑] Back to top](#top)

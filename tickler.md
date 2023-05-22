@@ -1,6 +1,9 @@
 - TS: https://deadsimplechat.com/blog/typescript-decorators-a-complete-guide/
 - TS: https://github.com/type-challenges/type-challenges - do these
 - Jest: favorite Jest methods and my most common uses
+- Testing Libraries
+  - create new directory
+  - take notes on MSW
 - JS: ECMAScript through the years
   - javascript/ecmascript-history.md
 - git worktree
