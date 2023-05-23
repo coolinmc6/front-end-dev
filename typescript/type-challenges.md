@@ -1,4 +1,4 @@
-[Home](https://github.com/coolinmc6/front-end-dev)
+[Home](https://github.com/coolinmc6/front-end-dev) |
 [Back to JavaScript Home](https://github.com/coolinmc6/front-end-dev/tree/master/typescript)
 
 <a id="top"></a>
@@ -10,6 +10,7 @@ Link: https://github.com/type-challenges/type-challenges
 - [4 - Pick](#4---pick)
 - [7 - Readonly](#7---readonly)
 - [11 - Tuple to Object](#11---tuple-to-object)
+- [14 - First of Array](#14---first-of-array)
 
 ## Easy
 
@@ -231,5 +232,84 @@ example. So keeping that in mind, let's go:
 
 [[↑] Back to top](#top)
 
+### [14 - First of Array](https://github.com/type-challenges/type-challenges/blob/main/questions/00014-easy-first/README.md)
+
+- Here is the challenge:
+```ts
+// Implement a generic `First<T>` that takes an Array `T` and returns it's first element's type.
+type arr1 = ['a', 'b', 'c']
+type arr2 = [3, 2, 1]
+
+type head1 = First<arr1> // expected to be 'a'
+type head2 = First<arr2> // expected to be 3
+```
+
+- First, I have no idea where to even start. My gut was maybe to try [Extract](https://www.typescriptlang.org/docs/handbook/utility-types.html#extracttype-union)
+but I have no idea how it actually works on an array.
+- this doesn't work:
+
+```ts
+// Doesn't work
+type First<T extends any[]> = Extract<T, T[0]>
+```
+- here is the answer:
+
+```ts
+// Answer
+type First<T extends any[]> = T extends [] ? never : T[0]
+```
+- Without digging into the answer, let's take a step back. Let's pretend that I could assume that the
+array always has at least one element. Then I could just do this:
+
+```ts
+// Returns the first element of an array IF there is at least one element
+type First<T extends any[]> = T[0]
+
+// Test Cases
+type cases = [
+  Expect<Equal<First<[3, 2, 1]>, 3>>, // Pass
+  Expect<Equal<First<[() => 123, { a: string }]>, () => 123>>, // Pass
+  Expect<Equal<First<[]>, never>>, // FAIL
+  Expect<Equal<First<[undefined]>, undefined>>, // Pass
+]
+```
+- The only one that fails is the empty one. So now I need to check for that. If I was using
+JavaScript, I could just do `T.length === 0` but I can't.
+- This is where the `extends` keyword comes in. I can use it to check for an empty array:
+
+```ts
+// Returns the first element of an array IF there is at least one element
+type First<T extends any[]> = T extends [] ? never : T[0]
+```
+- The `extends` keyword is used to check if a type is a subtype of another type. In this case,
+I'm checking if `T` is a subtype of `[]`. If it is, then return `never` (which is a type that
+represents the type of values that never occur). If it's not, then return the first element
+- I think that what is important is that `[]` is not just a stand-in for the word `Array`. It's
+specifically checking if the type, `T`, is not just an array but an empty array.
+- Consider this code:
+
+```ts
+// Doesn't work AND returns this error:
+// Generic type 'Array<T>' requires 1 type argument(s).(2314)
+type First<T extends any[]> = T extends Array ? never : T[0]
+```
+- This doesn't work because `Array` is a generic type. It requires a type argument. So I'm not
+even using `Array` properly here.
+- Here is another solution using `Extract` but it doesn't look like it handles empty arrays:
+
+```ts
+// Works
+type First<T extends any[]> = T[Extract<keyof T, '0'>];
+
+// It seems to pass the test case with the empty array but I don't understand why
+```
+- Here is another one that works that I think makes sense:
+
+```ts
+type First<T extends any[]> = T['length'] extends 0 ? never : T[0]
+```
+- exactly as it says, we're accessing the `length` property on the array and checking if
+it's `0`. If it is, return `never`. If it's not, return the first element.
 
 
+[[↑] Back to top](#top)
