@@ -313,3 +313,126 @@ it's `0`. If it is, return `never`. If it's not, return the first element.
 
 
 [[↑] Back to top](#top)
+
+### [18 - Length of Tuple](https://github.com/type-challenges/type-challenges/blob/main/questions/00018-easy-tuple-length/README.md)
+
+- Here is the challenge:
+
+```ts
+// For given a tuple, you need create a generic `Length`, pick the length of the tuple
+type tesla = ['tesla', 'model 3', 'model X', 'model Y']
+type spaceX = [
+  'FALCON 9',
+  'FALCON HEAVY',
+  'DRAGON',
+  'STARSHIP',
+  'HUMAN SPACEFLIGHT'
+]
+
+type teslaLength = Length<tesla> // expected 4
+type spaceXLength = Length<spaceX> // expected 5
+```
+
+- for something like this, I again, don't know where to start - I don't understand the point of
+this. I need to create a type, `Length`, that when given a tuple, returns the length of that 
+tuple. That sounds like a function.
+- this is the code that I need to get working:
+
+```ts
+type Length<T> = any
+
+/* _____________ Test Cases _____________ */
+import type { Equal, Expect } from '@type-challenges/utils'
+
+const tesla = ['tesla', 'model 3', 'model X', 'model Y'] as const
+const spaceX = ['FALCON 9', 'FALCON HEAVY', 'DRAGON', 'STARSHIP', 'HUMAN SPACEFLIGHT'] as const
+
+type cases = [
+  Expect<Equal<Length<typeof tesla>, 4>>,
+  Expect<Equal<Length<typeof spaceX>, 5>>,
+  // @ts-expect-error
+  Length<5>,
+  // @ts-expect-error
+  Length<'hello world'>,
+]
+```
+
+- here is one of the most popular answers;
+
+```ts
+// Answer
+type Length<T extends readonly any[]> = T['length']
+```
+- I don't know if this is the proper "frame" to adopt but I am going to try to explain it in a 
+way that makes sense to me. So first, I started with: `type Length<T> = any`. It doesn't
+specify anything really about `T` unlike some of the previous tuple examples. So one
+assumption I had about these challenges is that the left side type is "given" is wrong - I can
+change what I need.
+- Second, let's look at what's in the `<>`; `<T>`. First thing about this challenge is that
+I am trying to figure out the length of a tuple (array) so if I wanted to tighten up the current
+type for `T`, I could do this: `<T extends any[]>`. This is saying that `T` is an array of
+any type.
+- Once I do that, I can access the `length` property on the array (in the way I'd access a property of
+an object) by doing `T['length']`. So now I have `type Length<T extends any[]> = T['length']`.
+- In TypeScript, I see that this doesn't work. And this is another key item that I'm learning - 
+TypeScript gives you the answer to your issue...in the challenge, it said for the one test case:
+*"The type 'readonly ["tesla", "model 3", "model X", "model Y"]' is 'readonly' and cannot be assigned*
+*to the mutable type 'any[]'"*. It's giving me the answer already - I have to make my generic type
+a readonly array. 
+- So now when I update it to `type Length<T extends readonly any[]> = T['length']`, it works.
+
+**Early Take-aways (that may or may not be right)**
+1. The left side type, in the brackets (`<>`), defines the type you are working with on
+the right side. So Step 1 should be to properly define it. If you are creating a type for
+an object, make sure you define it that way.
+2. TypeScript will give you the answer to your issue. If your type isn't working, read what the error
+is - it's telling you why it doesn't like it.
+3. Access native properties of an array like `T['length']` or `T[0]`
+4. Things can be "defined" in the definition. If you look at the [Tuple To Object](#11---tuple-to-object)
+challenge, `[P in T[number]]: P`, I am essentially defining "P" in the definition. I am saying
+the property, `P`, that is at `T[number]`, is being set to `P`.
+5. All of this "knowledge" is temporary until I actually learn this shit.
+
+[[↑] Back to top](#top)
+
+### [43 - Exclude](https://github.com/type-challenges/type-challenges/blob/main/questions/00043-easy-exclude/README.md)
+
+- here is the challenge:
+
+```ts
+// Implement the built-in Exclude<T, U>
+//   => Exclude from T those types that are assignable to U
+type Result = MyExclude<'a' | 'b' | 'c', 'a'> // 'b' | 'c'
+```
+- and here is the setup:
+
+```ts
+type MyExclude<T, U> = any
+
+/* _____________ Test Cases _____________ */
+import type { Equal, Expect } from '@type-challenges/utils'
+
+type cases = [
+  Expect<Equal<MyExclude<'a' | 'b' | 'c', 'a'>, 'b' | 'c'>>,
+  Expect<Equal<MyExclude<'a' | 'b' | 'c', 'a' | 'b'>, 'c'>>,
+  Expect<Equal<MyExclude<string | number | (() => void), Function>, string | number>>,
+]
+```
+- here is another where I have no idea how to do it. So when I look at the test cases, I will label
+my `T` and `U` types. For Case 1: `T = 'a' | 'b' | 'c'` and `U = 'a'` and so the answer I want is
+`'b' | 'c'`.
+- So when starting with `type MyExclude<T, U> = any`, my gut is always like I want to find out the
+type of the argument (e.g. an array, an object, whatever) and then iterate through it.
+- I had no idea how to continue this one so I looked up a few answers and this is what I got:
+
+```ts
+// Answer
+type MyExclude<T, U> = T extends U ? never : T
+```
+- It's almost like it iterates the individual types in `T` and checks if they are assignable to `U`.
+I don't know. Maybe the frame of `T` being an argument isn't quite right...
+- the code part makes sense and seems intuitive but I don't entirely get it. In my head, it would only
+make sense if `T` was a single type not `'a' | 'b' | 'c'`.
+
+[[↑] Back to top](#top)
+

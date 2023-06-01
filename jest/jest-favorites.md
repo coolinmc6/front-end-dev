@@ -12,6 +12,16 @@ expect(screen.getByText(heading)).toBeVisible();
 expect(screen.getByText(heading)).toBeInTheDocument();
 ```
 
+### Counting Elements in a Page
+
+```js
+it('should render four images', () => {
+  render(<MyComponent />)
+  const images = screen.getAllByRole('img')
+  expect(images).toHaveLength(4)
+})
+```
+
 ### Confirming Text is NOT Present
 
 - One pattern that I like is using RegExp combined with `queryByText()`. Here's
