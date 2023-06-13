@@ -321,6 +321,7 @@ function isString(a: unknown): a is string {
 [[↑] Back to top](#top)
 ### Generics
 
+https://frontendmasters.com/courses/typescript-v3/generics/
 
 [[↑] Back to top](#top)
 ### Dictionary map, filter, and reduce

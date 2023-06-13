@@ -11,6 +11,8 @@ Link: https://github.com/type-challenges/type-challenges
 - [7 - Readonly](#7---readonly)
 - [11 - Tuple to Object](#11---tuple-to-object)
 - [14 - First of Array](#14---first-of-array)
+- [18 - Length of Tuple](#18---length-of-tuple)
+- [43 - Exclude](#43---exclude)
 
 ## Easy
 

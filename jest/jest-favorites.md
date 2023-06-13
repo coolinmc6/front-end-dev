@@ -50,3 +50,30 @@ await userEvent.click(button);
 // one step
 await userEvent.click(screen.getByRole('button', { name: /submit/i }));
 ```
+
+### Mocking useNavigate from React Router
+
+```ts
+// mock useNavigate
+const mockUseNavigate = jest.fn()
+
+jest.mock('react-router-dom', () => ({
+  ...(jest.requireActual('react-router-dom') as any),
+  useNavigate: () => mockUseNavigate,
+}))
+
+describe('mytest', () => {
+  it('should call useNavigate', () => {
+    render(<MyComponent />)
+
+    const buttonLink = await screen.findByRole('button', {
+      name: /Home/i,
+    })
+
+    await userEvent.click(buttonLink)
+
+    // assert with mockUseNavigate
+    expect(mockUseNavigate).toHaveBeenCalledWith('/home')
+  })
+})
+```

@@ -38,6 +38,5 @@
 - [coolinmc6/react-context](https://github.com/coolinmc6/react-context) - repo with examples
 - [Learn the React Context API with a Practical Example You Can Bring to Your Apps](https://itnext.io/understanding-the-react-context-api-through-building-a-shared-snackbar-for-in-app-notifications-6c199446b80c)
 
-
 **Working Examples**
 - [https://codesandbox.io/s/react-context-example-2crgq](https://codesandbox.io/s/react-context-example-2crgq)

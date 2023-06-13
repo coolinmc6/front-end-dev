@@ -15,3 +15,12 @@
 - custom snippets in VS Code
 - using GraphiQL
 - oh my zsh
+
+React Newsletter Items:
+- server components => what are they? what are they good for? Next.jS implementation 
+  - https://nextjs.org/blog/next-13-4
+  - RSC notes: https://github.com/nilshartmann/react-server-component-material/blob/notes-on-rsc/notes-on-rsc.md
+- Suspense
+  - https://prismic.io/blog/what-is-react-suspense
+  - https://www.pluralsight.com/blog/software-development/suspense-react-18-explained
+  - https://react.dev/reference/react/Suspense
