@@ -77,3 +77,29 @@ describe('mytest', () => {
   })
 })
 ```
+
+### MUI Password Fields
+
+- There's an example MUI password form (sign-up and login) that simply
+cannot be found by Jest. I've tried a bunch of different ways like
+`getByRole('password')`, `getByLabelText('password')`, `getByPlaceholderText('password')`, etc. and they just don't work. Here is what I did - both the
+MUI component and then the Jest selector:
+
+```tsx
+// inputProps with the data-testid
+<TextField
+  required
+  fullWidth
+  name="password"
+  label="Password"
+  type="password"
+  id="password"
+  autoComplete="new-password"
+  inputProps={{ "data-testid": "password" }}
+/>
+```
+
+```tsx
+// password Jest selector
+const password = screen.getByTestId('password')
+```

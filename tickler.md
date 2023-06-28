@@ -24,3 +24,6 @@ React Newsletter Items:
   - https://prismic.io/blog/what-is-react-suspense
   - https://www.pluralsight.com/blog/software-development/suspense-react-18-explained
   - https://react.dev/reference/react/Suspense
+- React Context
+  - https://kentcdodds.com/blog/how-to-use-react-context-effectively
+- https://makerkit.dev/blog/tutorials/nextjs-server-actions
