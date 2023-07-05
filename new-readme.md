@@ -4,7 +4,7 @@ Notes and resources for front end development (with some backend and other stuff
 
 ## Languages and Frameworks
 
-[<img style="max-height: 65px; padding-right: 10px;" src="./assets/logos/javascript-logo3.png"/>](https://github.com/coolinmc6/front-end-dev/tree/master/javascript)[<img style="max-height: 65px; padding-right: 10px;" src="./assets/logos/nodejs-logo.png" />](https://github.com/coolinmc6/front-end-dev/tree/master/nodejs)[<img style="max-height: 65px; padding-right: 10px;" src="./assets/logos/python-logo2.jpeg" />](https://github.com/coolinmc6/front-end-dev/tree/master/python)
+[<img height="65" style="max-height: 65px; padding-right: 10px;" src="./assets/logos/javascript-logo3.png"/>](https://github.com/coolinmc6/front-end-dev/tree/master/javascript)[<img style="max-height: 65px; padding-right: 10px;" src="./assets/logos/nodejs-logo.png" />](https://github.com/coolinmc6/front-end-dev/tree/master/nodejs)[<img style="max-height: 65px; padding-right: 10px;" src="./assets/logos/python-logo2.jpeg" />](https://github.com/coolinmc6/front-end-dev/tree/master/python)
 
 [<img style="max-height: 65px; padding-right: 10px;" src="./assets/logos/react-logo2.png" />](https://github.com/coolinmc6/front-end-dev/tree/master/react)[<img style="max-height: 65px; padding-right: 10px;" src="./assets/logos/vue-logo.png" />](https://github.com/coolinmc6/front-end-dev/tree/master/vue)
 
