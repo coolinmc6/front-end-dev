@@ -2,6 +2,8 @@
 
 # Regex
 
+## Links
+- [ ] https://www.honeybadger.io/blog/javascript-regular-expressions/
 ## JavaScript Regex
 
 - A quick and easy way to test a string against a regular expression is with the `test()` method.
