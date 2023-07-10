@@ -24,6 +24,7 @@
 - Playwright
 
 ## React Newsletter Items:
+- React performance: https://reacthandbook.dev/react-performance-optimization 
 - **Playwright Tutorial:** https://lost-pixel.com/blog/post/playwright-visual-regression-testing
 - Regular expressions tutorial: https://www.honeybadger.io/blog/javascript-regular-expressions/
 - server components => what are they? what are they good for? Next.jS implementation 
