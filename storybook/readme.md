@@ -52,9 +52,16 @@ export const Primary: Story = {
 };
 ```
 
+**What are addons?**
 
 
+**What are Controls and how do they work? Show an example.**
 
+**What are Actions and how do they work? Show an example.**
+
+**What are Viewport and how do they work? Show an example.**
+
+**How does Storybook handle component states and variations?**
 ## Example
 - Here is a basic example of a `Button` component in Storybook.
 

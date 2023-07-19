@@ -32,3 +32,28 @@
     </tbody>
 </table>
 
+
+# React Snippets
+
+## General
+I've had this problem before and don't remember how I've solved it but it's frustrating. This worked
+well.
+
+```tsx
+const sidebar = useRef(null)
+const [sidebarHeight, setSidebarHeight] = useState(0);
+
+useEffect(() => {
+  const height = sidebar.current.clientHeight;
+  setSidebarHeight(height);
+}, []);
+
+// Element
+return (
+  <div ref={sidebar}>
+    <div style={{ height: sidebarHeight }}>
+      <Sidebar />
+    </div>
+  </div>
+)
+```
