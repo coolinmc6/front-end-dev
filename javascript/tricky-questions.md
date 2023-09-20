@@ -31,3 +31,4 @@ export default function promiseAll(array) {
     })
 }
 ```
+- [Promise.resolve](https://github.com/coolinmc6/front-end-dev/blob/master/javascript/readme.md#why-would-you-ever-need-to-use-promiseresolve)

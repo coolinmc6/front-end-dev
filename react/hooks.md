@@ -36,6 +36,53 @@
 
 # Hooks
 
+## Custom Hooks
+
+- Here is a very basic TypeScript example of a custom hook:
+
+```ts
+// useCount.ts
+import { useState, Dispatch, SetStateAction } from 'react';
+
+type UseCountReturn = {
+  count: number;
+  setCount: Dispatch<SetStateAction<number>>;
+  increment: () => void; 
+};
+
+const useCount = (): UseCountReturn => {
+  const [count, setCount] = useState(0);
+  const increment = () => setCount(c => c + 1);
+
+  return {
+    count,
+    setCount: Dispatch<SetStateAction<number>>,
+    increment 
+  };
+};
+
+export default useCount;
+```
+
+```tsx
+// MyComponent.tsx
+import useCount from './useCount';
+
+const MyComponent = () => {
+  const { count, setCount, increment } = useCount();
+  return (
+    <div>
+      {count}
+      <button onClick={() => setCount(5)}>Set Count</button>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+## Hooks Basics
 - Hooks allow you to use React features (like state) without creating a class
 
 ```js
