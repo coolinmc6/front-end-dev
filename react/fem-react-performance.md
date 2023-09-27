@@ -110,7 +110,120 @@ Source: https://frontendmasters.com/courses/react-performance/reducing-rerenders
 
 Repo: https://github.com/stevekinney/packing-list
 
-Connector: download the app, install it, and then check out the Performance tab 
+Playing with the Profiler, one of the first things I should do is set the "Highlight
+updates when components render" checkbox.
+
+![Highlight updates when components render](../assets/profile-checkbox.png)
+
+**First Optimization:** After doing that, looking at the code in `application.js`, the first thing I see is the issue
+mentioned before: 
+
+```js
+// Old way: generates the list every time
+const [items, setItems] = useState(getInitialItems());
+
+// New way: only generates the list the first time
+const [items, setItems] = useState(() => getInitialItems());
+```
+
+**Second Optimization:** In `application.js`, we were initializing the state for the input field. As in, 
+we were setting the empty string and passing the set hook down to the input component called `<NewItem />`.
+We absolutely did not need to do that. So here are the changes we made (abbreviated):
+
+```jsx
+// application.js
+
+// First: removed the state initialization
+// const [newItemName, setNewItemName] = useState('');
+
+// Second: removed the props to NewItem
+<NewItem
+  {/* newItemName={newItemName}
+  setNewItemName={setNewItemName} */}
+  addItem={add}
+/>
+```
+
+And then we just added them back to the `<NewItem />` component (which is just removing the props
+and add the state initialization). Now, whenever I type into the input box, the only re-render
+happens around that `<NewItem />` component and not the entire list.
+
+### Pushing State Down Exercise
+
+Source: https://frontendmasters.com/courses/react-performance/pushing-state-down-exercise/
+
+We fixed the color generating app. Same issue as name indicates - instead of passing the
+state down, we just handle the input in the `<ColorPicker />` component.
+
+[[↑] Back to top](#top)
+
+### Pulling Content Up with Children
+
+Source: https://frontendmasters.com/courses/react-performance/pulling-content-up-with-children/
+
+Watched.
+
+[[↑] Back to top](#top)
+
+### Pulling Content Up Exercise
+
+Source: https://frontendmasters.com/courses/react-performance/pulling-content-up-exercise/
+
+This is trickier to explain but let's say we want `<ExpensiveComponent />` in the `<Game />` component.
+We originally stripped it out because it was expensive. But we can use the `children` prop to
+pass it in.
+
+```jsx
+// Starting point
+const Application = () => {
+  return (
+    <main className="flex flex-col gap-8 mx-auto my-8 w-96">
+      <Game />
+      <ExpensiveComponent />
+    </main>
+  );
+};
+
+// Final solution
+const Application = () => {
+  return (
+    <main className="flex flex-col gap-8 mx-auto my-8 w-96">
+      <Game>
+        <ExpensiveComponent />
+      </Game>
+    </main>
+  );
+};
+```
+Other frameworks call these `slots` but we just have to add the `children` prop to the `<Game />` component.
+
+[[↑] Back to top](#top)
+
+### Pulling Conent Up Solution
+
+Source: https://frontendmasters.com/courses/react-performance/pulling-content-up-solution/
+
+Connector: Start here
+
+[[↑] Back to top](#top)
+
+### useMemo & useCallback
+
+Source: https://frontendmasters.com/courses/react-performance/usememo-usecallback/
+
+
+[[↑] Back to top](#top)
+
+### useReducer & dispatch
+
+
+
+
+[[↑] Back to top](#top)
+
+### Reducers Q&A
+
+
 
 [[↑] Back to top](#top)
 
