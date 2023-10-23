@@ -1,6 +1,7 @@
 # Tickler
 
 ## Big List
+- Clean-up this repo, fix some links, etc.
 - TS: https://deadsimplechat.com/blog/typescript-decorators-a-complete-guide/
 - TS: https://github.com/type-challenges/type-challenges - do these
 - Jest: favorite Jest methods and my most common uses
