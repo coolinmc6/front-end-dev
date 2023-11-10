@@ -1312,7 +1312,7 @@ Promise #2
 hey
 */
 ```
-- this isn't anything too difficult but I am simply creating a process and then in my
+- this isn't anything too difficult but I am simply creating a promise and then in my
 returned value, I'm returning another promise.
 - The first promise logs "Promise #1" and then resolves the value "hey"
 - the second promise logs "Promise #2" and then resolves the value it received from the first one
@@ -1388,6 +1388,26 @@ returns a promise that has a lot going on
 
 
 ### How do you use Async/Await?
+
+- Here is a simple example using promises:
+
+```js
+const myFunction = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Promise resolved')
+    }, 1000)
+  })
+}
+
+const doAsync = async () => {
+  const value = await myFunction()
+  console.log(value)
+}
+
+// call within async function
+await doAsync()
+```
 
 [[↑] Back to top](#top)
 

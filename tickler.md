@@ -2,6 +2,7 @@
 
 ## Big List
 - Clean-up this repo, fix some links, etc.
+  - write a script that generates the links based on directory structure
 - TS: https://deadsimplechat.com/blog/typescript-decorators-a-complete-guide/
 - TS: https://github.com/type-challenges/type-challenges - do these
 - Jest: favorite Jest methods and my most common uses

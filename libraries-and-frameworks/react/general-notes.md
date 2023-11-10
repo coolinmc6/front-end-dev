@@ -24,8 +24,13 @@ load time.
 - Monitor Performance - Use profiling tools like React DevTools Profiler to find and fix bottlenecks.
 - Avoid Anti-Patterns - Avoid common anti-patterns like props in initial state, improper keys, redundant checks, etc.
 
+## useCallback
 
-### React Anti-Patterns
+**Articles**
+- https://coderpad.io/blog/development/a-guide-to-using-reacts-usecallback-hook/
+
+
+## React Anti-Patterns
 
 Links:
 - https://www.perssondennis.com/articles/react-anti-patterns-and-best-practices-dos-and-donts

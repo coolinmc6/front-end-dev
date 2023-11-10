@@ -5,6 +5,8 @@
 
 # Front End Masters: React Performance
 
+Public Profile: https://frontendmasters.com/u/coolinmc6/
+
 Source: https://frontendmasters.com/courses/react-performance/
 
 ## Introduction
@@ -209,12 +211,22 @@ Source: https://frontendmasters.com/courses/react-performance/pulling-content-up
 ### useMemo & useCallback
 
 Source: https://frontendmasters.com/courses/react-performance/usememo-usecallback/
+Exercise App: Packing List
 
+- `useMemo()` - if it was expensive to get this value or it could trigger a render, but it's really
+no different than last time - then just the value we had last time
+- `useCallback()` - actually don't whip up a new function if nothing has changed
 
 [[↑] Back to top](#top)
 
 ### useReducer & dispatch
 
+- Interesting example using `useReducer()` and `dispatch()` to handle the state of the app. 
+- Here are the docs: https://react.dev/reference/react/useReducer
+- Googling around, here are some notes on when to use `useState` vs `useReducer`:
+
+> - **`useState`** is the basic way to manage state in a component. It's good for simple state logic when you just need to update a value or toggle a boolean.
+> - **`useReducer`** is more useful when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one.
 
 
 
@@ -228,15 +240,50 @@ Source: https://frontendmasters.com/courses/react-performance/usememo-usecallbac
 
 ## Context
 
+### Context API
+
+### Using Multiple Contexts
+
+Source: https://frontendmasters.com/courses/react-performance/using-multiple-contexts/
+
+- Interesting pattern - a context for the items and a context for the dispatch function
+
+[[↑] Back to top](#top)
+
+### Separating Context & State Exercise
+
+Source: https://frontendmasters.com/courses/react-performance/separating-context-state-exercise/
+
+### Normalizing State
+
+Source: https://frontendmasters.com/courses/react-performance/normalizing-state/
 
 [[↑] Back to top](#top)
 
 ## Suspense & Transitions
 
+### Fallback Content with Suspense
+
+### Maintaining Interactivity
+
+Source: https://frontendmasters.com/courses/react-performance/maintaining-interactivity/
+
+### useTransition Hook
+
+Source: https://frontendmasters.com/courses/react-performance/usetransition-hook/
+
+- `startTransition()` - allows you to start a transition and then do something else
+- `useDeferredValue()` - allows you to defer the value of something until the transition is complete
 
 
 [[↑] Back to top](#top)
 
 ## Wrapping Up
+
+- if you can solve a problem with you shape your `component hierarchy` or `state`, do that first
+- memoization is a solid strategy **only** if the cost of checking pays for itself with the time
+you save rendering
+- using the Suspense API to progressively load your application is a good idea
+
 
 [[↑] Back to top](#top)
