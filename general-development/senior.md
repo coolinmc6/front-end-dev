@@ -44,5 +44,16 @@
 
 8: Have Side Projects
 
-
 [[↑] Back to top](#top)
+
+### 1-3-1 Technique
+
+- 1 Specific Challenge - 3 Viable Options - 1 Specific Recommendation
+
+
+
+### Career Articles To Read
+
+- https://careercutler.substack.com/p/how-to-get-done-as-a-software-engineer
+- https://www.developing.dev/p/how-promotions-and-ratings-work
+- https://dnastacio.medium.com/hierarchy-of-career-priorities-c18768d32598

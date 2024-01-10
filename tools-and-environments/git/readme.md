@@ -3,6 +3,21 @@
 
 ## Cool Git Commands
 
+### Merge Main/Master/Develop into your branch
+
+```sh
+# checkout main and pull latest code
+git checkout main
+git pull
+
+# checkout your branch
+git checkout my-branch
+
+# merge the main branch into your branch
+git merge main
+```
+
+### Reset to the last commit
 ```sh
 # reset to the last commit; gets rid of all local changes
 git reset --hard

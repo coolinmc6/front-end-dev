@@ -24,3 +24,8 @@ UNTIL I added the `strategy` prop to the `<Script />`. This shouldn't matter but
   strategy="afterInteractive"
 />
 ```
+
+### Hydration Errors
+
+Some good stuff here: https://medium.com/@eric.burel/how-to-get-rid-of-window-is-not-defined-and-hydration-mismatch-errors-in-next-js-567cc51b4a17
+
