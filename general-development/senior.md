@@ -9,6 +9,19 @@
 
 ## Bulk Notes
 
+### Random Advice
+
+- Level up on all the key technologies in the app:
+  - TypeScript
+  - GraphQL
+  - composition
+  - code architecture
+  - React Testing Library
+  - React / Next ecosystem
+  - Percy
+- "Try to build a plan on learning everything that has to do with the codebase, and then just go heads down."
+
+
 ### 8 Tips For Becoming A Senior Developer
 
 - Source: https://www.youtube.com/watch?v=apA-O6Qh6hs
