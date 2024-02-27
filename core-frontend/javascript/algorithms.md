@@ -24,3 +24,33 @@ function heapPermute(array, n) {
 // example usage:
 const permutations = heapPermute([1, 2, 3]);
 ```
+
+```js
+// Basic SinglyLinkedList
+class SinglyLinkedListNode {
+  constructor(data) {
+    this.data = data
+    this.next = null
+  }
+}
+
+function insertNodeAtTail(head, data) {
+  // create new node
+  const newNode = new SinglyLinkedListNode(data)
+  
+  // check for head - if not there, return new node
+  if (!head) {
+    return newNode;
+  }
+  
+  // get tail
+  let current = head
+  while (current.next) {
+    current = current.next
+  }
+
+  // set tail.next to new node
+  current.next = newNode
+  return head
+}
+```
