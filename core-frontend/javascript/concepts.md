@@ -3,23 +3,9 @@
 
 <a id="top"></a>
 
-# Advanced JavaScript
+# JavaScript Concepts
 
-## Table of Contents
-
-- [Maps](#maps)
-  - [WeakMap](#weakmap)
-- [Sets](#sets)
-  - [WeakSet](#weakset)
-- [Symbols](#symbols)
-
-[[↑] Back to top](#top)
-
-## Maps
-
-
-
-
+## Promises
 
 
 

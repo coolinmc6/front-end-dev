@@ -31,7 +31,28 @@
 - you can alias fields in a query so that you can query the same field with
 different arguments
 - Fragments are reusable units of fields that can be included in multiple
-queries
+queries. They allow us to split complicated data requirements into smaller
+chunks that can be reused across queries.
+
+```graphql
+{
+  leftComparison: hero(episode: EMPIRE) {
+    ...comparisonFields
+  }
+  rightComparison: hero(episode: JEDI) {
+    ...comparisonFields
+  }
+}
+
+fragment comparisonFields on Character {
+  name
+  appearsIn
+  friends {
+    name
+  }
+}
+```
+
 - A query, mutation, or subscription is called an **operation type** and the name that follows
 it is the **operation name**
 - Learning to write queries (or other operations) also involves using variables. Here is
@@ -53,9 +74,78 @@ variables:
   "episode": "JEDI"
 }
 ```
-_what you don't see here is HOW to do that in JavaScript._
+**Note:** _what you don't see here is HOW to do that in JavaScript._
+- A **directive** is a feature in GraphQL that allows you to conditionally include or exclude
+fields. Here's an example:
 
-Continue here: https://graphql.org/learn/queries/
+```graphql
+query Hero($episode: Episode, $withFriends: Boolean!) {
+  hero(episode: $episode) {
+    name
+    friends @include(if: $withFriends) {
+      name
+    }
+  }
+}
+```
+variables:
+```json
+{
+  "episode": "JEDI",
+  "withFriends": true
+}
+```
+- If I had to read what the query above is, this is what I'd say:
+> The query, **Hero**, takes two variables: `$episode` of type `Episode` and `$withFriends` of type
+`Boolean` which is required denoted by the `!`. `hero(episode: $episode)` is the root field being
+queried and will return the `name` of the hero and their `friends` if the `$withFriends` boolean
+is true.
+- and here is what the data might look like:
+```json
+{
+  "data": {
+    "hero": {
+      "name": "R2-D2",
+      "friends": [
+        {
+          "name": "Luke Skywalker"
+        },
+        {
+          "name": "Han Solo"
+        },
+        {
+          "name": "Leia Organa"
+        }
+      ]
+    }
+  }
+}
+```
+- another variant of `@include(if: Boolean)` is `@skip(if: Boolean)` which will skip the field if
+the condition is true
+- inline fragments are used to conditionally include fields based on the type of a field. So in the
+example below, if the `hero` is a `Droid`, the `primaryFunction` field will be included in the
+response; if it's a human, the `height` field will be included:
+
+```graphql
+query HeroForEpisode($episode: Episode!) {
+  hero(episode: $episode) {
+    name
+    ... on Droid {
+      primaryFunction
+    }
+    ... on Human {
+      height
+    }
+  }
+}
+```
+- you can also request meta fields like `__typename` which will return the type of the object
+
+**Finished [queries and mutations](https://graphql.org/learn/queries/), do
+[schemas and types](https://graphql.org/learn/schema/) next.**
+
+
 
 ## GraphQL Questions
 
