@@ -1,3 +1,10 @@
+# Jest Favorites
+
+## Table of Contents
+
+## Next Steps
+
+- renderHook => need some examples
 
 ### Confirming Text is Present
 
@@ -50,6 +57,62 @@ await userEvent.click(button);
 // one step
 await userEvent.click(screen.getByRole('button', { name: /submit/i }));
 ```
+
+### Using Act
+
+Here are just a few examples:
+
+```ts
+it('act example #1', () => {
+  render(<WrappedComponent />)
+
+  expect(screen.getByTestId(/welcome-screen/i)).toBeVisible()
+
+  // Welcome screen is removed after about 5 seconds
+  act(() => {
+    jest.advanceTimersByTime(6000)
+  })
+
+  expect(
+    screen.queryByTestId(/welcome-screen/i)
+  ).not.toBeInTheDocument()
+}}
+```
+- in the example below, my function `handlePageError` is modifying state so it must be wrapped in `act`:
+```ts
+it('shows an error modal', () => {
+  render(<TestContainer />)
+
+  act(() => {
+    handlePageError('Error message 404')
+  })
+
+  expect(
+    screen.getByText(
+      /An unexpected error has occurred./i
+    )
+  ).toBeVisible()
+  expect(screen.getByText(/404/i)).toBeVisible()
+  expect(screen.getByText(/OK/i)).toBeVisible()
+})
+```
+
+- In this example, I'm using my `setIsLoggedIn` function to update my global state which needs to be wrapped in `act`:
+```ts
+it('should show different page on logout', async () => {
+  act(() => setIsLoggedIn(true))
+
+  render(<MyComponent />)
+
+  expect(screen.getByText(/Welcome Back/i)).toBeVisible()
+
+  act(() => setIsLoggedIn(false))
+
+  expect(screen.getByText(/Login/i)).toBeVisible()
+})
+```
+
+
 
 ### Mocking useNavigate from React Router
 
