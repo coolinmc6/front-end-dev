@@ -24,7 +24,9 @@
 
 [[↑] Back to top](#top)
 
-## Notes
+## GraphQL Docs Notes
+
+### Introduction / Queries and Mutations
 
 - GraphQL at its simplest is about asking for specific fields on objects.
 - the structure of your request matches the structure/shape of the response
@@ -142,8 +144,9 @@ query HeroForEpisode($episode: Episode!) {
 ```
 - you can also request meta fields like `__typename` which will return the type of the object
 
-**Finished [queries and mutations](https://graphql.org/learn/queries/), do
-[schemas and types](https://graphql.org/learn/schema/) next.**
+### Schemas and Types
+
+Source: [schemas and types](https://graphql.org/learn/schema/)
 
 
 

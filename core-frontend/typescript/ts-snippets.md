@@ -6,6 +6,7 @@
   - [Basics](#basics)
   - [as const](#as-const)
   - [Dynamically Creating Types](#dynamically-creating-types)
+  - [Pick](#pick)
 - [React TypeScript](#react-typescript)
 - [Zustand](#zustand-typescript-snippets)
 
@@ -53,6 +54,33 @@ fruits[0] = 'pear'; // Error: Index signature in type 'readonly ["apple", "banan
 - with both the `person` object and the `fruits` array, we can ensure that neither of them can be changed or reassigned
 at runtime
 - this also means that we can't add additional properties to the object nor can we add or remove items from the fruits array
+
+[[↑] Back to top](#top)
+
+**Routes `as const` Example**
+
+**CM: I love this, super useful for routes**
+
+```ts
+const BASE_URL = 'https://www.example.com' as const;
+
+const routes = {
+  HOME: `${BASE_URL}/`,
+  ABOUT: `${BASE_URL}/about`,
+  CONTACT: `${BASE_URL}/contact`,
+  PRODUCTS: `${BASE_URL}/products`,
+  LOGIN: `${BASE_URL}/login`
+} as const;
+
+
+routes.ABOUT
+```
+And now if you look at what happens in VS Code, I can hover over `routes.ABOUT` and see the full
+route:
+
+![Routes as const](../../assets/routes-as-const.png)
+
+[[↑] Back to top](#top)
 
 **Interface `as const` Example**
 - Here's another example:
@@ -142,6 +170,33 @@ export type Leagues = {
 
 export type LeaguesMap = Map<Leagues, TeamObject[]>
 ```
+
+### Pick
+
+I don't use `Pick` a lot but here is a simple example and a cool way to create a new type without
+having to type out all the properties:
+
+```ts
+type ProductCardProps = {
+  name: string;
+  price: number;
+  imageUrl: string | undefined | null;
+  isOnSale: boolean;
+  salePercentage: number | undefined | null;
+  category: string;
+  description: ReactNode;
+  inventoryCount: number;
+};
+
+type ProductPriceTagProps = Pick<
+  ProductCardProps,
+  'price' | 'isOnSale' | 'salePercentage'
+>;
+```
+
+So now `ProductPriceTagProps` is a new type that only has the `price`, `isOnSale`, and `salePercentage`.
+
+[[↑] Back to top](#top)
 
 ## React TypeScript
 

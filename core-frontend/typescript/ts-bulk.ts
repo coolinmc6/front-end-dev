@@ -90,3 +90,18 @@ const filterPeople = (people: Person[], criteria: FilterCriteria): Person[] => {
     return true;
   });
 };
+
+
+const BASE_URL = 'https://www.example.com' as const;
+
+const routes = {
+  HOME: `${BASE_URL}/`,
+  ABOUT: `${BASE_URL}/about`,
+  CONTACT: `${BASE_URL}/contact`,
+  PRODUCTS: `${BASE_URL}/products`,
+  LOGIN: `${BASE_URL}/login`
+} as const;
+
+
+routes.ABOUT
+
