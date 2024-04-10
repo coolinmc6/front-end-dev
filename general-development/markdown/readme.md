@@ -10,6 +10,16 @@
   - ✅ `:white_check_mark:`
   - ❌ `:x:`
 
+### Reference Links
+
+```md
+Absolute Link:
+[label]: http://example.com "Optional Title"
+
+Relative Link:
+[truffle-pork]: ./recipes#truffle-cream-sauce
+```
+
 ### Simple Chart
 
 | Course | Notes | Status |
