@@ -148,7 +148,52 @@ query HeroForEpisode($episode: Episode!) {
 
 Source: [schemas and types](https://graphql.org/learn/schema/)
 
+- most types in your schema will be object types but there are two types that are special 
+within a schema: `Query` and `Mutation`
 
+```gql
+schema {
+  query: Query
+  mutation: Mutation
+}
+```
+- `Query` and `Mutation` are special because they defined the *entry point* for every GraphQL query
+- So if you see a query like this:
+
+```gql
+query {
+  hero {
+    name
+  }
+  droid(id: "2000") {
+    name
+  }
+}
+```
+- that means that the GraphQL server has a `Query` type with a `hero` and `droid` fields
+
+> It’s important to remember that other than the special status of being the “entry point” into the schema,
+> the `Query` and `Mutation` types are the same as any other GraphQL object type, and their fields 
+> work exactly the same way.
+
+- Scalar types represent the leaves of the query. They are the basic units of data that can be returned
+from a query. GraphQL comes with a set of default scalar types out of the box:
+  - `Int`: A signed 32‐bit integer.
+  - `Float`: A signed double-precision floating-point value.
+  - `String`: A UTF‐8 character sequence.
+  - `Boolean`: `true` or `false`.
+  - `ID`: The ID scalar type represents a unique identifier, often used to refetch an object or as the key for a cache. The ID type is serialized in the same way as a String; however, defining it as an ID signifies that it is not intended to be human‐readable.
+
+- Enums, or enumeration types, are a special kind of scalar that is restricted to a particular set of
+allowed values. For example:
+
+```gql
+enum Episode {
+  NEWHOPE
+  EMPIRE
+  JEDI
+}
+```
 
 ## GraphQL Questions
 
