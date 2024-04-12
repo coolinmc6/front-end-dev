@@ -1,3 +1,16 @@
+import { ICONS } from './ts-bulk02';
+
+const ICON_SRC = {
+  home: 'home.svg',
+  about: 'about.svg',
+  account: 'account.svg'
+} as const;
+
+export const getIcon = (icon: typeof ICONS[number]) => {
+  return ICON_SRC[icon];
+}
+
+const icon = getIcon('home');
 
 /**
  * CHECKED
