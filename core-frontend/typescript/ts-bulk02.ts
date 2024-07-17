@@ -76,3 +76,28 @@ const testObject = {
 }
 
 const solution = solveRubikCube(testObject)
+
+// Icons Example
+
+const availableIcons = {
+  warning: 'path/to/warning.svg',
+  success: 'path/to/success.svg',
+  chevron: 'path/to/chevron.svg',
+};
+
+type IconProps = {
+  name: keyof typeof availableIcons;
+  color: 'error' | 'warning' | 'success';
+};
+
+/*
+Example of how you could apply it
+const Icon = ({ name, color }: IconProps) => {
+  const Icon = availableIcons[name];
+
+  return (
+    <Icon color={color}/>;
+  );
+};
+export default Icon
+*/

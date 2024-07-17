@@ -48,3 +48,6 @@ git log main..HEAD --pretty=oneline
 - `git log`: just a list of commits
 - `main..HEAD`: the commits in the main branch that are not in the HEAD branch
 - `--pretty=oneline`: format the output to be more readable
+
+### Git Worktree
+
