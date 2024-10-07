@@ -2,6 +2,16 @@
 
 ## Table of Contents
 
+- [Next Steps](#next-steps)
+- [Confirming Text is Present](#confirming-text-is-present)
+- [Counting Elements in a Page](#counting-elements-in-a-page)
+- [Confirming Text is NOT Present](#confirming-text-is-not-present)
+- [Examining a Table](#examining-a-table)
+- [Clicking a Button](#clicking-a-button)
+- [Using Act](#using-act)
+- [Mocking useNavigate from React Router](#mocking-usenavigate-from-react-router)
+- [MUI Password Fields](#mui-password-fields)
+
 ## Next Steps
 
 - renderHook => need some examples
@@ -40,6 +50,40 @@ expect(screen.queryByText(heading)).not.toBeInTheDocument();
 
 // I should try this as well:
 expect(screen.queryByText(heading)).toBeNull();
+```
+
+### Examining a Table
+- I saw this piece of code and thought it was a super cool idea if I wanted to take a
+look at particular items within a table
+
+```tsx
+describe('Table', () => {
+  it('table test', () => {
+    // Coolest part
+    const [firstRow, secondRow, thirdRow] = screen.getAllByRole('row')
+
+    expect(
+      within(firstRow).getByRole('columnheader', { name: 'Header 1' })
+    ).toBeVisible()
+    expect(
+      within(firstRow).getByRole('columnheader', { name: 'Header 2' })
+    ).toBeVisible()
+
+    expect(
+      within(secondRow).getByRole('rowheader', { name: 'John Smith' })
+    ).toBeVisible()
+    expect(within(secondRow).getByRole('cell', { name: '25' })).toBeVisible()
+    expect(
+      within(secondRow).getByRole('button', { name: 'Save' })
+    ).toBeEnabled()
+
+    expect(
+      within(thirdRow).getByRole('rowheader', { name: 'Bill Smith' })
+    ).toBeVisible()
+    expect(within(thirdRow).getByRole('cell', { name: '55' })).toBeVisible()
+    expect(within(thirdRow).getByRole('button', { name: 'Save' })).toBeEnabled()
+  })
+})
 ```
 
 ### Clicking a Button
