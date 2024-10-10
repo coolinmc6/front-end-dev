@@ -9,7 +9,8 @@
   - [Reset to the Last Commit](#reset-to-the-last-commit)
   - [Reverting a Commit](#reverting-a-commit)
   - [List the Commits in the Current Branch vs. Another Branch](#list-the-commits-in-the-current-branch-vs-another-branch)
-  - [Remove pnpm-lock.yaml File](#remove-pnpm-lockyaml-file)
+  - [Remove pnpm-lock.yaml File From a Commit](#remove-pnpm-lockyaml-file-from-a-commit)
+  - [Use pnpm-lock.yaml File from main](#use-pnpm-lockyaml-file-from-main)
   - [Git Worktree](#git-worktree)
 
 ## Cool Git Commands
@@ -76,7 +77,7 @@ git log main..HEAD --pretty=oneline
 - `main..HEAD`: the commits in the main branch that are not in the HEAD branch
 - `--pretty=oneline`: format the output to be more readable
 
-### Remove pnpm-lock.yaml file
+### Remove pnpm-lock.yaml file from a commit
 
 - I had a situation where I needed to remove changes to the `pnpm-lock.yaml` file. Simply re-running `pnpm i`
 wouldn't fix it because there were particular issues with one of our submodules so the best thing to do
@@ -92,6 +93,18 @@ git commit --amend --no-edit
 # Force-pushes the rewritten commit history to the remote branch.
 git push --force
 ```
+
+### Use pnpm-lock.yaml file from main
+
+```sh
+git checkout feature-branch
+git checkout origin/main -- pnpm-lock.yaml
+git add .
+git commit -m "Update pnpm-lock"
+git push
+```
+
+You can also do a rebase if you want to clean-up the code
 
 ### Git Worktree
 
