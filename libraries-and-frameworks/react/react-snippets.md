@@ -60,6 +60,120 @@ return (
 
 ## Advanced
 
+### Passing Props to Dynamic Child
+I was working on a feature where there were 6 different types of the same thing. Each of the different types
+have a title and must query the backend. I decided to create a parent component where I show the title, 
+make the query, and then pass the results of that query to the children of that component. So the 
+problem I'm trying to solve is **passing props to an unknown child**. The child is "unknown" in that the 
+children component could be one of 6 different components. I'm going to discuss some of the solutions and 
+then show what I ultimately landed on.
+
+First, this is how I use my parent component:
+
+```tsx
+const App = () => {
+  return (
+    <div>
+      <ParentComponent type="type-1" title="Type 1" >
+        <Type1>
+      </ParentComponent>
+      <ParentComponent type="type-2" title="Type 2">
+        <Type2>
+      </ParentComponent>
+      <ParentComponent type="type-3" title="Type 3">
+        <Type3>
+      </ParentComponent>
+
+    </div>
+    
+  )
+}
+```
+Each `ParentComponent` takes a `title` and `type`. The title will be just a `h1` element while the type will
+be a variable passed to the query.
+
+**How do I build the `ParentComponent` to pass the data down to any child component?**
+
+Here is **Version 1: React.cloneElement**
+
+```tsx
+// ParentComponent.tsx
+export const ParentComponent = ({
+  children,
+  title,
+  type,
+}: ParentComponentProps) => {
+  const { data, loading, error } = useAwesomeFeature({ type })
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
+  if (error || !children) {
+    return <ErrorComponent error={error} />
+  }
+
+  return (
+    <section>
+      <h1 className="text-style-xl-bold">{title}</h1>
+      {React.cloneElement(children, { data })}
+    </section>
+  )
+```
+
+The key part is near the bottom: `{React.cloneElement(children, { data })}`. This pattern clones the element
+and allows you to add props. It actually does appear to be a commonly used pattern but I found that it is more
+of a legacy React API and not something they recommend. There are some pitfalls as listed
+[here](https://react.dev/reference/react/cloneElement) and I was getting pushback from other devs.
+
+Here is **Version 2: Render Props**
+
+I first need to update how we use the `ParentComponent` at the top level:
+
+```tsx
+const App = () => {
+  return (
+    <div>
+      <ParentComponent type="type-1" title="Type 1" render={(data) => <Type1 data={data}>} >
+        <Type1>
+      </ParentComponent>
+     {/* etc */}
+    </div>
+    
+  )
+}
+```
+
+And then tweak how we are returning the children:
+
+```tsx
+export const ParentComponent = ({
+  render,
+  title,
+  type,
+}: ParentComponentProps) => {
+  const { data, loading, error } = useAwesomeFeature({ type });
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error || !children) {
+    return <ErrorComponent error={error} />;
+  }
+
+  return (
+    <section>
+      <h1>{title}</h1>
+      {render(data)}
+    </section>
+  );
+};
+```
+But I really dislike how the render-props looks. 
+
+I ended up just going for React Context which I really like.
+
 ### forwardRef
 
 ```tsx
