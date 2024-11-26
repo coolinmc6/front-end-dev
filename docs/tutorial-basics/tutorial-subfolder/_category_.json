@@ -1,0 +1,8 @@
+{
+  "label": "Tutorial - Subfolder",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "This is the description for this folder"
+  }
+}
