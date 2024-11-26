@@ -17,8 +17,8 @@ const config: Config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  projectName: 'coolinmc6.github.io', // Usually your repo name.
   organizationName: 'coolinmc6', // Usually your GitHub org/user name.
+  projectName: 'front-end-dev', // Usually your repo name.
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
