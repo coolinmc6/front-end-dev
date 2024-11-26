@@ -1,5 +1,9 @@
 # Front End Development
 
+```sh
+npm run start
+```
+
 Notes and resources for front end development (with some backend and other stuff too).
 
 - https://github.com/coolinmc6/analytics
