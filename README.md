@@ -1,5 +1,7 @@
 # Front End Development
 
+[![Deploy to GitHub Pages](https://github.com/coolinmc6/front-end-dev/actions/workflows/deploy.yml/badge.svg)](https://github.com/coolinmc6/front-end-dev/actions/workflows/deploy.yml)
+
 This repo has been converted to a Docusaurus site to make it easier to actually use. Much of this readme will be
 dedicated to actually maintaining this repo with links and content moved to the docs folder.
 

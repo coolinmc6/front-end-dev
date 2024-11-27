@@ -51,6 +51,7 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Create and Push Deployment Tag
+        working-directory: ${{ github.workspace }}
         run: |
           TAG_NAME="deployed-$(date +'%Y%m%d-%H%M%S')"
           echo "Tagging the deployment with $TAG_NAME"
