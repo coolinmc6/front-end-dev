@@ -49,3 +49,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Create and Push Deployment Tag
+        run: |
+          TAG_NAME="deployed-$(date +'%Y%m%d-%H%M%S')"
+          echo "Tagging the deployment with $TAG_NAME"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a $TAG_NAME -m "Deployed on $(date)"
+          git push origin $TAG_NAME
