@@ -86,7 +86,7 @@ of sequential or parallel tasks.
 - **componentWillUnmount()** – Called after the component is unmounted from the DOM. It is used to clear up the memory spaces.
 - Here are all the lifecycle methods:
 
-![React Lifecycle Methods](https://github.com/coolinmc6/front-end-dev/blob/master/assets/react-lifecycle.png)
+React Lifecycle Methods - https://github.com/coolinmc6/front-end-dev/blob/master/assets/react-lifecycle.png - fix asset path
 
 [[↑] Back to top](#top)
 
@@ -584,7 +584,7 @@ class User extends React.Component {
 
 - Here's an image describing the flow:
 
-![Redux Data Flow](https://github.com/coolinmc6/front-end-dev/blob/master/assets/redux-data-flow.png)
+Redux Data Flow - https://github.com/coolinmc6/front-end-dev/blob/master/assets/redux-data-flow.png -  - fix asset path
 
 [[↑] Back to top](#top)
 

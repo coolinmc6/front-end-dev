@@ -1,22 +1,14 @@
+---
+sidebar_position: 1
+---
+
 # Jest Favorites
-
-## Table of Contents
-
-- [Next Steps](#next-steps)
-- [Confirming Text is Present](#confirming-text-is-present)
-- [Counting Elements in a Page](#counting-elements-in-a-page)
-- [Confirming Text is NOT Present](#confirming-text-is-not-present)
-- [Examining a Table](#examining-a-table)
-- [Clicking a Button](#clicking-a-button)
-- [Using Act](#using-act)
-- [Mocking useNavigate from React Router](#mocking-usenavigate-from-react-router)
-- [MUI Password Fields](#mui-password-fields)
 
 ## Next Steps
 
 - renderHook => need some examples
 
-### Confirming Text is Present
+## Confirming Text is Present
 
 - One pattern that I like is using RegExp combined with `getByText()`. Here's 
 an example:
@@ -29,7 +21,7 @@ expect(screen.getByText(heading)).toBeVisible();
 expect(screen.getByText(heading)).toBeInTheDocument();
 ```
 
-### Counting Elements in a Page
+## Counting Elements in a Page
 
 ```js
 it('should render four images', () => {
@@ -39,7 +31,7 @@ it('should render four images', () => {
 })
 ```
 
-### Confirming Text is NOT Present
+## Confirming Text is NOT Present
 
 - One pattern that I like is using RegExp combined with `queryByText()`. Here's
 an example:
@@ -52,7 +44,7 @@ expect(screen.queryByText(heading)).not.toBeInTheDocument();
 expect(screen.queryByText(heading)).toBeNull();
 ```
 
-### Examining a Table
+## Examining a Table
 - I saw this piece of code and thought it was a super cool idea if I wanted to take a
 look at particular items within a table
 
@@ -86,7 +78,7 @@ describe('Table', () => {
 })
 ```
 
-### Clicking a Button
+## Clicking a Button
 - To test how a user clicks a button, you need to grab the button using one of the Jest
 selectors (or rather DOM Testing Library selectors) and then click it. Here's an example
 showing it broken out into two steps and a one step version:
@@ -102,7 +94,7 @@ await userEvent.click(button);
 await userEvent.click(screen.getByRole('button', { name: /submit/i }));
 ```
 
-### Using Act
+## Using Act
 
 Here are just a few examples:
 
@@ -158,7 +150,7 @@ it('should show different page on logout', async () => {
 
 
 
-### Mocking useNavigate from React Router
+## Mocking useNavigate from React Router
 
 ```ts
 // mock useNavigate
@@ -185,7 +177,7 @@ describe('mytest', () => {
 })
 ```
 
-### MUI Password Fields
+## MUI Password Fields
 
 - There's an example MUI password form (sign-up and login) that simply
 cannot be found by Jest. I've tried a bunch of different ways like

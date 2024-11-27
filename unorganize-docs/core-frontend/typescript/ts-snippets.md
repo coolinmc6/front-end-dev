@@ -78,7 +78,7 @@ routes.ABOUT
 And now if you look at what happens in VS Code, I can hover over `routes.ABOUT` and see the full
 route:
 
-![Routes as const](../../assets/routes-as-const.png)
+Routes as const - ../../assets/routes-as-const.png - fix asset path
 
 [[↑] Back to top](#top)
 

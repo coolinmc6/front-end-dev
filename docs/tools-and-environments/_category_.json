@@ -1,0 +1,8 @@
+{
+  "label": "Tools and Environments",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Coding tools like Storybook, Jest, Git, MSW, as well as environments like Terminal, Netlify, etc."
+  }
+}

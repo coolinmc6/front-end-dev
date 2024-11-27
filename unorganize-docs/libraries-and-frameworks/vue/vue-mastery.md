@@ -223,9 +223,9 @@ get re-run when the values change
 - a depsMap is a map where we store the dependency object for each property
 - weakMap is a map where the keys are objects
 
-![](../assets/vue-mastery/reactivity1.png)
+Fix asset path: ../assets/vue-mastery/reactivity1.png
 
-![](../assets/vue-mastery/reactivity2.png)
+Fix asset path: ../assets/vue-mastery/reactivity2.png
 ### 2. Proxy and Reflect
 - Right now, we are manually calling track and trigger. We want our reactivity 
 system to do that for us. So...we call track whenever we access (GET) a property
@@ -235,7 +235,7 @@ and trigger whenever we change (SET) a property.
 - a `trap` allows us to intercept fundamental operations (property lookup, 
 enumeration, function invocation)
 
-![](../assets/vue-mastery/reactivity3.png)
+Fix asset path: ../assets/vue-mastery/reactivity3.png
 ### 3. activeEffect & ref
 - Object accessors (a.k.a. computed properties)
 - Object accessors are functions that get or set a value
@@ -243,13 +243,13 @@ enumeration, function invocation)
 
 ### 4. Computed Values & Vue 3 Source
 
-![](../assets/vue-mastery/reactivity4.png)
+Fix asset path: ../assets/vue-mastery/reactivity4.png
 ### 5. Q & A with Evan You
 
-![](../assets/vue-mastery/reactivity5.png)
+Fix asset path: ../assets/vue-mastery/reactivity5.png
 ### 6. Reading Source Code with Evan You
 
-![](../assets/vue-mastery/reactivity6.png)
+Fix asset path: ../assets/vue-mastery/reactivity6.png
 
 ### Take-aways and further work
 - [VueJS docs: Reactivity in Depth](https://vuejs.org/guide/extras/reactivity-in-depth.html)

@@ -115,7 +115,7 @@ Repo: https://github.com/stevekinney/packing-list
 Playing with the Profiler, one of the first things I should do is set the "Highlight
 updates when components render" checkbox.
 
-![Highlight updates when components render](../assets/profile-checkbox.png)
+Highlight updates when components render - ../assets/profile-checkbox.png - fix asset path
 
 **First Optimization:** After doing that, looking at the code in `application.js`, the first thing I see is the issue
 mentioned before: 

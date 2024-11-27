@@ -1,6 +1,7 @@
 
 # TypeScript Questions
 
+```html
 <style>
   
   summary {
@@ -12,6 +13,7 @@
     margin-bottom: 1rem;
   }
 </style>
+```
 
 ```ts
   type Props = {
@@ -19,9 +21,10 @@
     countryCode: string
     regionCode: string
   } & Partial<InjectedProps>
-  ```
+```
+
 <details>
-  <summary>Explain this code:</summary><br />
+  <summary>Explain this code:</summary>
 
 This code defines a type called `Props`, which is an object that has the following properties:
 

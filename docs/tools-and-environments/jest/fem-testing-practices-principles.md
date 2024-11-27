@@ -1,7 +1,7 @@
-[Home][home] | [Jest Testing][jest-testing]
+---
+sidebar_position: 99
+---
 
-[home]: https://github.com/coolinmc6/front-end-dev
-[jest-testing]: https://github.com/coolinmc6/front-end-dev/tree/master/jest
 # Front End Masters: Testing Practices and Principles
 
 - [Course Link](https://frontendmasters.com/courses/testing-practices-principles/course-code-walkthrough/)
@@ -12,7 +12,7 @@
 - Overall, it was a good course but I have seen a bunch of this from working already. It was a good overview.
 - This testing trophy is interesting:
 
-<img src="../assets/testing-trophy.png" width="500px"/>
+**../assets/testing-trophy.png" - fix asset path**
 
 - the higher you go, the more expensive it is to run the test and the slower they run.
 

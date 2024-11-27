@@ -114,7 +114,7 @@
 
 ## OOP in JavaScript
 
-![OOP Example](https://github.com/coolinmc6/front-end-dev/blob/master/assets/oop-cool.png)
+OOP Example - https://github.com/coolinmc6/front-end-dev/blob/master/assets/oop-cool.png - fix asset path
 
 ### What is object-oriented programming (OOP)?
 
@@ -351,7 +351,7 @@ person.getSpecies();            // alien
 
 ## Hard
 
-![Difficult Questions](https://github.com/coolinmc6/front-end-dev/blob/master/assets/physics-equations-mugs.jpg)
+Difficult Questions - https://github.com/coolinmc6/front-end-dev/blob/master/assets/physics-equations-mugs.jpg - fix asset path
 
 ### What is a closure, and how/why would you use one?
 
@@ -569,7 +569,7 @@ addTen(-5); //5
 
 ## Intermediate
 
-![Intermediate Questions](https://github.com/coolinmc6/front-end-dev/blob/master/assets/struggle.jpg)
+Intermediate Questions - https://github.com/coolinmc6/front-end-dev/blob/master/assets/struggle.jpg - fix asset path
 
 
 
@@ -1743,7 +1743,7 @@ Module.privateMethod(); // Uncaught ReferenceError: privateMethod is not defined
 
 ## Easy
 
-![Easy Questions](https://github.com/coolinmc6/front-end-dev/blob/master/assets/building-blocks.jpg)
+Easy Questions - https://github.com/coolinmc6/front-end-dev/blob/master/assets/building-blocks.jpg - fix asset path
 
 ### What are the differences between variables created using let, var or const?
 
@@ -1887,7 +1887,7 @@ class Student extends Person {
 - It represents the page so that programs can change parts of the document like structure, style and content.
 - The DOM represents the document (HTML or XML) as nodes and objects so that programming languages can connect to the page. Below is an image of what the DOM would look like:
 
-![DOM Image](https://github.com/coolinmc6/front-end-dev/blob/master/assets/pic_htmltree.gif)
+DOM Image - https://github.com/coolinmc6/front-end-dev/blob/master/assets/pic_htmltree.gif - fix asset path
 
 - The DOM is an object-oriented representation of the web page that a scripting language like JavaScript can manipulate.
 - The DOM is **NOT** a programming language.

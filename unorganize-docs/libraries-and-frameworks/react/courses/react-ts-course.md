@@ -205,8 +205,7 @@ const second: LinkedListNode<number> = {
 // TypeScript will not allow this because it is expecting a node of the same type
 first.next = second;
 ```
-
-![TypeScript Playground Error](https://github.com/coolinmc6/front-end-dev/blob/master/assets/typescript01.png)
+TypeScript Playground Error https://github.com/coolinmc6/front-end-dev/blob/master/assets/typescript01.png - fix asset path
 
 [[↑] Back to top](#top)
 

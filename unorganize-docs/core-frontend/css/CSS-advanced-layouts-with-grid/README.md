@@ -37,8 +37,7 @@
 - `repeat()`
 
 ## Manual Grid Item Placement
-
-![Grid item placement](https://github.com/coolinmc6/front-end-dev/blob/master/assets/css-grid-placement.png)
+Grid item placement - https://github.com/coolinmc6/front-end-dev/blob/master/assets/css-grid-placement.png - fix asset path
 
 - notice how the styling shows that the item will occupy the columns between lines 2 and 4 and the rows between 2 and 3.
 - Once you move one item out of the way, the other items in the grid move up
@@ -302,7 +301,7 @@
 - Not to belabor the point but we are doing this, again, to check for grid support. I think this hammers home a good message in general when styling my websites going forward. Start with a mobile layout that works. The mobile layout, though not perfect, IS good enough. Then add CSS grid - most browsers support it so you'll be fine 
 - Also, we check for `grid-area: auto` because some older browsers support an older spec for CSS grid that is different. So it might say "yes I support that feature" and not be able to implement the CSS grid.
 
-![Website Grid Sketch](https://github.com/coolinmc6/front-end-dev/blob/master/assets/website-grid-sketch.png)
+ -Website Grid Sketch - https://github.com/coolinmc6/front-end-dev/blob/master/assets/website-grid-sketch.png - fix asset path
 
 - the image above shows how you could sketch out what you want to achieve with a particular layout. Notice how different sections have different constraints. The third and fourth row content is constrained to the middle two columns while rows 2, 5, and 6 are "full-bleed". They are still "on" the grid except they occupy columns 1 - 4 or would be between lines 1 and 5
 

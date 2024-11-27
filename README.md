@@ -1,8 +1,62 @@
 # Front End Development
 
+This repo has been converted to a Docusaurus site to make it easier to actually use. Much of this readme will be
+dedicated to actually maintaining this repo with links and content moved to the docs folder.
+
+This is where I'm serving it: [Front End Dev](https://coolinmc6.github.io/front-end-dev/)
+
+## Getting Started
+
+**Development**
 ```sh
 npm run start
 ```
+
+**Deployment**
+All pushes to master runs the deployment to GH Pages. They recommend building it locally and then serving it
+to ensure that it will work.
+
+```sh
+# build it
+npm run build
+
+# serve the built site
+npm run serve
+```
+
+## Next Steps
+- Move the most used items into the appropriate folders
+- Figure out (and document) how to use images
+- clean-up old docs - there are a bunch that are unused
+
+## Updating Old Documents to Docusaurus Docs
+
+**Docusaurus Needs Markdown**
+- A lot of the old files used some html to create tables or links to other content in the repo.
+I don't need to do that anymore so if there's a failure when moving old docs into the `docs` folder,
+it's probably something like that.
+
+**Create __category__.json files**
+- These files allow you to give user friendly titles for your directories. Here is the basic format:
+
+```json
+{
+  "label": "Label in Sidebar",
+  "position": 3, // where it shows up
+  "link": {
+    "type": "generated-index",
+    "description": "Description"
+  }
+}
+```
+- To position a markdown file, you can use this:
+
+```
+---
+sidebar_position: 1
+---
+```
+
 
 Notes and resources for front end development (with some backend and other stuff too).
 
