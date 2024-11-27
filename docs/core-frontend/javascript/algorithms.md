@@ -1,3 +1,6 @@
+# Algorithms
+
+## Heap's Permute
 
 ```js
 function heapPermute(array, n) {
@@ -25,6 +28,7 @@ function heapPermute(array, n) {
 const permutations = heapPermute([1, 2, 3]);
 ```
 
+## Singly Linked List
 ```js
 // Basic SinglyLinkedList
 class SinglyLinkedListNode {
