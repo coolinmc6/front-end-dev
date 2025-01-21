@@ -235,7 +235,7 @@ DOM.render(<List />, document.body);
 - Handling DOM manipulation with a Virtual DOM leads to a performance boost BUT it is a big file to load
 - React utilizes a lot of ES6's new features and syntax and is typically written in what's called JSX which is a sort of HTML-JavaScript hybrid
     - A JSX component is usually a function that returns a parent element (i.e. a div) which inside it has mostly normal HTML (for example, instead of "class" they "className"
-- Building a React page is all about components. There is usually a parent <App /> component and then inside them you put more components that you build
+- Building a React page is all about components. There is usually a parent `<App />` component and then inside them you put more components that you build
 
 
 [[↑] Back to top](#top)
