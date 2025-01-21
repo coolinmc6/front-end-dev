@@ -1,6 +1,3 @@
-[Back](https://github.com/coolinmc6/front-end-dev#front-end-development)
-<a name="top"></a>
-
 # CSS Questions
 
 ### What is the "Box Model" in CSS? Which CSS properties are a part of it?

@@ -1,6 +1,3 @@
-[Home](https://github.com/coolinmc6/front-end-dev)
-[Back to React Home](https://github.com/coolinmc6/front-end-dev/tree/master/react)
-
 # React Versions
 
 ## React 19
@@ -23,3 +20,11 @@ it is updated even though you haven't sent the request to the server yet)
 of the document
 - you won't need `forwardRef` anymore
 - you can use the `use` hook which can replace `lazy`
+
+## React 18
+
+## React 17
+
+## React 16
+
+## React 15

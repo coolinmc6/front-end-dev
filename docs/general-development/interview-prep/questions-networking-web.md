@@ -1,11 +1,3 @@
-[Back](https://github.com/coolinmc6/front-end-dev#front-end-development)
-
-<a name="top"></a>
-
-# Resources
-
-- BOOK: [Introduction to Networking](https://do1.dr-chuck.net/net-intro/EN_us/net-intro.pdf)
-
 # Networking Questions
 
 ### How does the Internet work? When I go to [www.cnn.com](https://www.cnn.com/), what happens?

@@ -1,6 +1,3 @@
-[Back](https://github.com/coolinmc6/front-end-dev#front-end-development)
-
-<a name="top"></a>
 # JavaScript Questions & Definitions
 
 - [DOM Questions](http://thatjsdude.com/interview/index.html)
@@ -1007,8 +1004,8 @@ sayHello('Colin');
 |Variable|`var` declaration|**Yes**|
 |Variable|`let` declaration|No|
 |Variable|`const` declaration|No|
-|Function|Function declaration<br>`function sayHello(){}`|**Yes**|
-|Function|Function expression<br>`var sayHello = function(){}`|No|
+|Function|Function declaration - `function sayHello(){}`|**Yes**|
+|Function|Function expression - `var sayHello = function(){}`|No|
 
 
 **References**
@@ -2148,8 +2145,8 @@ then it looks to get the position of the `documentElement`, then `body`, then de
 |:---:|:---:|:---|
 |`innerHeight`|Height|Height of inner window viewport; this figure gets smaller when you view devtools|
 |`outerHeight`|Height|Height of entire window; unaffected by devtools opening BUT will get larger when user resizes window to be larger|
-|`pageYOffset`|Position|Vertical scroll position<br>It is not available in every browser so you may need to use `scrollTop` of another element|
-|`pageXOffset`|Position|Horizontal scroll position<br>Like `pageYOffset`, not available in every browser.|
+|`pageYOffset`|Position|Vertical scroll position - It is not available in every browser so you may need to use `scrollTop` of another element|
+|`pageXOffset`|Position|Horizontal scroll position - Like `pageYOffset`, not available in every browser.|
 |`scrollTop`|Position|Vertical scroll position|
 |`scrollLeft`|Position|Horizontal scroll position|
 

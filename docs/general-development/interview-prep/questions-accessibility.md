@@ -1,6 +1,3 @@
-[Back](https://github.com/coolinmc6/front-end-dev#front-end-development)
-<a name="top"></a>
-
 # Accessibility Questions
 
 - The source for most of these questions is [https://github.com/scottaohara/accessibility_interview_questions](https://github.com/scottaohara/accessibility_interview_questions).
