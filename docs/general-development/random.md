@@ -1,3 +1,7 @@
+---
+title: Random General Development
+---
+
 # Random Thoughts Roughly Organized
 
 ### CSS
@@ -8,13 +12,13 @@
 
 - How do you read the Network tab in Chrome DevTools? What is it showing?
 
-**RESTful APIs**
+#### RESTful APIs
 
 - RESTful APIs are built to facilitate the front-end to back-end connection with some best practices
 - you can try deploying the API under a dedicated domain name like `https://api.domain.com` or `https://example.com/api/`
 - You can also version the api like this: `https://api.example.com/v1/`
 - Each path, or URL, is an endpoint that contains a resource that you want. So for zoos, animals, and employees, the endpoints
-would look like this:
+  would look like this:
   - `https://api.example.com/v1/zoos`
   - `https://api.example.com/v1/animals`
   - `https://api.example.com/v1/employees`

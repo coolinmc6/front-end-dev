@@ -1,14 +1,4 @@
-<a name="top"></a>
-
 # TypeScript Snippets
-
-- [General TypeScript](#general-typescript)
-  - [Basics](#basics)
-  - [as const](#as-const)
-  - [Dynamically Creating Types](#dynamically-creating-types)
-  - [Pick](#pick)
-- [React TypeScript](#react-typescript)
-- [Zustand](#zustand-typescript-snippets)
 
 ## General TypeScript
 
@@ -23,6 +13,7 @@ const sum: number = numbers.reduce<number>((acc, curr) => {
 
 console.log(sum); // Output: 15
 ```
+
 In this example, the type parameter for the `reduce` method is specified as `number`, which indicates that the reduce method should expect an array of numbers.
 
 [[↑] Back to top](#top)
@@ -51,8 +42,9 @@ const fruits = ['apple', 'banana', 'orange'] as const;
 
 fruits[0] = 'pear'; // Error: Index signature in type 'readonly ["apple", "banana", "orange"]' only permits reading.
 ```
+
 - with both the `person` object and the `fruits` array, we can ensure that neither of them can be changed or reassigned
-at runtime
+  at runtime
 - this also means that we can't add additional properties to the object nor can we add or remove items from the fruits array
 
 [[↑] Back to top](#top)
@@ -62,19 +54,19 @@ at runtime
 **CM: I love this, super useful for routes**
 
 ```ts
-const BASE_URL = 'https://www.example.com' as const;
+const BASE_URL = "https://www.example.com" as const;
 
 const routes = {
   HOME: `${BASE_URL}/`,
   ABOUT: `${BASE_URL}/about`,
   CONTACT: `${BASE_URL}/contact`,
   PRODUCTS: `${BASE_URL}/products`,
-  LOGIN: `${BASE_URL}/login`
+  LOGIN: `${BASE_URL}/login`,
 } as const;
 
-
-routes.ABOUT
+routes.ABOUT;
 ```
+
 And now if you look at what happens in VS Code, I can hover over `routes.ABOUT` and see the full
 route:
 
@@ -83,24 +75,26 @@ Routes as const - ../../assets/routes-as-const.png - fix asset path
 [[↑] Back to top](#top)
 
 **Interface `as const` Example**
+
 - Here's another example:
 
 ```ts
 const UserType = {
-  Admin: 'admin_user',
-  Basic: 'basic_user',
-} as const
+  Admin: "admin_user",
+  Basic: "basic_user",
+} as const;
 
 interface UserTypeResponse {
-  level: (typeof UserType)[keyof typeof UserType]
-  name: string
-  position: string
+  level: (typeof UserType)[keyof typeof UserType];
+  name: string;
+  position: string;
 }
 ```
+
 - The above code defines an object `UserType` with two properties, `Admin` and `Basic`, which both have string values.
 - The `as const` assertion ensures that the properties of `UserType` are readonly and cannot be modified.
 - The interface `UserTypeResponse` is also defined and, in this example, is what we'd receive back
-from a server, for example. The interface has three properties:
+  from a server, for example. The interface has three properties:
   - `level`: This property is defined as a union type that maps the keys of `UserType` to their corresponding values. This means that `level` can only have the values `'admin_user'` or `'basic_user'` (and NOT `'admin'` or `'basic'`')
   - `name`: A string property that holds the name of the user.
   - `position`: A string property that holds the position of the user.
@@ -120,55 +114,53 @@ from a server, for example. The interface has three properties:
 ### Dynamically Creating Types
 
 - I had a situation where I needed to create a large object that had two levels: a broader level that (for
-this example) was the league type (e.g. `NFL` or `NBA`) and then the team city (e.g. `PHILADELPHIA` or `NEW YORK`).
+  this example) was the league type (e.g. `NFL` or `NBA`) and then the team city (e.g. `PHILADELPHIA` or `NEW YORK`).
 - So the object would look something like this with simple JavaScript:
 
 ```js
-const NFL = 'NFL';
-const NBA = 'NBA';
+const NFL = "NFL";
+const NBA = "NBA";
 
-const PHILADELPHIA = 'PHILADELPHIA';
-const NEW_YORK = 'NEW_YORK';
+const PHILADELPHIA = "PHILADELPHIA";
+const NEW_YORK = "NEW_YORK";
 
 const teamObject = {
   [NFL]: {
     [`NFL-${PHILADELPHIA}`]: {
-      teams: ['Eagles'],
+      teams: ["Eagles"],
     },
     [`NBA-${NEW_YORK}`]: {
-      teams: ['Giants', 'Jets'],
+      teams: ["Giants", "Jets"],
     },
   },
   [NBA]: {
     [`NBA-${PHILADELPHIA}`]: {
-      teams: ['Sixers'],
+      teams: ["Sixers"],
     },
     [`NBA-${NEW_YORK}`]: {
-      teams: ['Knicks', 'Nets'],
+      teams: ["Knicks", "Nets"],
     },
   },
-}
+};
 ```
 
 ```ts
 export type TeamObject = {
-  teams: string[]
-}
-export type TEAM_REGIONS = 'PHILADELPHIA' | 'NEW_YORK'
+  teams: string[];
+};
+export type TEAM_REGIONS = "PHILADELPHIA" | "NEW_YORK";
 
-type LeagueCodesNFL = `NFL-${TEAM_REGIONS}`
-type LeagueCodesNBA = `NBA-${TEAM_REGIONS}`
+type LeagueCodesNFL = `NFL-${TEAM_REGIONS}`;
+type LeagueCodesNBA = `NBA-${TEAM_REGIONS}`;
 
-export type LeagueCodes =
-  | LeagueCodesNFL
-  | LeagueCodesNBA
+export type LeagueCodes = LeagueCodesNFL | LeagueCodesNBA;
 
 export type Leagues = {
-  NFL: Map<LeagueCodesNFL, TeamObject[]>
-  NBA: Map<LeagueCodesNBA, TeamObject[]>
-}
+  NFL: Map<LeagueCodesNFL, TeamObject[]>;
+  NBA: Map<LeagueCodesNBA, TeamObject[]>;
+};
 
-export type LeaguesMap = Map<Leagues, TeamObject[]>
+export type LeaguesMap = Map<Leagues, TeamObject[]>;
 ```
 
 ### Pick
@@ -190,7 +182,7 @@ type ProductCardProps = {
 
 type ProductPriceTagProps = Pick<
   ProductCardProps,
-  'price' | 'isOnSale' | 'salePercentage'
+  "price" | "isOnSale" | "salePercentage"
 >;
 ```
 
@@ -203,7 +195,7 @@ So now `ProductPriceTagProps` is a new type that only has the `price`, `isOnSale
 - Here is a basic functional component with TypeScript props
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 interface Props {
   name: string;
@@ -221,10 +213,11 @@ const MyComponent = ({ name, age }: Props) => {
 
 export default MyComponent;
 ```
+
 - Here is the same component but using the `FunctionComponent` type
 
 ```tsx
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent } from "react";
 
 interface Props {
   name: string;
@@ -242,26 +235,26 @@ const MyComponent: FunctionComponent<Props> = ({ name, age }) => {
 
 export default MyComponent;
 ```
+
 - Just looking around, I'm not sure there are real benefits to using the `FunctionComponent` type. See this [article](https://github.com/facebook/create-react-app/pull/8177#issue-537764080).
 
 [[↑] Back to top](#top)
 
-
 ## Zustand-TypeScript Snippets
 
 ```ts
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
-import { PREFIX } from '@/constants/stores'
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { PREFIX } from "@/constants/stores";
 
 export type MetaDataState = {
-  useLoggedIn: boolean
-}
+  useLoggedIn: boolean;
+};
 
 type MetaDataActions = {
-  getKey: (key: string) => unknown
-  setKey: (key: string, value: unknown) => void
-}
+  getKey: (key: string) => unknown;
+  setKey: (key: string, value: unknown) => void;
+};
 
 export const useMetaDataStore = create<MetaDataState & MetaDataActions>()(
   persist(
@@ -275,21 +268,23 @@ export const useMetaDataStore = create<MetaDataState & MetaDataActions>()(
       name: `${PREFIX}__METADATA__`,
     }
   )
-)
+);
 
 export const getMetaDataKey = (key: string) =>
-  useMetaDataStore.getState().getKey(key)
+  useMetaDataStore.getState().getKey(key);
 
 export const setMetaDataKey = (key: string, value: unknown) =>
-  useMetaDataStore.getState().setKey(key, value)
+  useMetaDataStore.getState().setKey(key, value);
 ```
+
 - I like the combination of the two types - I think it's a cool way to separate the state
-from the actions.
+  from the actions.
 - `getKey: (key: string) => get()[key as keyof MetaDataState],` this code was tricky because
-it was yelling at me so I had to add the `as keyof MetaDataState` to get it to work. Here's the original
-error:
+  it was yelling at me so I had to add the `as keyof MetaDataState` to get it to work. Here's the original
+  error:
 
   > Element implicitly has an 'any' type because expression of type 'string' can't be used to index type 'MetaDataState & MetaDataActions'. No index signature with a parameter of type 'string' was found on type 'MetaDataState & MetaDataActions'
+
 - This is also a really good basic implementation of Zustand with `create` and `persist` middleware.
 
 [[↑] Back to top](#top)

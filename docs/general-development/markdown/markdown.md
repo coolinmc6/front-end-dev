@@ -22,13 +22,14 @@ Relative Link:
 
 ### Simple Chart
 
-| Course | Notes | Status |
-|:--------:|-------:|:--------|
-|Centered - x x x x x x x|Right - x x x x x x |Left - x-  x x x x x |
-||||
+|          Course          |               Notes | Status              |
+| :----------------------: | ------------------: | :------------------ |
+| Centered - x x x x x x x | Right - x x x x x x | Left - x- x x x x x |
+|                          |                     |                     |
 
 ### Complex Chart
 
+```html
 <table>
   <thead>
     <tr>
@@ -44,7 +45,6 @@ Relative Link:
       <td style="text-align: right;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut voluptate aspernatur, repudiandae esse, in deleniti dolores illum perspiciatis laborum ex consequuntur sunt. Quo qui magnam non ducimus tempora fugit aliquid.</td>
     </tr>
 </table>
+```
 
 [[↑] Back to top](#top)
-
-lorem 

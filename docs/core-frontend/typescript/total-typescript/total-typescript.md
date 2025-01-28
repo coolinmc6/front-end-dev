@@ -22,7 +22,25 @@ to certificates of my completed courses.
 
 Course Link: [Solving TypeScript Errors](https://www.totaltypescript.com/tutorials/solving-typescript-errors)
 
+#### Fixing "X Is Not Assignable To Y"
 
+#### Fixing "Property Does Not Exist On Type"
+
+#### Fixing "X is Possibly Null Or Undefined"
+
+#### Fixing "Types Of Property Are Incompatible"
+
+#### Fixing "X Is Of Type Unknown"
+
+#### Fixing "Expression Can't Be Used To Index Type X"
+
+#### Fixing "Property X Has No Initializer"
+
+#### Fixing "Conversion Of Type X May Be A Mistake"
+
+#### Fixing "Cannot Redeclare Block-Scoped Variable"
+
+#### Fixing "Could Not Find A Declaration File"
 
 - [Completion Certificate](https://res.cloudinary.com/total-typescript/image/upload/v1737749545/certificate/c0e6bfbe-e8d3-4ef2-94f8-23e87b2e250c/solving-typescript-errors.png) (website)
 - [Completion Certificate](./certificates.md#solving-typescript-errors)
@@ -30,4 +48,3 @@ Course Link: [Solving TypeScript Errors](https://www.totaltypescript.com/tutoria
 ### React with TypeScript
 
 ### Beginner's TypeScript
-
