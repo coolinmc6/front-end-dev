@@ -4,11 +4,42 @@ sidebar_position: 1
 
 # Jest Favorites
 
-## Next Steps
+## Quick Reference
 
-- renderHook => need some examples
+### Rendering Items
 
-## Confirming Text is Present
+#### Text is Present
+
+```tsx
+expect(
+  screen.getByText(/this text is on the screen/i)
+).toBeVisible()
+```
+
+#### Text is Not Present
+
+```tsx
+expect(screen.queryByText('Goodbye World')).not.toBeInTheDocument()
+```
+
+### User Events
+
+#### Clicking a Button
+
+```tsx
+await userEvent.click(screen.getByRole('button', { name: /do stuff/i }))
+```
+
+#### Entering Text into Textbox
+
+```tsx
+await userEvent.type(screen.getByRole('textbox', { name: /textbox/i }), '500')
+```
+
+
+## Rendering Items
+
+### Confirming Text is Present
 
 - One pattern that I like is using RegExp combined with `getByText()`. Here's 
 an example:
@@ -21,17 +52,9 @@ expect(screen.getByText(heading)).toBeVisible();
 expect(screen.getByText(heading)).toBeInTheDocument();
 ```
 
-## Counting Elements in a Page
 
-```js
-it('should render four images', () => {
-  render(<MyComponent />)
-  const images = screen.getAllByRole('img')
-  expect(images).toHaveLength(4)
-})
-```
 
-## Confirming Text is NOT Present
+### Confirming Text is NOT Present
 
 - One pattern that I like is using RegExp combined with `queryByText()`. Here's
 an example:
@@ -44,7 +67,17 @@ expect(screen.queryByText(heading)).not.toBeInTheDocument();
 expect(screen.queryByText(heading)).toBeNull();
 ```
 
-## Examining a Table
+### Counting Elements in a Page
+
+```js
+it('should render four images', () => {
+  render(<MyComponent />)
+  const images = screen.getAllByRole('img')
+  expect(images).toHaveLength(4)
+})
+```
+
+### Examining a Table
 - I saw this piece of code and thought it was a super cool idea if I wanted to take a
 look at particular items within a table
 
@@ -78,7 +111,9 @@ describe('Table', () => {
 })
 ```
 
-## Clicking a Button
+## User Events
+
+### Clicking a Button
 - To test how a user clicks a button, you need to grab the button using one of the Jest
 selectors (or rather DOM Testing Library selectors) and then click it. Here's an example
 showing it broken out into two steps and a one step version:
@@ -94,11 +129,19 @@ await userEvent.click(button);
 await userEvent.click(screen.getByRole('button', { name: /submit/i }));
 ```
 
-## Using Act
+### Selecting a Dropdown (Div)
+
+### Entering Text into Textbox
+
+```tsx
+await userEvent.type(screen.getByRole('textbox', { name: /amount/i }), '500')
+```
+
+### Using Act
 
 Here are just a few examples:
 
-```ts
+```tsx
 it('act example #1', () => {
   render(<WrappedComponent />)
 
@@ -115,7 +158,8 @@ it('act example #1', () => {
 }}
 ```
 - in the example below, my function `handlePageError` is modifying state so it must be wrapped in `act`:
-```ts
+
+```tsx
 it('shows an error modal', () => {
   render(<TestContainer />)
 
@@ -134,7 +178,8 @@ it('shows an error modal', () => {
 ```
 
 - In this example, I'm using my `setIsLoggedIn` function to update my global state which needs to be wrapped in `act`:
-```ts
+
+```tsx
 it('should show different page on logout', async () => {
   act(() => setIsLoggedIn(true))
 
@@ -150,7 +195,7 @@ it('should show different page on logout', async () => {
 
 
 
-## Mocking useNavigate from React Router
+### Mocking useNavigate from React Router
 
 ```ts
 // mock useNavigate
@@ -177,7 +222,9 @@ describe('mytest', () => {
 })
 ```
 
-## MUI Password Fields
+## Miscellaneous Items
+
+### MUI Password Fields
 
 - There's an example MUI password form (sign-up and login) that simply
 cannot be found by Jest. I've tried a bunch of different ways like
@@ -202,3 +249,7 @@ MUI component and then the Jest selector:
 // password Jest selector
 const password = screen.getByTestId('password')
 ```
+
+### Next Steps
+
+- `renderHook` - get some examples and understand how to use it
