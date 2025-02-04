@@ -8,6 +8,15 @@ sidebar_position: 1
 
 ### Rendering Items
 
+#### Selecting Multiple Items
+
+```ts
+const menuGroup = screen.getByTestId('nav-group')
+const menuItems = within(menuGroup).getAllByTestId('nav-item')
+expect(menuItems).toHaveLength(3)
+const [home, about, login] = within(menuGroup).getAllByTestId('nav-item')
+```
+
 #### Text is Present
 
 ```tsx
@@ -52,8 +61,6 @@ expect(screen.getByText(heading)).toBeVisible();
 expect(screen.getByText(heading)).toBeInTheDocument();
 ```
 
-
-
 ### Confirming Text is NOT Present
 
 - One pattern that I like is using RegExp combined with `queryByText()`. Here's
@@ -75,6 +82,13 @@ it('should render four images', () => {
   const images = screen.getAllByRole('img')
   expect(images).toHaveLength(4)
 })
+```
+
+```ts
+const menuGroup = screen.getByTestId('nav-group')
+const menuItems = within(menuGroup).getAllByTestId('nav-item')
+expect(menuItems).toHaveLength(3)
+const [home, about, login] = within(menuGroup).getAllByTestId('nav-item')
 ```
 
 ### Examining a Table
