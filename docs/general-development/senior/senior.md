@@ -1,3 +1,6 @@
+---
+title: Notes
+---
 # Senior Developer Notes
 ## Bulk Notes
 
