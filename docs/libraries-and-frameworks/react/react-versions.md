@@ -1,3 +1,10 @@
+---
+title: React Versions
+description: |
+  Brief description of major features and changes from various React versions. As new 
+  versions come out, add notes and links that describe the cool new features coming to React
+---
+
 # React Versions
 
 ## React 19

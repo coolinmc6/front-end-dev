@@ -1,3 +1,8 @@
+---
+title: Snippets
+description: Some of my favorite React Snippets
+---
+
 # React Snippets
 
 This page will be a general discussion of snippets that I find interesting or useful.
