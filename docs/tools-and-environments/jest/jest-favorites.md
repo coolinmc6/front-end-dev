@@ -35,8 +35,16 @@ expect(screen.queryByText('Goodbye World')).not.toBeInTheDocument()
 
 #### Clicking a Button
 
+**Get by Button Text**
+
 ```tsx
 await userEvent.click(screen.getByRole('button', { name: /do stuff/i }))
+```
+
+**Get By Test Id**
+
+```tsx
+await userEvent.click(screen.getByTestId('my-button'))
 ```
 
 #### Entering Text into Textbox
