@@ -1,0 +1,230 @@
+---
+title: GraphQL
+---
+
+# GraphQL
+
+## GraphQL Docs Notes
+
+### Introduction / Queries and Mutations
+
+- GraphQL at its simplest is about asking for specific fields on objects.
+- the structure of your request matches the structure/shape of the response
+- you can alias fields in a query so that you can query the same field with
+different arguments
+- Fragments are reusable units of fields that can be included in multiple
+queries. They allow us to split complicated data requirements into smaller
+chunks that can be reused across queries.
+
+```graphql
+{
+  leftComparison: hero(episode: EMPIRE) {
+    ...comparisonFields
+  }
+  rightComparison: hero(episode: JEDI) {
+    ...comparisonFields
+  }
+}
+
+fragment comparisonFields on Character {
+  name
+  appearsIn
+  friends {
+    name
+  }
+}
+```
+
+- A query, mutation, or subscription is called an **operation type** and the name that follows
+it is the **operation name**
+- Learning to write queries (or other operations) also involves using variables. Here is
+an example:
+
+```graphql
+query HeroNameAndFriends($episode: Episode) {
+  hero(episode: $episode) {
+    name
+    friends {
+      name
+    }
+  }
+}
+```
+variables:
+```json
+{
+  "episode": "JEDI"
+}
+```
+**Note:** _what you don't see here is HOW to do that in JavaScript._
+- A **directive** is a feature in GraphQL that allows you to conditionally include or exclude
+fields. Here's an example:
+
+```graphql
+query Hero($episode: Episode, $withFriends: Boolean!) {
+  hero(episode: $episode) {
+    name
+    friends @include(if: $withFriends) {
+      name
+    }
+  }
+}
+```
+variables:
+```json
+{
+  "episode": "JEDI",
+  "withFriends": true
+}
+```
+- If I had to read what the query above is, this is what I'd say:
+> The query, **Hero**, takes two variables: `$episode` of type `Episode` and `$withFriends` of type
+`Boolean` which is required denoted by the `!`. `hero(episode: $episode)` is the root field being
+queried and will return the `name` of the hero and their `friends` if the `$withFriends` boolean
+is true.
+- and here is what the data might look like:
+```json
+{
+  "data": {
+    "hero": {
+      "name": "R2-D2",
+      "friends": [
+        {
+          "name": "Luke Skywalker"
+        },
+        {
+          "name": "Han Solo"
+        },
+        {
+          "name": "Leia Organa"
+        }
+      ]
+    }
+  }
+}
+```
+- another variant of `@include(if: Boolean)` is `@skip(if: Boolean)` which will skip the field if
+the condition is true
+- inline fragments are used to conditionally include fields based on the type of a field. So in the
+example below, if the `hero` is a `Droid`, the `primaryFunction` field will be included in the
+response; if it's a human, the `height` field will be included:
+
+```graphql
+query HeroForEpisode($episode: Episode!) {
+  hero(episode: $episode) {
+    name
+    ... on Droid {
+      primaryFunction
+    }
+    ... on Human {
+      height
+    }
+  }
+}
+```
+- you can also request meta fields like `__typename` which will return the type of the object
+
+### Schemas and Types
+
+Source: [schemas and types](https://graphql.org/learn/schema/)
+
+- most types in your schema will be object types but there are two types that are special 
+within a schema: `Query` and `Mutation`
+
+```gql
+schema {
+  query: Query
+  mutation: Mutation
+}
+```
+- `Query` and `Mutation` are special because they defined the *entry point* for every GraphQL query
+- So if you see a query like this:
+
+```gql
+query {
+  hero {
+    name
+  }
+  droid(id: "2000") {
+    name
+  }
+}
+```
+- that means that the GraphQL server has a `Query` type with a `hero` and `droid` fields
+
+> It’s important to remember that other than the special status of being the “entry point” into the schema,
+> the `Query` and `Mutation` types are the same as any other GraphQL object type, and their fields 
+> work exactly the same way.
+
+- Scalar types represent the leaves of the query. They are the basic units of data that can be returned
+from a query. GraphQL comes with a set of default scalar types out of the box:
+  - `Int`: A signed 32‐bit integer.
+  - `Float`: A signed double-precision floating-point value.
+  - `String`: A UTF‐8 character sequence.
+  - `Boolean`: `true` or `false`.
+  - `ID`: The ID scalar type represents a unique identifier, often used to refetch an object or as the key for a cache. The ID type is serialized in the same way as a String; however, defining it as an ID signifies that it is not intended to be human‐readable.
+
+- Enums, or enumeration types, are a special kind of scalar that is restricted to a particular set of
+allowed values. For example:
+
+```gql
+enum Episode {
+  NEWHOPE
+  EMPIRE
+  JEDI
+}
+```
+
+## GraphQL Questions
+
+**Explain the core differences between GraphQL and REST.**
+Look for explanations on how GraphQL allows clients to request exactly what they need, how it can
+aggregate data from multiple sources, and the differences in how data is accessed and modified
+(using queries, mutations, and subscriptions in GraphQL).
+
+**How does GraphQL improve performance for client applications?**
+Expect insights on reduced over-fetching and under-fetching of data, fewer
+network requests due to aggregated queries, and the ability to tailor responses
+to the needs of the client.
+
+**Can you describe the process of setting up a GraphQL client with a popular**
+**framework like React, Vue, or Angular?**
+Look for familiarity with libraries
+such as Apollo Client or Relay, setting up the GraphQL client, connecting to a
+GraphQL API, and handling state management.
+
+**How do you handle authentication and authorization in a GraphQL API?**
+Candidates should discuss methods for securing a GraphQL API, including
+token-based authentication (like JWT) and how authorization logic can be
+integrated into the GraphQL server (e.g., schema directives, resolver
+functions).
+
+**What are some challenges you might face when integrating GraphQL into an existing project and how would you overcome them?** 
+Answers could include
+dealing with legacy systems, migrating from RESTful services to GraphQL,
+performance implications, and strategies for incrementally adopting GraphQL.
+
+**Explain the concept of Schema Definition Language (SDL) in GraphQL.** 
+Expect explanations on how SDL is used to define the shape of data available through a
+GraphQL API, including types, queries, mutations, and subscriptions.
+
+**How do you optimize GraphQL queries to improve performance and reduce load on the server?**
+Look for strategies like query batching, caching, persisting
+queries, using DataLoader for batching and caching database requests, and
+avoiding N+1 queries.
+
+**Discuss the role of resolvers in a GraphQL server and how you might implement them.**
+Candidates should explain how resolvers provide the mechanism for
+fetching the data for a specific field in the schema, how they can be composed
+to retrieve data from various sources, and considerations for performance and
+error handling.
+
+**How can you implement real-time functionality in a GraphQL application?**
+Expect discussions on using subscriptions in GraphQL, setting up a WebSocket
+connection for real-time updates, and considerations for scaling real-time
+functionality.
+
+**What tools and techniques do you use for testing GraphQL APIs?**
+Look for familiarity with tools like Apollo's GraphiQL, Postman, or Insomnia for manual
+testing, as well as approaches for unit and integration testing of GraphQL
+queries, mutations, and subscriptions.
