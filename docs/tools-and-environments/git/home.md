@@ -1,3 +1,6 @@
+---
+title: Git Notes
+---
 
 # Git Notes
 
@@ -108,3 +111,11 @@ You can also do a rebase if you want to clean-up the code
 
 ### Git Worktree
 
+### Adding an Empty Commit
+Sometimes you might want to create an empty commit, which is a commit that doesn't change any files but can be useful for triggering CI/CD pipelines or marking a point in history.
+
+```sh
+git commit --allow-empty -m "This is an empty commit"
+```
+
+This command creates a commit with the specified message but without any changes to the files.
