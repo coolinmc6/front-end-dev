@@ -422,4 +422,103 @@ Here is a quick summary of Apollo Client's error handling:
 - Use an `onError` link for global handling (logging, custom redirects, etc.)​
 - Use `RetryLink` to automatically retry transient errors with backoff, improving the reliability of network calls.
 
+## Apollo Links
 
+### Introduction to Apollo Links
+- Apollo Client links are modular components (functions) that customize the flow of data between 
+a web app's Apollo Client and the GraphQL server.
+- You can think of links as a middleware pipeline for GraphQL operations (queries,
+mutations, subscriptions)​. Each link in the chain can inspect, modify, or act on a
+request before it is sent, and likewise handle the response after it returns.
+- By default, Apollo Client uses a built-in HTTP link to send requests over HTTP​,
+but the link system lets you swap in different behavior or add extra capabilities (such
+as authentication, error handling, batching, etc.) by composing multiple links.
+- In a link chain, the operations flow from one link to the next (**order is important**)
+with the last link in the chain being the **terminating link** which actually sends the link
+- When instantiating your ApolloClient, you would include it there:
+
+```js
+import { ApolloClient, InMemoryCache, HttpLink, from } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
+
+const httpLink = new HttpLink({ uri: "http://localhost:4000/graphql" });
+
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors) {
+    console.log(`[GraphQL errors]:`, graphQLErrors);
+  }
+  if (networkError) {
+    console.log(`[Network error]: ${networkError}`);
+  }
+});
+
+// Notice that httpLink is last
+const client = new ApolloClient({
+  link: from([errorLink, httpLink]),
+  cache: new InMemoryCache()
+});
+```
+
+### Creating a Custom Logging Link
+- before I go too far into Apollo Links, I want to show how we'd build a custom link.
+By now, it's clear that **Apollo Links** are something a bit different. It's not just
+some helper function, they have a specific format. The two examples above use `@apollo/client`
+functions `onError` and `HttpLink`. 
+- Let's create a basic custom link that uses a generic analytics library `@/lib/analytics`
+to log events. Here are the basic steps:
+  - import the required modules (again - we need `ApolloLink` from `@apollo/client`)
+  - create the new ApolloLink instance
+  - Log the relevant details
+  - Forward the request
+  - Include the link the Apollo Client setup
+
+```js
+// #1. Required Imports
+import { ApolloLink } from "@apollo/client";
+import { logEvent } from "@/lib/analytics"; // Fake custom module to log events
+
+// #2. Create the ApolloLink instance
+export const loggingLink = new ApolloLink((operation, forward) => {
+  const startTime = Date.now(); 
+
+  const { operationName, variables, query } = operation;
+  const operationType = query.definitions[0].operation; // "query", "mutation", "subscription"
+
+  // #3. Log the relevant details
+  logEvent("GraphQL Operation Sent", {
+    operationName,
+    operationType,
+    variables
+  });
+
+  // #4. Forward the request
+  return forward(operation).map((response) => {
+    const endTime = Date.now();
+    const duration = endTime - startTime;
+
+    // Log the response details
+    logEvent("GraphQL Operation Completed", {
+      operationName,
+      operationType,
+      duration, // Log execution time
+      success: !response.errors, // Determine if the operation succeeded
+      errors: response.errors || null, // Capture any errors
+    });
+
+    return response; // Pass the response along the chain
+  });
+});
+```
+- And then in our instantiation of ApolloClient:
+
+```js
+const client = new ApolloClient({
+  link: from([loggingLink, errorLink, httpLink]),
+  cache: new InMemoryCache(),
+});
+```
+:::tip[Code Note]
+
+This is probably not best practice, especially if `logEvents` is async. I just wanted to show an example of ApolloLink.
+
+:::
