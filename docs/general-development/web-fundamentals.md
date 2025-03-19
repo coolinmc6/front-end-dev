@@ -1,6 +1,5 @@
 ---
 title: Web Fundamentals
-sidebar_position: 1
 ---
 
 # Web Fundamentals
