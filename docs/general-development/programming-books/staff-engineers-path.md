@@ -41,6 +41,35 @@ doing great work on something that becomes irrelevant is okay because you don't 
 pick your work - at the Staff level, you don't have that luxury.
 - **Task / Homework**: write out my understanding of my job and share it with your manager
 
+### Three Maps
+
+- The "Three Maps" are:
+
+- **Locator Map**: your place in the org
+> Your locator map can help you make sure the teams you work with really
+> understand their purpose in the organization, who their customers are,
+> and how their work affects other people.
+
+- **Topological Map**: knowing the terrain
+> Your topographical map can help highlight the friction and gaps between
+> teams and open up the paths of communication.
+
+- **Treasure Map**: destination and some points on how to get there
+> Your treasure map can help you make sure everyone knows exactly what
+> they’re trying to achieve and why.
+
+- Do you understand how decisions are made in your organization?
+
+**Recap**
+- Practice the skills of intentionally looking for a bigger picture and seeing
+what’s happening.
+- Understand your work in context: know your customers, talk with peers
+outside your group, understand your success metrics, and be clear on
+what’s actually important.
+- Know how your organization works and how decisions get made within it.
+- Build or discover paths to allow information you need to come to you.
+- Be clear about what goals everyone is aiming for.
+- Think about your own work and what your journey is.
 
 ## Part II: Execution
 
