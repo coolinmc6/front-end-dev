@@ -49,7 +49,7 @@ fruits[0] = 'pear'; // Error: Index signature in type 'readonly ["apple", "banan
 
 [[↑] Back to top](#top)
 
-**Routes `as const` Example**
+#### Routes `as const` Example
 
 **CM: I love this, super useful for routes**
 
@@ -70,11 +70,11 @@ routes.ABOUT;
 And now if you look at what happens in VS Code, I can hover over `routes.ABOUT` and see the full
 route:
 
-Routes as const - ../../assets/routes-as-const.png - fix asset path
+![Routes as const](../../../static/img/routes-as-const.png)
 
 [[↑] Back to top](#top)
 
-**Interface `as const` Example**
+#### Interface `as const` Example
 
 - Here's another example:
 
@@ -117,7 +117,7 @@ interface UserTypeResponse {
   this example) was the league type (e.g. `NFL` or `NBA`) and then the team city (e.g. `PHILADELPHIA` or `NEW YORK`).
 - So the object would look something like this with simple JavaScript:
 
-```js
+```ts
 const NFL = "NFL";
 const NBA = "NBA";
 
@@ -161,6 +161,30 @@ export type Leagues = {
 };
 
 export type LeaguesMap = Map<Leagues, TeamObject[]>;
+```
+
+#### Typing a Reducer
+
+- Here is an example for a reducer (React's `useReducer`) where I wanted two main types,
+`TOGGLE_CELL` and `TOGGLE_CONSTRAINT`, but every time I did `{ type: TOGGLE_CELL; ...}` it
+would give me an error. I created separate types for each and then could build it out
+
+```ts
+export const TOGGLE_CELL = 'TOGGLE_CELL';
+export const TOGGLE_CONSTRAINT = 'TOGGLE_CONSTRAINT';
+
+// Use `typeof` to create types from the constants
+type ToggleCellActionType = typeof TOGGLE_CELL;
+type ToggleConstraintActionType = typeof TOGGLE_CONSTRAINT;
+
+export type Action =
+  | { type: ToggleCellActionType; rowIndex: number; cellIndex: number }
+  | {
+      type: ToggleConstraintActionType;
+      rowIndex: number;
+      cellIndex: number;
+      direction: Direction;
+    };
 ```
 
 ### Pick
