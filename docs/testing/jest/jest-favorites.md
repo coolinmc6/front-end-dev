@@ -272,6 +272,48 @@ MUI component and then the Jest selector:
 const password = screen.getByTestId('password')
 ```
 
-### Next Steps
+## Common Issues
+
+### Deep Dive: Multiple Selectors
+
+There was an issue where an unrelated part of the code had a test failing as a result of my change.
+It took a while to find the issue but here is a brief summary of what happened:
+- **I removed a loading state from an early return**: there were two queries previously in that 
+component; I moved the second to a child component to clean up the larger one. Previously, both
+queries had to be loaded to display anything - this was not the best UX because the second query
+was both slow and not relevant to most users...it was just a drag on performance
+- **The test was failing to load something:** the issue was that the test, which worked before, 
+suddenly stopped working. The piece of data that was failing to load didn't seem to have any
+relation to the data that I moved to the child component.
+- **When I added the loading state back, it worked**: by adding the loading state back, it somehow
+allowed the test to work. That didn't seem right because the main component did NOT need any of the
+data from the child component's query. Something wasn't adding up.
+- to troubleshoot this, we dug into the components in question - we seemed to have the correct state
+of the app, but it wasn't working.
+- **Conclusion:** we saw that it WAS finding a button and something was getting clicked but not
+OUR button - the button we wanted. We noticed that the selector for Jest was too broad - it was
+using a Regex to search for a short string that ALSO existed in another button. So a button was
+being clicked but the WRONG button.
+- We had to change this:
+
+```tsx
+const button = await screen.findByRole('button', {
+  name: /text/i,
+})
+await userEvent.click(button)
+```
+- to this:
+
+```tsx
+const button = await screen.findByRole('button', {
+  name: 'Text',
+})
+await userEvent.click(button)
+```
+
+- now instead of looking for a button that had the string `"text"` in it, we wanted only the one button
+we wanted that matched this text and casing and only had `"Text"`. It worked
+
+## Wish List
 
 - `renderHook` - get some examples and understand how to use it

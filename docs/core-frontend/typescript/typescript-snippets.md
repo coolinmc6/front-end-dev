@@ -1,3 +1,9 @@
+---
+title: TypeScript Snippets
+# outline header level
+toc_max_heading_level: 4
+---
+
 # TypeScript Snippets
 
 ## General TypeScript

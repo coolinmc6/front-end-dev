@@ -35,6 +35,116 @@ return (
 
 ## Advanced
 
+### Render Props useEffect: Headless UI
+
+I was trying to solve an issue where I needed to know whether a Popover was open or not. If
+it was open, I'd refetch my query.
+
+This is Solution #1:
+
+```jsx
+import { Popover } from '@headlessui/react';
+import { useQuery } from '@apollo/client';
+import { USER_PROFILE_QUERY } from './queries';
+import { useEffect } from 'react';
+
+function UserProfileMenu() {
+  const { data, refetch } = useQuery(USER_PROFILE_QUERY, {
+    skip: true, // Don't auto-run on mount
+  });
+
+  return (
+    <Popover>
+      {({ open }) => {
+        useEffect(() => {
+          if (open) {
+            refetch();
+          }
+        }, [open]);
+
+        return (
+          <>
+            <Popover.Button>
+              {/* Avatar, initials, etc. */}
+              <span>Profile</span>
+            </Popover.Button>
+
+            <Popover.Panel className="z-50 mt-2 rounded-lg shadow-lg bg-white">
+              {/* You can safely use `data` here */}
+              <div className="p-4">
+                {data ? (
+                  <p>Hello, {data.user.name}!</p>
+                ) : (
+                  <p>Loading...</p>
+                )}
+              </div>
+            </Popover.Panel>
+          </>
+        );
+      }}
+    </Popover>
+  );
+}
+```
+
+This issue with this is that using a `useEffect` inside the render props pattern is not
+always the most stable. My second solution was to use state at the top-level and then
+set a variable `popoverIsOpen` inside the render props. Again, not a super stable pattern
+because you are setting state inside the render. 
+
+This is what I ended up with:
+
+```jsx
+import { Popover } from '@headlessui/react';
+import { useQuery } from '@apollo/client';
+import { USER_PROFILE_QUERY } from './queries';
+import { useEffect } from 'react';
+
+function UserProfileMenu() {
+  const { data, refetch } = useQuery(USER_PROFILE_QUERY, {
+    skip: true, // Don't auto-run on mount
+  });
+
+  return (
+    <Popover>
+      {({ open }) => {
+        return (
+          <>
+            <RefetchProfile refetch={refetch}>
+            <Popover.Button>
+              <span>Profile</span>
+            </Popover.Button>
+
+            <Popover.Panel className="z-50 mt-2 rounded-lg shadow-lg bg-white">
+              <div className="p-4">
+                {data ? (
+                  <p>Hello, {data.user.name}!</p>
+                ) : (
+                  <p>Loading...</p>
+                )}
+              </div>
+            </Popover.Panel>
+          </>
+        );
+      }}
+    </Popover>
+  );
+}
+
+const RefetchProfile = ({ refetch }) => {
+  useEffect(() => {
+    refetch()
+  }, [refetch])
+
+  return null
+}
+```
+
+We then had to refactor it even more and instead of rendering that little component that would
+just refetch, we added `unmount` to the Popover.Panel which when it is not displayed, is no
+longer in the DOM. Then contents of the popover were in a separate component and we passed
+refetch in as a prop. 
+
 ### Passing Props to Dynamic Child
 I was working on a feature where there were 6 different types of the same thing. Each of the different types
 have a title and must query the backend. I decided to create a parent component where I show the title, 
