@@ -5,7 +5,7 @@ toc_max_heading_level: 4
 
 # Package Managers
 
-## Introduction - TBD
+## Introduction
 
 ### What is a Package?
 
