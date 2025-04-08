@@ -4,7 +4,11 @@
     "baseUrl": ".",
     "target": "ES6",
     "module": "ES2015",
-    "strict": true
+    "strict": true,
+    "paths": {
+      "@/": ["src/*"],
+      "@pages/": ["src/pages/*"]
+    }
   },
   "exclude": [".docusaurus", "build"]
 }
