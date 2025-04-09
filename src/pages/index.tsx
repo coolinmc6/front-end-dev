@@ -8,7 +8,6 @@ import styles from './index.module.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
-  console.log(siteConfig)
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
@@ -29,7 +28,9 @@ export default function Home() {
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
-
+        <div className="p-4">
+          <Link to="/context">Context Work</Link>
+        </div>
       </main>
     </Layout>
   );
