@@ -1,9 +1,12 @@
 import CustomLayout from '../CustomLayout'
 import Link from '@docusaurus/Link';
+import CodeBlock from '@theme/CodeBlock';
 
 const contextLinks = [
   { title: 'Basic Context', level: 1, link: '/context/basic-context', inProgress: false },
-  { title: 'Guarded Context', level: 2, link: '/context/guarded-context', inProgress: true }
+  { title: 'Guarded Context', level: 2, link: '/context/guarded-context', inProgress: false },
+  { title: 'Split Context', level: 3, link: '/context/split-context', inProgress: false },
+  { title: 'Context Factory', level: 5, link: '/context/context-factory', inProgress: true }
 ]
 
 export const ContextLink = ({ index }: { index: number }) => {
@@ -57,6 +60,33 @@ export default function Context() {
           If you look at the file for <ContextLink index={0} /> you can see that there
           are some red squigglies - TypeScript doesn't like it. The reason is that my
           context could be <code>null</code>. In level 2, we fix that.
+        </p>
+        <p>
+          The file for <ContextLink index={1} /> looks quite similar to the first one (because
+          TypeScript won't build the app if it's wrong) but it has a guard. This is a safe context
+          usage.
+        </p>
+        <p>
+          The <ContextLink index={2} /> is a good pattern. I've combined Levels 3 & 4 because Level 4
+          is just Level 3 with safe reference to the context.
+        </p>
+        <p>
+          The <ContextLink index={3} /> context is interesting. I like that it allows me to pretty quickly
+          create a brand new context. Once you finish the factory, here is how I quickly spun up a new
+          counter context:
+        </p>
+        <CodeBlock language="tsx" showLineNumbers>
+          {`import { createSafeContext } from "./context-factory"
+          
+type CounterState = {
+  count: number;
+}
+          
+export const [FactoryCounterProvider, useCounter] = createSafeContext<CounterState>('Counter')`}
+        </CodeBlock>
+        <p>
+          And then to use it, it's just like a custom context. I wrap my target component in the provider
+          and then use my custom hook in the component that needs it.
         </p>
       </div>
     </CustomLayout>
