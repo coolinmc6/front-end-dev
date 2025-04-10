@@ -1,0 +1,78 @@
+# Recipe Display
+
+
+## Centering a Box (both vertically and horizontally)
+
+<div className="flex items-center justify-center h-64 border-2">
+  <div className="w-32 h-32 bg-blue-500" />
+</div>
+
+## Space Between Items Horizontally
+
+<div className="flex justify-between border-2 p-4">
+  <div className="border-2">Left</div>
+  <div className="border-2">Right</div>
+</div>
+
+## Reverse the Order of Items
+
+**Without Row Reverse**
+
+<div className="flex space-x-4 p-4 border-2">
+  <div className="border-2">First</div>
+  <div className="border-2">Second</div>
+</div>
+
+**With Row Reverse**
+
+<div className="flex flex-row-reverse space-x-reverse space-x-4 p-4 border-2">
+  <div className="border-2">First</div>
+  <div className="border-2">Second</div>
+</div>
+
+## Sidebar Layout
+
+<div className="flex h-screen">
+  <aside className="w-64 bg-gray-200">Sidebar</aside>
+  <main className="flex-1 bg-white">Main Content</main>
+</div>
+
+
+## Equal-Height Columns
+
+<div className="flex space-x-4">
+  <div className="flex-1 bg-green-100">Short</div>
+  <div className="flex-1 bg-green-200">
+    Tall<br />Content<br />Here
+  </div>
+</div>
+
+
+## Prevent Item from Growing
+
+
+<div className="flex">
+  <div className="shrink-0 w-32 bg-red-200">Fixed</div>
+  <div className="flex-1 bg-red-100">Flexible</div>
+</div>
+
+
+## Align a Button to the Bottom of a Card
+
+<div className="flex flex-col h-64 border p-4">
+  <div className="flex-1">Card content</div>
+  <button className="btn mt-4">Action</button>
+</div>
+
+
+
+## Align Items in a Navigation Bar
+
+<div className="flex justify-between items-center px-4 py-2 bg-gray-800 text-white">
+  <div>Logo</div>
+  <div className="flex space-x-4">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+  </div>
+</div>
+
