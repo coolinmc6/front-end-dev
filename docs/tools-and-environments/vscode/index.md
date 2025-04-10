@@ -4,6 +4,8 @@ title: VS Code
 
 # VS Code
 
+## General Tips
+
 **Adding a Snippet**
 
 1. Cmd+Shift+P
@@ -13,17 +15,15 @@ title: VS Code
 
 ```json
 {
-	// Place your snippets for <language> here
-	"snippetName": {
-		"prefix": "trigger",
-		"body": [
-			"const ${1:variableName} = ${2:value};",
-			"$3"
-		],
-		"description": "description here"
-	}
+  // Place your snippets for <language> here
+  "snippetName": {
+    "prefix": "trigger",
+    "body": ["const ${1:variableName} = ${2:value};", "$3"],
+    "description": "description here"
+  }
 }
 ```
+
 - Here's a `forEach` loop example:
 
 ```json
