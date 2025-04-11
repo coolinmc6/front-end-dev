@@ -67,6 +67,31 @@ git revert 75e7912
 git push
 ```
 
+#### Reverting a merge commit
+
+Merge commits are a special case. If you're trying to revert a merge commit, this is what
+you need to do:
+
+```sh
+git revert git_sha -m 1
+```
+
+The first part, `git revert git_sha`, makes sense. It's the second part, `-m 1`, that is tricky.
+The `-m` flag is only used when reverting a merge commit. `-m` stands for "mainline", and the
+number (usually `1` or `2`) tells Git which parent to treat as the base.
+
+Here is how you can visualize it - merge commits have two parents: 
+
+```sh
+Merge commit
+│
+├── Parent 1 (usually the base branch)
+└── Parent 2 (usually the feature branch)
+```
+
+`-m 1` treats Parent 1 as the main line. And this command `git revert git_sha -m 1` keeps
+everything from main before the merge, but undoes the changes introduced by the PR.
+
 ### List the commits in the current branch vs. another branch
 
 I found this trying to understand why there were so many commits in my branch (more than usual).
