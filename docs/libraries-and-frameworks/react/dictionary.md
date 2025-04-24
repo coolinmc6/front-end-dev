@@ -1,5 +1,5 @@
 ---
-title: React Dictionary
+title: Dictionary
 description: Basic definitions and explanations of React's terms
 ---
 

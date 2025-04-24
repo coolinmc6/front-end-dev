@@ -1,4 +1,4 @@
-import ContextPageWrapper from '../../components/context/components/ContextPageWrapper'
+import ContextLayout from './ContextLayout';
 import { CounterProvider, useCounterDispatch, useCounterState } from '../../components/context/level03/counter-context-l3'
 
 
@@ -24,12 +24,11 @@ const ComponentThatNeedsDispatchContext = () => {
 
 export default function SplitContext() {
   return (
-    <ContextPageWrapper>
-      <h1>Split Context</h1>
+    <ContextLayout title="Split Context">
       <CounterProvider>
         <ComponentThatNeedsStateContext />
         <ComponentThatNeedsDispatchContext />
       </CounterProvider>
-    </ContextPageWrapper>
+    </ContextLayout>
   )
 }

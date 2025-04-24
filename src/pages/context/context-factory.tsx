@@ -1,4 +1,4 @@
-import ContextPageWrapper from '../../components/context/components/ContextPageWrapper'
+import ContextLayout from './ContextLayout';
 import { useState } from 'react'
 import { FactoryCounterProvider, useCounter } from '../../components/context/level05/counter-context-l5'
 import { CounterProvider as CounterProvider2, useCounter as useCounter2 } from '../../components/context/level05/counter-context-v2-l5'
@@ -37,17 +37,14 @@ function CounterProvider({ children }: { children: React.ReactNode }) {
 
 
 export default function ContextFactory() {
-
-
   return (
-    <ContextPageWrapper>
-      <h1>Context Factory</h1>
+    <ContextLayout title="Context Factory">
       <CounterProvider>
         <ComponentThatNeedsCounter />
       </CounterProvider>
       <CounterProvider2>
         <ComponentThatNeedsCounter2 />
       </CounterProvider2>
-    </ContextPageWrapper>
-  )
+    </ContextLayout>
+  );
 }

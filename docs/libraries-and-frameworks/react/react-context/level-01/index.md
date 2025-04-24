@@ -19,3 +19,5 @@ export function CountProvider({ children }) {
 
 export const useCount = () => useContext(CountContext);
 ```
+
+See an example [here](/context/basic-context)

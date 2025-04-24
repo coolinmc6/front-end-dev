@@ -1,4 +1,4 @@
-# React Recipes
+# Recipes
 
 The goal of this page is to have some of my favorite recipes in React that can be
 copy-pasted as a good baseline.
