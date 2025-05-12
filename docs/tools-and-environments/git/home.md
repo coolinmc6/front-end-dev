@@ -9,6 +9,7 @@ title: Git Notes
 - [Cool Git Commands](#cool-git-commands)
   - [Merge Main into Your Branch](#merge-main-into-your-branch)
   - [Squash Commits](#squash-commits)
+  - [Reset to Origin Branch](#reset-to-origin-branch)
   - [Reset to the Last Commit](#reset-to-the-last-commit)
   - [Reverting a Commit](#reverting-a-commit)
   - [List the Commits in the Current Branch vs. Another Branch](#list-the-commits-in-the-current-branch-vs-another-branch)
@@ -47,7 +48,18 @@ by choosing `pick` and which ones to toss by selecting `squash`.
 - You then pick the messages you want to keep. You can write a new message OR just comment out the old ones
 with `#` next to it and just leave one message.
 
+### Reset to Origin Branch
+
+Sometimes I just want to pull whatever is on a particular branch, regardless of what I
+have locally. Here is an example of hard pulling the `staging` branch:
+
+```bash
+# resets to whatever is on origin/staging
+git reset --hard origin/staging
+```
+
 ### Reset to the last commit
+
 ```sh
 # reset to the last commit; gets rid of all local changes
 git reset --hard
