@@ -3,7 +3,20 @@ title: General Notes
 sidebar_position: 1
 ---
 
-# Performance - BULK NOTES
+# General React Notes
+
+## Hooks to Know
+
+### useCallback
+
+**Articles**
+- https://coderpad.io/blog/development/a-guide-to-using-reacts-usecallback-hook/
+
+### useOptimistic
+
+## Random
+
+### Performance - BULK NOTES
 
 Here are some things to keep in mind regarding React performance:
 
@@ -27,17 +40,11 @@ load time.
 - Monitor Performance - Use profiling tools like React DevTools Profiler to find and fix bottlenecks.
 - Avoid Anti-Patterns - Avoid common anti-patterns like props in initial state, improper keys, redundant checks, etc.
 
-## useCallback
-
-**Articles**
-- https://coderpad.io/blog/development/a-guide-to-using-reacts-usecallback-hook/
-
-
-## React Anti-Patterns
+### React Anti-Patterns
 
 Links:
 - https://www.perssondennis.com/articles/react-anti-patterns-and-best-practices-dos-and-donts
 - https://yosua-halim.medium.com/10-react-anti-patterns-you-should-know-300256bfb007
 
 
-## Suspense
+### Suspense
