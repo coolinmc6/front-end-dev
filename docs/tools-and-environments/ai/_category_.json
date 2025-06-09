@@ -1,0 +1,8 @@
+{
+  "label": "AI & Machine Learning",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Artificial Intelligence tools, libraries, and integration patterns for front-end development."
+  }
+}
