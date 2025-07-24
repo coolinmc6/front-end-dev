@@ -231,6 +231,173 @@ const userIds: Set<number> = new Set();
 
 ### 18. Type Checking Maps
 
-Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/essential-types-and-notations/type-checking-maps
+```ts
+interface User {
+  name: string;
+  age: number;
+}
+
+// key = number, value = User
+const userMap: Map<number, User> = new Map();
+
+userMap.set(1, { name: "Max", age: 30 });
+userMap.set(2, { name: "Manuel", age: 31 });
+```
+
+### 19. Debugging JSON Parsing
+
+- the trick here is knowing that JSON.parse does not take any type arguments. So putting a
+  type between the `<>` doesn't do anything.
+
+```ts
+const parsedData = JSON.parse<{
+  name: string;
+  age: number;
+}>('{"name": "Alice", "age": 30}');
+```
+
+- but we can just give a type to parseData as such:
+
+```ts
+const parsedData: {
+  name: string;
+  age: number;
+} = JSON.parse('{"name": "Alice", "age": 30}');
+```
+
+(this module is #30 of 221)
+
+### 20. Typing Fetch API Responses in Async Functions
+
+- the question: How do I type (as a `number`) the data variable?
+
+```ts
+async function fetchData() {
+  const response = await fetch("https://api.example.com/data");
+  const data = await response.json();
+  return data;
+}
+
+const example = async () => {
+  const data = await fetchData();
+
+  type test = Expect<Equal<typeof data, number>>;
+};
+```
+
+- I could just add a type when I am getting the data from the `await response.json`:
+
+```ts
+const data: number = await response.json();
+```
+
+- He recommends adding a return type which is where I can use the `Promise` type:
+
+```ts
+async function fetchData(): Promise<number> {
+  const response = await fetch("https://api.example.com/data");
+  const data = await response.json();
+  return data;
+}
+```
+
+- **REMEMBER THIS**: I like this
 
 ## Integrated Development Environments Superpowers
+
+### 1. Understanding How TypeScript Works in Your IDE
+
+- Great description of what is going on when you run TypeScript in a repo:
+
+![TS Server](/img/ts-server.png)
+
+### 2. Introspecting Variables and Declarations in TypeScript
+
+- hover over stuff for info (types, errors, etc.)
+- use the metadata TS gives you
+
+### 3. Hovering Over a Function Call
+
+- again - hover over stuff - there is a lot of great information that is provided by the IDE / TS
+  to help you understand what you are doing. Not just for your functions but items like `document.getElementById()`
+  for example
+
+### 4. Adding Documentation for Hovers
+
+- You can use JSDoc to add comments
+
+### 5. Manually Triggering Autocomplete
+
+- `^` + `Space` (Ctrl + Space)
+- **REMEMBER THIS:** super cool
+
+### 6. TypeScript's Approach to Errors
+
+- worth a watch - good to understand how TS does errors
+
+### 7. Quick Renaming in VS Code
+
+- if you want to rename a particular variable, you can right click on it and click
+  "Rename Symbol". It does it better than `CMD + D` which could grab all variables or even
+  parts of variables that happen to match that particular sequence of letters
+
+### 8. Navigating Code with "Go to Definition"
+
+- this is the `CMD` + click on a function and it takes you there
+
+### 9. Fast Imports in VS Code
+
+- `CMD` + `.` to pull up suggestions like "Add All Missing Imports"
+
+### 10. Organizing Imports in Large Files
+
+- `Shift` + `Opt` + `O` to fix all imports
+
+### 11. Quick Fix Refactoring
+
+- `CMD` + `.` is again the hero here - **REMEMBER THIS**
+
+### 12. Automatic Code Formatting with Prettier
+
+### 13. Restarting the TypeScript Server in VS Code
+
+- `CMD` + `Shift` + `P` to open the Command Pallette and look for "Restart TS Server"
+
+## Unions and Narrowing
+
+### 1. Handling Null Values in TypeScript
+
+- This character, `|`, is the or operator in TS and creates a Union
+
+### 2. Diving Deeper into Unions and Assignability
+
+### 3. Restricting Function Parameters
+
+- instead of just `direction: string` you can specify the strings that direction can be.
+  So now it would be:
+
+```ts
+function move(direction: "up" | "down" | "left" | "right", distance: number) {}
+```
+
+- and obviously you can break the 4 strings into its own type called `Direction`
+
+### 4. Literal Type Assignability
+
+### 5. Combining Union Types in TypeScript
+
+- use `|` to combine types as well (not just string literals)
+
+### 6. How Big Can a Union Be?
+
+### 7. Resolving Literal Types to Wider Types
+
+### 8. Narrowing Unions with `typeof`
+
+- Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/unions-and-narrowing/narrowing-unions-with-typeof
+
+## Objects
+
+## Mutability
+
+## TypeScript Classes
