@@ -394,7 +394,237 @@ function move(direction: "up" | "down" | "left" | "right", distance: number) {}
 
 ### 8. Narrowing Unions with `typeof`
 
-- Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/unions-and-narrowing/narrowing-unions-with-typeof
+- scopes are very important and you can use `typeof variableName` to narrow down a type
+  for a particular variable
+
+### 9. Conditional Narrowing in TypeScript
+
+This is what we're trying to solve:
+
+```ts
+function validateUsername(username: string | null): boolean {
+  // Rewrite this function to make the error go away
+  return username.length > 5;
+
+  return false;
+}
+```
+
+We can check that username is a string:
+
+```ts
+function validateUsername(username: string | null): boolean {
+  if (typeof username === "string") {
+    return username.length > 5;
+  }
+
+  return false;
+}
+```
+
+OR that username exists:
+
+```ts
+function validateUsername(username: string | null): boolean {
+  if (username) {
+    return username.length > 5;
+  }
+
+  return false;
+}
+```
+
+OR that whether it is NOT a string:
+
+```ts
+function validateUsername(username: string | null): boolean {
+  if (typeof username !== "string") {
+    return false;
+  }
+  return username.length > 5;
+}
+```
+
+OR we can chat that username is not null (typeof object):
+
+```ts
+function validateUsername(username: string | null): boolean {
+  if (typeof username === "object") {
+    return false;
+  }
+  return username.length > 5;
+}
+```
+
+(finished 54 of 221)
+
+### 10. Narrowing with Boolean Won't Work
+
+### 11. Gotchas When Narrowing a Map in TypeScript
+
+```ts
+type Event = {
+  message: string;
+};
+
+const processUserMap = (eventMap: Map<string, Event>) => {
+  if (eventMap.has("error")) {
+    // TS error on the eventMap.get("error") saying Object could be null
+    const message = eventMap.get("error").message;
+
+    throw new Error(message);
+  }
+};
+```
+
+- TypeScript doesn't really understand the connection between `.has()` and `.get()`. To fix
+  this, you can instead do something like this:
+
+```ts
+type Event = {
+  message: string;
+};
+
+const processUserMap = (eventMap: Map<string, Event>) => {
+  const event = eventMap.get("error");
+  if (event) {
+    const message = event.message;
+
+    throw new Error(message);
+  }
+};
+```
+
+### 12. Narrowing by Throwing Errors
+
+- I have before seen the idea of `throw new Error()` as almost like a "nice-to-have" but
+  not necessary. This is a different way of thinking about it.
+- In the example below, we **know** that the `app` element must be there. If it is not there,
+  we probably can't render anything. So by throwing an error if it is null, while it MAY never happen
+  in production, it does give TypeScript the ability to know that the element won't be null by the time
+  it reaches the next line of code.
+
+```ts
+const appElement = document.getElementById("app");
+
+// This satisfies TS and now we can confidently use appElement
+if (!appElement) {
+  throw new Error("App element not found");
+}
+
+type Test = Expect<Equal<typeof appElement, HTMLElement>>;
+```
+
+### 13. Narrowing with `in` Statements
+
+- I like this as well. I've used this syntax a few times but not super frequently.
+- Because APIResponse can be one of two different objects, we can't assume that `data`
+  is there. So we look for it...
+
+```ts
+type APIResponse =
+  | {
+      data: {
+        id: string;
+      };
+    }
+  | {
+      error: string;
+    };
+
+const handleResponse = (response: APIResponse) => {
+  // How do we check if 'data' is in the response?
+  if ("data" in response) {
+    return response.data.id;
+  } else {
+    throw new Error(response.error);
+  }
+};
+```
+
+### 14. Introducing the Unknown Type in TypeScript
+
+- `unknown` is the top type - represents everything in TypeScript
+- it is **not** the same as `any`
+
+### 15. Dealing with Unknown Errors in TypeScript
+
+```ts
+const somethingDangerous = () => {
+  if (Math.random() > 0.5) {
+    throw new Error("Something went wrong");
+  }
+
+  return "all good";
+};
+
+// Okay Solution #1
+try {
+  somethingDangerous();
+} catch (error) {
+  // Need to check that it is an object
+  // BUT because null is also an object I have to check it exists
+  if (typeof error === 'object' && error && 'message' in error) {
+    console.error(error.message);
+  }
+}
+// Good solution
+try {
+  somethingDangerous();
+} catch (error) {
+  if (error instanceOf Error) {
+    console.error(error.message);
+  } else {
+    throw error
+  }
+}
+```
+
+### 15. Narrowing Unknown in a Large Conditional Statement
+
+**Exercise**
+
+```ts
+const parseValue = (value: unknown) => {
+  if (true) {
+    return value.data.id;
+  }
+
+  throw new Error("Parsing error!");
+};
+```
+
+**Solution**
+
+- The solution is not at all what I thought it would be. He recommends using a library like
+  Zod but while it seems counterintuitive, the answer to solving this (at least for this exercise)
+  was to just keep checking.
+- To narrow it down so that I could actually return `value.data.id` and have it be a string, I had to
+  check the following:
+  - value was an object
+  - value was not null
+  - value had a `data` property
+  - value.data was of type object
+  - value.data was also not null
+  - value.data had an `id` property
+  - value.data.id was a string
+
+```ts
+export const parseValue = (value: unknown): string => {
+  if (
+    typeof value === "object" &&
+    value !== null &&
+    "data" in value &&
+    typeof value.data === "object" &&
+    value.data !== null &&
+    "id" in value.data &&
+    typeof value.data.id === "string"
+  ) {
+    return value.data.id;
+  }
+  throw new Error("Parsing error!");
+};
+```
 
 ## Objects
 
