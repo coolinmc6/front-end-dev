@@ -580,7 +580,7 @@ try {
 }
 ```
 
-### 15. Narrowing Unknown in a Large Conditional Statement
+### 16. Narrowing Unknown in a Large Conditional Statement
 
 **Exercise**
 
@@ -625,6 +625,120 @@ export const parseValue = (value: unknown): string => {
   throw new Error("Parsing error!");
 };
 ```
+
+### 17. Introducing the `never` Type in TypeScript
+
+A way to read this chart is that anything can be assigned to `unknown` but `unknown` cannot
+be assigned to types below it (.e.g string, object, number, etc). Whereas `never` can be
+assigned to anything.
+
+![Never Type](/img/never-type.png)
+
+As a quick diversion, here are some notes.
+
+- `unknown` is the top type in TypeScript. So what does it mean that anything can be assigned
+  to `unknown` but `unknown` cannot be assigned to anything without a type check?
+
+```ts
+let x: unknown = "hello"; // ok
+let y: string = x; // ❌ Error: Type 'unknown' is not assignable to type 'string'
+if (typeof x === "string") {
+  y = x; // ✅ Works after type check
+}
+```
+
+- `never` is the bottom type in TypeScript. So what does it mean that `never` can be assigned
+  to any type but there are no types that can be assigned to `never`?
+
+```ts
+let n: never;
+let s: string = n; // ✅ fine
+let x: string = "hi";
+n = x; // ❌ Error: Type 'string' is not assignable to type 'never'
+```
+
+- one place that this is useful is in an exhaustive check in a switch statement:
+
+```ts
+type Shape = { kind: "circle" } | { kind: "square" };
+
+function area(shape: Shape) {
+  switch (shape.kind) {
+    case "circle":
+      return 1;
+    case "square":
+      return 2;
+    default:
+      const _exhaustive: never = shape; // if new kind added, error here
+      return _exhaustive;
+  }
+}
+```
+
+💡 **Rule of thumb**:
+
+- Use unknown when you accept anything but want safety before use.
+- Use never for impossible situations, especially in exhaustive type checks.
+
+### 18. Solving the Never Type in TypeScript
+
+- a `never` array can occur if you create an empty array and then later try to add
+  things to it.
+
+```ts
+const shoppingCart = {
+  items: [],
+};
+
+shoppingCart.items.push("Apple"); // TS will throw an error
+```
+
+to fix this, you just create a shoppingCart type
+
+### 19. Narrowing Return Types with TypeScript
+
+### 20. Narrowing in Different Scopes
+
+- This code is giving an error because TypeScript doesn't know if `searchParams.name` is
+  actually there at the time you call it. Something else could have happened. You are going from
+  the scope of the function to within the condition to within the filter.
+
+```ts
+const findUsersByName = (
+  searchParams: { name?: string },
+  users: {
+    id: string;
+    name: string;
+  }[]
+) => {
+  if (searchParams.name) {
+    return users.filter((user) => user.name.includes(searchParams.name)); // ERROR here
+  }
+
+  return users;
+};
+```
+
+To fix it, you just need to this:
+
+```ts
+const findUsersByName = (
+  searchParams: { name?: string },
+  users: {
+    id: string;
+    name: string;
+  }[]
+) => {
+  const name = searchParams.name;
+  if (name) {
+    return users.filter((user) => user.name.includes(name));
+  }
+
+  return users;
+};
+```
+
+Now it can be confident that name, if it exists, is a string in the filter scope
 
 ## Objects
 
