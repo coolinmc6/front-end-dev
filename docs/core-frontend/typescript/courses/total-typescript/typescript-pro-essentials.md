@@ -740,7 +740,111 @@ const findUsersByName = (
 
 Now it can be confident that name, if it exists, is a string in the filter scope
 
+### 21. Reusable Type Guards
+
+### 22. Handling Separate But Related Types
+
+Typescript doesn't like, for example, the `shape.radius` in the circle condition or
+the default return. Let's figure it out:
+
+```ts
+// Problem
+type Shape = {
+  kind: string;
+  radius?: number;
+  sideLength?: number;
+};
+
+function calculateArea(shape: Shape) {
+  if (shape.kind === "circle") {
+    return Math.PI * shape.radius * shape.radius;
+  } else {
+    return shape.sideLength * shape.sideLength;
+  }
+}
+```
+
+To solve this, you need **discriminated unions**. You can do this:
+
+```ts
+type Square = {
+  kind: "square";
+  sideLength: number;
+};
+
+type Circle = {
+  kind: "circle";
+  radius: number;
+};
+
+type Shape = Square | Circle;
+```
+
+In the scenario above, you need some property that is common in both types
+and TypeScript can use that to narrow down which type you are using.
+
+### 23. Destructuring a Discriminated Union in TypeScript
+
+Building off of the last section, the question becomes: how do we structure
+a discriminated union?
+
+```ts
+type Circle = {
+  kind: "circle";
+  radius: number;
+};
+
+type Square = {
+  kind: "square";
+  sideLength: number;
+};
+
+type Shape = Circle | Square;
+
+// Problem: radius and sidelength do not exist on Shape
+function calculateArea({ kind, radius, sideLength }: Shape) {
+  if (kind === "circle") {
+    return Math.PI * radius * radius;
+  } else {
+    return sideLength * sideLength;
+  }
+}
+```
+
+To solve this, you essentially stop trying to destructure at the top level.
+
+```ts
+function calculateArea(shape: Shape) {
+  if (shape.kind === "circle") {
+    const { radius } = shape
+    return Math.PI * radius * radius;
+  } else {
+    const { sideLength } = shape
+    return sideLength * sideLength;
+  }
+```
+
+### 24. Narrowing a Discriminated Union with a Switch
+
+### 25. The Switch (true) Pattern in TypeScript
+
+### 26. Refining Types with Discriminated Union of Tuples
+
+### 27. Discriminated Booleans
+
+### 28. Adding Defaults to a Discriminated Union
+
+### 29. Should You Provide Function Return Types?
+
+- if you have a complicated function and want it to tell you when you have, for example,
+  not handled all the cases in your function, then using a return type can be useful.
+- for simpler functions, relying on the inferred type is often more than good enough
+
 ## Objects
+
+### 1. Extending Objects in TypeScript
+
+Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/objects/extending-objects-in-typescript
 
 ## Mutability
 
