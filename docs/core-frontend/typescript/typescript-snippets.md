@@ -169,28 +169,57 @@ export type Leagues = {
 export type LeaguesMap = Map<Leagues, TeamObject[]>;
 ```
 
-#### Typing a Reducer
+### Indexed Access
 
-- Here is an example for a reducer (React's `useReducer`) where I wanted two main types,
-`TOGGLE_CELL` and `TOGGLE_CONSTRAINT`, but every time I did `{ type: TOGGLE_CELL; ...}` it
-would give me an error. I created separate types for each and then could build it out
+The syntax I've seen a lot looks like this `CustomType['property]` and is called **indexed access**.
+We can't just do `CustomType.property` to set a particular type because you'd be _accessing a value_ on
+an object, not extracting a type. TypeScript types don't exist at runtime so you can't access properties
+on them like objects.
+
+So besides the syntactic reason for using `MyType['someProperty']`, another reason to use this instead of
+going through the hassle of importing whatever type `someProperty` is that it gives you a single
+source of truth. You now just need to import `MyType`. It reduces duplication as well.
+
+The key takeaway is that it really isn't some TypeScript trick or gotcha - you are just using the type
+of some property from your parent type.
 
 ```ts
-export const TOGGLE_CELL = 'TOGGLE_CELL';
-export const TOGGLE_CONSTRAINT = 'TOGGLE_CONSTRAINT';
+// Basic type definition
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  preferences: {
+    theme: "light" | "dark";
+    notifications: boolean;
+  };
+};
 
-// Use `typeof` to create types from the constants
-type ToggleCellActionType = typeof TOGGLE_CELL;
-type ToggleConstraintActionType = typeof TOGGLE_CONSTRAINT;
+// Indexed access examples
+type UserId = User["id"]; // number
+type UserEmail = User["email"]; // string
+type UserTheme = User["preferences"]["theme"]; // 'light' | 'dark'
 
-export type Action =
-  | { type: ToggleCellActionType; rowIndex: number; cellIndex: number }
-  | {
-      type: ToggleConstraintActionType;
-      rowIndex: number;
-      cellIndex: number;
-      direction: Direction;
-    };
+// Multiple properties
+type UserContact = User["name" | "email"]; // string
+
+// Using in function parameters
+function updateUser(
+  userId: User["id"], // number
+  newEmail: User["email"], // string
+  theme: User["preferences"]["theme"] // 'light' | 'dark'
+) {
+  // Function implementation...
+}
+
+// Alternative without indexed access (more verbose)
+function updateUserVerbose(
+  userId: number, // Have to manually keep in sync
+  newEmail: string, // with User type definition
+  theme: "light" | "dark"
+) {
+  // If User type changes, this breaks!
+}
 ```
 
 ### Pick
@@ -217,6 +246,30 @@ type ProductPriceTagProps = Pick<
 ```
 
 So now `ProductPriceTagProps` is a new type that only has the `price`, `isOnSale`, and `salePercentage`.
+
+#### Typing a Reducer
+
+- Here is an example for a reducer (React's `useReducer`) where I wanted two main types,
+  `TOGGLE_CELL` and `TOGGLE_CONSTRAINT`, but every time I did `{ type: TOGGLE_CELL; ...}` it
+  would give me an error. I created separate types for each and then could build it out
+
+```ts
+export const TOGGLE_CELL = "TOGGLE_CELL";
+export const TOGGLE_CONSTRAINT = "TOGGLE_CONSTRAINT";
+
+// Use `typeof` to create types from the constants
+type ToggleCellActionType = typeof TOGGLE_CELL;
+type ToggleConstraintActionType = typeof TOGGLE_CONSTRAINT;
+
+export type Action =
+  | { type: ToggleCellActionType; rowIndex: number; cellIndex: number }
+  | {
+      type: ToggleConstraintActionType;
+      rowIndex: number;
+      cellIndex: number;
+      direction: Direction;
+    };
+```
 
 [[↑] Back to top](#top)
 

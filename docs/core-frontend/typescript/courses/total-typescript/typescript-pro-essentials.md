@@ -844,7 +844,257 @@ function calculateArea(shape: Shape) {
 
 ### 1. Extending Objects in TypeScript
 
-Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/objects/extending-objects-in-typescript
+- You can use `&` to extend objects (add additional properties) to types
+
+### 2. Extend an Object Using Interfaces in TypeScript
+
+We're going to do largely the same thing as before but with interfaces. Starting
+with the code from the last exercise:
+
+```ts
+interface BaseEntity {
+  id: string;
+  createdAt: Date;
+}
+
+interface User extends BaseEntity {
+  name: string;
+  email: string;
+}
+
+interface Product extends BaseEntity {
+  name: string;
+  price: number;
+}
+```
+
+another cool way to do it would be:
+
+```ts
+interface WithId {
+  id: string;
+}
+
+interface WithCreatedAd {
+  createdAt: Date;
+}
+
+interface User extends WithId, WithCreatedAt {
+  name: string;
+  email: string;
+}
+```
+
+### 3. Extending Incompatible Properties
+
+- an interesting situation with using **interface extends** over object intersection
+  is that when you use interfaces, the errors are better when creating a new type or
+  interface. It can tell you _why_ your new type or intersection doesn't work.
+
+### 4. Comparing Intersection Interface Extends in TypeScript
+
+- TypeScript prefers `interface extends` because it can cache the interface whereas with
+  intersections, TypeScript has to compute it on the fly
+
+### 5. Allow Dynamic Keys in TypeScript Types
+
+### 6. Allow Any String Key While Supporting Default Properties
+
+### 7. Supporting Different Types of Keys in TypeScript
+
+`PropertyKey` is a useful type for an object as it is a global type of string, number, or symbol
+and represents all the types that a key for an object could be. Super niche but interesting to know.
+
+### 8. Restricting Object Keys in TypeScript
+
+```ts
+type Configurations = {
+  [Env in Environments]: {
+    apiBaseUrl: string;
+    timeout: number;
+  };
+};
+```
+
+### 9. An Issue with Duplicate Interfaces
+
+### 10. Working with Partial Data from a Type
+
+This is how you slim down a type:
+
+```ts
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
+const fetchUser = async (): Promise<Pick<User, "name" | "email">> => {
+  const response = await fetch("/api/user");
+  const user = await response.json();
+  return user;
+};
+
+const example = async () => {
+  const user = await fetchUser();
+
+  type test = Expect<Equal<typeof user, { name: string; email: string }>>;
+};
+```
+
+### 11. Exclude a Property from an Interface
+
+This is just the opposite of `Pick` and it's called `Omit`:
+
+```ts
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+}
+
+const addProduct = (productInfo: Omit<Product, "id">) => {
+  // Do something with the productInfo
+};
+
+addProduct({
+  name: "Book",
+  price: 12.99,
+  description: "A book about Dragons",
+});
+
+addProduct({
+  // @ts-expect-error
+  id: 1,
+  name: "Book",
+  price: 12.99,
+  description: "A book about Dragons",
+});
+```
+
+### 12. A Quirk of Omit in TypeScript
+
+- You can `Omit` properties that don't exist on the type. That is not possible with `Pick`.
+- This functionality was most popular and there is a way to make it a strict version of `Omit`
+
+### 13. Understanding Distributive Omit and Pick in TypeScript
+
+- `Omit` is not distributive which means that it doesn't iterate through the various
+  types that it could be.
+- Here is a suggested type: `DistributiveOmit`:
+
+```ts
+type DistributiveOmit<T, K extends PropertyKey> = T extends any
+  ? Omit<T, K>
+  : never;
+```
+
+### 14. Excluding Fields from a TypeScript Type
+
+The type we want to fix our problem is `Partial`. Now, our function works as we want -
+the user passes in the id of the product they want to fix and then they can update
+any of the properties they want.
+
+```ts
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+}
+
+const updateProduct = (
+  id: number,
+  productInfo: Partial<Omit<Product, "id">>
+) => {
+  // Do something with the productInfo
+};
+
+// Should be able to update individual pieces of information
+updateProduct(1, {
+  name: "Book",
+});
+
+updateProduct(1, {
+  price: 12.99,
+});
+
+updateProduct(1, {
+  description: "A book about Dragons",
+});
+
+// Should be able to update more than one piece of info at once
+updateProduct(1, {
+  name: "Book",
+  price: 12.99,
+});
+
+updateProduct(1, {
+  name: "Book",
+  description: "A book about Dragons",
+});
+```
+
+### 15. Making Type Properties Required in TypeScript
+
+Here we want the type `Required`
+
+### 16. Specifying a Type with Shared Properties in TypeScript
+
+- I'm getting an error on the `entity.name` but not the `entity.imageId`.
+
+```ts
+type User = {
+  id: string;
+  name: string;
+  age: number;
+  imageId: string;
+};
+
+type Organisation = {
+  id: string;
+  name: string;
+  address: string;
+  imageId: string;
+};
+
+type Product = {
+  id: string;
+  name: string;
+  price: number;
+  imageId: string;
+};
+
+const getAvatarImage = (entity: unknown) => {
+  {
+    // Should not be able to access properties that are
+    // not common to both types
+
+    // @ts-expect-error
+    entity.age;
+
+    // @ts-expect-error
+    entity.address;
+
+    // @ts-expect-error
+    entity.price;
+  }
+
+  return {
+    url: `https://via.placeholder.com/${entity.imageId}`,
+    alt: `${entity.name} Avatar`,
+  };
+};
+```
+
+To fix, we just create a union of all three which will then allow us to use any
+of the common properties across all three:
+
+```ts
+const getAvatarImage = (entity: User | Organisation | Product) => {};
+```
 
 ## Mutability
 
