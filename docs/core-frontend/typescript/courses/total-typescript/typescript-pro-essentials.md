@@ -1098,4 +1098,127 @@ const getAvatarImage = (entity: User | Organisation | Product) => {};
 
 ## Mutability
 
+### 1. Fixing a Type Assignment Inference Error
+
+I don't use `let` but in the example, it was something like: `let type = 'button'` where `button` was a type that
+a Button could be. The issue is that because it is `let`, the `type` variable could be changed to any string so
+TypeScript doesn't like it.
+
+### 2. Object Property
+
+### 3. Creating Read-only Properties
+
+```ts
+// adding "readonly" before the property name makes it readonly
+type User = {
+  readonly id: number;
+  name: string;
+  age: number;
+};
+
+const updateUser = (user: User) => {
+  user.name = "Jane Doe";
+  user.age = 30;
+
+  // @ts-expect-error Should not be able to modify readonly
+  user.id = 1;
+};
+```
+
+### 4. Using a Type Helper to Create Read-only Properties
+
+```ts
+type SearchParams = {
+  q?: string;
+  page?: number;
+  pageSize?: number;
+  sort?: string;
+  order?: "asc" | "desc";
+};
+
+const handleSearchParams = (search: Readonly<SearchParams>) => {
+  // this will not work - TypeScript will throw an error
+  search.q = "test";
+};
+```
+
+### 5. Deeply Apply Read-only Properties to an Object in TypeScript
+
+- this is the `as const` pattern that solves some of the earlier issues of making certain
+  object properties as immutable, readonly
+
+### 6. Comparing Object.freeze with as const
+
+- `Object.freeze` only works on the top-level properties and won't work the way we want like
+  `as const` can
+
+### 7. Prevent Array Mutation in TypeScript
+
+- The goal is to make this array readOnly as in I can't add anymore names or edit the array
+
+```ts
+function printNames(names: string[]) {
+  for (const name of names) {
+    console.log(name);
+  }
+
+  // @ts-expect-error
+  names.push("John");
+
+  // @ts-expect-error
+  names[0] = "Billy";
+}
+
+// Solution #1
+function printNames(names: readonly string[]) {
+  // CODE
+}
+
+// Solution #2
+function printNames(names: ReadonlyArray<string>) {
+  // CODE
+}
+```
+
+### 8. Distinguishing Assignability Between Read-Only and Mutable Arrays
+
+- readonly arrays are not assignable to mutable arrays
+
+### 9. Fixing Unsafe Tuples
+
+```ts
+// BAD tuple
+type Coordinate = [number, number];
+
+// GOOD tuple
+type Coordinate = readonly [number, number];
+```
+
+### 10. Use the ts-reset Library to Improve Readonly Array Handling in TypeScript
+
+a library from `total-typescript`
+
+### 11. Improve Type Inference for an Async Function
+
+In the example, it was a fetch function that returned an array with either an error and nothing for data
+OR the error value as undefined and then data.
+
+```ts
+// with an error
+[new Error("something went wrong")][
+  // no error
+  (undefined, data)
+];
+```
+
+Simply add `as const` after each allowed TypeScript to infer the types from the function
+
+### 12. Infer Strings as Their Literal Types in Objects with as const
+
+- Adding `as const` is awesome
+
 ## TypeScript Classes
+
+### 1. Classes in TypeScript
+
+Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/typescript-classes/classes-in-typescript
