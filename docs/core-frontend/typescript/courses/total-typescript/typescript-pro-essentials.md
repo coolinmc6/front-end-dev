@@ -1221,4 +1221,96 @@ Simply add `as const` after each allowed TypeScript to infer the types from the 
 
 ### 1. Classes in TypeScript
 
-Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/typescript-classes/classes-in-typescript
+```ts
+// Solution #1
+class CanvasNode {
+  readonly x: number;
+  readonly y: number;
+
+  constructor() {
+    this.x = 0;
+    this.y = 0;
+  }
+}
+
+// Solution #2
+class CanvasNode {
+  readonly x: number = 0;
+  readonly y: number = 0;
+}
+```
+
+### 2. Implement Class Methods in TypeScript
+
+### 3. Creating Constructors for Classes in TypeScript
+
+### 4. Getter Methods in TypeScript
+
+### 5. Public and Private Properties in TypeScript
+
+### 6. Setter Methods in TypeScript
+
+### 7. Extending Classes in TypeScript
+
+### 8. Overriding Methods in TypeScript
+
+- no implicit override option in your tsconfig
+
+### 9. Ensure a Class Adheres to a Contract
+
+-`implements` keyword in TypeScript
+
+### 10. Using `this` in Functions and Objects
+
+- you can provide a type for `this` inside the function arguments. As a reminder, arrow
+  functions don't have a bounded `this`.
+
+## TypeScript Only Features
+
+### 1. Intro to TypeScript-only Features
+
+- the `public` and `private` syntax to classes
+
+### 2. Paramter Properties in TypeScript
+
+### 3. Working with Enums in TypeScript
+
+### 4. String Enums in TypeScript
+
+```ts
+enum Method {
+  GET = "GET",
+  POST = "POST",
+  PUT = "PUT",
+  DELETE = "DELETE",
+}
+
+const request = (url: string, method: Method) => {
+  // ...
+};
+```
+
+- One of the cool things about this is that it requires you need to use `Method.GET` instead
+  of using `"GET"`.
+- This could also be limiting as enums don't always combine well with other enums
+
+### 5. Const Enums in TypeScript
+
+- const enums disappear from the compiler
+- they require the TypeScript compiler so you probably shouldn't be using them a ton
+
+### 6. Namespaces in TypeScript
+
+- very rarely use namespace; pre JS modules
+
+### 7. Merging Namespaces in TypeScript
+
+### 8. Declaration Merging with Interfaces Inside of Namespaces
+
+### 9. When to Prefer ES Features to TS Features
+
+## Deriving Types from Values
+
+### 1. Introduction to Deriving Types in TypeScript
+
+Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/deriving-types-from-values/introduction-to-deriving-types-in-typescript
