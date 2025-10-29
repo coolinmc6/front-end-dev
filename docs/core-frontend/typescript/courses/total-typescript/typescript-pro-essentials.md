@@ -1313,4 +1313,169 @@ const request = (url: string, method: Method) => {
 
 ### 1. Introduction to Deriving Types in TypeScript
 
-Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/deriving-types-from-values/introduction-to-deriving-types-in-typescript
+### 2. The keyof Operator
+
+```ts
+interface FormValues {
+  name: string;
+  email: string;
+  password: string;
+}
+
+const inputs: Record<
+  keyof FormValues,
+  {
+    initialValue: string;
+    label: string;
+  }
+> = {
+  // name, email, password are all objects with initialValue and label properties
+};
+```
+
+### 3. The typeof Operator
+
+```ts
+const configurations = {
+  development: {
+    apiBaseUrl: "http://localhost:8080",
+    timeout: 5000,
+  },
+  production: {
+    apiBaseUrl: "https://api.example.com",
+    timeout: 10000,
+  },
+  staging: {
+    apiBaseUrl: "https://staging.example.com",
+    timeout: 8000,
+  },
+};
+
+type Environment = keyof typeof configurations;
+```
+
+- to understand what is happening here, `keyof` only works on types and right now,
+  `configurations` is not a type, it is a value. So we are first turning it into a
+  type with `typeof configurations` which would make the entire structure of that
+  object a type and then with `keyof`, we are saying we want just the keys of that
+  type to be its own type.
+
+### 4. No Creating Runtime Values from Types
+
+- you can derive types from values but you can't derive values from types (what values
+  would TS put in there?)
+
+### 5. Deriving Types with Classes
+
+- a class can also serve as a type
+
+### 6. Enums as Types and Values in TypeScript
+
+- same with enums
+
+### 7. The this Keyword in TypeScript
+
+### 8. Using the Same Name for Values and Types in TypeScript
+
+- this code is just fine:
+
+```ts
+export const Logger = {
+  log: () => {},
+  info: () => {},
+  // etc
+};
+
+export type Logger = typeof Logger;
+```
+
+- we are exporting two things with the same name.
+- and when importing it, we can use it as both a type and value
+
+### 9. Creating Types from Complex Function Parameters
+
+- TODO: learn more about the `Parameters` TypeScript type helper
+
+### 10. Extracting Return Types from Functions
+
+- this looks super useful
+
+```ts
+const createUser = (id: string) => {
+  return {
+    id,
+    name: "John Doe",
+    email: "example@email.com",
+  };
+};
+
+type User = ReturnType<typeof createUser>;
+```
+
+### 11. Extract the Return Type from an Async Function
+
+- same as the one above with the `Awaited` wrapper
+
+```ts
+const fetchUser = async (id: string) => {
+  return {
+    id,
+    name: "John Doe",
+    email: "example@email.com",
+  };
+};
+
+type User = Awaited<ReturnType<typeof fetchUser>>;
+```
+
+### 12. Access Specific Values in an as const Object
+
+### 13. Pass a Union to an Indexed Access Type
+
+### 14. Extract a Union of All Values from an Object
+
+```ts
+export const programModeEnumMap = {
+  GROUP: "group",
+  ANNOUNCEMENT: "announcement",
+  ONE_ON_ONE: "1on1",
+  SELF_DIRECTED: "selfDirected",
+  PLANNED_ONE_ON_ONE: "planned1on1",
+  PLANNED_SELF_DIRECTED: "plannedSelfDirected",
+} as const;
+
+type ProgramModeMap = typeof programModeEnumMap;
+
+// type AllPrograms = "group" | "announcement" | "1on1" | "selfDirected" | "planned1on1" | "plannedSelfDirected"
+type AllPrograms = (typeof programModeEnumMap)[keyof typeof programModeEnumMap];
+```
+
+- in this example, the `AllPrograms` type is the list of values (so `group` or `announcement`) and
+  not the all caps keys like `GROUP` or `ANNOUNCEMENT`
+
+### 15. Create a Union from an as const Array
+
+```ts
+export const programModes = [
+  "group",
+  "announcement",
+  "1on1",
+  "selfDirected",
+  "planned1on1",
+  "plannedSelfDirected",
+] as const;
+
+// BAD
+// This works but is manual
+type AllPrograms = (typeof programModes)[0 | 1 | 2 | 3 | 4 | 5];
+
+// GOOD
+// This is how you solve it
+type AllPrograms = (typeof programModes)[number];
+```
+
+## Annotations and Assertions
+
+### 1. Required vs Unnecessary Annotations
+
+Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/annotations-and-assertions/required-vs-unnecessary-annotations
