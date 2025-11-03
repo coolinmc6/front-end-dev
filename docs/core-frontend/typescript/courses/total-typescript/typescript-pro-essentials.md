@@ -1478,4 +1478,51 @@ type AllPrograms = (typeof programModes)[number];
 
 ### 1. Required vs Unnecessary Annotations
 
-Start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/annotations-and-assertions/required-vs-unnecessary-annotations
+- you don't need to annotate everything - TypeScript can infer a lot, correctly
+
+### 2. Provide Additional Information to TypeScript
+
+```ts
+// Problem
+const handleFormData = (e: SubmitEvent) => {
+  e.preventDefault();
+  const data = new FormData(e.target); // TS Error here => EventTarget | null
+  const value = Object.fromEntries(data.entries());
+  return value;
+};
+
+// Solution
+const handleFormData = (e: SubmitEvent) => {
+  e.preventDefault();
+  const data = new FormData(e.target as HTMLFormElement);
+  const value = Object.fromEntries(data.entries());
+  return value;
+};
+
+// Solution (Less Good)
+const handleFormData = (e: SubmitEvent) => {
+  e.preventDefault();
+
+  // Not ideal but fixes the error
+  const target = e.target as any;
+
+  const data = new FormData(target);
+  const value = Object.fromEntries(data.entries());
+  return value;
+};
+```
+
+### 3. Global Typings use any
+
+### 4. The Limits of as in TypeScript
+
+### 5. Non-null Assertions
+
+### 6. The @ts-ignore Directive in TypeScript
+
+- you don't want to use `// @ts-ignore`, essentially ever - there are other ways to unsafely
+  or just manually override the TypeScript errors
+
+### 7. The @ts-expect-error Directive in TypeScript
+
+-
