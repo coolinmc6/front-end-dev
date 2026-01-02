@@ -1525,4 +1525,75 @@ const handleFormData = (e: SubmitEvent) => {
 
 ### 7. The @ts-expect-error Directive in TypeScript
 
--
+https://www.totaltypescript.com/workshops/typescript-pro-essentials/annotations-and-assertions/the-ts-expect-error-directive-in-typescript
+
+### 8. The @ts-nocheck Directive in TypeScript
+
+- you really don't need this essentially ever. It kinda just breaks everything
+
+### 9. Improve Type Annotations with the satisfies Operator
+
+- if you look at the bottom of this snippet, we are getting an error. For some reason,
+  TypeScript is saying there is a type error and that toUpperCase does not exist on type `Color`.
+
+```ts
+type Color =
+  | string
+  | {
+      r: number;
+      g: number;
+      b: number;
+    };
+
+const config: Record<string, Color> = {
+  foreground: { r: 255, g: 255, b: 255 },
+  background: { r: 0, g: 0, b: 0 },
+  border: "transparent",
+};
+
+// TS Error
+config.border.toUpperCase();
+```
+
+- I could just remove the type from the beginning and then all the errors go away. But the issue
+  there is that if I want the background property to have `r`, `g`, and `b` properties, TS won't know
+  if there is an issue if I just pass in `r` and `g`.
+- So to get the errors to go away AND make sure my config is of the right type, I can use satisfies:
+
+```ts
+const config: Record<string, Color> = {
+  foreground: { r: 255, g: 255, b: 255 },
+  background: { r: 0, g: 0, b: 0 },
+  border: "transparent",
+} satisfies Record<string, Color>;
+```
+
+### 10. Using satisfies with keyof and typeof in TypeScript
+
+- satisfies can allow you to say that a something _satisfies_ this criteria (that you set)
+  but also its type can be inferred.
+
+### 11. Comparing as, satisfies, and Variable Annotations in TypeScript
+
+- `as` is used when you want to tell TypeScript that you know more than it
+- `satisfies` is to make sure that a value is checked without changing the inferred type
+- variable anotation should be used all the rest of the time
+
+## The Weird Parts of TypeScript
+
+### 1. Accept Anything Except Null or Undefined
+
+- `{}`, `null`, and `undefined` are the three buckets that feed up into `unknown`
+- `{}` is the catch-all for everything BUT `null` and `undefined`
+
+### 2. Typing a Truly Empty Object
+
+- to type an empty object: `Record<PropertyKey, never>`
+
+### 3. Excess Property Warnings in TypeScript
+
+- when you can, annotate your variables
+
+### 4. Excess Properties in Functions
+
+start here: https://www.totaltypescript.com/workshops/typescript-pro-essentials/the-weird-parts-of-typescript/excess-properties-in-functions
