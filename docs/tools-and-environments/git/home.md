@@ -34,8 +34,9 @@ git merge main
 ```
 
 ### Squash Commits
-- I don't typically do this because I like seeing incremental changes but if the git history gets too messy, 
-here is a good way to squash some commits:
+
+- I don't typically do this because I like seeing incremental changes but if the git history gets too messy,
+  here is a good way to squash some commits:
 
 Let's say that you want to adjust the last 5 commits:
 
@@ -44,9 +45,9 @@ git rebase -i HEAD~5
 ```
 
 - And then when the interactive git editor shows up in VS Code, you can select which commit messages to keep
-by choosing `pick` and which ones to toss by selecting `squash`.
+  by choosing `pick` and which ones to toss by selecting `squash`.
 - You then pick the messages you want to keep. You can write a new message OR just comment out the old ones
-with `#` next to it and just leave one message.
+  with `#` next to it and just leave one message.
 
 ### Reset to Origin Branch
 
@@ -92,7 +93,7 @@ The first part, `git revert git_sha`, makes sense. It's the second part, `-m 1`,
 The `-m` flag is only used when reverting a merge commit. `-m` stands for "mainline", and the
 number (usually `1` or `2`) tells Git which parent to treat as the base.
 
-Here is how you can visualize it - merge commits have two parents: 
+Here is how you can visualize it - merge commits have two parents:
 
 ```sh
 Merge commit
@@ -120,8 +121,8 @@ git log main..HEAD --pretty=oneline
 ### Remove pnpm-lock.yaml file from a commit
 
 - I had a situation where I needed to remove changes to the `pnpm-lock.yaml` file. Simply re-running `pnpm i`
-wouldn't fix it because there were particular issues with one of our submodules so the best thing to do
-was to just remove the changes. After squashing my old commits into one commit, I ran these commands:
+  wouldn't fix it because there were particular issues with one of our submodules so the best thing to do
+  was to just remove the changes. After squashing my old commits into one commit, I ran these commands:
 
 ```sh
 # Unstages the pnpm-lock.yaml from the last commit and restores it to the state before that commit.
@@ -148,7 +149,67 @@ You can also do a rebase if you want to clean-up the code
 
 ### Git Worktree
 
+Git worktrees allow you to have multiple working directories for the same repository, making it easy to work on different branches simultaneously without stashing or switching contexts.
+
+#### Basic Steps to Create a Git Worktree
+
+1. **Create a new worktree** with a new branch:
+
+```sh
+# Creates a new worktree in ../my-feature directory with a new branch
+git worktree add ../my-feature-worktree my-feature
+```
+
+2. **Create a worktree from an existing branch**:
+
+```sh
+# Creates a worktree for an existing branch
+git worktree add ../bugfix-worktree existing-branch
+```
+
+3. **List all worktrees**:
+
+```sh
+git worktree list
+```
+
+4. **Navigate to your worktree**:
+
+```sh
+cd ../my-feature-worktree
+# Work normally - commit, push, etc.
+```
+
+5. **Remove a worktree when done**:
+
+```sh
+# First, navigate out of the worktree
+cd ../main-repo
+
+# Remove the worktree
+git worktree remove ../my-feature-worktree
+
+# Or use the path shown in worktree list
+git worktree remove my-feature-worktree
+```
+
+#### Common Worktree Patterns
+
+```sh
+# Create worktree from remote branch
+git worktree add ../hotfix origin/hotfix
+
+# Create worktree in a specific location
+git worktree add /path/to/worktree branch-name
+
+# Prune deleted worktrees
+git worktree prune
+```
+
+**Pro Tip:** Worktrees are especially useful when you need to quickly review a PR while working on your current feature, or when you need to hotfix production while keeping your feature branch intact.
+
 ### Adding an Empty Commit
+
 Sometimes you might want to create an empty commit, which is a commit that doesn't change any files but can be useful for triggering CI/CD pipelines or marking a point in history.
 
 ```sh
