@@ -1,4 +1,4 @@
-import ContextLayout from './ContextLayout';
+import PagesLayout from '../PagesLayout';
 import { useState } from 'react'
 import { FactoryCounterProvider, useCounter } from '../../components/context/level05/counter-context-l5'
 import { CounterProvider as CounterProvider2, useCounter as useCounter2 } from '../../components/context/level05/counter-context-v2-l5'
@@ -38,13 +38,13 @@ function CounterProvider({ children }: { children: React.ReactNode }) {
 
 export default function ContextFactory() {
   return (
-    <ContextLayout title="Context Factory">
+    <PagesLayout title="Context Factory">
       <CounterProvider>
         <ComponentThatNeedsCounter />
       </CounterProvider>
       <CounterProvider2>
         <ComponentThatNeedsCounter2 />
       </CounterProvider2>
-    </ContextLayout>
+    </PagesLayout>
   );
 }

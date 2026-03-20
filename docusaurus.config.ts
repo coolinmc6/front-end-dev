@@ -79,6 +79,9 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode: {
+      disableSwitch: true,
+    },
     // Replace with your project's social card
     image: constants.logo,
     navbar: {
@@ -93,6 +96,16 @@ const config: Config = {
           sidebarId: 'tutorialSidebar',
           position: 'left',
           label: 'Notes',
+        },
+        {
+          to: '/learn',
+          label: 'Learn',
+          position: 'left',
+        },
+        {
+          to: '/context',
+          label: 'Context',
+          position: 'left',
         },
         {
           href: constants.links.github,

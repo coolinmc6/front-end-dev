@@ -1,4 +1,4 @@
-import CustomLayout from '../CustomLayout'
+import PagesLayout from '../PagesLayout'
 import Link from '@docusaurus/Link';
 import CodeBlock from '@theme/CodeBlock';
 
@@ -28,8 +28,7 @@ export const ContextLink = ({ index }: { index: number }) => {
 
 export default function Context() {
   return (
-    <CustomLayout>
-      <h1>Context Home</h1>
+    <PagesLayout title="Context Home">
       <div style={{ marginBottom: '10px' }}>
         <h3>Understanding This Work</h3>
         <div>
@@ -89,6 +88,6 @@ export const [FactoryCounterProvider, useCounter] = createSafeContext<CounterSta
           and then use my custom hook in the component that needs it.
         </p>
       </div>
-    </CustomLayout>
+    </PagesLayout>
   )
 }
