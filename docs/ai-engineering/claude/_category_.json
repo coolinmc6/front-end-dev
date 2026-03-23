@@ -1,0 +1,8 @@
+{
+  "label": "Claude Code",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Anthropic's Claude Code CLI — commands, skills, plugins, and workflows"
+  }
+}

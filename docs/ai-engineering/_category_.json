@@ -1,0 +1,8 @@
+{
+  "label": "AI Engineering",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Claude Code, Codex CLI, and AI-assisted development workflows"
+  }
+}
