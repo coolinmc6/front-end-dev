@@ -1,4 +1,4 @@
-import ContextLayout from './ContextLayout';
+import PagesLayout from '../PagesLayout';
 import { CounterProvider, useCounter } from '../../components/context/level02/counter-context-l2'
 
 const ComponentThatNeedsContext = () => {
@@ -16,10 +16,10 @@ const ComponentThatNeedsContext = () => {
 
 export default function GuardedContext() {
   return (
-    <ContextLayout title="Guarded Context">
+    <PagesLayout title="Guarded Context">
       <CounterProvider>
         <ComponentThatNeedsContext />
       </CounterProvider>
-    </ContextLayout>
+    </PagesLayout>
   )
 }

@@ -1,4 +1,4 @@
-import ContextLayout from './ContextLayout';
+import PagesLayout from '../PagesLayout';
 import { CountProvider, useCount } from '../../components/context/level01/counter-context'
 import Link from '@docusaurus/Link';
 
@@ -25,12 +25,12 @@ const IncrementCount = () => {
 
 export default function BasicContext() {
   return (
-    <ContextLayout title="Basic Context">
+    <PagesLayout title="Basic Context">
       <CountProvider>
         <ShowCount />
         <IncrementCount />
       </CountProvider>
-    </ContextLayout>
+    </PagesLayout>
   )
 }
 

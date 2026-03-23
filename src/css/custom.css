@@ -22,6 +22,11 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
+/* Prevent navbar external link icon from wrapping to its own line */
+.navbar__link[href*="github.com"] {
+  white-space: nowrap;
+}
+
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   --ifm-color-primary: #25c2a0;
