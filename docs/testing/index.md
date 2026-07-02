@@ -66,3 +66,23 @@ Aim for a balanced mix:
 - Automate visual snapshot reviews in PRs (Chromatic or Percy)
 - Enforce coverage thresholds and fail builds on regressions
 - Isolate flaky tests and quarantine until fixed
+
+---
+
+## 5. Deep-Dive Pages
+
+### Jest
+- [Jest + Next.js Patterns](./jest/jest-nextjs.md) — Setup, mocking `next/navigation`, API routes, Server/Client Components
+- [Component Testing with RTL](./jest/jest-component-testing.md) — Query priority, user events, async patterns, forms, hooks, accessibility
+
+### MSW (Mock Service Worker)
+- [MSW Handler Patterns](./msw/msw-patterns.md) — v2 API, dynamic handlers, error simulation, GraphQL, sequential responses
+- [MSW Integration — Jest + Playwright](./msw/msw-integration.md) — Setup for each tool, sharing handlers, Next.js specifics
+
+### Playwright
+- [Playwright + Next.js](./playwright/playwright-nextjs.md) — Setup, navigation, auth, visual regression, accessibility
+- [E2E with Mocked APIs](./playwright/playwright-msw.md) — `page.route()`, MSW in Playwright, Next.js SSR caveats
+
+### Cross-Cutting
+- [Framework Gotchas & Differences](./gotchas/framework-differences.md) — Quick-reference tables for how testing patterns differ across Next.js, react-router, Astro, vanilla React
+- [What to Test Where](./integration/testing-strategy.md) — The testing trophy, Jest vs Playwright decision framework, cost/speed tradeoffs

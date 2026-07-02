@@ -8,6 +8,13 @@
 .docusaurus
 .cache-loader
 
+# Claude Code (ignore ephemeral/local, keep shareable config trackable)
+.claude/worktrees/
+.claude/settings.local.json
+
+# Personal plans (keep local; this repo is public)
+docs/plans/
+
 # Misc
 .DS_Store
 .env.local

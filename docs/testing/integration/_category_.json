@@ -1,0 +1,8 @@
+{
+  "label": "Integration & Strategy",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Testing strategy, integration patterns, and what to test where."
+  }
+}
