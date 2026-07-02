@@ -24,7 +24,7 @@
     "@tailwindcss/cli": "^4.1.11",
     "@tailwindcss/postcss": "^4.2.2",
     "clsx": "^2.0.0",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.16",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
